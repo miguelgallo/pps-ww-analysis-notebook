@@ -5,18 +5,20 @@ import pandas as pd
 import numba as nb
 import h5py
 
-def create_table( fileNames, label, random_protons=False, resample_factor=-1, read_size="150MB", firstEvent=None, entryStop=None, debug=False ):
+def create_table( fileNames, label, random_protons=False, resample_factor=-1, step_size=100000, firstEvent=None, entryStop=None, debug=False ):
 
     fileNames_ = fileNames
     label_ = label
     random_protons_ = random_protons
     resample_factor_ = resample_factor
-    read_size_ = read_size
+    step_size_ = step_size
     firstEvent_ = firstEvent
     entryStop_ = entryStop
 
-    #how_ = None
-    how_ = "zip"
+    fill_proton_extra_ = True
+
+    how_ = None
+    #how_ = "zip"
     
     print ( "Random protons: {}".format( random_protons_ ) )
     
@@ -28,20 +30,27 @@ def create_table( fileNames, label, random_protons=False, resample_factor=-1, re
 
     dset_chunk_size = 50000
 
-    columns_protons = ( "run", "lumiblock", "event", "slice", "xi", "thx", "thy", "t", "ismultirp", "rpid", "arm",
+    columns_protons = [ "run", "lumiblock", "event", "slice", "xi", "thx", "thy", "t", "ismultirp", "rpid", "arm",
                         "jet0_pt", "jet0_eta", "jet0_phi", "jet0_energy", "jet0_mass", "jet0_corrmass", "jet0_tau1", "jet0_tau2", "jet0_vertexz",
                         "muon0_pt", "muon0_eta", "muon0_phi", "muon0_energy", "muon0_charge", "muon0_iso", "muon0_dxy", "muon0_dz",
                         "met", "met_x", "met_y", "met_phi",
                         "nVertices",
                         "num_bjets_ak8", "num_bjets_ak4", "num_jets_ak4",
                         "pfcand_nextracks", "pfcand_nextracks_noDRl",
-                        "recoMWhad", "recoMWlep", "recoMWW", "recoRapidityWW", "dphiWW", "WLeptonicPt", "WLeptonicPhi" )
+                        "recoMWhad", "recoMWlep", "recoMWW", "recoRapidityWW", "dphiWW", "WLeptonicPt", "WLeptonicPhi" ]
 
-    columns_ppstracks = ( "run", "lumiblock", "event", "slice", "x", "y", "rpid" ) 
+    columns_protons_multiRP = columns_protons.copy()
+
+    if fill_proton_extra_:
+        columns_protons.extend( [ "trackx1", "tracky1", "trackpixshift1", "rpid1" ] )
+        columns_protons_multiRP.extend( [ "trackx1", "tracky1", "trackpixshift1", "rpid1", "trackx2", "tracky2", "trackpixshift2", "rpid2" ] )
+   
+    columns_ppstracks = [ "run", "lumiblock", "event", "slice", "x", "y", "rpid" ] 
 
     protons_keys = {}
-    for col_ in columns_protons:
+    for col_ in columns_protons_multiRP:
         protons_keys[ col_ ] = col_
+    protons_keys[ "ismultirp" ] = "ismultirp_"
 
     ppstracks_keys = {}
     for col_ in columns_ppstracks:
@@ -51,7 +60,7 @@ def create_table( fileNames, label, random_protons=False, resample_factor=-1, re
 
     with h5py.File( 'output-' + label_ + '.h5', 'w') as f:
 
-        dset_protons_multiRP = f.create_dataset( 'protons_multiRP', ( dset_chunk_size, len( columns_protons ) ), compression="gzip", chunks=True, maxshape=( None , len( columns_protons ) ) )
+        dset_protons_multiRP = f.create_dataset( 'protons_multiRP', ( dset_chunk_size, len( columns_protons_multiRP ) ), compression="gzip", chunks=True, maxshape=( None , len( columns_protons_multiRP ) ) )
         print ( "Initial dataset shape: {}".format( dset_protons_multiRP.shape ) )
 
         dset_protons_singleRP = f.create_dataset( 'protons_singleRP', ( dset_chunk_size, len( columns_protons ) ), compression="gzip", chunks=True, maxshape=( None , len( columns_protons ) ) )
@@ -61,7 +70,7 @@ def create_table( fileNames, label, random_protons=False, resample_factor=-1, re
         print ( "Initial dataset shape: {}".format( dset_ppstracks.shape ) )
 
         protons_multiRP_list = {}
-        for col_ in columns_protons:
+        for col_ in columns_protons_multiRP:
             protons_multiRP_list[ col_ ] = []           
 
         protons_singleRP_list = {}
@@ -99,24 +108,31 @@ def create_table( fileNames, label, random_protons=False, resample_factor=-1, re
                                "num_bjets_ak8", "num_bjets_ak4", "num_jets_ak4",
                                "pfcand_nextracks", "pfcand_nextracks_noDRl",
                                "recoMWhad", "recoMWlep", "recoMWW", "recoRapidityWW", "dphiWW", "WLeptonicPt", "WLeptonicPhi" ]
-            keys_nonproton.extend( tree_.keys( filter_name="jet*") )
-            keys_nonproton.extend( tree_.keys( filter_name="muon*") )
-            keys_nonproton.extend( tree_.keys( filter_name="met*") )
+            keys_jet = tree_.keys( filter_name="jet*")
+            keys_nonproton.extend( keys_jet )
+            keys_muon = tree_.keys( filter_name="muon*")
+            keys_nonproton.extend( keys_muon )
+            keys_met = tree_.keys( filter_name="met*")
+            keys_nonproton.extend( keys_met )
+            keys_proton = tree_.keys( filter_name="proton*")
+            keys_ppstrack = tree_.keys( filter_name="pps_track*")
             keys = []
             keys.extend( keys_nonproton )
-            keys.extend( tree_.keys( filter_name="proton*") )
-            keys.extend( tree_.keys( filter_name="pps*") )
-            keys_remove = [ 'proton_trackx2', 'proton_tracky2', 'proton_trackpixshift2', 'proton_rpid2' ]
-            for key_ in keys_remove:
-                if key_ in keys: keys.remove( key_ )
+            keys.extend( keys_proton )
+            keys.extend( keys_ppstrack )
+            keys_proton_extra = [ 'proton_trackx2', 'proton_tracky2', 'proton_trackpixshift2', 'proton_rpid2' ]
+            if how_ == "zip":
+                for key_ in keys_proton_extra:
+                    if key_ in keys: keys.remove( key_ )
             print ( keys )
 
-            for events_ in tree_.iterate( keys , library="ak", how=how_, step_size=read_size_, entry_start=firstEvent_, entry_stop=entryStop_ ):
+            for events_ in tree_.iterate( keys , library="ak", how=how_, step_size=step_size_, entry_start=firstEvent_, entry_stop=entryStop_ ):
                 print ( len(events_), events_ )
-                print ( "Num jets: {}".format( ak.num( events_["jet"] ) ) )
-                print ( "Num muons: {}".format( ak.num( events_["muon"] ) ) )
-                print ( "Num protons: {}".format( ak.num( events_["proton"] ) ) )
-                print ( "Num pps tracks: {}".format( ak.num( events_["pps_track"] ) ) )
+
+                print ( "Num jets: {}".format( ak.num( events_["jet_pt"] ) ) )
+                print ( "Num muons: {}".format( ak.num( events_["muon_pt"] ) ) )
+                print ( "Num protons: {}".format( ak.num( events_["proton_xi"] ) ) )
+                print ( "Num pps tracks: {}".format( ak.num( events_["pps_track_x"] ) ) )
 
                 selections_ = []
                 counts_ = []
@@ -125,11 +141,11 @@ def create_table( fileNames, label, random_protons=False, resample_factor=-1, re
                 counts_.append( len( events_ ) )
 
                 # Event selections
-                msk_1jet = ( ak.num( events_["jet"] ) >= 1 )
+                msk_1jet = ( ak.num( events_["jet_pt"] ) >= 1 )
                 selections_.append( "Jet" )
                 counts_.append( np.sum( np.array( msk_1jet ).astype("int32") ) )
 
-                msk_1muon = msk_1jet & ( ak.num( events_["muon"] ) >= 1 )
+                msk_1muon = msk_1jet & ( ak.num( events_["muon_pt"] ) >= 1 )
                 selections_.append( "Muon" )
                 counts_.append( np.sum( np.array( msk_1muon ).astype("int32") ) )
 
@@ -162,58 +178,79 @@ def create_table( fileNames, label, random_protons=False, resample_factor=-1, re
 
                 events_[ "slice" ] = slices_
 
-                # Randomize proton arrays
-                #protons_ = events_["proton"]
+                # Fetch protons
                 protons_ = None
+                protons_extra_ = None
                 ppstracks_ = None
-                if random_protons_:
+                if how_ == "zip":
                     protons_ = events_["proton"]
                     ppstracks_ = events_["pps_track"]
+                elif how_ is None:
+                    keys_proton_ = keys_proton.copy()
+                    for key_ in keys_proton_extra:
+                        if key_ in keys_proton_: keys_proton_.remove( key_ )
+    
+                    arrays_proton = {}
+                    for key_ in keys_proton_: arrays_proton[ key_[ len("proton_") : ] ] = events_[ key_ ]
+                    protons_ = ak.zip( arrays_proton )
 
+                    if fill_proton_extra_:
+                        arrays_proton_extra = {}
+                        for key_ in keys_proton_extra: arrays_proton_extra[ key_[ len("proton_") : ] ] = events_[ key_ ]
+                        protons_extra_ = ak.zip( arrays_proton_extra )
+
+                    arrays_ppstrack = {}
+                    for key_ in keys_ppstrack: arrays_ppstrack[ key_[ len("pps_track_") : ] ] = events_[ key_ ]
+                    ppstracks_ = ak.zip( arrays_ppstrack )
+
+                # Randomize proton arrays
+                if random_protons_:
                     index_rnd_ = np.random.permutation( len( events_ ) )
 
                     protons_rnd_ = protons_[ index_rnd_ ]
                     ppstracks_rnd_ = ppstracks_[ index_rnd_ ]
+                    protons_extra_rnd_ = None
+                    if protons_extra_:
+                        protons_extra_rnd_ = protons_extra_[ index_rnd_ ]
 
-                    events_[ "proton_rnd" ] = protons_rnd_
-                    events_[ "pps_track_rnd" ] = ppstracks_rnd_
+                    print ( "Num protons: {}".format( ak.num( protons_ ) ) )
+                    print ( "Num protons randomized: {}".format( ak.num( protons_rnd_ ) ) )
+                    print ( "Num pps tracks: {}".format( ak.num( ppstracks_ ) ) )
+                    print ( "Num pps tracks randomized: {}".format( ak.num( ppstracks_rnd_ ) ) )
+                    if protons_extra_rnd_:
+                        print ( "Num protons extra: {}".format( ak.num( protons_extra_ ) ) )
+                        print ( "Num protons extra randomized: {}".format( ak.num( protons_extra_rnd_ ) ) )
 
-                    print ( "Num protons: {}".format( ak.num( events_["proton"] ) ) )
-                    print ( "Num protons randomized: {}".format( ak.num( events_["proton_rnd"] ) ) )
-                    print ( "Num pps tracks: {}".format( ak.num( events_["pps_track"] ) ) )
-                    print ( "Num pps tracks randomized: {}".format( ak.num( events_["pps_track_rnd"] ) ) )
-
-                if not random_protons_:
-                    protons_ = events_["proton"]
-                    ppstracks_ = events_["pps_track"]
-                else:
-                    protons_ = events_["proton_rnd"]
-                    ppstracks_ = events_["pps_track_rnd"]
+                    protons_ = protons_rnd_
+                    protons_extra_ = protons_extra_rnd_
+                    ppstracks_ = ppstracks_rnd_
                     
                 print ( "Num protons: {}".format( ak.num( protons_ ) ) )
                 print ( "Num pps tracks: {}".format( ak.num( ppstracks_ ) ) )
+                if protons_extra_:
+                    print ( "Num protons extra: {}".format( ak.num( protons_extra_ ) ) )
 
                 protons_["run"]                    = events_["run"]
                 protons_["lumiblock"]              = events_["lumiblock"]
                 protons_["event"]                  = events_["event"]
                 protons_["slice"]                  = events_["slice"]
-                protons_["jet0_pt"]                = events_.jet.pt[:,0]
-                protons_["jet0_eta"]               = events_.jet.eta[:,0]
-                protons_["jet0_phi"]               = events_.jet.phi[:,0]
-                protons_["jet0_energy"]            = events_.jet.energy[:,0]
-                protons_["jet0_mass"]              = events_.jet.mass[:,0]
-                protons_["jet0_corrmass"]          = events_.jet.corrmass[:,0]
-                protons_["jet0_tau1"]              = events_.jet.tau1[:,0]
-                protons_["jet0_tau2"]              = events_.jet.tau2[:,0]
-                protons_["jet0_vertexz"]           = events_.jet.vertexz[:,0]
-                protons_["muon0_pt"]               = events_.muon.pt[:,0]
-                protons_["muon0_eta"]              = events_.muon.eta[:,0]
-                protons_["muon0_phi"]              = events_.muon.phi[:,0]
-                protons_["muon0_energy"]           = events_.muon.e[:,0]
-                protons_["muon0_charge"]           = events_.muon.charge[:,0]
-                protons_["muon0_iso"]              = events_.muon.iso[:,0]
-                protons_["muon0_dxy"]              = events_.muon.dxy[:,0]
-                protons_["muon0_dz"]               = events_.muon.dz[:,0]
+                protons_["jet0_pt"]                = events_[ "jet_pt" ][:,0]
+                protons_["jet0_eta"]               = events_[ "jet_eta" ][:,0]
+                protons_["jet0_phi"]               = events_[ "jet_phi" ][:,0]
+                protons_["jet0_energy"]            = events_[ "jet_energy" ][:,0]
+                protons_["jet0_mass"]              = events_[ "jet_mass" ][:,0]
+                protons_["jet0_corrmass"]          = events_[ "jet_corrmass" ][:,0]
+                protons_["jet0_tau1"]              = events_[ "jet_tau1" ][:,0]
+                protons_["jet0_tau2"]              = events_[ "jet_tau2" ][:,0]
+                protons_["jet0_vertexz"]           = events_[ "jet_vertexz" ][:,0]
+                protons_["muon0_pt"]               = events_[ "muon_pt" ][:,0]
+                protons_["muon0_eta"]              = events_[ "muon_eta" ][:,0]
+                protons_["muon0_phi"]              = events_[ "muon_phi" ][:,0]
+                protons_["muon0_energy"]           = events_[ "muon_e" ][:,0]
+                protons_["muon0_charge"]           = events_[ "muon_charge" ][:,0]
+                protons_["muon0_iso"]              = events_[ "muon_iso" ][:,0]
+                protons_["muon0_dxy"]              = events_[ "muon_dxy" ][:,0]
+                protons_["muon0_dz"]               = events_[ "muon_dz" ][:,0]
                 protons_["met"]                    = events_["met"]
                 protons_["met_x"]                  = events_["met_x"]
                 protons_["met_y"]                  = events_["met_y"]
@@ -242,8 +279,13 @@ def create_table( fileNames, label, random_protons=False, resample_factor=-1, re
                 ppstracks_["event"] = events_["event"]
                 ppstracks_["slice"] = events_["slice"]
 
-                protons_singleRP_ = protons_[ protons_.ismultirp == 0 ]
-                protons_multiRP_ = protons_[ protons_.ismultirp == 1 ]
+                protons_singleRP_ = protons_[ protons_.ismultirp_ == 0 ]
+                protons_multiRP_ = protons_[ protons_.ismultirp_ == 1 ]
+                if protons_extra_:
+                    protons_multiRP_[ "trackx2" ] = protons_extra_[ "trackx2" ]
+                    protons_multiRP_[ "tracky2" ] = protons_extra_[ "tracky2" ]
+                    protons_multiRP_[ "trackpixshift2" ] = protons_extra_[ "trackpixshift2" ]
+                    protons_multiRP_[ "rpid2" ] = protons_extra_[ "rpid2" ]
 
                 protons_singleRP_byRP_ = {}
                 ppstracks_byRP_ = {}
@@ -306,7 +348,7 @@ def create_table( fileNames, label, random_protons=False, resample_factor=-1, re
                 print ( selections )
                 print ( counts )
 
-                for col_ in columns_protons:
+                for col_ in columns_protons_multiRP:
                     protons_multiRP_list[ col_ ] = np.array( ak.flatten( protons_multiRP_sel_[ protons_keys[ col_ ] ] ) )
 
                 arr_size_multiRP_ = len( protons_multiRP_list[ "xi" ] )
@@ -411,8 +453,11 @@ def create_table( fileNames, label, random_protons=False, resample_factor=-1, re
 
         print ( "Writing column names and event counts.")
 
-        columns_protons_ = np.array( columns_protons, dtype='S' )
-        print ( columns_protons_ )
+        columns_protons_multiRP_ = np.array( columns_protons_multiRP, dtype='S' )
+        print ( columns_protons_multiRP_ )
+
+        columns_protons_singleRP_ = np.array( columns_protons, dtype='S' )
+        print ( columns_protons_singleRP_ )
 
         columns_ppstracks_ = np.array( columns_ppstracks, dtype='S' )
         print ( columns_ppstracks_ )
@@ -423,7 +468,8 @@ def create_table( fileNames, label, random_protons=False, resample_factor=-1, re
         selections_ = np.array( selections, dtype='S' )
         print ( selections_ )
 
-        dset_columns_protons = f.create_dataset( 'columns_protons', data=columns_protons_ )
+        dset_columns_protons_multiRP = f.create_dataset( 'columns_protons_multiRP', data=columns_protons_multiRP_ )
+        dset_columns_protons_singleRP = f.create_dataset( 'columns_protons_singleRP', data=columns_protons_singleRP_ )
         dset_columns_ppstracks = f.create_dataset( 'columns_ppstracks', data=columns_ppstracks_ )
         dset_counts = f.create_dataset( 'event_counts', data=event_counts_ )
         dset_selections = f.create_dataset( 'selections', data=selections_ )
@@ -435,8 +481,10 @@ def create_table( fileNames, label, random_protons=False, resample_factor=-1, re
         print ( dset_ppstracks )
         print ( dset_ppstracks[-1] )   
 
-        print ( dset_columns_protons )
-        print ( list( dset_columns_protons ) )
+        print ( dset_columns_protons_multiRP )
+        print ( list( dset_columns_protons_multiRP ) )
+        print ( dset_columns_protons_singleRP )
+        print ( list( dset_columns_protons_singleRP ) )
         print ( dset_columns_ppstracks )
         print ( list( dset_columns_ppstracks ) )   
         print ( dset_counts )
