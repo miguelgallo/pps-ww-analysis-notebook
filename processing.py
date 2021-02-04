@@ -13,6 +13,26 @@ run_ranges_periods[ "2017F2" ] = (305178,305902)
 run_ranges_periods[ "2017F3" ] = (305965,306462)
 df_run_ranges = pd.DataFrame( run_ranges_periods, index=("min","max") ).transpose()
 
+L_B = 2.360904801;
+L_C1 = 5.313012839;
+L_E = 8.958810514;
+L_F1 = 1.708478656;
+L_C2 = 3.264135878;
+L_D = 4.074723964;
+L_F2 = 7.877903151;
+L_F3 = 3.632463163;
+lumi_periods = {}
+lumi_periods[ "2017B" ]  = L_B
+lumi_periods[ "2017C1" ] = L_C1
+lumi_periods[ "2017C2" ] = L_C2
+lumi_periods[ "2017D" ] = L_D
+lumi_periods[ "2017E" ]  = L_E
+lumi_periods[ "2017F1" ] = L_F1
+lumi_periods[ "2017F2" ] = L_F2
+lumi_periods[ "2017F3" ] = L_F3
+print ( lumi_periods )
+print ( "Luminosity: {}".format( np.sum( list( lumi_periods.values() ) ) ) )
+
 aperture_period_map = {
     "2016_preTS2"  : "2016_preTS2",
     "2016_postTS2" : "2016_postTS2",
@@ -356,17 +376,28 @@ def get_data( fileNames ):
             stop_.append( entries_protons_multiRP )
             print ( start_ )
             print ( stop_ )
+            astype_dict_protons_ = {
+                "run": "int64", "lumiblock": "int64", "event": "int64", "slice": "int32",
+                "ismultirp": "int32", "rpid": "int32", "arm": "int32",
+                "muon0_charge": "int32",
+                "nVertices": "int32",
+                "num_bjets_ak8": "int32", "num_bjets_ak4": "int32", "num_jets_ak4": "int32",
+                "pfcand_nextracks": "int32", "pfcand_nextracks_noDRl": "int32",
+                "trackpixshift1": "int32", "rpid1": "int32"
+                }
+            astype_dict_multiRP_ = astype_dict_protons_.copy()
+            if "rpid2" in columns_protons_multiRP: 
+                astype_dict_multiRP_.update(
+                    { "trackpixshift2": "int32", "rpid2": "int32" }
+                    )
+            if "run_rnd" in columns_protons_multiRP: 
+                astype_dict_multiRP_.update(
+                    { "run_rnd": "int64", "lumiblock_rnd": "int64", "event_rnd": "int64", "slice_rnd": "int32" }
+                    )
             for idx in range( len( start_ ) ):
                 print ( start_[idx], stop_[idx] )
                 #print ( dset[ start_[idx] : stop_[idx] ] )
-                df_ = pd.DataFrame( dset_protons_multiRP[ start_[idx] : stop_[idx] ], columns=columns_protons_multiRP ).astype(
-                                        { "run": "int64", "lumiblock": "int64", "event": "int64", "slice": "int32", "ismultirp": "int32", "rpid": "int32", "arm": "int32",
-                                          "muon0_charge": "int32",
-                                          "nVertices": "int32",
-                                          "num_bjets_ak8": "int32", "num_bjets_ak4": "int32", "num_jets_ak4": "int32",
-                                          "pfcand_nextracks": "int32", "pfcand_nextracks_noDRl": "int32",
-                                          "trackpixshift1": "int32", "rpid1": "int32",
-                                          "trackpixshift2": "int32", "rpid2": "int32" } )
+                df_ = pd.DataFrame( dset_protons_multiRP[ start_[idx] : stop_[idx] ], columns=columns_protons_multiRP ).astype( astype_dict_multiRP_ )
                 df_protons_multiRP_list.append( df_ )
                 print ( df_protons_multiRP_list[-1].head() )
                 print ( "Data set size: {}".format( len( df_protons_multiRP_list[-1] ) ) )
@@ -377,16 +408,15 @@ def get_data( fileNames ):
             stop_.append( entries_protons_singleRP )
             print ( start_ )
             print ( stop_ )
+            astype_dict_singleRP_ = astype_dict_protons_.copy()
+            if "run_rnd" in columns_protons_singleRP: 
+                astype_dict_singleRP_.update(
+                    { "run_rnd": "int64", "lumiblock_rnd": "int64", "event_rnd": "int64", "slice_rnd": "int32" }
+                    )
             for idx in range( len( start_ ) ):
                 print ( start_[idx], stop_[idx] )
                 #print ( dset[ start_[idx] : stop_[idx] ] )
-                df_ = pd.DataFrame( dset_protons_singleRP[ start_[idx] : stop_[idx] ], columns=columns_protons_singleRP ).astype(
-                                        { "run": "int64", "lumiblock": "int64", "event": "int64", "slice": "int32", "ismultirp": "int32", "rpid": "int32", "arm": "int32",
-                                          "muon0_charge": "int32",
-                                          "nVertices": "int32",
-                                          "num_bjets_ak8": "int32", "num_bjets_ak4": "int32", "num_jets_ak4": "int32",
-                                          "pfcand_nextracks": "int32", "pfcand_nextracks_noDRl": "int32",
-                                          "trackpixshift1": "int32", "rpid1": "int32" } )
+                df_ = pd.DataFrame( dset_protons_singleRP[ start_[idx] : stop_[idx] ], columns=columns_protons_singleRP ).astype( astype_dict_singleRP_ )
                 df_protons_singleRP_list.append( df_ )
                 print ( df_protons_singleRP_list[-1].head() )
                 print ( "Data set size: {}".format( len( df_protons_singleRP_list[-1] ) ) )
@@ -397,10 +427,17 @@ def get_data( fileNames ):
             stop_.append( entries_ppstracks )
             print ( start_ )
             print ( stop_ )
+            astype_dict_ppstracks_ = {
+                "run": "int64", "lumiblock": "int64", "event": "int64", "slice": "int32", "rpid": "int32"
+                }
+            if "run_rnd" in columns_ppstracks: 
+                astype_dict_ppstracks_.update(
+                    { "run_rnd": "int64", "lumiblock_rnd": "int64", "event_rnd": "int64", "slice_rnd": "int32" }
+                    )
             for idx in range( len( start_ ) ):
                 print ( start_[idx], stop_[idx] )
                 #print ( dset[ start_[idx] : stop_[idx] ] )
-                df_ = pd.DataFrame( dset_ppstracks[ start_[idx] : stop_[idx] ], columns=columns_ppstracks ).astype( { "run": "int64", "lumiblock": "int64", "event": "int64", "slice": "int32", "rpid": "int32" } )
+                df_ = pd.DataFrame( dset_ppstracks[ start_[idx] : stop_[idx] ], columns=columns_ppstracks ).astype( astype_dict_ppstracks_ )
                 df_ppstracks_list.append( df_ )
                 print ( df_ppstracks_list[-1].head() )
                 print ( "Data set size: {}".format( len( df_ppstracks_list[-1] ) ) )
@@ -422,7 +459,7 @@ def get_data( fileNames ):
     return (df_counts, df_protons_multiRP, df_protons_singleRP, df_ppstracks)
 
 
-def process_data_protons_multiRP( df_protons_multiRP, df_ppstracks=None, apply_fiducial=True, within_aperture=False, runOnMC=False ):
+def process_data_protons_multiRP( df_protons_multiRP, df_ppstracks=None, apply_fiducial=True, within_aperture=False, random_protons=False, runOnMC=False ):
 
     if runOnMC:
         print ( "Turning within_aperture OFF for MC." )
@@ -453,10 +490,11 @@ def process_data_protons_multiRP( df_protons_multiRP, df_ppstracks=None, apply_f
 #        df_protons_multiRP_index.loc[ :, "track_y1" ].loc[ df_protons_multiRP_index.loc[ :, "arm" ] == 1 ] = df_ppstracks_index.loc[:, "y"].loc[ df_ppstracks_index.loc[ :, "rpid" ] == 103 ]
 #        df_protons_multiRP_index.loc[ :, "track_y2" ].loc[ df_protons_multiRP_index.loc[ :, "arm" ] == 1 ] = df_ppstracks_index.loc[:, "y"].loc[ df_ppstracks_index.loc[ :, "rpid" ] == 123 ]
 
+    run_str_ = "run_rnd" if random_protons else "run"
     if within_aperture:
         df_protons_multiRP.loc[ :, "period" ] = np.nan
         for idx_ in range( df_run_ranges.shape[0] ):
-            msk_period_ = ( ( df_protons_multiRP.loc[ :, "run" ] >= df_run_ranges.iloc[ idx_ ][ "min" ] ) & ( df_protons_multiRP.loc[ :, "run" ] <= df_run_ranges.iloc[ idx_ ][ "max" ] ) )
+            msk_period_ = ( ( df_protons_multiRP.loc[ :, run_str_ ] >= df_run_ranges.iloc[ idx_ ][ "min" ] ) & ( df_protons_multiRP.loc[ :, run_str_ ] <= df_run_ranges.iloc[ idx_ ][ "max" ] ) )
             sum_period_ = np.sum( msk_period_ )
             if sum_period_ > 0:
                 period_key_ = df_run_ranges.index[ idx_ ]
@@ -524,23 +562,66 @@ def process_data_protons_multiRP( df_protons_multiRP, df_ppstracks=None, apply_f
 
     msk_2protons = df_protons_multiRP_groupby[ "arm" ].transform( lambda s_: ( np.sum( s_ == 0 ) >= 1 ) & ( np.sum( s_ == 1 ) >= 1 ) )
     df_protons_multiRP_index = df_protons_multiRP_index.loc[ msk_2protons ]
+
+    columns_eff_ = []
+    if runOnMC:
+        # efficiencies_2017
+        from proton_efficiency import efficiencies_2017
+        strips_multitrack_efficiency, strips_sensor_efficiency, multiRP_efficiency, file_eff_strips, file_eff_multiRP = efficiencies_2017()
+        data_periods = [ "2017B", "2017C1", "2017C2", "2017D", "2017E", "2017F1", "2017F2", "2017F3" ]
+        df_protons_multiRP_index.loc[ :, 'eff_all_weighted' ] = 0.
+        for period_ in data_periods:
+            f_eff_strips_multitrack_ = lambda row: strips_multitrack_efficiency[ period_ ][ "45" if row["arm"] == 0 else "56" ].GetBinContent( 1 )
+    
+            f_eff_strips_sensor_     = lambda row: strips_sensor_efficiency[ period_ ][ "45" if row["arm"] == 0 else "56" ].GetBinContent(
+                                            strips_sensor_efficiency[ period_ ][ "45" if row["arm"] == 0 else "56" ].FindBin( row["trackx2"], row["tracky2"] )
+                                            )
+    
+            f_eff_multiRP_           = lambda row: multiRP_efficiency[ period_ ][ "45" if row["arm"] == 0 else "56" ].GetBinContent(
+                                            multiRP_efficiency[ period_ ][ "45" if row["arm"] == 0 else "56" ].FindBin( row["trackx1"], row["tracky1"] )
+                                            )
+    
+            f_eff_all_               = lambda row: f_eff_strips_multitrack_(row) * f_eff_strips_sensor_(row) * f_eff_multiRP_(row)
+
+            columns_eff_.append( 'eff_all_' + period_ )        
+            df_protons_multiRP_index.loc[ :, 'eff_all_' + period_ ] = df_protons_multiRP_index[ ["arm", "trackx1", "tracky1", "trackx2", "tracky2"] ].apply( f_eff_all_, axis=1 )
+            df_protons_multiRP_index.loc[ :, 'eff_all_weighted' ] = df_protons_multiRP_index.loc[ :, 'eff_all_weighted' ] + lumi_periods[ period_ ] * df_protons_multiRP_index.loc[ :, 'eff_all_' + period_ ]
+        columns_eff_.append( 'eff_all_weighted' ) 
+        lumi_ = np.sum( list( lumi_periods.values() ) )
+        df_protons_multiRP_index.loc[ :, 'eff_all_weighted' ] = df_protons_multiRP_index.loc[ :, 'eff_all_weighted' ] / lumi_
+
     print ( df_protons_multiRP_index )
 
-    df_protons_multiRP_events = df_protons_multiRP_index.drop( columns=[ "xi", "thx", "thy", "t", "ismultirp", "rpid", "arm",
-                                                                         "trackx1", "tracky1", "trackpixshift1", "rpid1",
-                                                                         "trackx2", "tracky2", "trackpixshift2", "rpid2" ] )
+    columns_drop_ = [ "xi", "thx", "thy", "t", "ismultirp", "rpid", "arm",
+                      "trackx1", "tracky1", "trackpixshift1", "rpid1",
+                      "trackx2", "tracky2", "trackpixshift2", "rpid2" ]
+    if runOnMC:
+        columns_drop_.extend( columns_eff_ )
+    print ( columns_drop_ )
+    df_protons_multiRP_events = df_protons_multiRP_index.drop( columns=columns_drop_ )
     df_protons_multiRP_events = df_protons_multiRP_events[ ~df_protons_multiRP_events.index.duplicated(keep='first') ]
     print ( "Number of events: {}".format( df_protons_multiRP_events.shape[0] ) )
 
-    df_protons_multiRP_groupby = df_protons_multiRP_index[ [ "xi" ] ].groupby( ["run","lumiblock","event","slice"] )
-    df_protons_multiRP_events.loc[ :, "MX" ] = df_protons_multiRP_groupby[ "xi" ].agg( lambda s_: 13000. * np.sqrt( s_.iloc[0] * s_.iloc[1] ) )
+    var_list_ = [ "xi", "eff_all_weighted" ] if runOnMC else [ "xi" ]
+    df_protons_multiRP_groupby = df_protons_multiRP_index[ var_list_  ].groupby( ["run","lumiblock","event","slice"] )
+    df_protons_multiRP_events.loc[ :, "MX" ] = df_protons_multiRP_groupby[ "xi" ].agg(
+        lambda s_: 13000. * np.sqrt( s_.iloc[0] * s_.iloc[1] )
+        )
     print ( df_protons_multiRP_events.loc[ :, "MX" ] )
-    df_protons_multiRP_events.loc[ :, "YX" ] = df_protons_multiRP_groupby[ "xi" ].agg( lambda s_: 0.5 * np.log( s_.iloc[0] / s_.iloc[1] ) )
+    df_protons_multiRP_events.loc[ :, "YX" ] = df_protons_multiRP_groupby[ "xi" ].agg(
+        lambda s_: 0.5 * np.log( s_.iloc[0] / s_.iloc[1] )
+        )
     print ( df_protons_multiRP_events.loc[ :, "YX" ] )
     df_protons_multiRP_events.loc[ :, "diffMWW_MX" ]  = df_protons_multiRP_events[ "recoMWW" ] - df_protons_multiRP_events[ "MX" ]
     df_protons_multiRP_events.loc[ :, "ratioMWW_MX" ] = df_protons_multiRP_events[ "recoMWW" ] / df_protons_multiRP_events[ "MX" ]
     df_protons_multiRP_events.loc[ :, "shiftedRatioMWW_MX" ] = df_protons_multiRP_events[ "ratioMWW_MX" ] - 1.
     df_protons_multiRP_events.loc[ :, "diffYWW_YX" ]  = df_protons_multiRP_events[ "recoRapidityWW" ] - df_protons_multiRP_events[ "YX" ]
     
+    if runOnMC:
+        df_protons_multiRP_events.loc[ :, "eff_all_weighted" ] = df_protons_multiRP_groupby[ "eff_all_weighted" ].agg(
+            lambda s_: ( s_.iloc[0] * s_.iloc[1] )
+            )
+        print ( df_protons_multiRP_events.loc[ :, "eff_all_weighted" ] )
+
     return (df_protons_multiRP_index, df_protons_multiRP_events, df_ppstracks_index)
 

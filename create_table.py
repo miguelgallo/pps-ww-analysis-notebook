@@ -41,11 +41,18 @@ def create_table( fileNames, label, random_protons=False, resample_factor=-1, st
 
     columns_protons_multiRP = columns_protons.copy()
 
+    if random_protons_:
+        columns_protons.extend( [ "run_rnd", "lumiblock_rnd", "event_rnd", "slice_rnd" ] )
+        columns_protons_multiRP.extend( [ "run_rnd", "lumiblock_rnd", "event_rnd", "slice_rnd" ] )
+
     if fill_proton_extra_:
         columns_protons.extend( [ "trackx1", "tracky1", "trackpixshift1", "rpid1" ] )
         columns_protons_multiRP.extend( [ "trackx1", "tracky1", "trackpixshift1", "rpid1", "trackx2", "tracky2", "trackpixshift2", "rpid2" ] )
    
     columns_ppstracks = [ "run", "lumiblock", "event", "slice", "x", "y", "rpid" ] 
+
+    if random_protons_:
+        columns_ppstracks.extend( [ "run_rnd", "lumiblock_rnd", "event_rnd", "slice_rnd" ] )
 
     protons_keys = {}
     for col_ in columns_protons_multiRP:
@@ -178,6 +185,15 @@ def create_table( fileNames, label, random_protons=False, resample_factor=-1, st
 
                 events_[ "slice" ] = slices_
 
+                print ( "Run: {}".format( events_[ "run" ] ) ) 
+                print ( "Lumi: {}".format( events_[ "lumiblock" ] ) ) 
+                print ( "Event: {}".format( events_[ "event" ] ) ) 
+                print ( "Slice: {}".format( events_[ "slice" ] ) ) 
+                print ( "Num jets: {}".format( ak.num( events_["jet_pt"] ) ) )
+                print ( "Num muons: {}".format( ak.num( events_["muon_pt"] ) ) )
+                print ( "Num protons: {}".format( ak.num( events_["proton_xi"] ) ) )
+                print ( "Num pps tracks: {}".format( ak.num( events_["pps_track_x"] ) ) )
+
                 # Fetch protons
                 protons_ = None
                 protons_extra_ = None
@@ -204,8 +220,21 @@ def create_table( fileNames, label, random_protons=False, resample_factor=-1, st
                     ppstracks_ = ak.zip( arrays_ppstrack )
 
                 # Randomize proton arrays
+                run_rnd_ = None
+                lumiblock_rnd_ = None
+                event_rnd_ = None
+                slice_rnd_ = None
                 if random_protons_:
                     index_rnd_ = np.random.permutation( len( events_ ) )
+
+                    events_run_ = events_[ "run" ]
+                    events_lumiblock_ = events_[ "lumiblock" ]
+                    events_event_ = events_[ "event" ]
+                    events_slice_ = events_[ "slice" ]
+                    run_rnd_ = events_run_[ index_rnd_ ]
+                    lumiblock_rnd_ = events_lumiblock_[ index_rnd_ ]
+                    event_rnd_ = events_event_[ index_rnd_ ]
+                    slice_rnd_ = events_slice_[ index_rnd_ ]
 
                     protons_rnd_ = protons_[ index_rnd_ ]
                     ppstracks_rnd_ = ppstracks_[ index_rnd_ ]
@@ -213,6 +242,14 @@ def create_table( fileNames, label, random_protons=False, resample_factor=-1, st
                     if protons_extra_:
                         protons_extra_rnd_ = protons_extra_[ index_rnd_ ]
 
+                    print ( "Run: {}".format( events_run_ ) ) 
+                    print ( "Run randomized: {}".format( run_rnd_ ) ) 
+                    print ( "Lumi: {}".format( events_lumiblock_ ) ) 
+                    print ( "Lumi randomized: {}".format( lumiblock_rnd_ ) ) 
+                    print ( "Event: {}".format( events_event_ ) ) 
+                    print ( "Event randomized: {}".format( event_rnd_ ) ) 
+                    print ( "Slice: {}".format( events_slice_ ) ) 
+                    print ( "Slice randomized: {}".format( slice_rnd_ ) ) 
                     print ( "Num protons: {}".format( ak.num( protons_ ) ) )
                     print ( "Num protons randomized: {}".format( ak.num( protons_rnd_ ) ) )
                     print ( "Num pps tracks: {}".format( ak.num( ppstracks_ ) ) )
@@ -234,6 +271,12 @@ def create_table( fileNames, label, random_protons=False, resample_factor=-1, st
                 protons_["lumiblock"]              = events_["lumiblock"]
                 protons_["event"]                  = events_["event"]
                 protons_["slice"]                  = events_["slice"]
+                if random_protons_:
+                    protons_["run_rnd"] = run_rnd_
+                    protons_["lumiblock_rnd"] = lumiblock_rnd_
+                    protons_["event_rnd"] = event_rnd_
+                    protons_["slice_rnd"] = slice_rnd_
+
                 protons_["jet0_pt"]                = events_[ "jet_pt" ][:,0]
                 protons_["jet0_eta"]               = events_[ "jet_eta" ][:,0]
                 protons_["jet0_phi"]               = events_[ "jet_phi" ][:,0]
@@ -278,6 +321,11 @@ def create_table( fileNames, label, random_protons=False, resample_factor=-1, st
                 ppstracks_["lumiblock"] = events_["lumiblock"]
                 ppstracks_["event"] = events_["event"]
                 ppstracks_["slice"] = events_["slice"]
+                if random_protons_:
+                    ppstracks_["run_rnd"] = run_rnd_
+                    ppstracks_["lumiblock_rnd"] = lumiblock_rnd_
+                    ppstracks_["event_rnd"] = event_rnd_
+                    ppstracks_["slice_rnd"] = slice_rnd_
 
                 protons_singleRP_ = protons_[ protons_.ismultirp_ == 0 ]
                 protons_multiRP_ = protons_[ protons_.ismultirp_ == 1 ]
