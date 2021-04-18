@@ -16,19 +16,20 @@ run_tables = False
 train_model = True
 run_grid_search = True
 save_model = True
-n_iter_search_ = 30
+
+n_iter_search_ = 3
 label_ = "test-multiRP"
 base_path_ = "/eos/home-a/antoniov/SWAN_projects/pps-ww-analysis"
 
 n_events_signal = None
-#n_events_bkg = None
-n_events_bkg = 100000
+n_events_bkg = None
+#n_events_bkg = 100000
 
 prob_cut_ = 0.40
 
-label_signal = "GGToWW-AQGC-test-A0W1e-6"
+label_signal = "GGToWW-AQGC-A0W1e-6"
 fileNames_signal = [
-    "output-GGToWW-AQGC-test-A0W1e-6.h5"
+    "output-GGToWW-AQGC-A0W1e-6.h5"
 ]
 
 resample_factor = 20
@@ -88,45 +89,80 @@ else:
 df_protons_multiRP_bkg_index[:20]
 df_protons_multiRP_bkg_events[:20]
 
-# Select variables
+# Select events
 
-msk_bkg = ( ( df_protons_multiRP_bkg_events.loc[ :, "jet0_corrmass"] >= 50.0 ) & ( df_protons_multiRP_bkg_events.loc[ :, "jet0_corrmass"] <= 110.0 ) )
-msk_signal = ( ( df_protons_multiRP_signal_events.loc[ :, "jet0_corrmass"] >= 50.0 ) & ( df_protons_multiRP_signal_events.loc[ :, "jet0_corrmass"] <= 110.0 ) )
+msk_bkg = ( ( df_protons_multiRP_bkg_events.loc[ :, "jet0_corrmass"] >= 50.0 ) &
+            ( df_protons_multiRP_bkg_events.loc[ :, "jet0_corrmass"] <= 110.0 ) & 
+            ( df_protons_multiRP_bkg_events.loc[ :, "num_bjets_ak4"] == 0 ) )
+msk_signal = ( ( df_protons_multiRP_signal_events.loc[ :, "jet0_corrmass"] >= 50.0 ) &
+               ( df_protons_multiRP_signal_events.loc[ :, "jet0_corrmass"] <= 110.0 ) &
+               ( df_protons_multiRP_signal_events.loc[ :, "num_bjets_ak4"] == 0 ) )
 df_protons_multiRP_bkg_events = df_protons_multiRP_bkg_events.loc[ msk_bkg ]
 df_protons_multiRP_signal_events = df_protons_multiRP_signal_events.loc[ msk_signal ]
 
-# variables_ = [ 'jet0_pt', 'jet0_phi', 'jet0_tau1', 'jet0_tau2', 'muon0_pt', 'muon0_phi', 'met', 'met_phi',
-#                'pfcand_nextracks', 'WLeptonicPt', 'WLeptonicPhi', 'recoMWW', 'recoRapidityWW' ]
-variables_ = [ 'jet0_pt', 'jet0_phi', 'jet0_tau1', 'jet0_tau2', 'muon0_pt', 'muon0_phi', 'met', 'met_phi',
-               'pfcand_nextracks', 'WLeptonicPt', 'WLeptonicPhi', 'recoMWW', 'recoRapidityWW', 'MX', 'YX' ]
-
-if n_events_signal:
-    X_sig = df_protons_multiRP_signal_events[ variables_ ].iloc[:n_events_signal]
-else:
-    X_sig = df_protons_multiRP_signal_events[ variables_ ]
-print ( X_sig.shape )
-print ( X_sig[:20] )
-
-if n_events_bkg:
-    X_bkg = df_protons_multiRP_bkg_events[ variables_ ].iloc[:n_events_bkg]
-else:
-    X_bkg = df_protons_multiRP_bkg_events[ variables_ ]
-print ( X_bkg.shape )
-print ( X_bkg[:20] )
-
-y_sig = np.ones( len(X_sig) )
-y_bkg = np.zeros( len(X_bkg) )
-
-X = pd.concat( [X_sig, X_bkg] ) 
-y = np.concatenate( [y_sig, y_bkg] )
+# Set aside test sample
 
 from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split( X, y, test_size=0.2, shuffle=True, random_state=42 )
+
+y_sig_ = np.ones( df_protons_multiRP_signal_events.shape[0] )
+y_bkg_ = np.zeros( df_protons_multiRP_bkg_events.shape[0] )
+
+df_protons_multiRP_signal_train, df_protons_multiRP_signal_test, y_sig_train, y_sig_test = train_test_split( df_protons_multiRP_signal_events, y_sig_, test_size=0.40, shuffle=True, random_state=12345 )
+df_protons_multiRP_bkg_train, df_protons_multiRP_bkg_test, y_bkg_train, y_bkg_test = train_test_split( df_protons_multiRP_bkg_events, y_bkg_, test_size=0.40, shuffle=True, random_state=12345 )
+
+print ( df_protons_multiRP_signal_train, df_protons_multiRP_signal_test, y_sig_train, y_sig_test )
+print ( df_protons_multiRP_bkg_train, df_protons_multiRP_bkg_test, y_bkg_train, y_bkg_test )
+
+print ( [ arr_.shape[0] for arr_ in ( df_protons_multiRP_signal_train, df_protons_multiRP_signal_test, y_sig_train, y_sig_test ) ] )
+print ( [ arr_.shape[0] for arr_ in ( df_protons_multiRP_bkg_train, df_protons_multiRP_bkg_test, y_bkg_train, y_bkg_test ) ] )
+print ( df_protons_multiRP_signal_test.mean() )
+print ( df_protons_multiRP_bkg_test.mean() )
+
+# Select variables
+
+# variables_ = [ 'jet0_pt', 'jet0_eta', 'jet0_phi', 'jet0_tau1', 'jet0_tau2', 'muon0_pt', 'muon0_eta', 'muon0_phi', 'met', 'met_phi',
+#                'pfcand_nextracks', 'WLeptonicPt', 'WLeptonicPhi', 'recoMWW', 'recoRapidityWW', 'MX', 'YX' ]
+variables_ = [ 'jet0_pt', 'jet0_phi', 'jet0_tau1', 'jet0_tau2', 'pfcand_nextracks', 
+               'WLeptonicPt', 'WLeptonicPhi', 'recoMWW', 'recoRapidityWW', 'MX', 'YX' ]
+
+X_sig_train = None
+if n_events_signal:
+    X_sig_train = df_protons_multiRP_signal_train[ variables_ ].iloc[:n_events_signal]
+    y_sig_train = y_sig_train.iloc[:n_events_signal]
+else:
+    X_sig_train = df_protons_multiRP_signal_train[ variables_ ]
+print ( X_sig_train.shape )
+print ( X_sig_train[:20] )
+
+X_sig_test = df_protons_multiRP_signal_test[ variables_ ]
+
+X_bkg_train = None
+if n_events_bkg:
+    X_bkg_train = df_protons_multiRP_bkg_train[ variables_ ].iloc[:n_events_bkg]
+    y_bkg_train = y_bkg_train.iloc[:n_events_bkg]
+else:
+    X_bkg_train = df_protons_multiRP_bkg_train[ variables_ ]
+print ( X_bkg_train.shape )
+print ( X_bkg_train[:20] )
+
+X_bkg_test = df_protons_multiRP_bkg_test[ variables_ ]
+
+X_ = pd.concat( [X_sig_train, X_bkg_train] ) 
+y_ = np.concatenate( [y_sig_train, y_bkg_train] )
+
+X_train, X_valid, y_train, y_valid = train_test_split( X_, y_, test_size=0.10, shuffle=True, random_state=42 )
+
+X_test = pd.concat( [X_sig_test, X_bkg_test] ) 
+y_test = np.concatenate( [y_sig_test, y_bkg_test] )
 
 # Hyperparameter scan
 
 grid_search = None
 if train_model and run_grid_search:
+    import time
+    print( time.strftime("%Y/%m/%d %H:%M:%S", time.localtime() ) )
+    time_s_ = time.time()
+
     from sklearn.model_selection import RandomizedSearchCV
     #from sklearn.model_selection import GridSearchCV
     #from scipy.stats import uniform
@@ -156,6 +192,9 @@ if train_model and run_grid_search:
     print ( grid_search.best_params_ )
     print ( grid_search.best_score_ )
     print ( grid_search.cv_results_ )
+
+    time_e_ = time.time()
+    print ( "Total time elapsed: {:.0f}".format( time_e_ - time_s_ ) )
 
 # Build model
 

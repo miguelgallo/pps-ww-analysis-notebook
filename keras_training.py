@@ -28,19 +28,20 @@ run_tables = False
 train_model = True
 run_grid_search = True
 save_model = True
-n_iter_search_ = 60
+
+n_iter_search_ = 3
 label_ = "test-multiRP"
 base_path_ = "/eos/home-a/antoniov/SWAN_projects/pps-ww-analysis"
 
 n_events_signal = None
-#n_events_bkg = None
-n_events_bkg = 100000
+n_events_bkg = None
+#n_events_bkg = 100000
 
 prob_cut_ = 0.40
 
-label_signal = "GGToWW-AQGC-test-A0W1e-6"
+label_signal = "GGToWW-AQGC-A0W1e-6"
 fileNames_signal = [
-    "output-GGToWW-AQGC-test-A0W1e-6.h5"
+    "output-GGToWW-AQGC-A0W1e-6.h5"
 ]
 fileNames_signal = [ "{}/{}".format( base_path_, item_ ) for item_ in fileNames_signal ]
 print ( fileNames_signal )
@@ -119,7 +120,7 @@ print ( "Total time elapsed: {:.0f}".format( time_e_ - time_s_ ) )
 df_protons_multiRP_bkg_index[:20]
 df_protons_multiRP_bkg_events[:20]
 
-# Select variables
+# Select events
 
 msk_bkg = ( ( df_protons_multiRP_bkg_events.loc[ :, "jet0_corrmass"] >= 50.0 ) &
             ( df_protons_multiRP_bkg_events.loc[ :, "jet0_corrmass"] <= 110.0 ) & 
@@ -130,35 +131,60 @@ msk_signal = ( ( df_protons_multiRP_signal_events.loc[ :, "jet0_corrmass"] >= 50
 df_protons_multiRP_bkg_events = df_protons_multiRP_bkg_events.loc[ msk_bkg ]
 df_protons_multiRP_signal_events = df_protons_multiRP_signal_events.loc[ msk_signal ]
 
-# variables_ = [ 'jet0_pt', 'jet0_phi', 'jet0_tau1', 'jet0_tau2', 'muon0_pt', 'muon0_phi', 'met', 'met_phi',
-#                'pfcand_nextracks', 'WLeptonicPt', 'WLeptonicPhi', 'recoMWW', 'recoRapidityWW' ]
-variables_ = [ 'jet0_pt', 'jet0_phi', 'jet0_tau1', 'jet0_tau2', 'muon0_pt', 'muon0_phi', 'met', 'met_phi',
-               'pfcand_nextracks', 'WLeptonicPt', 'WLeptonicPhi', 'recoMWW', 'recoRapidityWW', 'MX', 'YX' ]
-
-if n_events_signal:
-    X_sig = df_protons_multiRP_signal_events[ variables_ ].iloc[:n_events_signal]
-else:
-    X_sig = df_protons_multiRP_signal_events[ variables_ ]
-print ( X_sig.shape )
-print ( X_sig[:20] )
-
-if n_events_bkg:
-    X_bkg = df_protons_multiRP_bkg_events[ variables_ ].iloc[:n_events_bkg]
-else:
-    X_bkg = df_protons_multiRP_bkg_events[ variables_ ]
-print ( X_bkg.shape )
-print ( X_bkg[:20] )
-
-y_sig = np.ones( len(X_sig) )
-y_bkg = np.zeros( len(X_bkg) )
-
-X = pd.concat( [X_sig, X_bkg] ) 
-y = np.concatenate( [y_sig, y_bkg] )
+# Set aside test sample
 
 from sklearn.model_selection import train_test_split
 
-X_train_full, X_test, y_train_full, y_test = train_test_split( X, y, test_size=0.20, shuffle=True, random_state=42 )
-X_train, X_valid, y_train, y_valid = train_test_split( X_train_full, y_train_full, test_size=0.20, shuffle=False )
+y_sig_ = np.ones( df_protons_multiRP_signal_events.shape[0] )
+y_bkg_ = np.zeros( df_protons_multiRP_bkg_events.shape[0] )
+
+df_protons_multiRP_signal_train, df_protons_multiRP_signal_test, y_sig_train, y_sig_test = train_test_split( df_protons_multiRP_signal_events, y_sig_, test_size=0.40, shuffle=True, random_state=12345 )
+df_protons_multiRP_bkg_train, df_protons_multiRP_bkg_test, y_bkg_train, y_bkg_test = train_test_split( df_protons_multiRP_bkg_events, y_bkg_, test_size=0.40, shuffle=True, random_state=12345 )
+
+print ( df_protons_multiRP_signal_train, df_protons_multiRP_signal_test, y_sig_train, y_sig_test )
+print ( df_protons_multiRP_bkg_train, df_protons_multiRP_bkg_test, y_bkg_train, y_bkg_test )
+
+print ( [ arr_.shape[0] for arr_ in ( df_protons_multiRP_signal_train, df_protons_multiRP_signal_test, y_sig_train, y_sig_test ) ] )
+print ( [ arr_.shape[0] for arr_ in ( df_protons_multiRP_bkg_train, df_protons_multiRP_bkg_test, y_bkg_train, y_bkg_test ) ] )
+print ( df_protons_multiRP_signal_test.mean() )
+print ( df_protons_multiRP_bkg_test.mean() )
+
+# Select variables
+
+# variables_ = [ 'jet0_pt', 'jet0_eta', 'jet0_phi', 'jet0_tau1', 'jet0_tau2', 'muon0_pt', 'muon0_eta', 'muon0_phi', 'met', 'met_phi',
+#                'pfcand_nextracks', 'WLeptonicPt', 'WLeptonicPhi', 'recoMWW', 'recoRapidityWW', 'MX', 'YX' ]
+variables_ = [ 'jet0_pt', 'jet0_phi', 'jet0_tau1', 'jet0_tau2', 'pfcand_nextracks', 
+                'WLeptonicPt', 'WLeptonicPhi', 'recoMWW', 'recoRapidityWW', 'MX', 'YX' ]
+
+X_sig_train = None
+if n_events_signal:
+    X_sig_train = df_protons_multiRP_signal_train[ variables_ ].iloc[:n_events_signal]
+    y_sig_train = y_sig_train.iloc[:n_events_signal]
+else:
+    X_sig_train = df_protons_multiRP_signal_train[ variables_ ]
+print ( X_sig_train.shape )
+print ( X_sig_train[:20] )
+
+X_sig_test = df_protons_multiRP_signal_test[ variables_ ]
+
+X_bkg_train = None
+if n_events_bkg:
+    X_bkg_train = df_protons_multiRP_bkg_train[ variables_ ].iloc[:n_events_bkg]
+    y_bkg_train = y_bkg_train.iloc[:n_events_bkg]
+else:
+    X_bkg_train = df_protons_multiRP_bkg_train[ variables_ ]
+print ( X_bkg_train.shape )
+print ( X_bkg_train[:20] )
+
+X_bkg_test = df_protons_multiRP_bkg_test[ variables_ ]
+
+X_ = pd.concat( [X_sig_train, X_bkg_train] ) 
+y_ = np.concatenate( [y_sig_train, y_bkg_train] )
+
+X_train, X_valid, y_train, y_valid = train_test_split( X_, y_, test_size=0.20, shuffle=True, random_state=42 )
+
+X_test = pd.concat( [X_sig_test, X_bkg_test] ) 
+y_test = np.concatenate( [y_sig_test, y_bkg_test] )
 
 # Scale inputs
 from sklearn.preprocessing import StandardScaler
@@ -179,29 +205,7 @@ X_train_scaled[:20]
 
 # Model build function
 
-def build_model(n_hidden=1, n_neurons=50, learning_rate=5e-4, dropout=0.20, input_shape=X_train_scaled.shape[1:]):
-    print( "Building model with:" )
-    print( "Number of hidden layers: {}".format(n_hidden) )
-    print( "Number of neurons per layer: {}".format(n_neurons) )
-    print( "Learning rate: {}".format(learning_rate) )
-    print( "Input shape: {}".format(input_shape) )
-    print( "Dropout rate: {}".format(dropout) )
-    
-    model = keras.models.Sequential()
-    model.add( keras.layers.InputLayer(input_shape=input_shape) )
-    for layer in range(n_hidden):
-        if dropout > 0.:
-            model.add( keras.layers.Dropout(rate=dropout) )
-        model.add( keras.layers.Dense(n_neurons, activation="elu", kernel_initializer="he_normal") )
-    if dropout > 0.:
-        model.add( keras.layers.Dropout(rate=dropout) )    
-    model.add( keras.layers.Dense(1, activation="sigmoid") )
-    
-    #optimizer = keras.optimizers.SGD(lr=learning_rate, momentum=0.9, nesterov=True)
-    optimizer = keras.optimizers.Nadam(lr=learning_rate)
-    model.compile( loss="binary_crossentropy", optimizer=optimizer, metrics=["accuracy"])
-    
-    return model
+from keras_model import Model, build_model
 
 # Define training callbacks
 
@@ -229,8 +233,9 @@ def callbacks(patience=10, log_dir=""):
 # Hyperparameter scan
 
 learning_rate = 5e-4
-grid_search = None
+epochs_grid_search = 20
 
+grid_search = None
 if train_model and run_grid_search:
     import time
     print( time.strftime("%Y/%m/%d %H:%M:%S", time.localtime() ) )
@@ -239,9 +244,7 @@ if train_model and run_grid_search:
     from sklearn.model_selection import RandomizedSearchCV
     #from sklearn.model_selection import GridSearchCV
 
-    def build_fn_(n_hidden, n_neurons, dropout):
-        return build_model(n_hidden, n_neurons, learning_rate=learning_rate, input_shape=X_train_scaled.shape[1:], dropout=dropout)
-
+    build_fn_ = Model( input_shape=X_train_scaled.shape[1:], learning_rate=learning_rate )
     keras_clf = keras.wrappers.scikit_learn.KerasClassifier( build_fn_ )
 
 #     param_grid = [
@@ -266,7 +269,7 @@ if train_model and run_grid_search:
 
     callbacks_ = callbacks(patience=5)
     print ( callbacks_ )
-    grid_search.fit( X_train_scaled, y_train, epochs=100, validation_data=(X_valid_scaled, y_valid), callbacks=callbacks_ )
+    grid_search.fit( X_train_scaled, y_train, epochs=epochs_grid_search, validation_data=(X_valid_scaled, y_valid), callbacks=callbacks_ )
     
     print ( grid_search.best_params_ )
     print ( grid_search.best_score_ )
@@ -288,7 +291,7 @@ if train_model:
         params.pop( 'batch_size' )
     print ( params, "batch_size: {}".format( batch_size ) )
     
-    model_final = build_model(**params, learning_rate=8e-4, input_shape=X_train_scaled.shape[1:])
+    model_final = build_model(input_shape=X_train_scaled.shape[1:], learning_rate=learning_rate, **params )
     model_final.summary()
     #log_dir="keras_logs"
     #callbacks_ = callbacks(patience=5, log_dir=log_dir)

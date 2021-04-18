@@ -1,7 +1,8 @@
 #!/bin/tcsh
 
 ### Replace the following lines according to your setup.
-source /afs/cern.ch/work/a/antoniov/env/uproot4/bin/activate.csh
+#source /afs/cern.ch/work/a/antoniov/env/uproot4/bin/activate.csh
+source /afs/cern.ch/work/a/antoniov/env/uproot/bin/activate.csh
 set EXEC=/eos/home-a/antoniov/SWAN_projects/pps-ww-analysis
 set OUTPUT=/eos/home-a/antoniov/SWAN_projects/pps-ww-analysis/model
 ###
