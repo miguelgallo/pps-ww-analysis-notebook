@@ -5,13 +5,22 @@ import pandas as pd
 import numba as nb
 import h5py
 
-def create_table( fileNames, label, mix_protons=False, proton_files=None, random_protons=False, resample_factor=-1, step_size=100000, firstEvent=None, entryStop=None, debug=False ):
+from processing import run_ranges_periods, lumi_periods
+
+def create_table( fileNames, label, mix_protons=False, proton_files=None, random_protons=False, resample_factor=-1, runOnMC=False, data_periods=None, step_size=100000, firstEvent=None, entryStop=None, debug=False ):
 
     if mix_protons and random_protons:
         raise RuntimeError( "Cannot set mix_protons and random_protons simultaneously." )
     
     fileNames_ = fileNames
     label_ = label
+
+    runOnMC_ = runOnMC
+    data_periods_ = data_periods if ( runOnMC_ and data_periods is not None and len(data_periods) > 0 ) else None
+    if runOnMC_ and not data_periods_:
+        data_periods_ = list( run_ranges_periods.keys() )
+
+    df_run_ranges_ = pd.DataFrame( run_ranges_periods, index=("min","max") ).transpose()
 
     mix_protons_ = mix_protons
     proton_files_ = proton_files if ( mix_protons_ and proton_files is not None and len(proton_files) > 0 ) else None
@@ -32,6 +41,25 @@ def create_table( fileNames, label, mix_protons=False, proton_files=None, random
     how_ = None
     #how_ = "zip"
     
+    print ( "Run on MC: {}".format( runOnMC_ ) )
+    lumi_weights_ = None
+    probs_lumi_ = None
+    if runOnMC_:
+        print ( "Data periods: ", data_periods_ )
+        # lumi_periods_sel_ = {}
+        # lumi_values_ = []
+        # for key_ in data_periods_:
+        #     lumi_periods_sel_[ key_ ] = lumi_periods[ key_ ]
+        #     lumi_values_.append( lumi_periods[ key_ ] )
+        # print ( "Lumi: ", lumi_periods_sel_ )
+        lumi_weights_ = pd.Series( lumi_periods )
+        lumi_weights_ = lumi_weights_.loc[ data_periods_ ]
+        probs_lumi_ = lumi_weights_ / lumi_weights_.sum()
+        print ( "Data periods: ", data_periods_ )
+        print ( "Lumi values: ", lumi_weights_)
+        probs_lumi_ = lumi_weights_ / np.sum( lumi_weights_ )
+        print ( "Prob. lumi: ", probs_lumi_ ) 
+
     print ( "Mix protons: {}".format( mix_protons_ ) )
 
     if mix_protons_:
@@ -50,6 +78,11 @@ def create_table( fileNames, label, mix_protons=False, proton_files=None, random
     protons_extra_mix_all_ = None
     ppstracks_mix_all_ = None
     if mix_protons_:
+        protons_mix_all_ = {}
+        if fill_proton_extra_:
+            protons_extra_mix_all_ = {}
+        ppstracks_mix_all_ = {}
+
         for file_ in proton_files_:
             print ( file_ ) 
             root_ = uproot.open( file_ )
@@ -58,7 +91,7 @@ def create_table( fileNames, label, mix_protons=False, proton_files=None, random
         
             tree_ = root_[ tree_path_ ]
 
-            keys_nonproton_ = [ "run", "event", "lumiblock" ]
+            keys_nonproton_ = [ "run", "event", "lumiblock", "crossingAngle" ]
             keys_proton_ = tree_.keys( filter_name="proton*")
             keys_ppstrack_ = tree_.keys( filter_name="pps_track*")
             keys_proton_extra_ = [ 'proton_trackx2', 'proton_tracky2', 'proton_trackpixshift2', 'proton_rpid2' ]
@@ -103,58 +136,74 @@ def create_table( fileNames, label, mix_protons=False, proton_files=None, random
                 protons_[ "run_rnd" ] = events_[ "run" ]
                 protons_[ "lumiblock_rnd" ] = events_[ "lumiblock" ]
                 protons_[ "event_rnd" ] = events_[ "event" ]
+                protons_[ "crossingAngle_rnd" ] = events_[ "crossingAngle" ]
                 ppstracks_[ "run_rnd" ] = events_[ "run" ]
                 ppstracks_[ "lumiblock_rnd" ] = events_[ "lumiblock" ]
                 ppstracks_[ "event_rnd" ] = events_[ "event" ]
+                ppstracks_[ "crossingAngle_rnd" ] = events_[ "crossingAngle" ]
                    
                 print ( protons_, len( protons_ ), ak.num( protons_ ) )
                 if fill_proton_extra_:
                     print ( protons_extra_, len( protons_extra_ ), ak.num( protons_extra_ ) )
-                print ( ppstracks_, len( ppstracks_ ), ak.num( ppstracks_ ) )
-                
-                if protons_mix_all_ is None:
-                    protons_mix_all_ = protons_
-                else:
-                    protons_mix_all_ = ak.concatenate( [ protons_mix_all_, protons_ ], axis=0 )
-                if fill_proton_extra_:    
-                    if protons_extra_mix_all_ is None:
-                        protons_extra_mix_all_ = protons_extra_
-                    else:
-                        protons_extra_mix_all_ = ak.concatenate( [ protons_extra_mix_all_, protons_extra_ ], axis=0 )
-                if ppstracks_mix_all_ is None:
-                    ppstracks_mix_all_ = ppstracks_
-                else:
-                    ppstracks_mix_all_ = ak.concatenate( [ ppstracks_mix_all_, ppstracks_ ], axis=0 )
+                print ( ppstracks_, len( ppstracks_ ), ak.num( ppstracks_ ) )                
+                for key_ in df_run_ranges_.index:
+                    msk_period_ = ( ( events_[ "run" ] >= df_run_ranges_.loc[ key_ ][ "min" ] ) & ( events_[ "run" ] <= df_run_ranges_.loc[ key_ ][ "max" ] ) )
+                    print ( msk_period_ )
+
+                    if len( events_[ msk_period_ ] ) > 0:
+                        if key_ not in protons_mix_all_.keys():
+                            protons_mix_all_[ key_ ] = protons_[ msk_period_ ]
+                        else:
+                            protons_mix_all_[ key_ ] = ak.concatenate( [ protons_mix_all_[ key_ ], protons_[ msk_period_ ] ], axis=0 )
+
+                        if fill_proton_extra_:    
+                            if key_ not in protons_extra_mix_all_.keys():
+                                protons_extra_mix_all_[ key_ ] = protons_extra_[ msk_period_ ]
+                            else:
+                                protons_extra_mix_all_[ key_ ] = ak.concatenate( [ protons_extra_mix_all_[ key_ ], protons_extra_[ msk_period_ ] ], axis=0 )
+
+                        if key_ not in ppstracks_mix_all_.keys():
+                            ppstracks_mix_all_[ key_ ] = ppstracks_[ msk_period_ ]
+                        else:
+                            ppstracks_mix_all_[ key_ ] = ak.concatenate( [ ppstracks_mix_all_[ key_ ], ppstracks_[ msk_period_ ] ], axis=0 )
+
             # end iterate
         # end loop files
         
         print ( "Collections concatenated:" )
-        print ( protons_mix_all_, len( protons_mix_all_ ), ak.num( protons_mix_all_ ) )
+        print ( protons_mix_all_ )
         if fill_proton_extra_:
-            print ( protons_extra_mix_all_, len( protons_extra_mix_all_ ), ak.num( protons_extra_mix_all_ ) )
-        print ( ppstracks_mix_all_, len( ppstracks_mix_all_ ), ak.num( ppstracks_mix_all_ ) )
+            print ( protons_extra_mix_all_ )
+        print ( ppstracks_mix_all_ )
+        for key_ in df_run_ranges_.index:
+            print ( key_ )
+            print ( protons_mix_all_[ key_ ], len( protons_mix_all_[ key_ ] ), ak.num( protons_mix_all_[ key_ ] ) )
+            if fill_proton_extra_:
+                print ( protons_extra_mix_all_[ key_ ], len( protons_extra_mix_all_[ key_ ] ), ak.num( protons_extra_mix_all_[ key_ ] ) )
+            print ( ppstracks_mix_all_[ key_ ], len( ppstracks_mix_all_[ key_ ] ), ak.num( ppstracks_mix_all_[ key_ ] ) )
 
         # Randomize
-        index_rnd_ = np.random.permutation( len( protons_mix_all_ ) )
-        protons_mix_all_rnd_ = protons_mix_all_[ index_rnd_ ]
-        if fill_proton_extra_:
-            protons_extra_mix_all_rnd_ = protons_extra_mix_all_[ index_rnd_ ]
-        ppstracks_mix_all_rnd_ = ppstracks_mix_all_[ index_rnd_ ]
+        # for key_ in run_ranges_periods:
+        #     index_rnd_ = np.random.permutation( len( protons_mix_all_[ key_ ] ) )
+        #     protons_mix_all_rnd_ = protons_mix_all_[ key_ ][ index_rnd_ ]
+        #     if fill_proton_extra_:
+        #         protons_extra_mix_all_rnd_ = protons_extra_mix_all_[ key_ ][ index_rnd_ ]
+        #     ppstracks_mix_all_rnd_ = ppstracks_mix_all_[ key_ ][ index_rnd_ ]
 
-        print ( "Collections randomized:" )
-        print ( protons_mix_all_rnd_, len( protons_mix_all_rnd_ ), ak.num( protons_mix_all_rnd_ ) )
-        if fill_proton_extra_:
-            print ( protons_extra_mix_all_rnd_, len( protons_extra_mix_all_rnd_ ), ak.num( protons_extra_mix_all_rnd_ ) )
-        print ( ppstracks_mix_all_rnd_, len( ppstracks_mix_all_rnd_ ), ak.num( ppstracks_mix_all_rnd_ ) )
+        #     print ( "Collections randomized:" )
+        #     print ( protons_mix_all_rnd_, len( protons_mix_all_rnd_ ), ak.num( protons_mix_all_rnd_ ) )
+        #     if fill_proton_extra_:
+        #         print ( protons_extra_mix_all_rnd_, len( protons_extra_mix_all_rnd_ ), ak.num( protons_extra_mix_all_rnd_ ) )
+        #     print ( ppstracks_mix_all_rnd_, len( ppstracks_mix_all_rnd_ ), ak.num( ppstracks_mix_all_rnd_ ) )
 
-        protons_mix_all_ = protons_mix_all_rnd_
-        if fill_proton_extra_:
-            protons_extra_mix_all_ = protons_extra_mix_all_rnd_
-        ppstracks_mix_all_ = ppstracks_mix_all_rnd_
+        #     protons_mix_all_[ key_ ] = protons_mix_all_rnd_
+        #     if fill_proton_extra_:
+        #         protons_extra_mix_all_[ key_ ] = protons_extra_mix_all_rnd_
+        #     ppstracks_mix_all_[ key_ ] = ppstracks_mix_all_rnd_
 
     dset_chunk_size = 50000
 
-    columns_protons = [ "run", "lumiblock", "event", "slice", "xi", "thx", "thy", "t", "ismultirp", "rpid", "arm", "random",
+    columns_protons = [ "run", "lumiblock", "event", "slice", "crossingAngle", "xi", "thx", "thy", "t", "ismultirp", "rpid", "arm", "random",
                         "jet0_pt", "jet0_eta", "jet0_phi", "jet0_energy", "jet0_mass", "jet0_corrmass", "jet0_tau1", "jet0_tau2", "jet0_vertexz",
                         "muon0_pt", "muon0_eta", "muon0_phi", "muon0_energy", "muon0_charge", "muon0_iso", "muon0_dxy", "muon0_dz",
                         "met", "met_x", "met_y", "met_phi",
@@ -166,11 +215,15 @@ def create_table( fileNames, label, mix_protons=False, proton_files=None, random
 
     columns_protons_multiRP = columns_protons.copy()
 
+    if runOnMC_:
+        columns_protons.extend( [ "run_mc" ] )
+        columns_protons_multiRP.extend( [ "run_mc" ] )
+
     if random_protons_ or mix_protons_:
         # columns_protons.extend( [ "run_rnd", "lumiblock_rnd", "event_rnd", "slice_rnd" ] )
         # columns_protons_multiRP.extend( [ "run_rnd", "lumiblock_rnd", "event_rnd", "slice_rnd" ] )
-        columns_protons.extend( [ "run_rnd", "lumiblock_rnd", "event_rnd" ] )
-        columns_protons_multiRP.extend( [ "run_rnd", "lumiblock_rnd", "event_rnd" ] )
+        columns_protons.extend( [ "run_rnd", "lumiblock_rnd", "event_rnd", "crossingAngle_rnd" ] )
+        columns_protons_multiRP.extend( [ "run_rnd", "lumiblock_rnd", "event_rnd", "crossingAngle_rnd" ] )
 
     if fill_proton_extra_:
         columns_protons.extend( [ "trackx1", "tracky1", "trackpixshift1", "rpid1" ] )
@@ -178,9 +231,12 @@ def create_table( fileNames, label, mix_protons=False, proton_files=None, random
    
     columns_ppstracks = [ "run", "lumiblock", "event", "slice", "x", "y", "rpid" ] 
 
+    if runOnMC_:
+        columns_ppstracks.extend( [ "run_mc" ] )
+
     if random_protons_ or mix_protons_:
         # columns_ppstracks.extend( [ "run_rnd", "lumiblock_rnd", "event_rnd", "slice_rnd" ] )
-        columns_ppstracks.extend( [ "run_rnd", "lumiblock_rnd", "event_rnd" ] )
+        columns_ppstracks.extend( [ "run_rnd", "lumiblock_rnd", "event_rnd", "crossingAngle_rnd" ] )
 
     protons_keys = {}
     for col_ in columns_protons_multiRP:
@@ -239,7 +295,7 @@ def create_table( fileNames, label, mix_protons=False, proton_files=None, random
 
             tree_ = root_[ tree_path_ ]
 
-            keys_nonproton = [ "run", "event", "lumiblock", "nVertices",
+            keys_nonproton = [ "run", "event", "lumiblock", "crossingAngle", "nVertices",
                                "num_bjets_ak8", "num_bjets_ak4", "num_jets_ak4",
                                "pfcand_nextracks", "pfcand_nextracks_noDRl",
                                "recoMWhad", "recoMWlep", "recoMWW", "recoRapidityWW", "dphiWW", "WLeptonicPt", "WLeptonicEta", "WLeptonicPhi",
@@ -315,14 +371,25 @@ def create_table( fileNames, label, mix_protons=False, proton_files=None, random
 
                 events_[ "slice" ] = slices_
 
+                if runOnMC_:
+                    sample_idx_arr_ = np.random.choice( np.arange( probs_lumi_.index.size ), len( events_ ), p=probs_lumi_ )
+                    print ( "Sampled index: ", sample_idx_arr_ )
+                    run_arr_ = np.apply_along_axis( lambda idx_: df_run_ranges_.loc[ probs_lumi_.index[ idx_ ] ][ "min" ], 0, sample_idx_arr_ )
+                    print ( "Run numbers: ", run_arr_ )
+                    events_[ "run_mc" ] = run_arr_
+
                 print ( "Run: {}".format( events_[ "run" ] ) ) 
                 print ( "Lumi: {}".format( events_[ "lumiblock" ] ) ) 
                 print ( "Event: {}".format( events_[ "event" ] ) ) 
                 print ( "Slice: {}".format( events_[ "slice" ] ) ) 
+                print ( "Crossing angle: {}".format( events_[ "crossingAngle" ] ) ) 
                 print ( "Num jets: {}".format( ak.num( events_["jet_pt"] ) ) )
                 print ( "Num muons: {}".format( ak.num( events_["muon_pt"] ) ) )
                 print ( "Num protons: {}".format( ak.num( events_["proton_xi"] ) ) )
                 print ( "Num pps tracks: {}".format( ak.num( events_["pps_track_x"] ) ) )
+
+                if runOnMC_:
+                    print ( "Run MC: {}".format( events_[ "run_mc" ] ) ) 
 
                 # Fetch protons
                 protons_ = None
@@ -358,6 +425,7 @@ def create_table( fileNames, label, mix_protons=False, proton_files=None, random
                 lumiblock_rnd_ = None
                 event_rnd_ = None
                 # slice_rnd_ = None
+                crossingAngle_rnd_ = None
                 if random_protons_:
                     index_rnd_ = np.random.permutation( len( events_ ) )
 
@@ -365,10 +433,12 @@ def create_table( fileNames, label, mix_protons=False, proton_files=None, random
                     events_lumiblock_ = events_[ "lumiblock" ]
                     events_event_ = events_[ "event" ]
                     # events_slice_ = events_[ "slice" ]
+                    events_crossingAngle_ = events_[ "crossingAngle" ]
                     run_rnd_ = events_run_[ index_rnd_ ]
                     lumiblock_rnd_ = events_lumiblock_[ index_rnd_ ]
                     event_rnd_ = events_event_[ index_rnd_ ]
                     # slice_rnd_ = events_slice_[ index_rnd_ ]
+                    crossingAngle_rnd_ = events_crossingAngle_[ index_rnd_ ]
 
                     protons_rnd_ = protons_[ index_rnd_ ]
                     ppstracks_rnd_ = ppstracks_[ index_rnd_ ]
@@ -384,6 +454,8 @@ def create_table( fileNames, label, mix_protons=False, proton_files=None, random
                     print ( "Event randomized: {}".format( event_rnd_ ) ) 
                     # print ( "Slice: {}".format( events_slice_ ) ) 
                     # print ( "Slice randomized: {}".format( slice_rnd_ ) ) 
+                    print ( "Crossing angle: {}".format( events_crossingAngle_ ) ) 
+                    print ( "Crossing angle randomized: {}".format( crossingAngle_rnd_ ) ) 
                     print ( "Num protons: {}".format( ak.num( protons_ ) ) )
                     print ( "Num protons randomized: {}".format( ak.num( protons_rnd_ ) ) )
                     print ( "Num pps tracks: {}".format( ak.num( ppstracks_ ) ) )
@@ -399,52 +471,144 @@ def create_table( fileNames, label, mix_protons=False, proton_files=None, random
                 # Mix protons randomly (option mix_protons)
                 elif mix_protons_:
                     # Match size of proton arrays to main event arrays
-                    events_size_ = len( events_ )
-                    protons_mix_size_ = len( protons_mix_all_ ) # Number of events
-                    protons_mix_resized_ = None
-                    protons_extra_mix_resized_ = None
-                    ppstracks_mix_resized_ = None
-                    if events_size_ > protons_mix_size_:
-                        floor_division_ = ( events_size_ // protons_mix_size_ ) 
-                        protons_resample_factor_ = floor_division_ if ( events_size_ % protons_mix_size_ == 0 ) else ( floor_division_ + 1 )
-                        protons_mix_concat_ = ak.concatenate( ( [protons_mix_all_] * protons_resample_factor_ ), axis=0 )
-                        protons_mix_resized_ = protons_mix_concat_[ : events_size_ ]
-                        if fill_proton_extra_:
-                            protons_extra_mix_concat_ = ak.concatenate( ( [protons_extra_mix_all_] * protons_resample_factor_ ), axis=0 )
-                            protons_extra_mix_resized_ = protons_extra_mix_concat_[ : events_size_ ]
-                        ppstracks_mix_concat_ = ak.concatenate( ( [ppstracks_mix_all_] * protons_resample_factor_ ), axis=0 )
-                        ppstracks_mix_resized_ = ppstracks_mix_concat_[ : events_size_ ]
-                    else:    
-                        protons_mix_resized_ = protons_mix_all_[ : events_size_ ]
-                        if fill_proton_extra_:
-                            protons_extra_mix_resized_ = protons_extra_mix_all_[ : events_size_ ]
-                        ppstracks_mix_resized_ = ppstracks_mix_all_[ : events_size_ ]
+                    # events_size_ = len( events_ )
+                    # protons_mix_size_ = len( protons_mix_all_ ) # Number of events
+                    # protons_mix_resized_ = None
+                    # protons_extra_mix_resized_ = None
+                    # ppstracks_mix_resized_ = None
+                    # if events_size_ > protons_mix_size_:
+                    #     floor_division_ = ( events_size_ // protons_mix_size_ ) 
+                    #     protons_resample_factor_ = floor_division_ if ( events_size_ % protons_mix_size_ == 0 ) else ( floor_division_ + 1 )
+                    #     protons_mix_concat_ = ak.concatenate( ( [protons_mix_all_] * protons_resample_factor_ ), axis=0 )
+                    #     protons_mix_resized_ = protons_mix_concat_[ : events_size_ ]
+                    #     if fill_proton_extra_:
+                    #         protons_extra_mix_concat_ = ak.concatenate( ( [protons_extra_mix_all_] * protons_resample_factor_ ), axis=0 )
+                    #         protons_extra_mix_resized_ = protons_extra_mix_concat_[ : events_size_ ]
+                    #     ppstracks_mix_concat_ = ak.concatenate( ( [ppstracks_mix_all_] * protons_resample_factor_ ), axis=0 )
+                    #     ppstracks_mix_resized_ = ppstracks_mix_concat_[ : events_size_ ]
+                    # else:    
+                    #     protons_mix_resized_ = protons_mix_all_[ : events_size_ ]
+                    #     if fill_proton_extra_:
+                    #         protons_extra_mix_resized_ = protons_extra_mix_all_[ : events_size_ ]
+                    #     ppstracks_mix_resized_ = ppstracks_mix_all_[ : events_size_ ]
+                    # print ( "Num protons: {}".format( ak.num( protons_ ) ) )
+                    # print ( "Num protons mixed: {}".format( ak.num( protons_mix_resized_ ) ) )
+                    # print ( "Num pps tracks: {}".format( ak.num( ppstracks_ ) ) )
+                    # print ( "Num pps tracks mixed: {}".format( ak.num( ppstracks_mix_resized_ ) ) )
+                    # if fill_proton_extra_:
+                    #     print ( "Num protons extra: {}".format( ak.num( protons_extra_ ) ) )
+                    #     print ( "Num protons extra mixed: {}".format( ak.num( protons_extra_mix_resized_ ) ) )
+                    # protons_ = protons_mix_resized_
+                    # if fill_proton_extra_:
+                    #     protons_extra_ = protons_extra_mix_resized_
+                    # ppstracks_ = ppstracks_mix_resized_
                     print ( "Num protons: {}".format( ak.num( protons_ ) ) )
-                    print ( "Num protons mixed: {}".format( ak.num( protons_mix_resized_ ) ) )
-                    print ( "Num pps tracks: {}".format( ak.num( ppstracks_ ) ) )
-                    print ( "Num pps tracks mixed: {}".format( ak.num( ppstracks_mix_resized_ ) ) )
                     if fill_proton_extra_:
                         print ( "Num protons extra: {}".format( ak.num( protons_extra_ ) ) )
-                        print ( "Num protons extra mixed: {}".format( ak.num( protons_extra_mix_resized_ ) ) )
-                    protons_ = protons_mix_resized_
+                    print ( "Num pps tracks: {}".format( ak.num( ppstracks_ ) ) )
+                    run_str_ = "run_mc" if runOnMC_ else "run"
+                    events_mix_ = {}
+                    protons_mix_ = {}
+                    protons_extra_mix_ = {}
+                    ppstracks_mix_ = {}
+                    for key_ in df_run_ranges_.index:
+                        print ( key_ )
+                        msk_period_ = ( ( events_[ run_str_ ] >= df_run_ranges_.loc[ key_ ][ "min" ] ) & ( events_[ run_str_ ] <= df_run_ranges_.loc[ key_ ][ "max" ] ) )
+                        print ( msk_period_ )
+
+                        protons_mix_size_ = len( protons_mix_all_[ key_ ] )
+
+                        events_size_ = len( events_[ msk_period_ ] )
+                        if events_size_ > 0:
+                            index_rnd_ = np.random.randint( protons_mix_size_, size=events_size_ )
+
+                            if key_ not in events_mix_.keys():
+                                events_mix_[ key_ ] = events_[ msk_period_ ]
+                            else:
+                                events_mix_[ key_ ] = ak.concatenate( [ events_mix_[ key_ ], events_[ msk_period_ ] ], axis=0 )
+
+                            protons_mix__ = protons_mix_all_[ key_ ][ index_rnd_ ] 
+                            if key_ not in protons_mix_.keys():
+                                protons_mix_[ key_ ] = protons_mix__
+                            else:
+                                protons_mix_[ key_ ] = ak.concatenate( [ protons_mix_[ key_ ], protons_mix__ ], axis=0 )
+
+                            protons_extra_mix__ = protons_extra_mix_all_[ key_ ][ index_rnd_ ]
+                            if fill_proton_extra_:
+                                if key_ not in protons_extra_mix_.keys():
+                                    protons_extra_mix_[ key_ ] = protons_extra_mix__
+                                else:
+                                    protons_extra_mix_[ key_ ] = ak.concatenate( [ protons_extra_mix_[ key_ ], protons_extra_mix__ ], axis=0 )
+
+                            ppstracks_mix__ = ppstracks_mix_all_[ key_ ][ index_rnd_ ]
+                            if key_ not in ppstracks_mix_.keys():
+                                ppstracks_mix_[ key_ ] = ppstracks_mix__
+                            else:
+                                ppstracks_mix_[ key_ ] = ak.concatenate( [ ppstracks_mix_[ key_ ], ppstracks_mix__ ], axis=0 )
+
+                    events_mix_all_periods_ = None
+                    protons_mix_all_periods_ = None
+                    protons_extra_mix_all_periods_ = None
+                    ppstracks_mix_all_periods_ = None
+                    for key_ in df_run_ranges_.index:
+
+                        if events_mix_all_periods_ is None:
+                            events_mix_all_periods_ = events_mix_[ key_ ]
+                        else:
+                            events_mix_all_periods_ = ak.concatenate( [ events_mix_all_periods_, events_mix_[ key_ ] ], axis=0 ) 
+
+                        if protons_mix_all_periods_ is None:
+                            protons_mix_all_periods_ = protons_mix_[ key_ ]
+                        else:
+                            protons_mix_all_periods_ = ak.concatenate( [ protons_mix_all_periods_, protons_mix_[ key_ ] ], axis=0 )
+
+                        if fill_proton_extra_:
+                            if protons_extra_mix_all_periods_ is None:
+                                protons_extra_mix_all_periods_ = protons_extra_mix_[ key_ ]
+                            else:
+                                protons_extra_mix_all_periods_ = ak.concatenate( [ protons_extra_mix_all_periods_, protons_extra_mix_[ key_ ] ], axis=0 )
+
+                        if ppstracks_mix_all_periods_ is None:
+                            ppstracks_mix_all_periods_ = ppstracks_mix_[ key_ ]
+                        else:
+                            ppstracks_mix_all_periods_ = ak.concatenate( [ ppstracks_mix_all_periods_, ppstracks_mix_[ key_ ] ], axis=0 )
+
+                    events_ = events_mix_all_periods_
+                    protons_ = protons_mix_all_periods_
                     if fill_proton_extra_:
-                        protons_extra_ = protons_extra_mix_resized_
-                    ppstracks_ = ppstracks_mix_resized_
+                        protons_extra_ = protons_extra_mix_all_periods_
+                    ppstracks_ = ppstracks_mix_all_periods_
+
+                    if runOnMC_:
+                        print ( "Run MC: {}".format( events_[ "run_mc" ] ) )
+                    else:
+                        print ( "Run: {}".format( events_[ "run" ] ) )
+                    print ( "Run mixed: {}".format( protons_[ "run_rnd" ] ) ) 
+
+                    print ( "Num protons mixed: {}".format( ak.num( protons_ ) ) )
+                    if fill_proton_extra_:
+                        print ( "Num protons extra mixed: {}".format( ak.num( protons_extra_ ) ) )
+                    print ( "Num pps tracks mixed: {}".format( ak.num( ppstracks_ ) ) )
 
                 print ( "Num protons: {}".format( ak.num( protons_ ) ) )
-                print ( "Num pps tracks: {}".format( ak.num( ppstracks_ ) ) )
                 if protons_extra_ is not None:
                     print ( "Num protons extra: {}".format( ak.num( protons_extra_ ) ) )
+                print ( "Num pps tracks: {}".format( ak.num( ppstracks_ ) ) )
 
                 protons_["run"]                    = events_["run"]
                 protons_["lumiblock"]              = events_["lumiblock"]
                 protons_["event"]                  = events_["event"]
                 protons_["slice"]                  = events_["slice"]
+                protons_["crossingAngle"]          = events_["crossingAngle"]
+                if runOnMC_:
+                    protons_["run_mc"] = events_["run_mc"]
+
                 if random_protons_:
                     protons_["run_rnd"] = run_rnd_
                     protons_["lumiblock_rnd"] = lumiblock_rnd_
                     protons_["event_rnd"] = event_rnd_
                     # protons_["slice_rnd"] = slice_rnd_
+                    protons_["crossingAngle_rnd"] = crossingAngle_rnd_
 
                 protons_["jet0_pt"]                = events_[ "jet_pt" ][:,0]
                 protons_["jet0_eta"]               = events_[ "jet_eta" ][:,0]
@@ -494,11 +658,16 @@ def create_table( fileNames, label, mix_protons=False, proton_files=None, random
                 ppstracks_["lumiblock"] = events_["lumiblock"]
                 ppstracks_["event"] = events_["event"]
                 ppstracks_["slice"] = events_["slice"]
+                ppstracks_["crossingAngle"] = events_["crossingAngle"]
+                if runOnMC_:
+                    ppstracks_["run_mc"] = events_["run_mc"]
+
                 if random_protons_:
                     ppstracks_["run_rnd"] = run_rnd_
                     ppstracks_["lumiblock_rnd"] = lumiblock_rnd_
                     ppstracks_["event_rnd"] = event_rnd_
                     # ppstracks_["slice_rnd"] = slice_rnd_
+                    ppstracks_["crossingAngle_rnd"] = crossingAngle_rnd_
 
                 protons_singleRP_ = protons_[ protons_.ismultirp_ == 0 ]
                 protons_multiRP_ = protons_[ protons_.ismultirp_ == 1 ]
