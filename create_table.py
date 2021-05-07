@@ -218,6 +218,8 @@ def create_table( fileNames, label, mix_protons=False, proton_files=None, random
     if runOnMC_:
         columns_protons.extend( [ "run_mc" ] )
         columns_protons_multiRP.extend( [ "run_mc" ] )
+        columns_protons.extend( [ "jet0_jer_res", "jet0_jer_sf", "jet0_jer_sfup", "jet0_jer_sfdown" ] )
+        columns_protons_multiRP.extend( [ "jet0_jer_res", "jet0_jer_sf", "jet0_jer_sfup", "jet0_jer_sfdown" ] )
 
     if random_protons_ or mix_protons_:
         # columns_protons.extend( [ "run_rnd", "lumiblock_rnd", "event_rnd", "slice_rnd" ] )
@@ -619,6 +621,11 @@ def create_table( fileNames, label, mix_protons=False, proton_files=None, random
                 protons_["jet0_tau1"]              = events_[ "jet_tau1" ][:,0]
                 protons_["jet0_tau2"]              = events_[ "jet_tau2" ][:,0]
                 protons_["jet0_vertexz"]           = events_[ "jet_vertexz" ][:,0]
+                if runOnMC_:
+                    protons_["jet0_jer_res"]       = events_[ "jet_jer_res" ][:,0]
+                    protons_["jet0_jer_sf"]        = events_[ "jet_jer_sf" ][:,0]
+                    protons_["jet0_jer_sfup"]      = events_[ "jet_jer_sfup" ][:,0]
+                    protons_["jet0_jer_sfdown"]    = events_[ "jet_jer_sfdown" ][:,0]
                 protons_["muon0_pt"]               = events_[ "muon_pt" ][:,0]
                 protons_["muon0_eta"]              = events_[ "muon_eta" ][:,0]
                 protons_["muon0_phi"]              = events_[ "muon_phi" ][:,0]
