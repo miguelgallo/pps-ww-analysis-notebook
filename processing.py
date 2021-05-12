@@ -511,15 +511,16 @@ def process_data_protons_multiRP( df_protons_multiRP, df_ppstracks=None, apply_f
     if random_protons or mix_protons:
         xangle_str_ = "crossingAngle_rnd"
 
-    df_protons_multiRP.loc[ :, "period" ] = np.nan
-    for idx_ in range( df_run_ranges.shape[0] ):
-        msk_period_ = ( ( df_protons_multiRP.loc[ :, run_str_ ] >= df_run_ranges.iloc[ idx_ ][ "min" ] ) & ( df_protons_multiRP.loc[ :, run_str_ ] <= df_run_ranges.iloc[ idx_ ][ "max" ] ) )
-        sum_period_ = np.sum( msk_period_ )
-        if sum_period_ > 0:
-            period_key_ = df_run_ranges.index[ idx_ ]
-            df_protons_multiRP.loc[ :, "period" ].loc[ msk_period_ ] = period_key_
-            print ( "{}: {}".format( period_key_, sum_period_ ) )
-    print ( df_protons_multiRP.loc[ :, "period" ] )
+    if "period" not in df_protons_multiRP.columns:
+        df_protons_multiRP.loc[ :, "period" ] = np.nan
+        for idx_ in range( df_run_ranges.shape[0] ):
+            msk_period_ = ( ( df_protons_multiRP.loc[ :, run_str_ ] >= df_run_ranges.iloc[ idx_ ][ "min" ] ) & ( df_protons_multiRP.loc[ :, run_str_ ] <= df_run_ranges.iloc[ idx_ ][ "max" ] ) )
+            sum_period_ = np.sum( msk_period_ )
+            if sum_period_ > 0:
+                period_key_ = df_run_ranges.index[ idx_ ]
+                df_protons_multiRP.loc[ :, "period" ].loc[ msk_period_ ] = period_key_
+                print ( "{}: {}".format( period_key_, sum_period_ ) )
+        print ( df_protons_multiRP.loc[ :, "period" ] )
 
     if within_aperture:
         # df_protons_multiRP.loc[ :, "period" ] = np.nan
@@ -603,7 +604,11 @@ def process_data_protons_multiRP( df_protons_multiRP, df_ppstracks=None, apply_f
         file_eff_MuID = ROOT.TFile.Open( "efficiencies/muon/RunBCDEF_SF_MuID.root", "READ" )
         muon_scale_factor_ = MuonScaleFactor( histos={ "MuID": file_eff_MuID.Get( "NUM_TightID_DEN_genTracks_pt_abseta" ) } )
         f_sf_muon_id_ = lambda row: muon_scale_factor_( row["muon0_pt"], np.abs( row["muon0_eta"] ) )[ 0 ]
+        f_sf_muon_id_unc_ = lambda row: muon_scale_factor_( row["muon0_pt"], np.abs( row["muon0_eta"] ) )[ 1 ]
         df_protons_multiRP_index.loc[ :, 'sf_muon_id' ] = df_protons_multiRP_index[ ["muon0_pt", "muon0_eta"] ].apply( f_sf_muon_id_, axis=1 )
+        df_protons_multiRP_index.loc[ :, 'sf_muon_id_unc' ] = df_protons_multiRP_index[ ["muon0_pt", "muon0_eta"] ].apply( f_sf_muon_id_unc_, axis=1 )
+        df_protons_multiRP_index.loc[ :, 'sf_muon_id_up' ] = ( df_protons_multiRP_index.loc[ :, 'sf_muon_id' ] + df_protons_multiRP_index.loc[ :, 'sf_muon_id_unc' ] )
+        df_protons_multiRP_index.loc[ :, 'sf_muon_id_dw' ] = ( df_protons_multiRP_index.loc[ :, 'sf_muon_id' ] - df_protons_multiRP_index.loc[ :, 'sf_muon_id_unc' ] )
 
     if runOnMC and not mix_protons:
         # efficiencies_2017
@@ -699,25 +704,65 @@ def process_events( df_protons_multiRP_index, runOnMC=False, mix_protons=False, 
     print ( msk_2protons )
     df_protons_multiRP_index_2protons = df_protons_multiRP_index.loc[ msk_2protons ]
 
+    var_list_ = [ "arm", "xi", "eff_proton_all_weighted", "eff_multitrack_weighted", "eff_strictzero_weighted", "eff_proton_all", "eff_multitrack", "eff_strictzero" ] if ( runOnMC and not mix_protons ) else [ "arm", "xi" ]
+    # labels_xi_ = [ "_nom", "_p10", "_p30", "_p60", "_p100", "_m10", "_m30", "_m60", "_m100" ]
+    labels_xi_ = [ "_nom", "_p100", "_m100" ]
+    if runOnMC:
+        var_list_.extend( [ "xi" + label_ for label_ in labels_xi_ ] )
+
+    df_protons_multiRP_2protons_groupby = df_protons_multiRP_index_2protons[ var_list_ ].groupby( ["run","lumiblock","event","slice"] )
+
+    if runOnMC:
+        columns_drop.extend( [ "xi" + label_ for label_ in labels_xi_ ] )
+
     df_protons_multiRP_events = df_protons_multiRP_index_2protons.drop( columns=columns_drop )
     df_protons_multiRP_events = df_protons_multiRP_events[ ~df_protons_multiRP_events.index.duplicated(keep='first') ]
     print ( "Number of events: {}".format( df_protons_multiRP_events.shape[0] ) )
 
-    var_list_ = [ "xi", "eff_proton_all_weighted", "eff_multitrack_weighted", "eff_strictzero_weighted", "eff_proton_all", "eff_multitrack", "eff_strictzero" ] if ( runOnMC and not mix_protons ) else [ "xi" ]
-    df_protons_multiRP_2protons_groupby = df_protons_multiRP_index_2protons[ var_list_  ].groupby( ["run","lumiblock","event","slice"] )
     df_protons_multiRP_events.loc[ :, "MX" ] = df_protons_multiRP_2protons_groupby[ "xi" ].agg(
         lambda s_: 13000. * np.sqrt( s_.iloc[0] * s_.iloc[1] )
         )
     print ( df_protons_multiRP_events.loc[ :, "MX" ] )
-    df_protons_multiRP_events.loc[ :, "YX" ] = df_protons_multiRP_2protons_groupby[ "xi" ].agg(
-        lambda s_: 0.5 * np.log( s_.iloc[0] / s_.iloc[1] )
+    df_protons_multiRP_events.loc[ :, "YX" ] = df_protons_multiRP_2protons_groupby[ ["arm", "xi"] ].apply(
+        lambda df__: 0.5 * np.log( df__[ "xi" ][ df__[ "arm" ] == 0 ].iloc[0] / df__[ "xi" ][ df__[ "arm" ] == 1 ].iloc[0] )
         )
     print ( df_protons_multiRP_events.loc[ :, "YX" ] )
     df_protons_multiRP_events.loc[ :, "diffMWW_MX" ]  = df_protons_multiRP_events[ "recoMWW" ] - df_protons_multiRP_events[ "MX" ]
     df_protons_multiRP_events.loc[ :, "ratioMWW_MX" ] = df_protons_multiRP_events[ "recoMWW" ] / df_protons_multiRP_events[ "MX" ]
     df_protons_multiRP_events.loc[ :, "shiftedRatioMWW_MX" ] = df_protons_multiRP_events[ "ratioMWW_MX" ] - 1.
     df_protons_multiRP_events.loc[ :, "diffYWW_YX" ]  = df_protons_multiRP_events[ "recoRapidityWW" ] - df_protons_multiRP_events[ "YX" ]
-    
+    df_protons_multiRP_events.loc[ :, "MX" + "_nom" ] = df_protons_multiRP_events.loc[ :, "MX" ]
+    df_protons_multiRP_events.loc[ :, "YX" + "_nom" ] = df_protons_multiRP_events.loc[ :, "YX" ]
+    df_protons_multiRP_events.loc[ :, "R_MWW_MX" + "_nom" ] = ( df_protons_multiRP_events.loc[ :, "MWW" + "_nom" ] / df_protons_multiRP_events.loc[ :, "MX" + "_nom" ] )
+    df_protons_multiRP_events.loc[ :, "Diff_YWW_YX" + "_nom" ] = ( df_protons_multiRP_events.loc[ :, "YWW" + "_nom" ] - df_protons_multiRP_events.loc[ :, "YX" + "_nom" ] )
+
+    if runOnMC:
+        for label_ in [ "_jes_up", "_jes_dw" ]:
+            df_protons_multiRP_events.loc[ :, "R_MWW_MX" + label_ ] = ( df_protons_multiRP_events.loc[ :, "MWW" + label_ ] / df_protons_multiRP_events.loc[ :, "MX" + "_nom" ] ) 
+            df_protons_multiRP_events.loc[ :, "Diff_YWW_YX" + label_ ] = ( df_protons_multiRP_events.loc[ :, "YWW" + label_ ] - df_protons_multiRP_events.loc[ :, "YX" + "_nom" ] )
+
+        for label0_ in labels_xi_:
+            for label1_ in labels_xi_:
+                vars__ = [ "arm", "xi" + label0_ ] if label0_ == label1_  else [ "arm", "xi" + label0_, "xi" + label1_ ]
+                print ( "MX" + label0_ + label1_ )
+                df_protons_multiRP_2protons_groupby_apply_MX_ = df_protons_multiRP_2protons_groupby[ vars__ ].apply(
+                    lambda df__: 13000. * np.sqrt( df__[ "xi" + label0_ ].iloc[0] * df__[ "xi" + label1_ ].iloc[1] )
+                    )
+                df_protons_multiRP_events.loc[ :, "MX" + label0_ + label1_ ] = df_protons_multiRP_2protons_groupby_apply_MX_
+                # print ( df_protons_multiRP_events.loc[ :, "MX" + label0_ + label1_ ] )
+                print ( "YX" + label0_ + label1_ )
+                df_protons_multiRP_2protons_groupby_apply_YX_ = df_protons_multiRP_2protons_groupby[ vars__ ].apply(
+                    lambda df__: 0.5 * np.log( df__[ "xi" + label0_ ][ df__[ "arm" ] == 0 ].iloc[0] / df__[ "xi" + label1_ ][ df__[ "arm" ] == 1 ].iloc[0] )
+                    )
+                df_protons_multiRP_events.loc[ :, "YX" + label0_ + label1_ ] = df_protons_multiRP_2protons_groupby_apply_YX_
+                # print ( df_protons_multiRP_events.loc[ :, "YX" + label0_ + label1_ ] )
+                print ( "R_MWW_MX" + label0_ + label1_ )
+                df_protons_multiRP_events.loc[ :, "R_MWW_MX" + label0_ + label1_ ] = ( df_protons_multiRP_events.loc[ :, "MWW" + "_nom" ] / df_protons_multiRP_events.loc[ :, "MX" + label0_ + label1_ ] )
+                # print ( df_protons_multiRP_events.loc[ :, "R_MWW_MX" + label0_ + label1_ ] )
+                print ( "Diff_YWW_YX" + label0_ + label1_ )
+                df_protons_multiRP_events.loc[ :, "Diff_YWW_YX" + label0_ + label1_ ] = ( df_protons_multiRP_events.loc[ :, "YWW" + "_nom" ] - df_protons_multiRP_events.loc[ :, "YX" + label0_ + label1_ ] )
+                # print ( df_protons_multiRP_events.loc[ :, "Diff_YWW_YX" + label0_ + label1_ ] )
+
     if runOnMC and not mix_protons:
         df_protons_multiRP_events.loc[ :, "eff_proton_all_weighted" ] = df_protons_multiRP_2protons_groupby[ "eff_proton_all_weighted" ].agg(
             lambda s_: ( s_.iloc[0] * s_.iloc[1] )
