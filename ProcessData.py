@@ -10,9 +10,11 @@ class ProcessData:
         self.random_protons_ = random_protons 
         self.mix_protons_ = mix_protons
         self.runOnMC_ = runOnMC
+        self.data_periods_ = [ "2017B", "2017C1", "2017C2", "2017D", "2017E", "2017F1", "2017F2", "2017F3" ]
 
         self.jecPars_ = None
         self.jecUncertainty_ = None
+        self.systematics_Xi_X_, self.systematics_Xi_Y_ = 2 * [ None ]
         if self.runOnMC_:
             cmssw_release_base_ = os.environ[ 'CMSSW_RELEASE_BASE' ]
             print ( cmssw_release_base_ )
@@ -34,11 +36,10 @@ class ProcessData:
             self.jecUncertainty_ = ROOT.JetCorrectionUncertainty( self.jecPars_ )
             print ( self.jecUncertainty_ )
 
-        self.data_periods_ = [ "2017B", "2017C1", "2017C2", "2017D", "2017E", "2017F1", "2017F2", "2017F3" ]
-        self.systematics_Xi_X_, self.systematics_Xi_Y_ = get_systematics_vs_xi_h5(
-            data_periods=self.data_periods_,
-            fileName="reco_characteristics/reco_characteristics_version1.h5"
-            )
+            self.systematics_Xi_X_, self.systematics_Xi_Y_ = get_systematics_vs_xi_h5(
+                data_periods=self.data_periods_,
+                fileName="reco_characteristics/reco_characteristics_version1.h5"
+                )
 
     def getJetUncertainty( self, jet_eta, jet_pt ):
         self.jecUncertainty_.setJetEta( jet_eta )
@@ -52,13 +53,17 @@ class ProcessData:
         print ( msk_random_, np.sum( msk_random_ ) )
         sigma_var_ = np.zeros( df__.shape[0] ) 
         var_ = 'xi'
+        # f_low_edge_ = lambda row: np.invert( self.systematics_Xi_X_[ row[ "period" ] ][ row[ "arm" ] ] <= row[ var_ ] ).argmax() - 1
+        # f_high_edge_ = lambda row: ( self.systematics_Xi_X_[ row[ "period" ] ][ row[ "arm" ] ] >= row[ var_ ] ).argmax()
         f_low_edge_ = lambda row: np.invert( self.systematics_Xi_X_[ row[ "period" ] ][ row[ "arm" ] ] <= row[ var_ ] ).argmax() - 1
-        f_high_edge_ = lambda row: ( self.systematics_Xi_X_[ row[ "period" ] ][ row[ "arm" ] ] >= row[ var_ ] ).argmax()
+        f_high_edge_ = lambda row: ( self.systematics_Xi_X_[ row[ "period" ] ][ row[ "arm" ] ] > row[ var_ ] ).argmax()
         if np.sum( msk_random_ ) > 0:
             sigma_var_[ msk_random_ ] = df__.loc[ msk_random_ ].apply(
                 lambda row:
                     ( ( self.systematics_Xi_Y_[ row[ "period" ] ][ row[ "arm" ] ][ f_high_edge_( row ) ] -
-                        self.systematics_Xi_Y_[ row[ "period" ] ][ row[ "arm" ] ][ f_low_edge_( row ) ] ) *
+                        self.systematics_Xi_Y_[ row[ "period" ] ][ row[ "arm" ] ][ f_low_edge_( row ) ] ) /
+                      ( self.systematics_Xi_X_[ row[ "period" ] ][ row[ "arm" ] ][ f_high_edge_( row ) ] -
+                        self.systematics_Xi_X_[ row[ "period" ] ][ row[ "arm" ] ][ f_low_edge_( row ) ] ) *
                       ( row[ var_ ] - self.systematics_Xi_X_[ row[ "period" ] ][ row[ "arm" ] ][ f_low_edge_( row ) ] ) +
                         self.systematics_Xi_Y_[ row[ "period" ] ][ row[ "arm" ] ][ f_low_edge_( row ) ] ),
                 axis=1 ).values 

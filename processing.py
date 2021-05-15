@@ -746,7 +746,7 @@ def process_events( df_protons_multiRP_index, runOnMC=False, mix_protons=False, 
                 vars__ = [ "arm", "xi" + label0_ ] if label0_ == label1_  else [ "arm", "xi" + label0_, "xi" + label1_ ]
                 print ( "MX" + label0_ + label1_ )
                 df_protons_multiRP_2protons_groupby_apply_MX_ = df_protons_multiRP_2protons_groupby[ vars__ ].apply(
-                    lambda df__: 13000. * np.sqrt( df__[ "xi" + label0_ ].iloc[0] * df__[ "xi" + label1_ ].iloc[1] )
+                    lambda df__: 13000. * np.sqrt( df__[ "xi" + label0_ ][ df__[ "arm" ] == 0 ].iloc[0] * df__[ "xi" + label1_ ][ df__[ "arm" ] == 1 ].iloc[0] )
                     )
                 df_protons_multiRP_events.loc[ :, "MX" + label0_ + label1_ ] = df_protons_multiRP_2protons_groupby_apply_MX_
                 # print ( df_protons_multiRP_events.loc[ :, "MX" + label0_ + label1_ ] )
