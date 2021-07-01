@@ -1,6 +1,13 @@
 
 import ROOT
 
+# Efficiency uncertanties
+proton_efficiency_uncertainty = {
+    '2016': { '45': 0.10,   '56': 0.10   },
+    '2017': { '45': 0.0265, '56': 0.0265 },
+    '2018': { '45': 0.0206, '56': 0.0221 }
+}
+
 # Strict zero efficiencies
 def strict_zero_efficiencies():
 

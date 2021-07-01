@@ -107,22 +107,44 @@ class ProcessData:
         df.loc[ :, "jet0_py" + label_ ]       = ( df.loc[ :, "jet0_pt" + label_ ] * np.sin( df.loc[ :, "jet0_phi" ] ) )
         df.loc[ :, "jet0_pz" + label_ ]       = ( df.loc[ :, "jet0_pt" + label_ ] * np.sinh( df.loc[ :, "jet0_eta" ] ) )
         if self.runOnMC_:
+            label_ = "_nom"
+            df.loc[ :, "jet0_mass" + label_ ]     = df.loc[ :, "jet0_mass" ] * ( df.loc[ :, "C_JER_ref" ] )
+            df.loc[ :, "jet0_corrmass" + label_ ] = df.loc[ :, "jet0_corrmass" ] * ( df.loc[ :, "C_JER_ref" ] )
+
             label_ = "_jes_up"
-            df.loc[ :, "jet0_pt" + label_ ]       = df.loc[ :, "jet0_pt" ] * ( 1. + df.loc[ :, "jet0_unc" ] ) 
-            df.loc[ :, "jet0_energy" + label_ ]   = df.loc[ :, "jet0_energy" ] * ( 1. + df.loc[ :, "jet0_unc" ] ) 
-            df.loc[ :, "jet0_mass" + label_ ]     = df.loc[ :, "jet0_mass" ] * ( 1. + df.loc[ :, "jet0_unc" ] )
-            df.loc[ :, "jet0_corrmass" + label_ ] = df.loc[ :, "jet0_corrmass" ] * ( 1. + df.loc[ :, "jet0_unc" ] )
+            df.loc[ :, "jet0_pt" + label_ ]       = df.loc[ :, "jet0_pt" + "_nom" ] * ( 1. + df.loc[ :, "jet0_unc" ] ) 
+            df.loc[ :, "jet0_energy" + label_ ]   = df.loc[ :, "jet0_energy" + "_nom" ] * ( 1. + df.loc[ :, "jet0_unc" ] ) 
+            df.loc[ :, "jet0_mass" + label_ ]     = df.loc[ :, "jet0_mass" + "_nom" ]
+            df.loc[ :, "jet0_corrmass" + label_ ] = df.loc[ :, "jet0_corrmass" + "_nom" ] * ( 1. + df.loc[ :, "jet0_unc" ] )
             df.loc[ :, "jet0_px" + label_ ]       = ( df.loc[ :, "jet0_pt" + label_ ] * np.cos( df.loc[ :, "jet0_phi" ] ) )
             df.loc[ :, "jet0_py" + label_ ]       = ( df.loc[ :, "jet0_pt" + label_ ] * np.sin( df.loc[ :, "jet0_phi" ] ) )
             df.loc[ :, "jet0_pz" + label_ ]       = ( df.loc[ :, "jet0_pt" + label_ ] * np.sinh( df.loc[ :, "jet0_eta" ] ) )
             label_ = "_jes_dw"
-            df.loc[ :, "jet0_pt" + label_ ]       = df.loc[ :, "jet0_pt" ] * ( 1. - df.loc[ :, "jet0_unc" ] ) 
-            df.loc[ :, "jet0_energy" + label_ ]   = df.loc[ :, "jet0_energy" ] * ( 1. - df.loc[ :, "jet0_unc" ] ) 
-            df.loc[ :, "jet0_mass" + label_ ]     = df.loc[ :, "jet0_mass" ] * ( 1. - df.loc[ :, "jet0_unc" ] )
-            df.loc[ :, "jet0_corrmass" + label_ ] = df.loc[ :, "jet0_corrmass" ] * ( 1. - df.loc[ :, "jet0_unc" ] )
+            df.loc[ :, "jet0_pt" + label_ ]       = df.loc[ :, "jet0_pt" + "_nom" ] * ( 1. - df.loc[ :, "jet0_unc" ] ) 
+            df.loc[ :, "jet0_energy" + label_ ]   = df.loc[ :, "jet0_energy" + "_nom" ] * ( 1. - df.loc[ :, "jet0_unc" ] ) 
+            df.loc[ :, "jet0_mass" + label_ ]     = df.loc[ :, "jet0_mass" + "_nom" ]
+            df.loc[ :, "jet0_corrmass" + label_ ] = df.loc[ :, "jet0_corrmass" + "_nom" ] * ( 1. - df.loc[ :, "jet0_unc" ] )
             df.loc[ :, "jet0_px" + label_ ]       = ( df.loc[ :, "jet0_pt" + label_ ] * np.cos( df.loc[ :, "jet0_phi" ] ) )
             df.loc[ :, "jet0_py" + label_ ]       = ( df.loc[ :, "jet0_pt" + label_ ] * np.sin( df.loc[ :, "jet0_phi" ] ) )
             df.loc[ :, "jet0_pz" + label_ ]       = ( df.loc[ :, "jet0_pt" + label_ ] * np.sinh( df.loc[ :, "jet0_eta" ] ) )
+
+            label_ = "_jer_up"
+            df.loc[ :, "jet0_pt" + label_ ]       = df.loc[ :, "jet0_pt" + "_nom" ] * ( df.loc[ :, "C_JER_jer_up" ] / df.loc[ :, "C_JER_ref" ] )
+            df.loc[ :, "jet0_energy" + label_ ]   = df.loc[ :, "jet0_energy" + "_nom" ] * ( df.loc[ :, "C_JER_jer_up" ] / df.loc[ :, "C_JER_ref" ] )
+            df.loc[ :, "jet0_mass" + label_ ]     = df.loc[ :, "jet0_mass" + "_nom" ] * ( df.loc[ :, "C_JER_jer_up" ] / df.loc[ :, "C_JER_ref" ] )
+            df.loc[ :, "jet0_corrmass" + label_ ] = df.loc[ :, "jet0_corrmass" + "_nom" ] * ( df.loc[ :, "C_JER_jer_up" ] / df.loc[ :, "C_JER_ref" ] )
+            df.loc[ :, "jet0_px" + label_ ]       = ( df.loc[ :, "jet0_pt" + label_ ] * np.cos( df.loc[ :, "jet0_phi" ] ) )
+            df.loc[ :, "jet0_py" + label_ ]       = ( df.loc[ :, "jet0_pt" + label_ ] * np.sin( df.loc[ :, "jet0_phi" ] ) )
+            df.loc[ :, "jet0_pz" + label_ ]       = ( df.loc[ :, "jet0_pt" + label_ ] * np.sinh( df.loc[ :, "jet0_eta" ] ) )
+            label_ = "_jer_dw"
+            df.loc[ :, "jet0_pt" + label_ ]       = df.loc[ :, "jet0_pt" + "_nom" ] * ( df.loc[ :, "C_JER_jer_dw" ] / df.loc[ :, "C_JER_ref" ] )
+            df.loc[ :, "jet0_energy" + label_ ]   = df.loc[ :, "jet0_energy" + "_nom" ] * ( df.loc[ :, "C_JER_jer_dw" ] / df.loc[ :, "C_JER_ref" ] )
+            df.loc[ :, "jet0_mass" + label_ ]     = df.loc[ :, "jet0_mass" + "_nom" ] * ( df.loc[ :, "C_JER_jer_dw" ] / df.loc[ :, "C_JER_ref" ] )
+            df.loc[ :, "jet0_corrmass" + label_ ] = df.loc[ :, "jet0_corrmass" + "_nom" ] * ( df.loc[ :, "C_JER_jer_dw" ] / df.loc[ :, "C_JER_ref" ] )
+            df.loc[ :, "jet0_px" + label_ ]       = ( df.loc[ :, "jet0_pt" + label_ ] * np.cos( df.loc[ :, "jet0_phi" ] ) )
+            df.loc[ :, "jet0_py" + label_ ]       = ( df.loc[ :, "jet0_pt" + label_ ] * np.sin( df.loc[ :, "jet0_phi" ] ) )
+            df.loc[ :, "jet0_pz" + label_ ]       = ( df.loc[ :, "jet0_pt" + label_ ] * np.sinh( df.loc[ :, "jet0_eta" ] ) )
+            
 
     def calculateMuons( self, df ):
         label_ = "_nom"
@@ -156,22 +178,31 @@ class ProcessData:
                                                    ( df.loc[ :, "WW_pz" + label_ ] )**2 ) )
         df.loc[ :, "YWW" + label_ ]   = ( 0.5 * np.log( ( df.loc[ :, "WW_energy" + label_ ] + df.loc[ :, "WW_pz" + label_ ] ) / ( df.loc[ :, "WW_energy" + label_ ] - df.loc[ :, "WW_pz" + label_ ] ) ) )
         if self.runOnMC_:
-            label_ = "_jes_up"
-            df.loc[ :, "WW_energy" + label_ ]  = ( df.loc[ :, "WLeptonicE" + "_nom" ] + df.loc[ :, "jet0_energy" + label_ ] )
-            df.loc[ :, "WW_pz" + label_ ]      = ( df.loc[ :, "WLeptonicPz" + "_nom" ] + df.loc[ :, "jet0_pz" + label_ ] )
-            df.loc[ :, "MWW" + label_ ]   = ( np.sqrt( ( df.loc[ :, "WW_energy" + "_nom" ] )**2 -
-                                                       ( df.loc[ :, "WLeptonicPx" + "_nom" ] + df.loc[ :, "jet0_px" + label_ ] )**2 -
-                                                       ( df.loc[ :, "WLeptonicPy" + "_nom" ] + df.loc[ :, "jet0_py" + label_ ] )**2 -
-                                                       ( df.loc[ :, "WW_pz" + "_nom" ] )**2 ) )
-            df.loc[ :, "YWW" + label_ ]   = ( 0.5 * np.log( ( df.loc[ :, "WW_energy" + label_ ] + df.loc[ :, "WW_pz" + label_ ] ) / ( df.loc[ :, "WW_energy" + label_ ] - df.loc[ :, "WW_pz" + label_ ] ) ) )
-            label_ = "_jes_dw"
-            df.loc[ :, "WW_energy" + label_ ]  = ( df.loc[ :, "WLeptonicE" + "_nom" ] + df.loc[ :, "jet0_energy" + label_ ] )
-            df.loc[ :, "WW_pz" + label_ ]      = ( df.loc[ :, "WLeptonicPz" + "_nom" ] + df.loc[ :, "jet0_pz" + label_ ] )
-            df.loc[ :, "MWW" + label_ ]   = ( np.sqrt( ( df.loc[ :, "WW_energy" + "_nom" ] )**2 -
-                                                       ( df.loc[ :, "WLeptonicPx" + "_nom" ] + df.loc[ :, "jet0_px" + label_ ] )**2 -
-                                                       ( df.loc[ :, "WLeptonicPy" + "_nom" ] + df.loc[ :, "jet0_py" + label_ ] )**2 -
-                                                       ( df.loc[ :, "WW_pz" + "_nom" ] )**2 ) )
-            df.loc[ :, "YWW" + label_ ]   = ( 0.5 * np.log( ( df.loc[ :, "WW_energy" + label_ ] + df.loc[ :, "WW_pz" + label_ ] ) / ( df.loc[ :, "WW_energy" + label_ ] - df.loc[ :, "WW_pz" + label_ ] ) ) )
+            # label_ = "_jes_up"
+            # df.loc[ :, "WW_energy" + label_ ]  = ( df.loc[ :, "WLeptonicE" + "_nom" ] + df.loc[ :, "jet0_energy" + label_ ] )
+            # df.loc[ :, "WW_pz" + label_ ]      = ( df.loc[ :, "WLeptonicPz" + "_nom" ] + df.loc[ :, "jet0_pz" + label_ ] )
+            # df.loc[ :, "MWW" + label_ ]   = ( np.sqrt( ( df.loc[ :, "WW_energy" + "_nom" ] )**2 -
+            #                                            ( df.loc[ :, "WLeptonicPx" + "_nom" ] + df.loc[ :, "jet0_px" + label_ ] )**2 -
+            #                                            ( df.loc[ :, "WLeptonicPy" + "_nom" ] + df.loc[ :, "jet0_py" + label_ ] )**2 -
+            #                                            ( df.loc[ :, "WW_pz" + "_nom" ] )**2 ) )
+            # df.loc[ :, "YWW" + label_ ]   = ( 0.5 * np.log( ( df.loc[ :, "WW_energy" + label_ ] + df.loc[ :, "WW_pz" + label_ ] ) / ( df.loc[ :, "WW_energy" + label_ ] - df.loc[ :, "WW_pz" + label_ ] ) ) )
+            # label_ = "_jes_dw"
+            # df.loc[ :, "WW_energy" + label_ ]  = ( df.loc[ :, "WLeptonicE" + "_nom" ] + df.loc[ :, "jet0_energy" + label_ ] )
+            # df.loc[ :, "WW_pz" + label_ ]      = ( df.loc[ :, "WLeptonicPz" + "_nom" ] + df.loc[ :, "jet0_pz" + label_ ] )
+            # df.loc[ :, "MWW" + label_ ]   = ( np.sqrt( ( df.loc[ :, "WW_energy" + "_nom" ] )**2 -
+            #                                            ( df.loc[ :, "WLeptonicPx" + "_nom" ] + df.loc[ :, "jet0_px" + label_ ] )**2 -
+            #                                            ( df.loc[ :, "WLeptonicPy" + "_nom" ] + df.loc[ :, "jet0_py" + label_ ] )**2 -
+            #                                            ( df.loc[ :, "WW_pz" + "_nom" ] )**2 ) )
+            # df.loc[ :, "YWW" + label_ ]   = ( 0.5 * np.log( ( df.loc[ :, "WW_energy" + label_ ] + df.loc[ :, "WW_pz" + label_ ] ) / ( df.loc[ :, "WW_energy" + label_ ] - df.loc[ :, "WW_pz" + label_ ] ) ) )
+            labels__ = [ "_jes_up", "_jes_dw", "_jer_up", "_jer_dw" ]
+            for label__ in labels__:
+                df.loc[ :, "WW_energy" + label__ ]  = ( df.loc[ :, "WLeptonicE" + "_nom" ] + df.loc[ :, "jet0_energy" + label__ ] )
+                df.loc[ :, "WW_pz" + label__ ]      = ( df.loc[ :, "WLeptonicPz" + "_nom" ] + df.loc[ :, "jet0_pz" + label__ ] )
+                df.loc[ :, "MWW" + label__ ]   = ( np.sqrt( ( df.loc[ :, "WW_energy" + "_nom" ] )**2 -
+                                                           ( df.loc[ :, "WLeptonicPx" + "_nom" ] + df.loc[ :, "jet0_px" + label__ ] )**2 -
+                                                           ( df.loc[ :, "WLeptonicPy" + "_nom" ] + df.loc[ :, "jet0_py" + label__ ] )**2 -
+                                                           ( df.loc[ :, "WW_pz" + "_nom" ] )**2 ) )
+                df.loc[ :, "YWW" + label__ ]   = ( 0.5 * np.log( ( df.loc[ :, "WW_energy" + label__ ] + df.loc[ :, "WW_pz" + label__ ] ) / ( df.loc[ :, "WW_energy" + label__ ] - df.loc[ :, "WW_pz" + label__ ] ) ) )
 
     def calculateXiCMS( self, df ):
         label_ = "_nom"
@@ -180,16 +211,22 @@ class ProcessData:
         df.loc[ :, "xiCMS_56" + label_ ] = ( 1. / 13000 ) * ( df.loc[ :, "WLeptonicPt" + "_nom" ] * np.exp( -df.loc[ :, "WLeptonicEta" ] ) +
                                                               df.loc[ :, "jet0_pt" + "_nom" ] * np.exp( -df.loc[ :, "jet0_eta" ] ) )
         if self.runOnMC_:
-           label_ = "_jes_up"
-           df.loc[ :, "xiCMS_45" + label_ ] = ( 1. / 13000 ) * ( df.loc[ :, "WLeptonicPt" + "_nom" ] * np.exp( df.loc[ :, "WLeptonicEta" ] ) +
-                                                                 df.loc[ :, "jet0_pt" + label_ ] * np.exp( df.loc[ :, "jet0_eta" ] ) )
-           df.loc[ :, "xiCMS_56" + label_ ] = ( 1. / 13000 ) * ( df.loc[ :, "WLeptonicPt" + "_nom" ] * np.exp( -df.loc[ :, "WLeptonicEta" ] ) +
-                                                                 df.loc[ :, "jet0_pt" + label_ ] * np.exp( -df.loc[ :, "jet0_eta" ] ) )
-           label_ = "_jes_dw"
-           df.loc[ :, "xiCMS_45" + label_ ] = ( 1. / 13000 ) * ( df.loc[ :, "WLeptonicPt" + "_nom" ] * np.exp( df.loc[ :, "WLeptonicEta" ] ) +
-                                                                 df.loc[ :, "jet0_pt" + label_ ] * np.exp( df.loc[ :, "jet0_eta" ] ) )
-           df.loc[ :, "xiCMS_56" + label_ ] = ( 1. / 13000 ) * ( df.loc[ :, "WLeptonicPt" + "_nom" ] * np.exp( -df.loc[ :, "WLeptonicEta" ] ) +
-                                                                 df.loc[ :, "jet0_pt" + label_ ] * np.exp( -df.loc[ :, "jet0_eta" ] ) )
+           # label_ = "_jes_up"
+           # df.loc[ :, "xiCMS_45" + label_ ] = ( 1. / 13000 ) * ( df.loc[ :, "WLeptonicPt" + "_nom" ] * np.exp( df.loc[ :, "WLeptonicEta" ] ) +
+           #                                                       df.loc[ :, "jet0_pt" + label_ ] * np.exp( df.loc[ :, "jet0_eta" ] ) )
+           # df.loc[ :, "xiCMS_56" + label_ ] = ( 1. / 13000 ) * ( df.loc[ :, "WLeptonicPt" + "_nom" ] * np.exp( -df.loc[ :, "WLeptonicEta" ] ) +
+           #                                                       df.loc[ :, "jet0_pt" + label_ ] * np.exp( -df.loc[ :, "jet0_eta" ] ) )
+           # label_ = "_jes_dw"
+           # df.loc[ :, "xiCMS_45" + label_ ] = ( 1. / 13000 ) * ( df.loc[ :, "WLeptonicPt" + "_nom" ] * np.exp( df.loc[ :, "WLeptonicEta" ] ) +
+           #                                                       df.loc[ :, "jet0_pt" + label_ ] * np.exp( df.loc[ :, "jet0_eta" ] ) )
+           # df.loc[ :, "xiCMS_56" + label_ ] = ( 1. / 13000 ) * ( df.loc[ :, "WLeptonicPt" + "_nom" ] * np.exp( -df.loc[ :, "WLeptonicEta" ] ) +
+           #                                                       df.loc[ :, "jet0_pt" + label_ ] * np.exp( -df.loc[ :, "jet0_eta" ] ) )
+           labels__ = [ "_jes_up", "_jes_dw", "_jer_up", "_jer_dw" ]
+           for label__ in labels__:
+               df.loc[ :, "xiCMS_45" + label__ ] = ( 1. / 13000 ) * ( df.loc[ :, "WLeptonicPt" + "_nom" ] * np.exp( df.loc[ :, "WLeptonicEta" ] ) +
+                                                                     df.loc[ :, "jet0_pt" + label__ ] * np.exp( df.loc[ :, "jet0_eta" ] ) )
+               df.loc[ :, "xiCMS_56" + label__ ] = ( 1. / 13000 ) * ( df.loc[ :, "WLeptonicPt" + "_nom" ] * np.exp( -df.loc[ :, "WLeptonicEta" ] ) +
+                                                                     df.loc[ :, "jet0_pt" + label__ ] * np.exp( -df.loc[ :, "jet0_eta" ] ) )
 
     def calculateProtons( self, df ):
         df_arr_xi_ = df.loc[ :, "xi" ]
@@ -218,7 +255,10 @@ class ProcessData:
             print( time.strftime("%Y/%m/%d %H:%M:%S", time.localtime() ) )
             time_s_ = time.time()
         
-            with pd.HDFStore( "reduced-data-store-{}.h5".format( label_ ), complevel=5 ) as store_:
+            file_path_ = "data-store-{}.h5".format( label_ )
+            print ( file_path_ )
+            # with pd.HDFStore( "reduced-data-store-{}.h5".format( label_ ), complevel=5 ) as store_:
+            with pd.HDFStore( file_path_, 'w', complevel=5 ) as store_:
         
                 df_counts_, df_protons_multiRP_, df_protons_singleRP_, df_ppstracks_ = get_data( self.fileNames_[ label_ ] )
 
@@ -230,6 +270,55 @@ class ProcessData:
                     print ( df_protons_multiRP_.loc[ :, "jet0_unc" ] )
                     # df_protons_multiRP_.loc[ :, "jet0_pt_up" ] = df_protons_multiRP_.loc[ :, "jet0_pt" ] * ( 1. + df_protons_multiRP_.loc[ :, "jet0_unc" ] )
                     # df_protons_multiRP_.loc[ :, "jet0_pt_dw" ] = df_protons_multiRP_.loc[ :, "jet0_pt" ] * ( 1. - df_protons_multiRP_.loc[ :, "jet0_unc" ] )
+                    df_protons_multiRP_.loc[ :, 'jet0_pt_unsmeared' ] = np.sqrt(
+                        df_protons_multiRP_.loc[ :, 'jet0_px' ] ** 2 +
+                        df_protons_multiRP_.loc[ :, 'jet0_py' ] ** 2 )
+                    df_protons_multiRP_.loc[ :, 'C_JER_ref' ] = ( df_protons_multiRP_.loc[ :, 'jet0_pt' ] / df_protons_multiRP_.loc[ :, 'jet0_pt_unsmeared' ] )
+                    deltaPhi_jet_genjet_ = ( df_protons_multiRP_.loc[ :, "jet0_phi"] - df_protons_multiRP_.loc[ :, "gen_jet0_phi"] )
+                    msk_dphi_ = ( deltaPhi_jet_genjet_ < -np.pi )
+                    deltaPhi_jet_genjet_.loc[ msk_dphi_ ] = deltaPhi_jet_genjet_.loc[ msk_dphi_ ] + 2*np.pi
+                    msk_dphi_ = ( deltaPhi_jet_genjet_ >= np.pi )
+                    deltaPhi_jet_genjet_.loc[ msk_dphi_ ] = deltaPhi_jet_genjet_.loc[ msk_dphi_ ] - 2*np.pi
+                    deltaEta_jet_genjet_ = ( df_protons_multiRP_.loc[ :, "jet0_eta"] - df_protons_multiRP_.loc[ :, "gen_jet0_eta"] )
+                    deltaR_jet_genjet_ = np.sqrt( ( deltaPhi_jet_genjet_ ) ** 2 + ( deltaEta_jet_genjet_ ) ** 2 )
+                    df_protons_multiRP_.loc[ :, 'deltaR_jet_genjet' ] = deltaR_jet_genjet_
+                    df_protons_multiRP_.loc[ :, 'deltaPt_jet_genjet' ] = np.abs( df_protons_multiRP_.loc[ :, 'jet0_pt_unsmeared' ] - df_protons_multiRP_.loc[ :, 'gen_jet0_pt' ] )
+                    df_protons_multiRP_.loc[ :, 'match_jet_genjet' ] = (
+                        ( df_protons_multiRP_.loc[ :, 'deltaR_jet_genjet' ] < ( 0.8 / 2 ) ) &
+                        ( df_protons_multiRP_.loc[ :, 'deltaPt_jet_genjet' ] < ( 3. * df_protons_multiRP_.loc[ :, 'jet0_jer_res' ] * df_protons_multiRP_.loc[ :, 'jet0_pt_unsmeared' ] ) )
+                        )
+                    print ( df_protons_multiRP_.loc[ :, 'match_jet_genjet' ] )
+                    print ( np.sum( df_protons_multiRP_.loc[ :, 'match_jet_genjet' ] ) )
+                    print ( np.sum( df_protons_multiRP_.loc[ :, 'match_jet_genjet' ] ) / df_protons_multiRP_.shape[0] )
+                    df_protons_multiRP_.loc[ :, 'C_JER' ] = np.nan
+                    df_protons_multiRP_.loc[ :, 'JER_rand' ] = np.nan
+                    df_protons_multiRP_.loc[ :, 'C_JER_jer_up' ] = np.nan
+                    df_protons_multiRP_.loc[ :, 'C_JER_jer_dw' ] = np.nan
+                    msk_match_ = df_protons_multiRP_.loc[ :, 'match_jet_genjet' ]
+                    
+                    df_protons_multiRP_.loc[ :, 'C_JER' ].where( ~msk_match_,
+                        ( 1. + ( df_protons_multiRP_.loc[ :, 'jet0_jer_sf' ] - 1. ) *
+                               ( ( df_protons_multiRP_.loc[ :, 'jet0_pt_unsmeared' ] - df_protons_multiRP_.loc[ :, 'gen_jet0_pt' ] ) / df_protons_multiRP_.loc[ :, 'jet0_pt_unsmeared' ] ) 
+                        ), inplace=True )
+                    df_protons_multiRP_.loc[ :, 'C_JER' ].where( msk_match_, df_protons_multiRP_.loc[ :, 'C_JER_ref' ], inplace=True )
+                    df_protons_multiRP_.loc[ :, 'JER_rand' ].where( msk_match_,
+                        ( ( df_protons_multiRP_.loc[ :, 'C_JER_ref' ] - 1. ) / np.sqrt( np.max( ( ( df_protons_multiRP_.loc[ :, 'jet0_jer_sf' ] ** 2 ) - 1. ) , 0. ) ) ),
+                        inplace=True
+                        )
+                    df_protons_multiRP_.loc[ :, 'C_JER_jer_up' ].where( ~msk_match_,
+                        ( 1. + ( df_protons_multiRP_.loc[ :, 'jet0_jer_sfup' ] - 1. ) *
+                               ( ( df_protons_multiRP_.loc[ :, 'jet0_pt_unsmeared' ] - df_protons_multiRP_.loc[ :, 'gen_jet0_pt' ] ) / df_protons_multiRP_.loc[ :, 'jet0_pt_unsmeared' ] )
+                        ), inplace=True )
+                    df_protons_multiRP_.loc[ :, 'C_JER_jer_dw' ].where( ~msk_match_,
+                        ( 1. + ( df_protons_multiRP_.loc[ :, 'jet0_jer_sfdown' ] - 1. ) *
+                               ( ( df_protons_multiRP_.loc[ :, 'jet0_pt_unsmeared' ] - df_protons_multiRP_.loc[ :, 'gen_jet0_pt' ] ) / df_protons_multiRP_.loc[ :, 'jet0_pt_unsmeared' ] )
+                        ), inplace=True )
+                    df_protons_multiRP_.loc[ :, 'C_JER_jer_up' ].where( msk_match_, ( 1. + df_protons_multiRP_.loc[ :, 'JER_rand' ] * np.sqrt( np.max( ( ( df_protons_multiRP_.loc[ :, 'jet0_jer_sfup' ] ** 2 ) - 1. ) , 0. ) ) ), inplace=True )
+                    df_protons_multiRP_.loc[ :, 'C_JER_jer_dw' ].where( msk_match_, ( 1. + df_protons_multiRP_.loc[ :, 'JER_rand' ] * np.sqrt( np.max( ( ( df_protons_multiRP_.loc[ :, 'jet0_jer_sfdown' ] ** 2 ) - 1. ) , 0. ) ) ), inplace=True )
+                    print ( df_protons_multiRP_.loc[ :, 'C_JER' ] )
+                    print ( df_protons_multiRP_.loc[ :, 'C_JER_jer_up' ] )
+                    print ( df_protons_multiRP_.loc[ :, 'C_JER_jer_dw' ] )
+
                 self.calculateJets( df_protons_multiRP_ )
                 self.calculateMuons( df_protons_multiRP_ )
                 self.calculateWLep( df_protons_multiRP_ )
@@ -255,5 +344,6 @@ class ProcessData:
             time_e_ = time.time()
             print ( "Total time elapsed: {:.0f}".format( time_e_ - time_s_ ) )
 
-            with pd.HDFStore( "reduced-data-store-{}.h5".format( label_ ), 'r' ) as store_:
+            # with pd.HDFStore( "reduced-data-store-{}.h5".format( label_ ), 'r' ) as store_:
+            with pd.HDFStore( file_path_, 'r' ) as store_:
                 print ( list( store_ ) )

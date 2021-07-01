@@ -1,4 +1,4 @@
-set pwd=$PWD
+set cwd_=$PWD
 cd CMSSW_11_2_4
 cmsenv
-cd $pwd
+cd $cwd_

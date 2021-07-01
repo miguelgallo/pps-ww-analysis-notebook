@@ -612,11 +612,12 @@ def process_data_protons_multiRP( df_protons_multiRP, df_ppstracks=None, apply_f
 
     if runOnMC and not mix_protons:
         # efficiencies_2017
-        from proton_efficiency import efficiencies_2017, strict_zero_efficiencies
+        from proton_efficiency import efficiencies_2017, strict_zero_efficiencies, proton_efficiency_uncertainty
         strips_multitrack_efficiency, strips_sensor_efficiency, multiRP_efficiency, file_eff_strips, file_eff_multiRP = efficiencies_2017()
         sz_efficiencies = strict_zero_efficiencies()
 
         data_periods = [ "2017B", "2017C1", "2017C2", "2017D", "2017E", "2017F1", "2017F2", "2017F3" ]
+        proton_eff_unc_per_arm_ = proton_efficiency_uncertainty[ "2017" ]
         df_protons_multiRP_index.loc[ :, 'eff_proton_all_weighted' ] = 0.
         # df_protons_multiRP_index.loc[ :, 'eff_all_weighted' ] = 0.
         df_protons_multiRP_index.loc[ :, 'eff_multitrack_weighted' ] = 0.
@@ -681,6 +682,10 @@ def process_data_protons_multiRP( df_protons_multiRP, df_ppstracks=None, apply_f
         columns_eff_.append( 'eff_multitrack' ) 
         columns_eff_.append( 'eff_strictzero' )
 
+        f_eff_proton_unc_ = lambda row: proton_eff_unc_per_arm_[ "45" if row["arm"] == 0 else "56" ]
+        df_protons_multiRP_index.loc[ :, 'eff_proton_unc' ] = df_protons_multiRP_index[ [ "arm" ] ].apply( f_eff_proton_unc_, axis=1 )
+        columns_eff_.append( 'eff_proton_unc' ) 
+
     columns_drop_ = [ "xi", "thx", "thy", "t", "ismultirp", "rpid", "arm", "random",
                       "trackx1", "tracky1", "trackpixshift1", "rpid1",
                       "trackx2", "tracky2", "trackpixshift2", "rpid2" ]
@@ -704,7 +709,7 @@ def process_events( df_protons_multiRP_index, runOnMC=False, mix_protons=False, 
     print ( msk_2protons )
     df_protons_multiRP_index_2protons = df_protons_multiRP_index.loc[ msk_2protons ]
 
-    var_list_ = [ "arm", "xi", "eff_proton_all_weighted", "eff_multitrack_weighted", "eff_strictzero_weighted", "eff_proton_all", "eff_multitrack", "eff_strictzero" ] if ( runOnMC and not mix_protons ) else [ "arm", "xi" ]
+    var_list_ = [ "arm", "xi", "eff_proton_all_weighted", "eff_multitrack_weighted", "eff_strictzero_weighted", "eff_proton_all", "eff_multitrack", "eff_strictzero", "eff_proton_unc" ] if ( runOnMC and not mix_protons ) else [ "arm", "xi" ]
     # labels_xi_ = [ "_nom", "_p10", "_p30", "_p60", "_p100", "_m10", "_m30", "_m60", "_m100" ]
     labels_xi_ = [ "_nom", "_p100", "_m100" ]
     if runOnMC:
@@ -737,7 +742,8 @@ def process_events( df_protons_multiRP_index, runOnMC=False, mix_protons=False, 
     df_protons_multiRP_events.loc[ :, "Diff_YWW_YX" + "_nom" ] = ( df_protons_multiRP_events.loc[ :, "YWW" + "_nom" ] - df_protons_multiRP_events.loc[ :, "YX" + "_nom" ] )
 
     if runOnMC:
-        for label_ in [ "_jes_up", "_jes_dw" ]:
+        # for label_ in [ "_jes_up", "_jes_dw" ]:
+        for label_ in [ "_jes_up", "_jes_dw", "_jer_up", "_jer_dw" ]:
             df_protons_multiRP_events.loc[ :, "R_MWW_MX" + label_ ] = ( df_protons_multiRP_events.loc[ :, "MWW" + label_ ] / df_protons_multiRP_events.loc[ :, "MX" + "_nom" ] ) 
             df_protons_multiRP_events.loc[ :, "Diff_YWW_YX" + label_ ] = ( df_protons_multiRP_events.loc[ :, "YWW" + label_ ] - df_protons_multiRP_events.loc[ :, "YX" + "_nom" ] )
 
@@ -792,6 +798,14 @@ def process_events( df_protons_multiRP_index, runOnMC=False, mix_protons=False, 
             lambda s_: ( s_.iloc[0] * s_.iloc[1] )
             )
         print ( df_protons_multiRP_events.loc[ :, "eff_strictzero" ] )
+        df_protons_multiRP_events.loc[ :, "eff_proton_unc" ] = df_protons_multiRP_2protons_groupby[ "eff_proton_unc" ].agg(
+            lambda s_: np.sqrt( s_.iloc[0] ** 2 + s_.iloc[1] ** 2 )
+            )
+        print ( df_protons_multiRP_events.loc[ :, "eff_proton_unc" ] )
+        df_protons_multiRP_events.loc[ :, "eff_proton_var_up" ] = ( 1. + df_protons_multiRP_events.loc[ :, "eff_proton_unc" ] )
+        df_protons_multiRP_events.loc[ :, "eff_proton_var_dw" ] = ( 1. - df_protons_multiRP_events.loc[ :, "eff_proton_unc" ] )
+        print ( df_protons_multiRP_events.loc[ :, "eff_proton_var_up" ] )
+        print ( df_protons_multiRP_events.loc[ :, "eff_proton_var_dw" ] )
 
     return ( df_protons_multiRP_events, df_protons_multiRP_index_2protons )
 
