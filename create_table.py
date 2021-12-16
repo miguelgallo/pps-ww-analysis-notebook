@@ -5,27 +5,59 @@ import pandas as pd
 import numba as nb
 import h5py
 
-from processing import run_ranges_periods, lumi_periods
+# from processing import run_ranges_periods_2017, run_ranges_periods_2018, lumi_periods_2017, lumi_periods_2018
+from processing import df_run_ranges_2017, df_run_ranges_2018, df_run_ranges_mixing_2017, df_run_ranges_mixing_2018, lumi_periods_2017, lumi_periods_2018
 
-def create_table( fileNames, label, tree_path="demo/SlimmedNtuple", mix_protons=False, proton_files=None, random_protons=False, resample_factor=-1, runOnMC=False, data_periods=None, step_size=100000, firstEvent=None, entryStop=None, debug=False ):
+def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/SlimmedNtuple", mix_protons=False, proton_files=None, random_protons=False, resample_factor=-1, runOnMC=False, data_periods=None, step_size=100000, firstEvent=None, entryStop=None, debug=False, output_dir="" ):
+
+    if lepton_type not in ( 'muon', 'electron' ):
+        raise RuntimeError( "Invalid lepton_type argument." )
+
+    if data_sample not in ( '2017', '2018' ):
+        raise RuntimeError( "Invalid data_sample argument." )
 
     if mix_protons and random_protons:
         raise RuntimeError( "Cannot set mix_protons and random_protons simultaneously." )
     
     fileNames_ = fileNames
     label_ = label
+    lepton_type_ = lepton_type
+    data_sample_ = data_sample
     # tree_path_ = "demo/SlimmedNtuple"
     # tree_path_ = "SlimmedNtuple"
     tree_path_ = tree_path
     tree_path_proton_files_ = "SlimmedNtuple"
-    output_path_ = "output"
+    # output_path_ = "output"
+    output_dir_ = None
+    if output_dir is not None and output_dir != "": output_dir_ = output_dir
+
+    df_run_ranges_ = None
+    df_run_ranges_mixing_ = None
+    if data_sample_ == '2017':
+        # df_run_ranges_ = pd.DataFrame( run_ranges_periods_2017, index=("min","max") ).transpose()
+        df_run_ranges_ = df_run_ranges_2017
+        df_run_ranges_mixing_ = df_run_ranges_mixing_2017
+    elif data_sample_ == '2018':
+        # df_run_ranges_ = pd.DataFrame( run_ranges_periods_2018, index=("min","max") ).transpose()
+        df_run_ranges_ = df_run_ranges_2018
+        df_run_ranges_mixing_ = df_run_ranges_mixing_2018
+    print ( df_run_ranges_ )
+    print ( df_run_ranges_mixing_ )
 
     runOnMC_ = runOnMC
     data_periods_ = data_periods if ( runOnMC_ and data_periods is not None and len(data_periods) > 0 ) else None
     if runOnMC_ and not data_periods_:
-        data_periods_ = list( run_ranges_periods.keys() )
+        # if data_sample_ == '2017':
+        #     data_periods_ = list( run_ranges_periods_2017.keys() )
+        # elif data_sample_ == '2018':
+        #     data_periods_ = list( run_ranges_periods_2018.keys() )
+        data_periods_ = list( df_run_ranges_.index )
 
-    df_run_ranges_ = pd.DataFrame( run_ranges_periods, index=("min","max") ).transpose()
+    # df_run_ranges_ = None
+    # if data_sample_ == '2017':
+    #     df_run_ranges_ = pd.DataFrame( run_ranges_periods_2017, index=("min","max") ).transpose()
+    # elif data_sample_ == '2018':
+    #     df_run_ranges_ = pd.DataFrame( run_ranges_periods_2018, index=("min","max") ).transpose()
 
     mix_protons_ = mix_protons
     proton_files_ = proton_files if ( mix_protons_ and proton_files is not None and len(proton_files) > 0 ) else None
@@ -44,6 +76,19 @@ def create_table( fileNames, label, tree_path="demo/SlimmedNtuple", mix_protons=
     #how_ = "zip"
     
     print ( "Run on MC: {}".format( runOnMC_ ) )
+
+    lumi_periods_ = None
+    if data_sample_ == '2017':
+        if lepton_type_ == 'muon':
+            lumi_periods_ = lumi_periods_2017[ 'muon' ]
+        elif lepton_type_ == 'electron':
+            lumi_periods_ = lumi_periods_2017[ 'electron' ]
+    elif data_sample_ == '2018':
+        if lepton_type_ == 'muon':
+            lumi_periods_ = lumi_periods_2018[ 'muon' ]
+        elif lepton_type_ == 'electron':
+            lumi_periods_ = lumi_periods_2018[ 'electron' ]
+
     lumi_weights_ = None
     probs_lumi_ = None
     if runOnMC_:
@@ -54,7 +99,7 @@ def create_table( fileNames, label, tree_path="demo/SlimmedNtuple", mix_protons=
         #     lumi_periods_sel_[ key_ ] = lumi_periods[ key_ ]
         #     lumi_values_.append( lumi_periods[ key_ ] )
         # print ( "Lumi: ", lumi_periods_sel_ )
-        lumi_weights_ = pd.Series( lumi_periods )
+        lumi_weights_ = pd.Series( lumi_periods_ )
         lumi_weights_ = lumi_weights_.loc[ data_periods_ ]
         probs_lumi_ = lumi_weights_ / lumi_weights_.sum()
         print ( "Data periods: ", data_periods_ )
@@ -76,7 +121,12 @@ def create_table( fileNames, label, tree_path="demo/SlimmedNtuple", mix_protons=
     np.random.seed( 42 )
 
     # ranges_crossing_angles_ = ( 100. + np.arange( 11 ) * 10. )
-    ranges_crossing_angles_ = [ 100., 130., 140., 150., 200. ]
+    # ranges_crossing_angles_ = [ 100., 130., 140., 150., 200. ]
+    ranges_crossing_angles_ = None
+    if data_sample_ == '2017':
+        ranges_crossing_angles_ = [ 100., 130., 140., 150., 200. ]
+    elif data_sample_ == '2018':
+        ranges_crossing_angles_ = [ 120., 140., 150., 170. ]
 
     # Read proton files
     protons_mix_all_ = None
@@ -153,8 +203,9 @@ def create_table( fileNames, label, tree_path="demo/SlimmedNtuple", mix_protons=
                 if fill_proton_extra_:
                     print ( protons_extra_, len( protons_extra_ ), ak.num( protons_extra_ ) )
                 print ( ppstracks_, len( ppstracks_ ), ak.num( ppstracks_ ) )                
-                for key_ in df_run_ranges_.index:
-                    msk_period_ = ( ( events_[ "run" ] >= df_run_ranges_.loc[ key_ ][ "min" ] ) & ( events_[ "run" ] <= df_run_ranges_.loc[ key_ ][ "max" ] ) )
+                # for key_ in df_run_ranges_.index:
+                for key_ in df_run_ranges_mixing_.index:
+                    msk_period_ = ( ( events_[ "run" ] >= df_run_ranges_mixing_.loc[ key_ ][ "min" ] ) & ( events_[ "run" ] <= df_run_ranges_mixing_.loc[ key_ ][ "max" ] ) )
                     print ( msk_period_, np.sum( msk_period_ ) )
 
                     if len( events_[ msk_period_ ] ) > 0:
@@ -208,7 +259,8 @@ def create_table( fileNames, label, tree_path="demo/SlimmedNtuple", mix_protons=
         if fill_proton_extra_:
             print ( protons_extra_mix_all_ )
         print ( ppstracks_mix_all_ )
-        for key_ in df_run_ranges_.index:
+        # for key_ in df_run_ranges_.index:
+        for key_ in df_run_ranges_mixing_.index:
             print ( key_ )
             # print ( protons_mix_all_[ key_ ], len( protons_mix_all_[ key_ ] ), ak.num( protons_mix_all_[ key_ ] ) )
             # if fill_proton_extra_:
@@ -245,15 +297,27 @@ def create_table( fileNames, label, tree_path="demo/SlimmedNtuple", mix_protons=
 
     dset_chunk_size = 50000
 
+    # columns_protons = [ "run", "lumiblock", "event", "slice", "crossingAngle", "betaStar", "instLumi", "xi", "thx", "thy", "t", "ismultirp", "rpid", "arm", "random",
+    #                     "jet0_pt", "jet0_eta", "jet0_phi", "jet0_energy", "jet0_mass", "jet0_corrmass", "jet0_tau1", "jet0_tau2", "jet0_vertexz",
+    #                     "jet0_px", "jet0_py", "jet0_pz",
+    #                     "muon0_pt", "muon0_eta", "muon0_phi", "muon0_energy", "muon0_charge", "muon0_iso", "muon0_dxy", "muon0_dz",
+    #                     "met", "met_x", "met_y", "met_phi",
+    #                     "nVertices",
+    #                     "num_bjets_ak8", "num_bjets_ak4", "num_jets_ak4",
+    #                     "pfcand_nextracks", "pfcand_nextracks_noDRl",
+    #                     "recoMWhad", "recoMWlep", "recoMWW", "recoRapidityWW", "dphiWW", "WLeptonicPt", "WLeptonicEta", "WLeptonicPhi" ]
     columns_protons = [ "run", "lumiblock", "event", "slice", "crossingAngle", "betaStar", "instLumi", "xi", "thx", "thy", "t", "ismultirp", "rpid", "arm", "random",
                         "jet0_pt", "jet0_eta", "jet0_phi", "jet0_energy", "jet0_mass", "jet0_corrmass", "jet0_tau1", "jet0_tau2", "jet0_vertexz",
                         "jet0_px", "jet0_py", "jet0_pz",
-                        "muon0_pt", "muon0_eta", "muon0_phi", "muon0_energy", "muon0_charge", "muon0_iso", "muon0_dxy", "muon0_dz",
                         "met", "met_x", "met_y", "met_phi",
                         "nVertices",
                         "num_bjets_ak8", "num_bjets_ak4", "num_jets_ak4",
                         "pfcand_nextracks", "pfcand_nextracks_noDRl",
                         "recoMWhad", "recoMWlep", "recoMWW", "recoRapidityWW", "dphiWW", "WLeptonicPt", "WLeptonicEta", "WLeptonicPhi" ]
+    if lepton_type_ == 'muon':
+        columns_protons.extend( [ "muon0_pt", "muon0_eta", "muon0_phi", "muon0_energy", "muon0_charge", "muon0_iso", "muon0_dxy", "muon0_dz" ] )
+    elif lepton_type_ == 'electron':
+        columns_protons.extend( [ "electron0_pt", "electron0_eta", "electron0_phi", "electron0_energy", "electron0_charge", "electron0_dxy", "electron0_dz" ] )
 
     columns_protons_multiRP = columns_protons.copy()
 
@@ -297,7 +361,12 @@ def create_table( fileNames, label, tree_path="demo/SlimmedNtuple", mix_protons=
 
     counts_label_protons_ = "Proton" if not ( random_protons_ or mix_protons_ ) else "ProtonRnd"
 
-    output_file_path_ = ( output_path_ + '/' + 'output-' + label_ + '.h5' )
+    # output_file_path_ = ( output_path_ + '/' + 'output-' + label_ + '.h5' )
+    file_name_label_ = 'output-{}.h5'.format( label_ )
+    if output_dir_ is not None and output_dir_ != "":
+        output_file_path_ = '{}/{}'.format( output_dir_ , file_name_label_ )
+    else:
+        output_file_path_ = file_name_label_
     print ( output_file_path_ )
     with h5py.File( output_file_path_, 'w') as f:
 
@@ -354,8 +423,12 @@ def create_table( fileNames, label, tree_path="demo/SlimmedNtuple", mix_protons=
             keys_nonproton.extend( keys_jet )
             keys_genjet = tree_.keys( filter_name="gen_jet*")
             keys_nonproton.extend( keys_genjet )
-            keys_muon = tree_.keys( filter_name="muon*")
-            keys_nonproton.extend( keys_muon )
+            if lepton_type_ == 'muon':
+                keys_muon_ = tree_.keys( filter_name="muon*")
+                keys_nonproton.extend( keys_muon_ )
+            elif lepton_type_ == 'electron':
+                keys_electron_ = tree_.keys( filter_name="electron*")
+                keys_nonproton.extend( keys_electron_ )
             keys_met = tree_.keys( filter_name="met*")
             keys_nonproton.extend( keys_met )
             keys_proton = tree_.keys( filter_name="proton*")
@@ -375,7 +448,10 @@ def create_table( fileNames, label, tree_path="demo/SlimmedNtuple", mix_protons=
                 print ( len(events_), events_ )
 
                 print ( "Num jets: {}".format( ak.num( events_["jet_pt"] ) ) )
-                print ( "Num muons: {}".format( ak.num( events_["muon_pt"] ) ) )
+                if lepton_type_ == 'muon':
+                    print ( "Num muons: {}".format( ak.num( events_["muon_pt"] ) ) )
+                elif lepton_type_ == 'electron':
+                    print ( "Num electrons: {}".format( ak.num( events_["electron_pt"] ) ) )
                 print ( "Num protons: {}".format( ak.num( events_["proton_xi"] ) ) )
                 print ( "Num pps tracks: {}".format( ak.num( events_["pps_track_x"] ) ) )
 
@@ -390,11 +466,20 @@ def create_table( fileNames, label, tree_path="demo/SlimmedNtuple", mix_protons=
                 selections_.append( "Jet" )
                 counts_.append( np.sum( np.array( msk_1jet ).astype("int32") ) )
 
-                msk_1muon = msk_1jet & ( ak.num( events_["muon_pt"] ) >= 1 )
-                selections_.append( "Muon" )
-                counts_.append( np.sum( np.array( msk_1muon ).astype("int32") ) )
+                lepton_var_ = ''
+                lepton_sel_name_ = ''
+                if lepton_type_ == 'muon':
+                    lepton_var_ = "muon_pt"
+                    lepton_sel_name_ = 'Muon'
+                elif lepton_type_ == 'electron':
+                    lepton_var_ = "electron_pt"
+                    lepton_sel_name_ = 'Electron'
 
-                events_ = events_[ msk_1muon ]    
+                msk_1lep = msk_1jet & ( ak.num( events_[ lepton_var_ ] ) >= 1 )
+                selections_.append( lepton_sel_name_ )
+                counts_.append( np.sum( np.array( msk_1lep ).astype("int32") ) )
+
+                events_ = events_[ msk_1lep ]    
 
                 selections_ = np.array( selections_ )
                 counts_ = np.array( counts_ )
@@ -436,7 +521,10 @@ def create_table( fileNames, label, tree_path="demo/SlimmedNtuple", mix_protons=
                 print ( "Slice: {}".format( events_[ "slice" ] ) ) 
                 print ( "Crossing angle: {}".format( events_[ "crossingAngle" ] ) ) 
                 print ( "Num jets: {}".format( ak.num( events_["jet_pt"] ) ) )
-                print ( "Num muons: {}".format( ak.num( events_["muon_pt"] ) ) )
+                if lepton_type_ == 'muon':
+                    print ( "Num muons: {}".format( ak.num( events_["muon_pt"] ) ) )
+                elif lepton_type_ == 'electron':
+                    print ( "Num electrons: {}".format( ak.num( events_["electron_pt"] ) ) )
                 print ( "Num protons: {}".format( ak.num( events_["proton_xi"] ) ) )
                 print ( "Num pps tracks: {}".format( ak.num( events_["pps_track_x"] ) ) )
 
@@ -568,9 +656,10 @@ def create_table( fileNames, label, tree_path="demo/SlimmedNtuple", mix_protons=
                     protons_mix_ = {}
                     protons_extra_mix_ = {}
                     ppstracks_mix_ = {}
-                    for key_ in df_run_ranges_.index:
+                    # for key_ in df_run_ranges_.index:
+                    for key_ in df_run_ranges_mixing_.index:
                         print ( key_ )
-                        msk_period_ = ( ( events_[ run_str_ ] >= df_run_ranges_.loc[ key_ ][ "min" ] ) & ( events_[ run_str_ ] <= df_run_ranges_.loc[ key_ ][ "max" ] ) )
+                        msk_period_ = ( ( events_[ run_str_ ] >= df_run_ranges_mixing_.loc[ key_ ][ "min" ] ) & ( events_[ run_str_ ] <= df_run_ranges_mixing_.loc[ key_ ][ "max" ] ) )
                         print ( msk_period_ )
 
                         # protons_mix_size_ = len( protons_mix_all_[ key_ ] )
@@ -650,7 +739,8 @@ def create_table( fileNames, label, tree_path="demo/SlimmedNtuple", mix_protons=
                     protons_mix_all_periods_ = None
                     protons_extra_mix_all_periods_ = None
                     ppstracks_mix_all_periods_ = None
-                    for key_ in df_run_ranges_.index:
+                    # for key_ in df_run_ranges_.index:
+                    for key_ in df_run_ranges_mixing_.index:
 
                         # if events_mix_all_periods_ is None:
                         #     events_mix_all_periods_ = events_mix_[ key_ ]
@@ -783,14 +873,25 @@ def create_table( fileNames, label, tree_path="demo/SlimmedNtuple", mix_protons=
                     protons_["gen_jet0_eta"]       = genjets_sel_[ "eta" ][:,0]
                     protons_["gen_jet0_phi"]       = genjets_sel_[ "phi" ][:,0]
                     protons_["gen_jet0_energy"]    = genjets_sel_[ "energy" ][:,0]
-                protons_["muon0_pt"]               = events_[ "muon_pt" ][:,0]
-                protons_["muon0_eta"]              = events_[ "muon_eta" ][:,0]
-                protons_["muon0_phi"]              = events_[ "muon_phi" ][:,0]
-                protons_["muon0_energy"]           = events_[ "muon_e" ][:,0]
-                protons_["muon0_charge"]           = events_[ "muon_charge" ][:,0]
-                protons_["muon0_iso"]              = events_[ "muon_iso" ][:,0]
-                protons_["muon0_dxy"]              = events_[ "muon_dxy" ][:,0]
-                protons_["muon0_dz"]               = events_[ "muon_dz" ][:,0]
+
+                if lepton_type_ == 'muon':
+                    protons_["muon0_pt"]               = events_[ "muon_pt" ][:,0]
+                    protons_["muon0_eta"]              = events_[ "muon_eta" ][:,0]
+                    protons_["muon0_phi"]              = events_[ "muon_phi" ][:,0]
+                    protons_["muon0_energy"]           = events_[ "muon_e" ][:,0]
+                    protons_["muon0_charge"]           = events_[ "muon_charge" ][:,0]
+                    protons_["muon0_iso"]              = events_[ "muon_iso" ][:,0]
+                    protons_["muon0_dxy"]              = events_[ "muon_dxy" ][:,0]
+                    protons_["muon0_dz"]               = events_[ "muon_dz" ][:,0]
+                elif lepton_type_ == 'electron':
+                    protons_["electron0_pt"]               = events_[ "electron_pt" ][:,0]
+                    protons_["electron0_eta"]              = events_[ "electron_eta" ][:,0]
+                    protons_["electron0_phi"]              = events_[ "electron_phi" ][:,0]
+                    protons_["electron0_energy"]           = events_[ "electron_e" ][:,0]
+                    protons_["electron0_charge"]           = events_[ "electron_charge" ][:,0]
+                    protons_["electron0_dxy"]              = events_[ "electron_dxy" ][:,0]
+                    protons_["electron0_dz"]               = events_[ "electron_dz" ][:,0]
+
                 protons_["met"]                    = events_["met"]
                 protons_["met_x"]                  = events_["met_x"]
                 protons_["met_y"]                  = events_["met_y"]

@@ -4,13 +4,28 @@ from random_experiment import get_systematics_vs_xi_h5
 import ROOT
 
 class ProcessData:
-    def __init__( self, labels, fileNames, random_protons=False, mix_protons=False, runOnMC=False ):
+    def __init__( self, lepton_type, data_sample, labels, fileNames, random_protons=False, mix_protons=False, runOnMC=False, output_dir="", use_hash_index=False ):
+        if lepton_type not in ( 'muon', 'electron' ):
+            raise RuntimeError( "Invalid lepton_type argument." )
+
+        if data_sample not in ( '2017', '2018' ):
+            raise RuntimeError( "Invalid data_sample argument." )
+
+        self.lepton_type_ = lepton_type
+        self.data_sample_ = data_sample
         self.labels_ = labels
         self.fileNames_ = fileNames
+        self.output_dir_ = None
+        if output_dir is not None and output_dir != "": self.output_dir_ = output_dir
+        self.use_hash_index_ = use_hash_index
         self.random_protons_ = random_protons 
         self.mix_protons_ = mix_protons
         self.runOnMC_ = runOnMC
-        self.data_periods_ = [ "2017B", "2017C1", "2017C2", "2017D", "2017E", "2017F1", "2017F2", "2017F3" ]
+        self.data_periods_ = None
+        if self.data_sample_ == '2017':
+            self.data_periods_ = [ "2017B", "2017C1", "2017C2", "2017D", "2017E", "2017F1", "2017F2", "2017F3" ]
+        elif self.data_sample_ == '2018':
+            self.data_periods_ = [ "2018A", "2018B1", "2018B2", "2018C", "2018D1", "2018D2" ]
 
         self.jecPars_ = None
         self.jecUncertainty_ = None
@@ -30,8 +45,9 @@ class ProcessData:
                 lib_path_ = cmssw_release_base_ + "/lib/slc7_amd64_gcc900/libCondFormatsJetMETObjects.so"
                 print ( "Loading {}".format( lib_path_ ) )
                 ROOT.gSystem.Load( lib_path_ )
-
-            self.jecPars_ = ROOT.JetCorrectorParameters( cmssw_base_ + "/src/PhysicsTools/NanoAODTools/data/jme/" + "Fall17_17Nov2017_V32_MC_Uncertainty_AK8PFchs.txt" )
+            
+            if self.data_sample_ == '2017' or self.data_sample_ == '2018':
+                self.jecPars_ = ROOT.JetCorrectorParameters( cmssw_base_ + "/src/PhysicsTools/NanoAODTools/data/jme/" + "Fall17_17Nov2017_V32_MC_Uncertainty_AK8PFchs.txt" )
             print ( self.jecPars_ )
             self.jecUncertainty_ = ROOT.JetCorrectionUncertainty( self.jecPars_ )
             print ( self.jecUncertainty_ )
@@ -78,12 +94,18 @@ class ProcessData:
             run_str_ = "run_mc"
 
         if "period" not in df.columns:
+            df_run_ranges_ = None
+            if self.data_sample_ == '2017':
+                df_run_ranges_ = df_run_ranges_2017
+            elif self.data_sample_ == '2018':
+                df_run_ranges_ = df_run_ranges_2018
+
             df.loc[ :, "period" ] = np.nan
-            for idx_ in range( df_run_ranges.shape[0] ):
-                msk_period_ = ( ( df.loc[ :, run_str_ ] >= df_run_ranges.iloc[ idx_ ][ "min" ] ) & ( df.loc[ :, run_str_ ] <= df_run_ranges.iloc[ idx_ ][ "max" ] ) )
+            for idx_ in range( df_run_ranges_.shape[0] ):
+                msk_period_ = ( ( df.loc[ :, run_str_ ] >= df_run_ranges_.iloc[ idx_ ][ "min" ] ) & ( df.loc[ :, run_str_ ] <= df_run_ranges_.iloc[ idx_ ][ "max" ] ) )
                 sum_period_ = np.sum( msk_period_ )
                 if sum_period_ > 0:
-                    period_key_ = df_run_ranges.index[ idx_ ]
+                    period_key_ = df_run_ranges_.index[ idx_ ]
                     df.loc[ :, "period" ].loc[ msk_period_ ] = period_key_
                     print ( "{}: {}".format( period_key_, sum_period_ ) )
             print ( df.loc[ :, "period" ] )
@@ -145,7 +167,6 @@ class ProcessData:
             df.loc[ :, "jet0_py" + label_ ]       = ( df.loc[ :, "jet0_pt" + label_ ] * np.sin( df.loc[ :, "jet0_phi" ] ) )
             df.loc[ :, "jet0_pz" + label_ ]       = ( df.loc[ :, "jet0_pt" + label_ ] * np.sinh( df.loc[ :, "jet0_eta" ] ) )
             
-
     def calculateMuons( self, df ):
         label_ = "_nom"
         df.loc[ :, "muon0_pt" + label_ ]     = df.loc[ :, "muon0_pt" ]
@@ -153,7 +174,57 @@ class ProcessData:
         df.loc[ :, "muon0_px" + label_ ]     = ( df.loc[ :, "muon0_pt" + label_ ] * np.cos( df.loc[ :, "muon0_phi" ] ) )
         df.loc[ :, "muon0_py" + label_ ]     = ( df.loc[ :, "muon0_pt" + label_ ] * np.sin( df.loc[ :, "muon0_phi" ] ) )
         df.loc[ :, "muon0_pz" + label_ ]     = ( df.loc[ :, "muon0_pt" + label_ ] * np.sinh( df.loc[ :, "muon0_eta" ] ) )
-        if self.runOnMC_: pass
+        if self.runOnMC_:
+            # Muon scale factor
+            from muon_efficiency import MuonScaleFactor
+            # file_eff_MuID = ROOT.TFile.Open( "efficiencies/muon/RunBCDEF_SF_MuID.root", "READ" )
+            file_eff_syst_MuID_ = None
+            histName_ = None
+            if self.data_sample_ == '2017':
+                file_eff_syst_MuID_ = ROOT.TFile.Open( "efficiencies/muon/2017/RunBCDEF_SF_ID_syst.root", "READ" )
+                histName_ = "NUM_TightID_DEN_genTracks_pt_abseta"
+            elif self.data_sample_ == '2018':
+                file_eff_syst_MuID_ = ROOT.TFile.Open( "efficiencies/muon/2018/RunABCD_SF_ID.root", "READ" )
+                histName_ = "NUM_TightID_DEN_TrackerMuons_pt_abseta"
+
+            # muon_scale_factor_ = MuonScaleFactor( histos={ "MuID": file_eff_MuID.Get( "NUM_TightID_DEN_genTracks_pt_abseta" ) } )
+            muon_scale_factor_ = MuonScaleFactor(
+                histos={ "MuID": file_eff_syst_MuID_.Get( histName_ ),
+                         "MuID_stat": file_eff_syst_MuID_.Get( histName_ + "_stat" ),
+                         "MuID_syst": file_eff_syst_MuID_.Get( histName_ + "_syst" ) }
+                )
+            f_sf_muon_id_ = lambda row: muon_scale_factor_( row["muon0_pt"], row["muon0_eta"] )[ 0 ]
+            f_sf_muon_id_unc_ = lambda row: muon_scale_factor_( row["muon0_pt"], row["muon0_eta"] )[ 1 ]
+            df.loc[ :, 'sf_muon_id' ] = df[ ["muon0_pt", "muon0_eta"] ].apply( f_sf_muon_id_, axis=1 )
+            df.loc[ :, 'sf_muon_id_unc' ] = df[ ["muon0_pt", "muon0_eta"] ].apply( f_sf_muon_id_unc_, axis=1 )
+            df.loc[ :, 'sf_muon_id_up' ] = ( df.loc[ :, 'sf_muon_id' ] + df.loc[ :, 'sf_muon_id_unc' ] )
+            df.loc[ :, 'sf_muon_id_dw' ] = ( df.loc[ :, 'sf_muon_id' ] - df.loc[ :, 'sf_muon_id_unc' ] )
+
+    def calculateElectrons( self, df ):
+        label_ = "_nom"
+        df.loc[ :, "electron0_pt" + label_ ]     = df.loc[ :, "electron0_pt" ]
+        df.loc[ :, "electron0_energy" + label_ ] = df.loc[ :, "electron0_energy" ]
+        df.loc[ :, "electron0_px" + label_ ]     = ( df.loc[ :, "electron0_pt" + label_ ] * np.cos( df.loc[ :, "electron0_phi" ] ) )
+        df.loc[ :, "electron0_py" + label_ ]     = ( df.loc[ :, "electron0_pt" + label_ ] * np.sin( df.loc[ :, "electron0_phi" ] ) )
+        df.loc[ :, "electron0_pz" + label_ ]     = ( df.loc[ :, "electron0_pt" + label_ ] * np.sinh( df.loc[ :, "electron0_eta" ] ) )
+        if self.runOnMC_:
+            # Electron scale factor
+            from electron_efficiency import ElectronScaleFactor
+            # file_eff_EleID = ROOT.TFile.Open( "efficiencies/electron/2017_ElectronTight.root", "READ" )
+            file_eff_EleID_ = None
+            histName_ = "EGamma_SF2D"
+            if self.data_sample_ == '2017':
+                file_eff_EleID_ = ROOT.TFile.Open( "efficiencies/electron/2017/2017_ElectronTight.root", "READ" )
+            elif self.data_sample_ == '2018':
+                file_eff_EleID_ = ROOT.TFile.Open( "efficiencies/electron/2018/2018_ElectronTight.root", "READ" )
+
+            electron_scale_factor_ = ElectronScaleFactor( histos={ "EleID": file_eff_EleID_.Get( histName_ ) } )
+            f_sf_electron_id_ = lambda row: electron_scale_factor_( row["electron0_pt"], row["electron0_eta"] )[ 0 ]
+            f_sf_electron_id_unc_ = lambda row: electron_scale_factor_( row["electron0_pt"], row["electron0_eta"] )[ 1 ]
+            df.loc[ :, 'sf_electron_id' ] = df[ ["electron0_pt", "electron0_eta"] ].apply( f_sf_electron_id_, axis=1 )
+            df.loc[ :, 'sf_electron_id_unc' ] = df[ ["electron0_pt", "electron0_eta"] ].apply( f_sf_electron_id_unc_, axis=1 )
+            df.loc[ :, 'sf_electron_id_up' ] = ( df.loc[ :, 'sf_electron_id' ] + df.loc[ :, 'sf_electron_id_unc' ] )
+            df.loc[ :, 'sf_electron_id_dw' ] = ( df.loc[ :, 'sf_electron_id' ] - df.loc[ :, 'sf_electron_id_unc' ] )
 
     def calculateWLep( self, df ):
         label_ = "_nom"
@@ -254,8 +325,13 @@ class ProcessData:
             import time
             print( time.strftime("%Y/%m/%d %H:%M:%S", time.localtime() ) )
             time_s_ = time.time()
-        
-            file_path_ = "data-store-{}.h5".format( label_ )
+
+            file_path_ = None
+            file_name_label_ =  "data-store-{}.h5".format( label_ )
+            if self.output_dir_ is not None and self.output_dir_ != "":
+                file_path_ = "{}/{}".format( self.output_dir_, file_name_label_ )
+            else:
+                file_path_ = file_name_label_
             print ( file_path_ )
             # with pd.HDFStore( "reduced-data-store-{}.h5".format( label_ ), complevel=5 ) as store_:
             with pd.HDFStore( file_path_, 'w', complevel=5 ) as store_:
@@ -320,7 +396,12 @@ class ProcessData:
                     print ( df_protons_multiRP_.loc[ :, 'C_JER_jer_dw' ] )
 
                 self.calculateJets( df_protons_multiRP_ )
-                self.calculateMuons( df_protons_multiRP_ )
+
+                if self.lepton_type_ == 'muon':
+                    self.calculateMuons( df_protons_multiRP_ )
+                elif self.lepton_type_ == 'electron':
+                    self.calculateElectrons( df_protons_multiRP_ )
+
                 self.calculateWLep( df_protons_multiRP_ )
                 self.calculateWW( df_protons_multiRP_ )
                 self.calculateXiCMS( df_protons_multiRP_ )
@@ -328,13 +409,17 @@ class ProcessData:
                 self.calculateProtons( df_protons_multiRP_ )
 
                 df_protons_multiRP_index_, df_protons_multiRP_events_, df_ppstracks_index_ = process_data_protons_multiRP(
-                    df_protons_multiRP_, df_ppstracks_,
+                    self.lepton_type_,
+                    self.data_sample_,
+                    df_protons_multiRP_,
+                    df_ppstracks_,
                     apply_fiducial=apply_fiducial,
                     within_aperture=within_aperture,
                     random_protons=self.random_protons_,
                     mix_protons=self.mix_protons_,
                     select_2protons=select_2protons,
-                    runOnMC=self.runOnMC_
+                    runOnMC=self.runOnMC_,
+                    use_hash_index=self.use_hash_index_
                     )
 
                 store_[ "counts" ] = df_counts_

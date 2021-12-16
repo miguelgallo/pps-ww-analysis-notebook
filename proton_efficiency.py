@@ -247,3 +247,34 @@ def efficiencies_2017():
     print ( multiRP_efficiency )
 
     return ( strips_multitrack_efficiency, strips_sensor_efficiency, multiRP_efficiency, file_eff_strips, file_eff_multiRP )
+
+def efficiencies_2018():
+
+    file_eff_radiation = ROOT.TFile.Open( "./efficiencies/Pixel/RPixTracking/pixelEfficiencies_radiation_reMiniAOD.root", "READ" )
+    file_eff_multiRP = ROOT.TFile.Open( "./efficiencies/Pixel/RPixTracking/pixelEfficiencies_multiRP_reMiniAOD.root", "READ" )
+    
+    data_periods = [ "2018A", "2018B1", "2018B2", "2018C", "2018D1", "2018D2" ]
+    years = [ period[:4] for period in data_periods ]
+    
+    sensor_near_efficiency = {}
+    multiRP_efficiency = {}
+    
+    # Retrieve histograms from files and save them in dictionaries for future usage
+    for idx_, period_ in enumerate( data_periods ):
+        sensor_near_efficiency[ period_ ] = {}
+        multiRP_efficiency[ period_ ] = {}
+        year_ = years[ idx_ ]
+        for sector_ in ["45","56"]:
+            station_ = "210"
+            sensor_near_efficiency[ period_ ][ sector_ ] = file_eff_radiation.Get(
+                "Pixel/" + year_ + "/" + period_ + "/h" + sector_ + "_" + station_ + "_" + period_ + "_all_2D"
+                )
+            
+            station_ = "220"
+            multiRP_efficiency[ period_ ][ sector_ ] = file_eff_multiRP.Get(
+                "Pixel/" + year_ + "/" + period_ + "/h" + sector_ + "_" + station_ + "_" + period_ + "_all_2D"
+                )
+    print ( sensor_near_efficiency )
+    print ( multiRP_efficiency )
+
+    return ( sensor_near_efficiency, multiRP_efficiency, file_eff_radiation, file_eff_multiRP )
