@@ -1,13 +1,25 @@
 from ProcessData import *
+import argparse
 
-# lepton_type = "muon"
-lepton_type = "electron"
+parser = argparse.ArgumentParser(description = 'Process data.')
+parser.add_argument('--period', required=False, help = 'Period.' )
+
+args = parser.parse_args()
+print ( args )
+
+period_ = None
+if hasattr( args, "period" ) and args.period is not None and args.period != "":
+    period_ = args.period
+    print ( "Period: " + period_ ) 
+
+lepton_type = "muon"
+# lepton_type = "electron"
 
 # data_sample = '2017'
 data_sample = '2018'
 
 # period = None
-period = "2018D"
+# period = "2018D"
 
 label__ = "data-random-resample_50-{}-{}".format( data_sample, lepton_type )
 
@@ -53,9 +65,9 @@ elif data_sample == '2018':
         labels_.append( label__ + "-2018D" )
         fileNames_bkg_[ ( label__ + "-2018D" ) ] = [ 'output-data-random-resample_50-2018-electron-2018D.h5' ]
 
-if period is not None:
+if period_ is not None and period_ != "":
     labels_ = []
-    labels_.append( "{}-{}".format( label__, period ) )
+    labels_.append( "{}-{}".format( label__, period_ ) )
     path__ = fileNames_bkg_[ labels_[-1] ]
     fileNames_bkg_ = {}
     fileNames_bkg_[ labels_[-1] ] = path__

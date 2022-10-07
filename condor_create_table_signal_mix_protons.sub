@@ -1,0 +1,31 @@
+executable = sub_condor_create_table_signal_mix_protons.csh
+
+output     = output/output_create_table_signal_mix_protons_$(ClusterId)_$(ProcId).out
+error      = output/output_create_table_signal_mix_protons_$(ClusterId)_$(ProcId).err
+log        = output/output_create_table_signal_mix_protons_$(ClusterId)_$(ProcId).log
+
+getenv     = True
+
+#environment = "X509_USER_PROXY=$ENV(HOME)/x509up_u61469"
+
+requirements = (OpSysAndVer =?= "CentOS7")
+
+request_memory = 16000
+# request_memory = 32000
+# request_memory = 48000
+# request_memory = 54000
+# request_memory = 64000
+
+# RequestCpus = 1
+
+# +JobFlavour = "longlunch"
++JobFlavour = "workday"
+# +JobFlavour = "tomorrow"
+# +JobFlavour = "testmatch"
+# +JobFlavour = "nextweek"
+
+should_transfer_files = IF_NEEDED
+when_to_transfer_output = ON_EXIT
+transfer_output_files = ""
+
+queue

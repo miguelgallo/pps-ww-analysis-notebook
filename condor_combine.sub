@@ -1,0 +1,172 @@
+executable = sub_condor_combine.csh
+
+output     = output/output_combine_$(ClusterId)_$(ProcId).out
+error      = output/output_combine_$(ClusterId)_$(ProcId).err
+log        = output/output_combine_$(ClusterId)_$(ProcId).log
+
+getenv     = True
+
+# environment = "X509_USER_PROXY=$ENV(HOME)/x509up_u61469"
+
+requirements = (OpSysAndVer =?= "CentOS7")
+
+request_memory = 16000
+# request_memory = 32000
+# request_memory = 48000
+# request_memory = 54000
+# request_memory = 64000
+
+# RequestCpus = 1
+
+# +JobFlavour = "longlunch"
+# +JobFlavour = "workday"
++JobFlavour = "tomorrow"
+# +JobFlavour = "testmatch"
+# +JobFlavour = "nextweek"
+
+should_transfer_files = IF_NEEDED
+when_to_transfer_output = ON_EXIT
+transfer_output_files = ""
+
+queue arguments from (
+#    datacard_counting_muon-2017_sig-2017-muon-AQGC-A0W1e-6.txt 2017_muon_AQGC_A0W1e-6 --expectedFromGrid=0.5
+#    datacard_counting_muon-2017_sig-2017-muon-AQGC-A0W1e-6.txt 2017_muon_AQGC_A0W1e-6 --expectedFromGrid=0.84
+#    datacard_counting_muon-2017_sig-2017-muon-AQGC-A0W1e-6.txt 2017_muon_AQGC_A0W1e-6 --expectedFromGrid=0.16
+#    datacard_counting_muon-2017_sig-2017-muon-AQGC-A0W1e-6.txt 2017_muon_AQGC_A0W1e-6 --expectedFromGrid=0.975
+#    datacard_counting_muon-2017_sig-2017-muon-AQGC-A0W1e-6.txt 2017_muon_AQGC_A0W1e-6 --expectedFromGrid=0.025
+#    datacard_counting_muon-2017_sig-2017-muon-AQGC-A0W2e-6.txt 2017_muon_AQGC_A0W2e-6 --expectedFromGrid=0.5
+#    datacard_counting_muon-2017_sig-2017-muon-AQGC-A0W2e-6.txt 2017_muon_AQGC_A0W2e-6 --expectedFromGrid=0.84
+#    datacard_counting_muon-2017_sig-2017-muon-AQGC-A0W2e-6.txt 2017_muon_AQGC_A0W2e-6 --expectedFromGrid=0.16
+#    datacard_counting_muon-2017_sig-2017-muon-AQGC-A0W2e-6.txt 2017_muon_AQGC_A0W2e-6 --expectedFromGrid=0.975
+#    datacard_counting_muon-2017_sig-2017-muon-AQGC-A0W2e-6.txt 2017_muon_AQGC_A0W2e-6 --expectedFromGrid=0.025
+#    datacard_counting_muon-2017_sig-2017-muon-AQGC-A0W5e-6.txt 2017_muon_AQGC_A0W5e-6 --expectedFromGrid=0.5
+#    datacard_counting_muon-2017_sig-2017-muon-AQGC-A0W5e-6.txt 2017_muon_AQGC_A0W5e-6 --expectedFromGrid=0.84
+#    datacard_counting_muon-2017_sig-2017-muon-AQGC-A0W5e-6.txt 2017_muon_AQGC_A0W5e-6 --expectedFromGrid=0.16
+#    datacard_counting_muon-2017_sig-2017-muon-AQGC-A0W5e-6.txt 2017_muon_AQGC_A0W5e-6 --expectedFromGrid=0.975
+#    datacard_counting_muon-2017_sig-2017-muon-AQGC-A0W5e-6.txt 2017_muon_AQGC_A0W5e-6 --expectedFromGrid=0.025
+#    datacard_counting_electron-2017_sig-2017-electron-AQGC-A0W1e-6.txt 2017_electron_AQGC_A0W1e-6 --expectedFromGrid=0.5
+#    datacard_counting_electron-2017_sig-2017-electron-AQGC-A0W1e-6.txt 2017_electron_AQGC_A0W1e-6 --expectedFromGrid=0.84
+#    datacard_counting_electron-2017_sig-2017-electron-AQGC-A0W1e-6.txt 2017_electron_AQGC_A0W1e-6 --expectedFromGrid=0.16
+#    datacard_counting_electron-2017_sig-2017-electron-AQGC-A0W1e-6.txt 2017_electron_AQGC_A0W1e-6 --expectedFromGrid=0.975
+#    datacard_counting_electron-2017_sig-2017-electron-AQGC-A0W1e-6.txt 2017_electron_AQGC_A0W1e-6 --expectedFromGrid=0.025
+#    datacard_counting_electron-2017_sig-2017-electron-AQGC-A0W2e-6.txt 2017_electron_AQGC_A0W2e-6 --expectedFromGrid=0.5
+#    datacard_counting_electron-2017_sig-2017-electron-AQGC-A0W2e-6.txt 2017_electron_AQGC_A0W2e-6 --expectedFromGrid=0.84
+#    datacard_counting_electron-2017_sig-2017-electron-AQGC-A0W2e-6.txt 2017_electron_AQGC_A0W2e-6 --expectedFromGrid=0.16
+#    datacard_counting_electron-2017_sig-2017-electron-AQGC-A0W2e-6.txt 2017_electron_AQGC_A0W2e-6 --expectedFromGrid=0.975
+#    datacard_counting_electron-2017_sig-2017-electron-AQGC-A0W2e-6.txt 2017_electron_AQGC_A0W2e-6 --expectedFromGrid=0.025
+#    datacard_counting_electron-2017_sig-2017-electron-AQGC-A0W5e-6.txt 2017_electron_AQGC_A0W5e-6 --expectedFromGrid=0.5
+#    datacard_counting_electron-2017_sig-2017-electron-AQGC-A0W5e-6.txt 2017_electron_AQGC_A0W5e-6 --expectedFromGrid=0.84
+#    datacard_counting_electron-2017_sig-2017-electron-AQGC-A0W5e-6.txt 2017_electron_AQGC_A0W5e-6 --expectedFromGrid=0.16
+#    datacard_counting_electron-2017_sig-2017-electron-AQGC-A0W5e-6.txt 2017_electron_AQGC_A0W5e-6 --expectedFromGrid=0.975
+#    datacard_counting_electron-2017_sig-2017-electron-AQGC-A0W5e-6.txt 2017_electron_AQGC_A0W5e-6 --expectedFromGrid=0.025
+#    datacard_counting_muon-2018_sig-2018-muon-AQGC-A0W5e-7.txt 2018_muon_AQGC_A0W5e-7 --expectedFromGrid=0.5
+#    datacard_counting_muon-2018_sig-2018-muon-AQGC-A0W5e-7.txt 2018_muon_AQGC_A0W5e-7 --expectedFromGrid=0.84
+#    datacard_counting_muon-2018_sig-2018-muon-AQGC-A0W5e-7.txt 2018_muon_AQGC_A0W5e-7 --expectedFromGrid=0.16
+#    datacard_counting_muon-2018_sig-2018-muon-AQGC-A0W5e-7.txt 2018_muon_AQGC_A0W5e-7 --expectedFromGrid=0.975
+#    datacard_counting_muon-2018_sig-2018-muon-AQGC-A0W5e-7.txt 2018_muon_AQGC_A0W5e-7 --expectedFromGrid=0.025
+#    datacard_counting_muon-2018_sig-2018-muon-AQGC-A0W1e-6.txt 2018_muon_AQGC_A0W1e-6 --expectedFromGrid=0.5
+#    datacard_counting_muon-2018_sig-2018-muon-AQGC-A0W1e-6.txt 2018_muon_AQGC_A0W1e-6 --expectedFromGrid=0.84
+#    datacard_counting_muon-2018_sig-2018-muon-AQGC-A0W1e-6.txt 2018_muon_AQGC_A0W1e-6 --expectedFromGrid=0.16
+#    datacard_counting_muon-2018_sig-2018-muon-AQGC-A0W1e-6.txt 2018_muon_AQGC_A0W1e-6 --expectedFromGrid=0.975
+#    datacard_counting_muon-2018_sig-2018-muon-AQGC-A0W1e-6.txt 2018_muon_AQGC_A0W1e-6 --expectedFromGrid=0.025
+#    datacard_counting_muon-2018_sig-2018-muon-AQGC-A0W2e-6.txt 2018_muon_AQGC_A0W2e-6 --expectedFromGrid=0.5
+#    datacard_counting_muon-2018_sig-2018-muon-AQGC-A0W2e-6.txt 2018_muon_AQGC_A0W2e-6 --expectedFromGrid=0.84
+#    datacard_counting_muon-2018_sig-2018-muon-AQGC-A0W2e-6.txt 2018_muon_AQGC_A0W2e-6 --expectedFromGrid=0.16
+#    datacard_counting_muon-2018_sig-2018-muon-AQGC-A0W2e-6.txt 2018_muon_AQGC_A0W2e-6 --expectedFromGrid=0.975
+#    datacard_counting_muon-2018_sig-2018-muon-AQGC-A0W2e-6.txt 2018_muon_AQGC_A0W2e-6 --expectedFromGrid=0.025
+#    datacard_counting_muon-2018_sig-2018-muon-AQGC-A0W5e-6.txt 2018_muon_AQGC_A0W5e-6 --expectedFromGrid=0.5
+#    datacard_counting_muon-2018_sig-2018-muon-AQGC-A0W5e-6.txt 2018_muon_AQGC_A0W5e-6 --expectedFromGrid=0.84
+#    datacard_counting_muon-2018_sig-2018-muon-AQGC-A0W5e-6.txt 2018_muon_AQGC_A0W5e-6 --expectedFromGrid=0.16
+#    datacard_counting_muon-2018_sig-2018-muon-AQGC-A0W5e-6.txt 2018_muon_AQGC_A0W5e-6 --expectedFromGrid=0.975
+#    datacard_counting_muon-2018_sig-2018-muon-AQGC-A0W5e-6.txt 2018_muon_AQGC_A0W5e-6 --expectedFromGrid=0.025
+#    datacard_counting_electron-2018_sig-2018-electron-AQGC-A0W5e-7.txt 2018_electron_AQGC_A0W5e-7 --expectedFromGrid=0.5
+#    datacard_counting_electron-2018_sig-2018-electron-AQGC-A0W5e-7.txt 2018_electron_AQGC_A0W5e-7 --expectedFromGrid=0.84
+#    datacard_counting_electron-2018_sig-2018-electron-AQGC-A0W5e-7.txt 2018_electron_AQGC_A0W5e-7 --expectedFromGrid=0.16
+#    datacard_counting_electron-2018_sig-2018-electron-AQGC-A0W5e-7.txt 2018_electron_AQGC_A0W5e-7 --expectedFromGrid=0.975
+#    datacard_counting_electron-2018_sig-2018-electron-AQGC-A0W5e-7.txt 2018_electron_AQGC_A0W5e-7 --expectedFromGrid=0.025
+#    datacard_counting_electron-2018_sig-2018-electron-AQGC-A0W1e-6.txt 2018_electron_AQGC_A0W1e-6 --expectedFromGrid=0.5
+#    datacard_counting_electron-2018_sig-2018-electron-AQGC-A0W1e-6.txt 2018_electron_AQGC_A0W1e-6 --expectedFromGrid=0.84
+#    datacard_counting_electron-2018_sig-2018-electron-AQGC-A0W1e-6.txt 2018_electron_AQGC_A0W1e-6 --expectedFromGrid=0.16
+#    datacard_counting_electron-2018_sig-2018-electron-AQGC-A0W1e-6.txt 2018_electron_AQGC_A0W1e-6 --expectedFromGrid=0.975
+#    datacard_counting_electron-2018_sig-2018-electron-AQGC-A0W1e-6.txt 2018_electron_AQGC_A0W1e-6 --expectedFromGrid=0.025
+#    datacard_counting_electron-2018_sig-2018-electron-AQGC-A0W2e-6.txt 2018_electron_AQGC_A0W2e-6 --expectedFromGrid=0.5
+#    datacard_counting_electron-2018_sig-2018-electron-AQGC-A0W2e-6.txt 2018_electron_AQGC_A0W2e-6 --expectedFromGrid=0.84
+#    datacard_counting_electron-2018_sig-2018-electron-AQGC-A0W2e-6.txt 2018_electron_AQGC_A0W2e-6 --expectedFromGrid=0.16
+#    datacard_counting_electron-2018_sig-2018-electron-AQGC-A0W2e-6.txt 2018_electron_AQGC_A0W2e-6 --expectedFromGrid=0.975
+#    datacard_counting_electron-2018_sig-2018-electron-AQGC-A0W2e-6.txt 2018_electron_AQGC_A0W2e-6 --expectedFromGrid=0.025
+#    datacard_counting_electron-2018_sig-2018-electron-AQGC-A0W5e-6.txt 2018_electron_AQGC_A0W5e-6 --expectedFromGrid=0.5
+#    datacard_counting_electron-2018_sig-2018-electron-AQGC-A0W5e-6.txt 2018_electron_AQGC_A0W5e-6 --expectedFromGrid=0.84
+#    datacard_counting_electron-2018_sig-2018-electron-AQGC-A0W5e-6.txt 2018_electron_AQGC_A0W5e-6 --expectedFromGrid=0.16
+#    datacard_counting_electron-2018_sig-2018-electron-AQGC-A0W5e-6.txt 2018_electron_AQGC_A0W5e-6 --expectedFromGrid=0.975
+#    datacard_counting_electron-2018_sig-2018-electron-AQGC-A0W5e-6.txt 2018_electron_AQGC_A0W5e-6 --expectedFromGrid=0.025
+#    datacard_counting_2017-AQGC-A0W1e-6.txt 2017_AQGC_A0W1e-6 --expectedFromGrid=0.5
+#    datacard_counting_2017-AQGC-A0W1e-6.txt 2017_AQGC_A0W1e-6 --expectedFromGrid=0.84
+#    datacard_counting_2017-AQGC-A0W1e-6.txt 2017_AQGC_A0W1e-6 --expectedFromGrid=0.16
+#    datacard_counting_2017-AQGC-A0W1e-6.txt 2017_AQGC_A0W1e-6 --expectedFromGrid=0.975
+#    datacard_counting_2017-AQGC-A0W1e-6.txt 2017_AQGC_A0W1e-6 --expectedFromGrid=0.025
+#    datacard_counting_2017-AQGC-A0W2e-6.txt 2017_AQGC_A0W2e-6 --expectedFromGrid=0.5
+#    datacard_counting_2017-AQGC-A0W2e-6.txt 2017_AQGC_A0W2e-6 --expectedFromGrid=0.84
+#    datacard_counting_2017-AQGC-A0W2e-6.txt 2017_AQGC_A0W2e-6 --expectedFromGrid=0.16
+#    datacard_counting_2017-AQGC-A0W2e-6.txt 2017_AQGC_A0W2e-6 --expectedFromGrid=0.975
+#    datacard_counting_2017-AQGC-A0W2e-6.txt 2017_AQGC_A0W2e-6 --expectedFromGrid=0.025
+#    datacard_counting_2017-AQGC-A0W5e-6.txt 2017_AQGC_A0W5e-6 --expectedFromGrid=0.5
+#    datacard_counting_2017-AQGC-A0W5e-6.txt 2017_AQGC_A0W5e-6 --expectedFromGrid=0.84
+#    datacard_counting_2017-AQGC-A0W5e-6.txt 2017_AQGC_A0W5e-6 --expectedFromGrid=0.16
+#    datacard_counting_2017-AQGC-A0W5e-6.txt 2017_AQGC_A0W5e-6 --expectedFromGrid=0.975
+#    datacard_counting_2017-AQGC-A0W5e-6.txt 2017_AQGC_A0W5e-6 --expectedFromGrid=0.025
+#    datacard_counting_2018-AQGC-A0W5e-7.txt 2018_AQGC_A0W5e-7 --expectedFromGrid=0.5
+#    datacard_counting_2018-AQGC-A0W5e-7.txt 2018_AQGC_A0W5e-7 --expectedFromGrid=0.84
+#    datacard_counting_2018-AQGC-A0W5e-7.txt 2018_AQGC_A0W5e-7 --expectedFromGrid=0.16
+#    datacard_counting_2018-AQGC-A0W5e-7.txt 2018_AQGC_A0W5e-7 --expectedFromGrid=0.975
+#    datacard_counting_2018-AQGC-A0W5e-7.txt 2018_AQGC_A0W5e-7 --expectedFromGrid=0.025
+#    datacard_counting_2018-AQGC-A0W1e-6.txt 2018_AQGC_A0W1e-6 --expectedFromGrid=0.5
+#    datacard_counting_2018-AQGC-A0W1e-6.txt 2018_AQGC_A0W1e-6 --expectedFromGrid=0.84
+#    datacard_counting_2018-AQGC-A0W1e-6.txt 2018_AQGC_A0W1e-6 --expectedFromGrid=0.16
+#    datacard_counting_2018-AQGC-A0W1e-6.txt 2018_AQGC_A0W1e-6 --expectedFromGrid=0.975
+#    datacard_counting_2018-AQGC-A0W1e-6.txt 2018_AQGC_A0W1e-6 --expectedFromGrid=0.025
+#    datacard_counting_2018-AQGC-A0W2e-6.txt 2018_AQGC_A0W2e-6 --expectedFromGrid=0.5
+#    datacard_counting_2018-AQGC-A0W2e-6.txt 2018_AQGC_A0W2e-6 --expectedFromGrid=0.84
+#    datacard_counting_2018-AQGC-A0W2e-6.txt 2018_AQGC_A0W2e-6 --expectedFromGrid=0.16
+#    datacard_counting_2018-AQGC-A0W2e-6.txt 2018_AQGC_A0W2e-6 --expectedFromGrid=0.975
+#    datacard_counting_2018-AQGC-A0W2e-6.txt 2018_AQGC_A0W2e-6 --expectedFromGrid=0.025
+#    datacard_counting_2018-AQGC-A0W5e-6.txt 2018_AQGC_A0W5e-6 --expectedFromGrid=0.5
+#    datacard_counting_2018-AQGC-A0W5e-6.txt 2018_AQGC_A0W5e-6 --expectedFromGrid=0.84
+#    datacard_counting_2018-AQGC-A0W5e-6.txt 2018_AQGC_A0W5e-6 --expectedFromGrid=0.16
+#    datacard_counting_2018-AQGC-A0W5e-6.txt 2018_AQGC_A0W5e-6 --expectedFromGrid=0.975
+#    datacard_counting_2018-AQGC-A0W5e-6.txt 2018_AQGC_A0W5e-6 --expectedFromGrid=0.025
+#    datacard_counting_2017-2018-AQGC-A0W1e-6.txt 2017_2018_AQGC_A0W1e-6 --expectedFromGrid=0.5
+#    datacard_counting_2017-2018-AQGC-A0W1e-6.txt 2017_2018_AQGC_A0W1e-6 --expectedFromGrid=0.84
+#    datacard_counting_2017-2018-AQGC-A0W1e-6.txt 2017_2018_AQGC_A0W1e-6 --expectedFromGrid=0.16
+#    datacard_counting_2017-2018-AQGC-A0W1e-6.txt 2017_2018_AQGC_A0W1e-6 --expectedFromGrid=0.975
+#    datacard_counting_2017-2018-AQGC-A0W1e-6.txt 2017_2018_AQGC_A0W1e-6 --expectedFromGrid=0.025
+#    datacard_counting_2017-2018-AQGC-A0W2e-6.txt 2017_2018_AQGC_A0W2e-6 --expectedFromGrid=0.5
+#    datacard_counting_2017-2018-AQGC-A0W2e-6.txt 2017_2018_AQGC_A0W2e-6 --expectedFromGrid=0.84
+#    datacard_counting_2017-2018-AQGC-A0W2e-6.txt 2017_2018_AQGC_A0W2e-6 --expectedFromGrid=0.16
+#    datacard_counting_2017-2018-AQGC-A0W2e-6.txt 2017_2018_AQGC_A0W2e-6 --expectedFromGrid=0.975
+#    datacard_counting_2017-2018-AQGC-A0W2e-6.txt 2017_2018_AQGC_A0W2e-6 --expectedFromGrid=0.025
+#    datacard_counting_2017-2018-AQGC-A0W5e-6.txt 2017_2018_AQGC_A0W5e-6 --expectedFromGrid=0.5 --rAbsAcc=0.01
+#    datacard_counting_2017-2018-AQGC-A0W5e-6.txt 2017_2018_AQGC_A0W5e-6 --expectedFromGrid=0.84 --rAbsAcc=0.01
+#    datacard_counting_2017-2018-AQGC-A0W5e-6.txt 2017_2018_AQGC_A0W5e-6 --expectedFromGrid=0.16 --rAbsAcc=0.01
+#    datacard_counting_2017-2018-AQGC-A0W5e-6.txt 2017_2018_AQGC_A0W5e-6 --expectedFromGrid=0.975 --rAbsAcc=0.01
+#    datacard_counting_2017-2018-AQGC-A0W5e-6.txt 2017_2018_AQGC_A0W5e-6 --expectedFromGrid=0.025 --rAbsAcc=0.01
+    datacard_counting_norm_to_1fb_2018-AQGC-A0W5e-7.txt 2018_AQGC_norm_to_1fb_A0W5e-7 --expectedFromGrid=0.5
+    datacard_counting_norm_to_1fb_2018-AQGC-A0W5e-7.txt 2018_AQGC_norm_to_1fb_A0W5e-7 --expectedFromGrid=0.84
+    datacard_counting_norm_to_1fb_2018-AQGC-A0W5e-7.txt 2018_AQGC_norm_to_1fb_A0W5e-7 --expectedFromGrid=0.16
+    datacard_counting_norm_to_1fb_2018-AQGC-A0W5e-7.txt 2018_AQGC_norm_to_1fb_A0W5e-7 --expectedFromGrid=0.975
+    datacard_counting_norm_to_1fb_2018-AQGC-A0W5e-7.txt 2018_AQGC_norm_to_1fb_A0W5e-7 --expectedFromGrid=0.025
+    datacard_counting_norm_to_1fb_2018-AQGC-A0W1e-6.txt 2018_AQGC_norm_to_1fb_A0W1e-6 --expectedFromGrid=0.5
+    datacard_counting_norm_to_1fb_2018-AQGC-A0W1e-6.txt 2018_AQGC_norm_to_1fb_A0W1e-6 --expectedFromGrid=0.84
+    datacard_counting_norm_to_1fb_2018-AQGC-A0W1e-6.txt 2018_AQGC_norm_to_1fb_A0W1e-6 --expectedFromGrid=0.16
+    datacard_counting_norm_to_1fb_2018-AQGC-A0W1e-6.txt 2018_AQGC_norm_to_1fb_A0W1e-6 --expectedFromGrid=0.975
+    datacard_counting_norm_to_1fb_2018-AQGC-A0W1e-6.txt 2018_AQGC_norm_to_1fb_A0W1e-6 --expectedFromGrid=0.025
+    datacard_counting_norm_to_1fb_2018-AQGC-A0W2e-6.txt 2018_AQGC_norm_to_1fb_A0W2e-6 --expectedFromGrid=0.5
+    datacard_counting_norm_to_1fb_2018-AQGC-A0W2e-6.txt 2018_AQGC_norm_to_1fb_A0W2e-6 --expectedFromGrid=0.84
+    datacard_counting_norm_to_1fb_2018-AQGC-A0W2e-6.txt 2018_AQGC_norm_to_1fb_A0W2e-6 --expectedFromGrid=0.16
+    datacard_counting_norm_to_1fb_2018-AQGC-A0W2e-6.txt 2018_AQGC_norm_to_1fb_A0W2e-6 --expectedFromGrid=0.975
+    datacard_counting_norm_to_1fb_2018-AQGC-A0W2e-6.txt 2018_AQGC_norm_to_1fb_A0W2e-6 --expectedFromGrid=0.025
+    datacard_counting_norm_to_1fb_2018-AQGC-A0W5e-6.txt 2018_AQGC_norm_to_1fb_A0W5e-6 --expectedFromGrid=0.5
+    datacard_counting_norm_to_1fb_2018-AQGC-A0W5e-6.txt 2018_AQGC_norm_to_1fb_A0W5e-6 --expectedFromGrid=0.84
+    datacard_counting_norm_to_1fb_2018-AQGC-A0W5e-6.txt 2018_AQGC_norm_to_1fb_A0W5e-6 --expectedFromGrid=0.16
+    datacard_counting_norm_to_1fb_2018-AQGC-A0W5e-6.txt 2018_AQGC_norm_to_1fb_A0W5e-6 --expectedFromGrid=0.975
+    datacard_counting_norm_to_1fb_2018-AQGC-A0W5e-6.txt 2018_AQGC_norm_to_1fb_A0W5e-6 --expectedFromGrid=0.025
+)

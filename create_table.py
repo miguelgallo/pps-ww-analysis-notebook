@@ -309,27 +309,42 @@ def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/Sl
     columns_protons = [ "run", "lumiblock", "event", "slice", "crossingAngle", "betaStar", "instLumi", "xi", "thx", "thy", "t", "ismultirp", "rpid", "arm", "random",
                         "jet0_pt", "jet0_eta", "jet0_phi", "jet0_energy", "jet0_mass", "jet0_corrmass", "jet0_tau1", "jet0_tau2", "jet0_vertexz",
                         "jet0_px", "jet0_py", "jet0_pz",
-                        "met", "met_x", "met_y", "met_phi",
+                        "calo_met", "met", "met_x", "met_y", "met_phi",
                         "nVertices",
                         "num_bjets_ak8", "num_bjets_ak4", "num_jets_ak4",
                         "pfcand_nextracks", "pfcand_nextracks_noDRl",
                         "recoMWhad", "recoMWlep", "recoMWW", "recoRapidityWW", "dphiWW", "WLeptonicPt", "WLeptonicEta", "WLeptonicPhi" ]
     if lepton_type_ == 'muon':
-        columns_protons.extend( [ "muon0_pt", "muon0_eta", "muon0_phi", "muon0_energy", "muon0_charge", "muon0_iso", "muon0_dxy", "muon0_dz" ] )
+        columns_protons.extend( [ "muon0_pt", "muon0_eta", "muon0_phi", "muon0_energy", "muon0_charge", "muon0_iso", "muon0_dxy", "muon0_dz", "muon0_trackerLayersWithMeasurement" ] )
     elif lepton_type_ == 'electron':
-        columns_protons.extend( [ "electron0_pt", "electron0_eta", "electron0_phi", "electron0_energy", "electron0_charge", "electron0_dxy", "electron0_dz" ] )
+        columns_protons.extend( [ "electron0_pt", "electron0_eta", "electron0_phi", "electron0_energy", "electron0_charge", "electron0_dxy", "electron0_dz", 'electron0_corr', 'electron0_ecalTrkEnPostCorr', 'electron0_ecalTrkEnErrPostCorr', 'electron0_ecalTrkEnPreCorr', 'electron0_energyScaleUp', 'electron0_energyScaleDown' ] )
 
     columns_protons_multiRP = columns_protons.copy()
 
     if runOnMC_:
-        columns_protons.extend( [ "run_mc" ] )
-        columns_protons_multiRP.extend( [ "run_mc" ] )
-        columns_protons.extend( [ "pileupWeight", "mc_pu_trueinteractions", "mcWeight" ] )
-        columns_protons_multiRP.extend( [ "pileupWeight", "mc_pu_trueinteractions", "mcWeight" ] )
-        columns_protons.extend( [ "jet0_jer_res", "jet0_jer_sf", "jet0_jer_sfup", "jet0_jer_sfdown" ] )
-        columns_protons_multiRP.extend( [ "jet0_jer_res", "jet0_jer_sf", "jet0_jer_sfup", "jet0_jer_sfdown" ] )
-        columns_protons.extend( [ "gen_jet0_pt", "gen_jet0_eta", "gen_jet0_phi", "gen_jet0_energy" ] )
-        columns_protons_multiRP.extend( [ "gen_jet0_pt", "gen_jet0_eta", "gen_jet0_phi", "gen_jet0_energy" ] )
+        columns_runOnMC_  = []
+
+        columns_runOnMC_.extend( [ "run_mc" ] )
+
+        if data_sample_ == '2017':
+            columns_runOnMC_.extend( [ "pileupWeight", "mc_pu_trueinteractions", "mcWeight", 'prefiring_weight', 'prefiring_weight_up', 'prefiring_weight_down' ] )
+        else:
+            columns_runOnMC_.extend( [ "pileupWeight", "mc_pu_trueinteractions", "mcWeight" ] )
+
+        columns_runOnMC_.extend( [ "jet0_jer_res", "jet0_jer_sf", "jet0_jer_sfup", "jet0_jer_sfdown", 'jet0_cjer', 'jet0_cjer_up', 'jet0_cjer_down' ] )
+
+        if lepton_type_ == 'electron':
+            columns_runOnMC_.extend( [ 'electron0_energySigmaUp', 'electron0_energySigmaDown' ] )
+
+        columns_runOnMC_.extend( [ 'met_ptJER_Up', 'met_ptJER_Down', 'met_phiJER_Up', 'met_phiJER_Down', 'met_ptJES_Up', 'met_ptJES_Down', 'met_phiJES_Up', 'met_phiJES_Down' ] )
+        columns_runOnMC_.extend( [ "gen_jet0_pt", "gen_jet0_eta", "gen_jet0_phi", "gen_jet0_energy" ] )
+        if lepton_type_ == 'muon':
+            columns_runOnMC_.extend( [ "gen_muon0_pt", "gen_muon0_eta", "gen_muon0_phi", "gen_muon0_energy", "gen_muon0_charge", "gen_muon0_mass" ] )
+        elif lepton_type_ == 'electron':
+            columns_runOnMC_.extend( [ "gen_electron0_pt", "gen_electron0_eta", "gen_electron0_phi", "gen_electron0_energy", "gen_electron0_charge", "gen_electron0_mass" ] )
+
+        columns_protons.extend( columns_runOnMC_ )
+        columns_protons_multiRP.extend( columns_runOnMC_ )
 
     if random_protons_ or mix_protons_:
         # columns_protons.extend( [ "run_rnd", "lumiblock_rnd", "event_rnd", "slice_rnd" ] )
@@ -422,7 +437,11 @@ def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/Sl
             keys_jet = tree_.keys( filter_name="jet*")
             keys_nonproton.extend( keys_jet )
             keys_genjet = tree_.keys( filter_name="gen_jet*")
+            keys_genmuon = tree_.keys( filter_name="gen_muon*")
+            keys_genelectron = tree_.keys( filter_name="gen_electron*")
             keys_nonproton.extend( keys_genjet )
+            keys_nonproton.extend( keys_genmuon )
+            keys_nonproton.extend( keys_genelectron )
             if lepton_type_ == 'muon':
                 keys_muon_ = tree_.keys( filter_name="muon*")
                 keys_nonproton.extend( keys_muon_ )
@@ -430,7 +449,13 @@ def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/Sl
                 keys_electron_ = tree_.keys( filter_name="electron*")
                 keys_nonproton.extend( keys_electron_ )
             keys_met = tree_.keys( filter_name="met*")
+            keys_calomet = tree_.keys( filter_name="calo_met*")
             keys_nonproton.extend( keys_met )
+            keys_nonproton.extend( keys_calomet )
+            if data_sample_ == '2017':
+                keys_prefiring = tree_.keys( filter_name="prefiring*")
+                keys_nonproton.extend( keys_prefiring )
+
             keys_proton = tree_.keys( filter_name="proton*")
             keys_ppstrack = tree_.keys( filter_name="pps_track*")
             keys = []
@@ -481,6 +506,9 @@ def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/Sl
 
                 events_ = events_[ msk_1lep ]    
 
+                # selections_.append( "check_none" )
+                # counts_.append( 0 )
+                
                 selections_ = np.array( selections_ )
                 counts_ = np.array( counts_ )
 
@@ -529,7 +557,10 @@ def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/Sl
                 print ( "Num pps tracks: {}".format( ak.num( events_["pps_track_x"] ) ) )
 
                 if runOnMC_:
-                    print ( "Run MC: {}".format( events_[ "run_mc" ] ) ) 
+                    print ( "Run MC: {}".format( events_[ "run_mc" ] ) )
+
+                if debug:
+                    print ( ak.to_list( events_ ) )
 
                 # Fetch protons
                 protons_ = None
@@ -814,9 +845,13 @@ def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/Sl
                 print ( "Num pps tracks: {}".format( ak.num( ppstracks_ ) ) )
 
                 genjets_sel_ = None
+                genmuons_sel_ = None
+                genelectrons_sel_ = None
                 if runOnMC_:
                     if how_ == "zip":
                         genjets_ = events[ "gen_jet" ]
+                        genmuons_ = events[ "gen_muon" ]
+                        genelectrons_ = events[ "gen_electrons" ]
                     elif how_ is None:
                         arrays_genjet_ = {}
                         for key_ in keys_genjet: arrays_genjet_[ key_[ len("gen_jet_") : ] ] = events_[ key_ ]
@@ -829,6 +864,39 @@ def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/Sl
                         genjets_sel_ = genjets_[ genjets_["dR"] <= min_dR_ ]
                         print ( genjets_sel_ )
                         print ( ak.to_list( genjets_sel_[:10] ) )
+
+                        if lepton_type_ == 'muon':
+                            arrays_genmuon_ = {}
+                            for key_ in keys_genmuon: arrays_genmuon_[ key_[ len("gen_muon_") : ] ] = events_[ key_ ]
+                            genmuons_ = ak.zip( arrays_genmuon_ )
+                            genmuons_["dR"] = np.sqrt( ( genmuons_["eta"] - events_["muon_eta"][:,0] ) ** 2 + ( genmuons_["phi"] - events_["muon_phi"][:,0] ) ** 2  )
+                            print ( genmuons_ )
+                            print ( ak.to_list( genmuons_[:10] ) )
+                            min_dR_ = ak.min( genmuons_["dR"], axis=1 )
+                            print ( min_dR_ )
+                            genmuons_sel_ = genmuons_[ genmuons_["dR"] <= min_dR_ ]
+                            print ( genmuons_sel_ )
+                            print ( ak.to_list( genmuons_sel_[:10] ) )
+                        elif lepton_type_ == 'electron':
+                            arrays_genelectron_ = {}
+                            for key_ in keys_genelectron: arrays_genelectron_[ key_[ len("gen_electron_") : ] ] = events_[ key_ ]
+                            genelectrons_ = ak.zip( arrays_genelectron_ )
+                            genelectrons_["dR"] = np.sqrt( ( genelectrons_["eta"] - events_["electron_eta"][:,0] ) ** 2 + ( genelectrons_["phi"] - events_["electron_phi"][:,0] ) ** 2  )
+                            print ( genelectrons_ )
+                            print ( ak.to_list( genelectrons_[:10] ) )
+                            min_dR_ = ak.min( genelectrons_["dR"], axis=1 )
+                            print ( min_dR_ )
+                            genelectrons_sel_ = genelectrons_[ genelectrons_["dR"] <= min_dR_ ]
+                            print ( genelectrons_sel_ )
+                            print ( ak.to_list( genelectrons_sel_[:10] ) )
+
+                # check_none_ = ak.is_none( events_ )
+                # arr_check_none_ = np.array( check_none_ ).astype("int32")
+                # print( "check_none", np.sum( arr_check_none_ ), check_none_ )
+                # msk_check_none_ = np.invert( check_none_ )
+                # events_ = events_[ msk_check_none_ ]
+                # msk_selections_ = ( selections == "check_none" )
+                # counts[ msk_selections_ ] += np.sum( msk_check_none_ )
 
                 protons_["run"]                    = events_["run"]
                 protons_["lumiblock"]              = events_["lumiblock"]
@@ -865,6 +933,9 @@ def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/Sl
                     protons_["jet0_jer_sf"]        = events_[ "jet_jer_sf" ][:,0]
                     protons_["jet0_jer_sfup"]      = events_[ "jet_jer_sfup" ][:,0]
                     protons_["jet0_jer_sfdown"]    = events_[ "jet_jer_sfdown" ][:,0]
+                    protons_["jet0_cjer"]           = events_[ "jet_cjer" ][:,0]
+                    protons_["jet0_cjer_up"]        = events_[ "jet_cjer_up" ][:,0]
+                    protons_["jet0_cjer_down"]      = events_[ "jet_cjer_down" ][:,0]
                     # protons_["gen_jet0_pt"]                = events_[ "gen_jet_pt" ][:,0]
                     # protons_["gen_jet0_eta"]               = events_[ "gen_jet_eta" ][:,0]
                     # protons_["gen_jet0_phi"]               = events_[ "gen_jet_phi" ][:,0]
@@ -875,23 +946,47 @@ def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/Sl
                     protons_["gen_jet0_energy"]    = genjets_sel_[ "energy" ][:,0]
 
                 if lepton_type_ == 'muon':
-                    protons_["muon0_pt"]               = events_[ "muon_pt" ][:,0]
-                    protons_["muon0_eta"]              = events_[ "muon_eta" ][:,0]
-                    protons_["muon0_phi"]              = events_[ "muon_phi" ][:,0]
-                    protons_["muon0_energy"]           = events_[ "muon_e" ][:,0]
-                    protons_["muon0_charge"]           = events_[ "muon_charge" ][:,0]
-                    protons_["muon0_iso"]              = events_[ "muon_iso" ][:,0]
-                    protons_["muon0_dxy"]              = events_[ "muon_dxy" ][:,0]
-                    protons_["muon0_dz"]               = events_[ "muon_dz" ][:,0]
+                    protons_["muon0_pt"]                           = events_[ "muon_pt" ][:,0]
+                    protons_["muon0_eta"]                          = events_[ "muon_eta" ][:,0]
+                    protons_["muon0_phi"]                          = events_[ "muon_phi" ][:,0]
+                    protons_["muon0_energy"]                       = events_[ "muon_e" ][:,0]
+                    protons_["muon0_charge"]                       = events_[ "muon_charge" ][:,0]
+                    protons_["muon0_iso"]                          = events_[ "muon_iso" ][:,0]
+                    protons_["muon0_dxy"]                          = events_[ "muon_dxy" ][:,0]
+                    protons_["muon0_dz"]                           = events_[ "muon_dz" ][:,0]
+                    protons_["muon0_trackerLayersWithMeasurement"] = events_[ "muon_trackerLayersWithMeasurement" ][:,0]
+                    if runOnMC_:
+                        protons_["gen_muon0_pt"]        = genmuons_sel_[ "pt" ][:,0]
+                        protons_["gen_muon0_eta"]       = genmuons_sel_[ "eta" ][:,0]
+                        protons_["gen_muon0_phi"]       = genmuons_sel_[ "phi" ][:,0]
+                        protons_["gen_muon0_energy"]    = genmuons_sel_[ "energy" ][:,0]
+                        protons_["gen_muon0_charge"]    = genmuons_sel_[ "charge" ][:,0]
+                        protons_["gen_muon0_mass"]      = genmuons_sel_[ "mass" ][:,0]
                 elif lepton_type_ == 'electron':
-                    protons_["electron0_pt"]               = events_[ "electron_pt" ][:,0]
-                    protons_["electron0_eta"]              = events_[ "electron_eta" ][:,0]
-                    protons_["electron0_phi"]              = events_[ "electron_phi" ][:,0]
-                    protons_["electron0_energy"]           = events_[ "electron_e" ][:,0]
-                    protons_["electron0_charge"]           = events_[ "electron_charge" ][:,0]
-                    protons_["electron0_dxy"]              = events_[ "electron_dxy" ][:,0]
-                    protons_["electron0_dz"]               = events_[ "electron_dz" ][:,0]
+                    protons_["electron0_pt"]                   = events_[ "electron_pt" ][:,0]
+                    protons_["electron0_eta"]                  = events_[ "electron_eta" ][:,0]
+                    protons_["electron0_phi"]                  = events_[ "electron_phi" ][:,0]
+                    protons_["electron0_energy"]               = events_[ "electron_e" ][:,0]
+                    protons_["electron0_charge"]               = events_[ "electron_charge" ][:,0]
+                    protons_["electron0_dxy"]                  = events_[ "electron_dxy" ][:,0]
+                    protons_["electron0_dz"]                   = events_[ "electron_dz" ][:,0]
+                    protons_["electron0_corr"]                 = events_[ "electron_corr" ][:,0]
+                    protons_["electron0_ecalTrkEnPostCorr"]    = events_[ "electron_ecalTrkEnPostCorr" ][:,0]
+                    protons_["electron0_ecalTrkEnErrPostCorr"] = events_[ "electron_ecalTrkEnErrPostCorr" ][:,0]
+                    protons_["electron0_ecalTrkEnPreCorr"]     = events_[ "electron_ecalTrkEnPreCorr" ][:,0]
+                    protons_["electron0_energyScaleUp"]        = events_[ "electron_energyScaleUp" ][:,0]
+                    protons_["electron0_energyScaleDown"]      = events_[ "electron_energyScaleDown" ][:,0]
+                    if runOnMC_:
+                        protons_["electron0_energySigmaUp"]    = events_[ "electron_energySigmaUp" ][:,0]
+                        protons_["electron0_energySigmaDown"]  = events_[ "electron_energySigmaDown" ][:,0]
+                        protons_["gen_electron0_pt"]        = genelectrons_sel_[ "pt" ][:,0]
+                        protons_["gen_electron0_eta"]       = genelectrons_sel_[ "eta" ][:,0]
+                        protons_["gen_electron0_phi"]       = genelectrons_sel_[ "phi" ][:,0]
+                        protons_["gen_electron0_energy"]    = genelectrons_sel_[ "energy" ][:,0]
+                        protons_["gen_electron0_charge"]    = genelectrons_sel_[ "charge" ][:,0]
+                        protons_["gen_electron0_mass"]      = genelectrons_sel_[ "mass" ][:,0]
 
+                protons_["calo_met"]               = events_["calo_met"]
                 protons_["met"]                    = events_["met"]
                 protons_["met_x"]                  = events_["met_x"]
                 protons_["met_y"]                  = events_["met_y"]
@@ -911,9 +1006,21 @@ def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/Sl
                 protons_["WLeptonicEta"]           = events_["WLeptonicEta"]
                 protons_["WLeptonicPhi"]           = events_["WLeptonicPhi"]
                 if runOnMC_:
+                    protons_["met_ptJER_Up"]           = events_["met_ptJER_Up"]
+                    protons_["met_ptJER_Down"]         = events_["met_ptJER_Down"]
+                    protons_["met_phiJER_Up"]          = events_["met_phiJER_Up"]
+                    protons_["met_phiJER_Down"]        = events_["met_phiJER_Down"]
+                    protons_["met_ptJES_Up"]           = events_["met_ptJES_Up"]
+                    protons_["met_ptJES_Down"]         = events_["met_ptJES_Down"]
+                    protons_["met_phiJES_Up"]          = events_["met_phiJES_Up"]
+                    protons_["met_phiJES_Down"]        = events_["met_phiJES_Down"]
                     protons_["pileupWeight"]           = events_["pileupWeight"]
                     protons_["mc_pu_trueinteractions"] = events_["mc_pu_trueinteractions"]
                     protons_["mcWeight"]               = events_["mcWeight"]
+                    if data_sample_ == '2017':
+                        protons_["prefiring_weight"]       = events_["prefiring_weight"]
+                        protons_["prefiring_weight_up"]    = events_["prefiring_weight_up"]
+                        protons_["prefiring_weight_down"]  = events_["prefiring_weight_down"]
                 #protons_["x1"] = -999.
                 #protons_["y1"] = -999.
                 #protons_["x2"] = -999.
@@ -937,6 +1044,23 @@ def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/Sl
                     # ppstracks_["slice_rnd"] = slice_rnd_
                     ppstracks_["crossingAngle_rnd"] = crossingAngle_rnd_
                     ppstracks_["betaStar_rnd"] = betaStar_rnd_
+
+                check_none_ = ak.is_none( protons_ )
+                arr_check_none_ = np.array( check_none_ ).astype("int32")
+                print( "check_none", np.sum( arr_check_none_ ), check_none_ )
+                msk_check_none_ = np.invert( check_none_ )
+                print( msk_check_none_ )
+                protons_ = protons_[ msk_check_none_ ]
+                ppstracks_ = ppstracks_[ msk_check_none_ ]
+                protons_extra_ = protons_extra_[ msk_check_none_ ]
+
+                counts_protons_check_none_ = len( protons_ )
+                counts_label__ = counts_label_protons_ + "_check_none"
+                if not counts_label__ in selections:
+                    selections = np.concatenate( ( selections, np.array( [ counts_label__ ] ) ) )
+                    counts = np.concatenate( ( counts, np.array( [ counts_protons_check_none_ ] ) ) )
+                else:    
+                    counts[ selections == counts_label__ ] += counts_protons_check_none_
 
                 protons_singleRP_ = protons_[ protons_.ismultirp_ == 0 ]
                 protons_multiRP_ = protons_[ protons_.ismultirp_ == 1 ]

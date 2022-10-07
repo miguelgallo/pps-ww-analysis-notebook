@@ -130,8 +130,11 @@ class ProcessData:
         df.loc[ :, "jet0_pz" + label_ ]       = ( df.loc[ :, "jet0_pt" + label_ ] * np.sinh( df.loc[ :, "jet0_eta" ] ) )
         if self.runOnMC_:
             label_ = "_nom"
-            df.loc[ :, "jet0_mass" + label_ ]     = df.loc[ :, "jet0_mass" ] * ( df.loc[ :, "C_JER_ref" ] )
-            df.loc[ :, "jet0_corrmass" + label_ ] = df.loc[ :, "jet0_corrmass" ] * ( df.loc[ :, "C_JER_ref" ] )
+            'jet0_cjer', 'jet0_cjer_up', 'jet0_cjer_down'
+            # df.loc[ :, "jet0_mass" + label_ ]     = df.loc[ :, "jet0_mass" ] * ( df.loc[ :, "C_JER_ref" ] )
+            # df.loc[ :, "jet0_corrmass" + label_ ] = df.loc[ :, "jet0_corrmass" ] * ( df.loc[ :, "C_JER_ref" ] )
+            df.loc[ :, "jet0_mass" + label_ ]     = df.loc[ :, "jet0_mass" ] * ( df.loc[ :, "jet0_cjer" ] )
+            df.loc[ :, "jet0_corrmass" + label_ ] = df.loc[ :, "jet0_corrmass" ] * ( df.loc[ :, "jet0_cjer" ] )
 
             label_ = "_jes_up"
             df.loc[ :, "jet0_pt" + label_ ]       = df.loc[ :, "jet0_pt" + "_nom" ] * ( 1. + df.loc[ :, "jet0_unc" ] ) 
@@ -151,18 +154,26 @@ class ProcessData:
             df.loc[ :, "jet0_pz" + label_ ]       = ( df.loc[ :, "jet0_pt" + label_ ] * np.sinh( df.loc[ :, "jet0_eta" ] ) )
 
             label_ = "_jer_up"
-            df.loc[ :, "jet0_pt" + label_ ]       = df.loc[ :, "jet0_pt" + "_nom" ] * ( df.loc[ :, "C_JER_jer_up" ] / df.loc[ :, "C_JER_ref" ] )
-            df.loc[ :, "jet0_energy" + label_ ]   = df.loc[ :, "jet0_energy" + "_nom" ] * ( df.loc[ :, "C_JER_jer_up" ] / df.loc[ :, "C_JER_ref" ] )
-            df.loc[ :, "jet0_mass" + label_ ]     = df.loc[ :, "jet0_mass" + "_nom" ] * ( df.loc[ :, "C_JER_jer_up" ] / df.loc[ :, "C_JER_ref" ] )
-            df.loc[ :, "jet0_corrmass" + label_ ] = df.loc[ :, "jet0_corrmass" + "_nom" ] * ( df.loc[ :, "C_JER_jer_up" ] / df.loc[ :, "C_JER_ref" ] )
+            # df.loc[ :, "jet0_pt" + label_ ]       = df.loc[ :, "jet0_pt" + "_nom" ] * ( df.loc[ :, "C_JER_jer_up" ] / df.loc[ :, "C_JER_ref" ] )
+            # df.loc[ :, "jet0_energy" + label_ ]   = df.loc[ :, "jet0_energy" + "_nom" ] * ( df.loc[ :, "C_JER_jer_up" ] / df.loc[ :, "C_JER_ref" ] )
+            # df.loc[ :, "jet0_mass" + label_ ]     = df.loc[ :, "jet0_mass" + "_nom" ] * ( df.loc[ :, "C_JER_jer_up" ] / df.loc[ :, "C_JER_ref" ] )
+            # df.loc[ :, "jet0_corrmass" + label_ ] = df.loc[ :, "jet0_corrmass" + "_nom" ] * ( df.loc[ :, "C_JER_jer_up" ] / df.loc[ :, "C_JER_ref" ] )
+            df.loc[ :, "jet0_pt" + label_ ]       = df.loc[ :, "jet0_pt" + "_nom" ] * ( df.loc[ :, "jet0_cjer_up" ] / df.loc[ :, "jet0_cjer" ] )
+            df.loc[ :, "jet0_energy" + label_ ]   = df.loc[ :, "jet0_energy" + "_nom" ] * ( df.loc[ :, "jet0_cjer_up" ] / df.loc[ :, "jet0_cjer" ] )
+            df.loc[ :, "jet0_mass" + label_ ]     = df.loc[ :, "jet0_mass" + "_nom" ] * ( df.loc[ :, "jet0_cjer_up" ] / df.loc[ :, "jet0_cjer" ] )
+            df.loc[ :, "jet0_corrmass" + label_ ] = df.loc[ :, "jet0_corrmass" + "_nom" ] * ( df.loc[ :, "jet0_cjer_up" ] / df.loc[ :, "jet0_cjer" ] )
             df.loc[ :, "jet0_px" + label_ ]       = ( df.loc[ :, "jet0_pt" + label_ ] * np.cos( df.loc[ :, "jet0_phi" ] ) )
             df.loc[ :, "jet0_py" + label_ ]       = ( df.loc[ :, "jet0_pt" + label_ ] * np.sin( df.loc[ :, "jet0_phi" ] ) )
             df.loc[ :, "jet0_pz" + label_ ]       = ( df.loc[ :, "jet0_pt" + label_ ] * np.sinh( df.loc[ :, "jet0_eta" ] ) )
             label_ = "_jer_dw"
-            df.loc[ :, "jet0_pt" + label_ ]       = df.loc[ :, "jet0_pt" + "_nom" ] * ( df.loc[ :, "C_JER_jer_dw" ] / df.loc[ :, "C_JER_ref" ] )
-            df.loc[ :, "jet0_energy" + label_ ]   = df.loc[ :, "jet0_energy" + "_nom" ] * ( df.loc[ :, "C_JER_jer_dw" ] / df.loc[ :, "C_JER_ref" ] )
-            df.loc[ :, "jet0_mass" + label_ ]     = df.loc[ :, "jet0_mass" + "_nom" ] * ( df.loc[ :, "C_JER_jer_dw" ] / df.loc[ :, "C_JER_ref" ] )
-            df.loc[ :, "jet0_corrmass" + label_ ] = df.loc[ :, "jet0_corrmass" + "_nom" ] * ( df.loc[ :, "C_JER_jer_dw" ] / df.loc[ :, "C_JER_ref" ] )
+            # df.loc[ :, "jet0_pt" + label_ ]       = df.loc[ :, "jet0_pt" + "_nom" ] * ( df.loc[ :, "C_JER_jer_dw" ] / df.loc[ :, "C_JER_ref" ] )
+            # df.loc[ :, "jet0_energy" + label_ ]   = df.loc[ :, "jet0_energy" + "_nom" ] * ( df.loc[ :, "C_JER_jer_dw" ] / df.loc[ :, "C_JER_ref" ] )
+            # df.loc[ :, "jet0_mass" + label_ ]     = df.loc[ :, "jet0_mass" + "_nom" ] * ( df.loc[ :, "C_JER_jer_dw" ] / df.loc[ :, "C_JER_ref" ] )
+            # df.loc[ :, "jet0_corrmass" + label_ ] = df.loc[ :, "jet0_corrmass" + "_nom" ] * ( df.loc[ :, "C_JER_jer_dw" ] / df.loc[ :, "C_JER_ref" ] )
+            df.loc[ :, "jet0_pt" + label_ ]       = df.loc[ :, "jet0_pt" + "_nom" ] * ( df.loc[ :, "jet0_cjer_down" ] / df.loc[ :, "jet0_cjer" ] )
+            df.loc[ :, "jet0_energy" + label_ ]   = df.loc[ :, "jet0_energy" + "_nom" ] * ( df.loc[ :, "jet0_cjer_down" ] / df.loc[ :, "jet0_cjer" ] )
+            df.loc[ :, "jet0_mass" + label_ ]     = df.loc[ :, "jet0_mass" + "_nom" ] * ( df.loc[ :, "jet0_cjer_down" ] / df.loc[ :, "jet0_cjer" ] )
+            df.loc[ :, "jet0_corrmass" + label_ ] = df.loc[ :, "jet0_corrmass" + "_nom" ] * ( df.loc[ :, "jet0_cjer_down" ] / df.loc[ :, "jet0_cjer" ] )
             df.loc[ :, "jet0_px" + label_ ]       = ( df.loc[ :, "jet0_pt" + label_ ] * np.cos( df.loc[ :, "jet0_phi" ] ) )
             df.loc[ :, "jet0_py" + label_ ]       = ( df.loc[ :, "jet0_pt" + label_ ] * np.sin( df.loc[ :, "jet0_phi" ] ) )
             df.loc[ :, "jet0_pz" + label_ ]       = ( df.loc[ :, "jet0_pt" + label_ ] * np.sinh( df.loc[ :, "jet0_eta" ] ) )

@@ -1,7 +1,7 @@
 from ProcessData import *
 
-# lepton_type = "muon"
-lepton_type = "electron"
+lepton_type = "muon"
+# lepton_type = "electron"
 
 # data_sample = '2017'
 data_sample = '2018'
@@ -31,17 +31,19 @@ if data_sample == '2017':
             }
 elif data_sample == '2018':
     if lepton_type == 'muon':
-        labels_signals_ = [ "GGToWW-AQGC-2018-muon-A0W5e-7", "GGToWW-AQGC-2018-muon-A0W1e-6", "GGToWW-AQGC-2018-muon-A0W2e-6", "GGToWW-AQGC-2018-muon-A0W5e-6" ]
+        # labels_signals_ = [ "GGToWW-AQGC-2018-muon-A0W5e-7", "GGToWW-AQGC-2018-muon-A0W1e-6", "GGToWW-AQGC-2018-muon-A0W2e-6", "GGToWW-AQGC-2018-muon-A0W5e-6" ]
+        labels_signals_ = [ "GGToWW-AQGC-2018-muon-A0W1e-6", "GGToWW-AQGC-2018-muon-A0W2e-6", "GGToWW-AQGC-2018-muon-A0W5e-6" ]
         fileNames_signals_ = {
-            "GGToWW-AQGC-2018-muon-A0W5e-7": [ "output-GGToWW-AQGC-2018-muon-A0W5e-7.h5" ],
+            # "GGToWW-AQGC-2018-muon-A0W5e-7": [ "output-GGToWW-AQGC-2018-muon-A0W5e-7.h5" ],
             "GGToWW-AQGC-2018-muon-A0W1e-6": [ "output-GGToWW-AQGC-2018-muon-A0W1e-6.h5" ],
             "GGToWW-AQGC-2018-muon-A0W2e-6": [ "output-GGToWW-AQGC-2018-muon-A0W2e-6.h5" ],
             "GGToWW-AQGC-2018-muon-A0W5e-6": [ "output-GGToWW-AQGC-2018-muon-A0W5e-6.h5" ]
             }
     elif lepton_type == 'electron':
-        labels_signals_ = [ "GGToWW-AQGC-2018-electron-A0W5e-7", "GGToWW-AQGC-2018-electron-A0W1e-6", "GGToWW-AQGC-2018-electron-A0W2e-6", "GGToWW-AQGC-2018-electron-A0W5e-6" ]
+        # labels_signals_ = [ "GGToWW-AQGC-2018-electron-A0W5e-7", "GGToWW-AQGC-2018-electron-A0W1e-6", "GGToWW-AQGC-2018-electron-A0W2e-6", "GGToWW-AQGC-2018-electron-A0W5e-6" ]
+        labels_signals_ = [ "GGToWW-AQGC-2018-electron-A0W1e-6", "GGToWW-AQGC-2018-electron-A0W2e-6", "GGToWW-AQGC-2018-electron-A0W5e-6" ]
         fileNames_signals_ = {
-            "GGToWW-AQGC-2018-electron-A0W5e-7": [ "output-GGToWW-AQGC-2018-electron-A0W5e-7.h5" ],
+            # "GGToWW-AQGC-2018-electron-A0W5e-7": [ "output-GGToWW-AQGC-2018-electron-A0W5e-7.h5" ],
             "GGToWW-AQGC-2018-electron-A0W1e-6": [ "output-GGToWW-AQGC-2018-electron-A0W1e-6.h5" ],
             "GGToWW-AQGC-2018-electron-A0W2e-6": [ "output-GGToWW-AQGC-2018-electron-A0W2e-6.h5" ],
             "GGToWW-AQGC-2018-electron-A0W5e-6": [ "output-GGToWW-AQGC-2018-electron-A0W5e-6.h5" ]

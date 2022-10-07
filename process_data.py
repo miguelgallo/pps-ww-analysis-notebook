@@ -1,7 +1,7 @@
 from ProcessData import *
 
-# lepton_type_ = "muon"
-lepton_type_ = "electron"
+lepton_type_ = "muon"
+# lepton_type_ = "electron"
 
 # data_sample = '2017'
 data_sample = '2018'

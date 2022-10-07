@@ -7,8 +7,8 @@ import h5py
 # run_ranges_periods, df_run_ranges, fiducial_cuts, fiducial_cuts_all, aperture_period_map, aperture_parametrisation, check_aperture, get_data, process_data_protons_multiRP
 from processing import *
 
-# lepton_type = 'muon'
-lepton_type = 'electron'
+lepton_type = 'muon'
+# lepton_type = 'electron'
 
 # data_sample = '2017'
 data_sample = '2018'
@@ -31,9 +31,11 @@ if data_sample == '2017':
         labels_signals = [ "GGToWW-AQGC-2017-electron-A0W1e-6", "GGToWW-AQGC-2017-electron-A0W2e-6", "GGToWW-AQGC-2017-electron-A0W5e-6" ]
 elif data_sample == '2018':
     if lepton_type == 'muon':
-        labels_signals = [ "GGToWW-AQGC-2018-muon-A0W5e-7", "GGToWW-AQGC-2018-muon-A0W1e-6", "GGToWW-AQGC-2018-muon-A0W2e-6", "GGToWW-AQGC-2018-muon-A0W5e-6" ]
+        # labels_signals = [ "GGToWW-AQGC-2018-muon-A0W5e-7", "GGToWW-AQGC-2018-muon-A0W1e-6", "GGToWW-AQGC-2018-muon-A0W2e-6", "GGToWW-AQGC-2018-muon-A0W5e-6" ]
+        labels_signals = [ "GGToWW-AQGC-2018-muon-A0W1e-6", "GGToWW-AQGC-2018-muon-A0W2e-6", "GGToWW-AQGC-2018-muon-A0W5e-6" ]
     elif lepton_type == 'electron':
-        labels_signals = [ "GGToWW-AQGC-2018-electron-A0W5e-7", "GGToWW-AQGC-2018-electron-A0W1e-6", "GGToWW-AQGC-2018-electron-A0W2e-6", "GGToWW-AQGC-2018-electron-A0W5e-6" ]
+        # labels_signals = [ "GGToWW-AQGC-2018-electron-A0W5e-7", "GGToWW-AQGC-2018-electron-A0W1e-6", "GGToWW-AQGC-2018-electron-A0W2e-6", "GGToWW-AQGC-2018-electron-A0W5e-6" ]
+        labels_signals = [ "GGToWW-AQGC-2018-electron-A0W1e-6", "GGToWW-AQGC-2018-electron-A0W2e-6", "GGToWW-AQGC-2018-electron-A0W5e-6" ]
 
 df_counts_signals = {}
 df_signals_protons_multiRP_index = {}
@@ -59,9 +61,11 @@ if data_sample == '2017':
         labels_signals_mix_protons = [ "GGToWW-AQGC-mix_protons-2017-electron-A0W1e-6", "GGToWW-AQGC-mix_protons-2017-electron-A0W2e-6", "GGToWW-AQGC-mix_protons-2017-electron-A0W5e-6" ]
 elif data_sample == '2018':
     if lepton_type == 'muon':
-        labels_signals_mix_protons = [ "GGToWW-AQGC-mix_protons-2018-muon-A0W5e-7", "GGToWW-AQGC-mix_protons-2018-muon-A0W1e-6", "GGToWW-AQGC-mix_protons-2018-muon-A0W2e-6", "GGToWW-AQGC-mix_protons-2018-muon-A0W5e-6" ]
+        # labels_signals_mix_protons = [ "GGToWW-AQGC-mix_protons-2018-muon-A0W5e-7", "GGToWW-AQGC-mix_protons-2018-muon-A0W1e-6", "GGToWW-AQGC-mix_protons-2018-muon-A0W2e-6", "GGToWW-AQGC-mix_protons-2018-muon-A0W5e-6" ]
+        labels_signals_mix_protons = [ "GGToWW-AQGC-mix_protons-2018-muon-A0W1e-6", "GGToWW-AQGC-mix_protons-2018-muon-A0W2e-6", "GGToWW-AQGC-mix_protons-2018-muon-A0W5e-6" ]
     elif lepton_type == 'electron':
-        labels_signals_mix_protons = [ "GGToWW-AQGC-mix_protons-2018-electron-A0W5e-7", "GGToWW-AQGC-mix_protons-2018-electron-A0W1e-6", "GGToWW-AQGC-mix_protons-2018-electron-A0W2e-6", "GGToWW-AQGC-mix_protons-2018-electron-A0W5e-6" ]
+        # labels_signals_mix_protons = [ "GGToWW-AQGC-mix_protons-2018-electron-A0W5e-7", "GGToWW-AQGC-mix_protons-2018-electron-A0W1e-6", "GGToWW-AQGC-mix_protons-2018-electron-A0W2e-6", "GGToWW-AQGC-mix_protons-2018-electron-A0W5e-6" ]
+        labels_signals_mix_protons = [ "GGToWW-AQGC-mix_protons-2018-electron-A0W1e-6", "GGToWW-AQGC-mix_protons-2018-electron-A0W2e-6", "GGToWW-AQGC-mix_protons-2018-electron-A0W5e-6" ]
 
 df_counts_signals_mix_protons = {}
 df_signals_protons_multiRP_mix_protons_index = {}
@@ -102,14 +106,14 @@ if data_sample == '2017':
 elif data_sample == '2018':
     if lepton_type == 'muon':
         label_signal_to_mix_protons = {
-             "GGToWW-AQGC-2018-muon-A0W5e-7" : "GGToWW-AQGC-mix_protons-2018-muon-A0W5e-7",
+             # "GGToWW-AQGC-2018-muon-A0W5e-7" : "GGToWW-AQGC-mix_protons-2018-muon-A0W5e-7",
              "GGToWW-AQGC-2018-muon-A0W1e-6" : "GGToWW-AQGC-mix_protons-2018-muon-A0W1e-6",
              "GGToWW-AQGC-2018-muon-A0W2e-6" : "GGToWW-AQGC-mix_protons-2018-muon-A0W2e-6",
              "GGToWW-AQGC-2018-muon-A0W5e-6" : "GGToWW-AQGC-mix_protons-2018-muon-A0W5e-6"
         }
     elif lepton_type == 'electron':
         label_signal_to_mix_protons = {
-             "GGToWW-AQGC-2018-electron-A0W5e-7" : "GGToWW-AQGC-mix_protons-2018-electron-A0W5e-7",
+             # "GGToWW-AQGC-2018-electron-A0W5e-7" : "GGToWW-AQGC-mix_protons-2018-electron-A0W5e-7",
              "GGToWW-AQGC-2018-electron-A0W1e-6" : "GGToWW-AQGC-mix_protons-2018-electron-A0W1e-6",
              "GGToWW-AQGC-2018-electron-A0W2e-6" : "GGToWW-AQGC-mix_protons-2018-electron-A0W2e-6",
              "GGToWW-AQGC-2018-electron-A0W5e-6" : "GGToWW-AQGC-mix_protons-2018-electron-A0W5e-6"
