@@ -31,14 +31,22 @@ run_ranges_periods_mixing_2018[ "2018D1" ] = (320394,322633)
 run_ranges_periods_mixing_2018[ "2018D2" ] = (323363,325273)
 df_run_ranges_mixing_2018 = pd.DataFrame( run_ranges_periods_mixing_2018, index=("min","max") ).transpose()
 
-L_2017B = 2.360904801;
-L_2017C1 = 5.313012839;
-L_2017E = 8.958810514;
-L_2017F1 = 1.708478656;
-L_2017C2 = 3.264135878;
-L_2017D = 4.074723964;
-L_2017F2 = 7.877903151;
-L_2017F3 = 3.632463163;
+# L_2017B = 2.360904801;
+# L_2017C1 = 5.313012839;
+# L_2017E = 8.958810514;
+# L_2017F1 = 1.708478656;
+# L_2017C2 = 3.264135878;
+# L_2017D = 4.074723964;
+# L_2017F2 = 7.877903151;
+# L_2017F3 = 3.632463163;
+L_2017B = 4.799881474;
+L_2017C1 = 5.785813941;
+L_2017E = 9.312832062;
+L_2017F1 = 1.738905587;
+L_2017C2 = 3.786684323;
+L_2017D = 4.247682053;
+L_2017F2 = 8.125575961;
+L_2017F3 = 3.674404546;
 lumi_periods_2017 = {}
 lumi_periods_2017[ 'muon' ] = {}
 lumi_periods_2017[ 'muon' ][ "2017B" ]  = L_2017B
@@ -62,12 +70,18 @@ print ( lumi_periods_2017 )
 print ( "Luminosity 2017 muon: {}".format( np.sum( list( lumi_periods_2017[ 'muon' ].values() ) ) ) )
 print ( "Luminosity 2017 electron: {}".format( np.sum( list( lumi_periods_2017[ 'electron' ].values() ) ) ) )
 
-L_2018A  = 12.10
-L_2018B1 = 6.38
-L_2018B2 = 0.40
-L_2018C  = 6.5297
-L_2018D1 = 19.88
-L_2018D2 = 10.4157
+# L_2018A  = 12.10
+# L_2018B1 = 6.38
+# L_2018B2 = 0.40
+# L_2018C  = 6.5297
+# L_2018D1 = 19.88
+# L_2018D2 = 10.4157
+L_2018A  = 14.027047499
+L_2018B1 = 6.629673574
+L_2018B2 = 0.430948924
+L_2018C  = 6.891747024
+L_2018D1 = 20.962647459
+L_2018D2 = 10.868724698
 lumi_periods_2018 = {}
 lumi_periods_2018[ 'muon' ] = {}
 lumi_periods_2018[ 'muon' ][ "2018A" ]  = L_2018A * 0.999913
@@ -454,8 +468,16 @@ def check_aperture( period, arm, xangle, xi, theta_x ):
     return ( theta_x < -aperture_parametrisation( period, arm, xangle, xi ) )
 
 
-def get_data( fileNames ):
-    
+def get_data( fileNames, runMin=None, runMax=None ):
+
+    if runMin is not None and runMin <= 0:
+        raise RuntimeError( "Invalid data_sample argument." )
+    if runMax is not None and runMax <= 0:
+        raise RuntimeError( "Invalid data_sample argument." )
+
+    runMin_ = runMin
+    runMax_ = runMax
+
     df_protons_multiRP_list = []
     df_protons_singleRP_list = []
     df_ppstracks_list = []
@@ -538,9 +560,20 @@ def get_data( fileNames ):
                 print ( start_[idx], stop_[idx] )
                 #print ( dset[ start_[idx] : stop_[idx] ] )
                 df_ = pd.DataFrame( dset_protons_multiRP[ start_[idx] : stop_[idx] ], columns=columns_protons_multiRP ).astype( astype_dict_multiRP_ )
-                df_protons_multiRP_list.append( df_ )
-                print ( df_protons_multiRP_list[-1].head() )
-                print ( "Data set size: {}".format( len( df_protons_multiRP_list[-1] ) ) )
+
+                if runMin_ is not None:
+                    msk__ = ( df_.loc[ 'run' ] >= runMin_ )
+                    print ( msk__ )
+                    df_ = df_.loc[ msk__ ]
+                if runMax_ is not None and df_.shape[0] > 0:
+                    msk__ = ( df_.loc[ 'run' ] <= runMax_ )
+                    print ( msk__ )
+                    df_ = df_.loc[ msk__ ]
+
+                if df_.shape[0] > 0:
+                    df_protons_multiRP_list.append( df_ )
+                    print ( df_protons_multiRP_list[-1].head() )
+                    print ( "Data set size: {}".format( len( df_protons_multiRP_list[-1] ) ) )
 
             entries_protons_singleRP = dset_protons_singleRP.shape[0]
             start_ = list( range( 0, entries_protons_singleRP, chunk_size ) )
@@ -561,9 +594,20 @@ def get_data( fileNames ):
                 print ( start_[idx], stop_[idx] )
                 #print ( dset[ start_[idx] : stop_[idx] ] )
                 df_ = pd.DataFrame( dset_protons_singleRP[ start_[idx] : stop_[idx] ], columns=columns_protons_singleRP ).astype( astype_dict_singleRP_ )
-                df_protons_singleRP_list.append( df_ )
-                print ( df_protons_singleRP_list[-1].head() )
-                print ( "Data set size: {}".format( len( df_protons_singleRP_list[-1] ) ) )
+
+                if runMin_ is not None:
+                    msk__ = ( df_.loc[ 'run' ] >= runMin_ )
+                    print ( msk__ )
+                    df_ = df_.loc[ msk__ ]
+                if runMax_ is not None and df_.shape[0] > 0:
+                    msk__ = ( df_.loc[ 'run' ] <= runMax_ )
+                    print ( msk__ )
+                    df_ = df_.loc[ msk__ ]
+
+                if df_.shape[0] > 0:
+                    df_protons_singleRP_list.append( df_ )
+                    print ( df_protons_singleRP_list[-1].head() )
+                    print ( "Data set size: {}".format( len( df_protons_singleRP_list[-1] ) ) )
 
             entries_ppstracks = dset_ppstracks.shape[0]
             start_ = list( range( 0, entries_ppstracks, chunk_size ) )
@@ -584,9 +628,20 @@ def get_data( fileNames ):
                 print ( start_[idx], stop_[idx] )
                 #print ( dset[ start_[idx] : stop_[idx] ] )
                 df_ = pd.DataFrame( dset_ppstracks[ start_[idx] : stop_[idx] ], columns=columns_ppstracks ).astype( astype_dict_ppstracks_ )
-                df_ppstracks_list.append( df_ )
-                print ( df_ppstracks_list[-1].head() )
-                print ( "Data set size: {}".format( len( df_ppstracks_list[-1] ) ) )
+
+                if runMin_ is not None:
+                    msk__ = ( df_.loc[ 'run' ] >= runMin_ )
+                    print ( msk__ )
+                    df_ = df_.loc[ msk__ ]
+                if runMax_ is not None and df_.shape[0] > 0:
+                    msk__ = ( df_.loc[ 'run' ] <= runMax_ )
+                    print ( msk__ )
+                    df_ = df_.loc[ msk__ ]
+
+                if df_.shape[0] > 0:
+                    df_ppstracks_list.append( df_ )
+                    print ( df_ppstracks_list[-1].head() )
+                    print ( "Data set size: {}".format( len( df_ppstracks_list[-1] ) ) )
 
     df_counts = df_counts_list[0]
     for idx in range( 1, len( df_counts_list ) ):

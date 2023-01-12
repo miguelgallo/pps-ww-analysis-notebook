@@ -326,10 +326,11 @@ def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/Sl
 
         columns_runOnMC_.extend( [ "run_mc" ] )
 
-        if data_sample_ == '2017':
-            columns_runOnMC_.extend( [ "pileupWeight", "mc_pu_trueinteractions", "mcWeight", 'prefiring_weight', 'prefiring_weight_up', 'prefiring_weight_down' ] )
-        else:
-            columns_runOnMC_.extend( [ "pileupWeight", "mc_pu_trueinteractions", "mcWeight" ] )
+        # if data_sample_ == '2017':
+        #     columns_runOnMC_.extend( [ "pileupWeight", "mc_pu_trueinteractions", "mcWeight", 'prefiring_weight', 'prefiring_weight_up', 'prefiring_weight_down', 'prefiring_weight_ECAL', 'prefiring_weight_ECAL_up', 'prefiring_weight_ECAL_down', 'prefiring_weight_Muon', 'prefiring_weight_Muon_up', 'prefiring_weight_Muon_down' ] )
+        # else:
+        #     columns_runOnMC_.extend( [ "pileupWeight", "mc_pu_trueinteractions", "mcWeight", 'prefiring_weight', 'prefiring_weight_up', 'prefiring_weight_down', 'prefiring_weight_ECAL', 'prefiring_weight_ECAL_up', 'prefiring_weight_ECAL_down', 'prefiring_weight_Muon', 'prefiring_weight_Muon_up', 'prefiring_weight_Muon_down' ] )
+        columns_runOnMC_.extend( [ "pileupWeight", "mc_pu_trueinteractions", "mcWeight", 'prefiring_weight', 'prefiring_weight_up', 'prefiring_weight_down', 'prefiring_weight_ECAL', 'prefiring_weight_ECAL_up', 'prefiring_weight_ECAL_down', 'prefiring_weight_Muon', 'prefiring_weight_Muon_up', 'prefiring_weight_Muon_down' ] )
 
         columns_runOnMC_.extend( [ "jet0_jer_res", "jet0_jer_sf", "jet0_jer_sfup", "jet0_jer_sfdown", 'jet0_cjer', 'jet0_cjer_up', 'jet0_cjer_down' ] )
 
@@ -452,9 +453,8 @@ def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/Sl
             keys_calomet = tree_.keys( filter_name="calo_met*")
             keys_nonproton.extend( keys_met )
             keys_nonproton.extend( keys_calomet )
-            if data_sample_ == '2017':
-                keys_prefiring = tree_.keys( filter_name="prefiring*")
-                keys_nonproton.extend( keys_prefiring )
+            keys_prefiring = tree_.keys( filter_name="prefiring*")
+            keys_nonproton.extend( keys_prefiring )
 
             keys_proton = tree_.keys( filter_name="proton*")
             keys_ppstrack = tree_.keys( filter_name="pps_track*")
@@ -1017,10 +1017,19 @@ def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/Sl
                     protons_["pileupWeight"]           = events_["pileupWeight"]
                     protons_["mc_pu_trueinteractions"] = events_["mc_pu_trueinteractions"]
                     protons_["mcWeight"]               = events_["mcWeight"]
-                    if data_sample_ == '2017':
-                        protons_["prefiring_weight"]       = events_["prefiring_weight"]
-                        protons_["prefiring_weight_up"]    = events_["prefiring_weight_up"]
-                        protons_["prefiring_weight_down"]  = events_["prefiring_weight_down"]
+                    # if data_sample_ == '2017':
+                    #     protons_["prefiring_weight"]       = events_["prefiring_weight"]
+                    #     protons_["prefiring_weight_up"]    = events_["prefiring_weight_up"]
+                    #     protons_["prefiring_weight_down"]  = events_["prefiring_weight_down"]
+                    protons_["prefiring_weight"]       = events_["prefiring_weight"][ 0 ]
+                    protons_["prefiring_weight_up"]    = events_["prefiring_weight_up"][ 0 ]
+                    protons_["prefiring_weight_down"]  = events_["prefiring_weight_down"][ 0 ]
+                    protons_["prefiring_weight_ECAL"]       = events_["prefiring_weight_ECAL"][ 0 ]
+                    protons_["prefiring_weight_ECAL_up"]    = events_["prefiring_weight_ECAL_up"][ 0 ]
+                    protons_["prefiring_weight_ECAL_down"]  = events_["prefiring_weight_ECAL_down"][ 0 ]
+                    protons_["prefiring_weight_Muon"]       = events_["prefiring_weight_Muon"][ 0 ]
+                    protons_["prefiring_weight_Muon_up"]    = events_["prefiring_weight_Muon_up"][ 0 ]
+                    protons_["prefiring_weight_Muon_down"]  = events_["prefiring_weight_Muon_down"][ 0 ]
                 #protons_["x1"] = -999.
                 #protons_["y1"] = -999.
                 #protons_["x2"] = -999.

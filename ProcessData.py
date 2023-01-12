@@ -5,6 +5,7 @@ import ROOT
 
 class ProcessData:
     def __init__( self, lepton_type, data_sample, labels, fileNames, random_protons=False, mix_protons=False, runOnMC=False, output_dir="", use_hash_index=False ):
+
         if lepton_type not in ( 'muon', 'electron' ):
             raise RuntimeError( "Invalid lepton_type argument." )
 
@@ -46,8 +47,12 @@ class ProcessData:
                 print ( "Loading {}".format( lib_path_ ) )
                 ROOT.gSystem.Load( lib_path_ )
             
-            if self.data_sample_ == '2017' or self.data_sample_ == '2018':
-                self.jecPars_ = ROOT.JetCorrectorParameters( cmssw_base_ + "/src/PhysicsTools/NanoAODTools/data/jme/" + "Fall17_17Nov2017_V32_MC_Uncertainty_AK8PFchs.txt" )
+            # if self.data_sample_ == '2017' or self.data_sample_ == '2018':
+            #     self.jecPars_ = ROOT.JetCorrectorParameters( cmssw_base_ + "/src/PhysicsTools/NanoAODTools/data/jme/" + "Fall17_17Nov2017_V32_MC_Uncertainty_AK8PFchs.txt" )
+            if self.data_sample_ == '2017':
+                self.jecPars_ = ROOT.JetCorrectorParameters( "jes_jer/2017-JEC-JER/" + "Summer19UL17_V5_MC_Uncertainty_AK8PFchs.txt" )
+            elif self.data_sample_ == '2018':
+                self.jecPars_ = ROOT.JetCorrectorParameters( "jes_jer/2018-JEC-JER/" + "Summer19UL18_V5_MC_Uncertainty_AK8PFchs.txt" )
             print ( self.jecPars_ )
             self.jecUncertainty_ = ROOT.JetCorrectionUncertainty( self.jecPars_ )
             print ( self.jecUncertainty_ )
@@ -186,30 +191,55 @@ class ProcessData:
         df.loc[ :, "muon0_py" + label_ ]     = ( df.loc[ :, "muon0_pt" + label_ ] * np.sin( df.loc[ :, "muon0_phi" ] ) )
         df.loc[ :, "muon0_pz" + label_ ]     = ( df.loc[ :, "muon0_pt" + label_ ] * np.sinh( df.loc[ :, "muon0_eta" ] ) )
         if self.runOnMC_:
-            # Muon scale factor
-            from muon_efficiency import MuonScaleFactor
+            # Muon scale factors
+            from muon_efficiency import MuonIDScaleFactor, MuonTRGScaleFactor 
+            # ID
             # file_eff_MuID = ROOT.TFile.Open( "efficiencies/muon/RunBCDEF_SF_MuID.root", "READ" )
-            file_eff_syst_MuID_ = None
-            histName_ = None
+            file_eff_MuID_ = None
+            histName_MuID_ = None
             if self.data_sample_ == '2017':
-                file_eff_syst_MuID_ = ROOT.TFile.Open( "efficiencies/muon/2017/RunBCDEF_SF_ID_syst.root", "READ" )
-                histName_ = "NUM_TightID_DEN_genTracks_pt_abseta"
+                file_eff_MuID_ = ROOT.TFile.Open( "efficiencies/muon/id/2017/Efficiencies_muon_generalTracks_Z_Run2017_UL_ID.root", "READ" )
+                histName_MuID_ = "NUM_TrkHighPtID_DEN_TrackerMuons_abseta_pt"
             elif self.data_sample_ == '2018':
-                file_eff_syst_MuID_ = ROOT.TFile.Open( "efficiencies/muon/2018/RunABCD_SF_ID.root", "READ" )
-                histName_ = "NUM_TightID_DEN_TrackerMuons_pt_abseta"
+                file_eff_MuID_ = ROOT.TFile.Open( "efficiencies/muon/id/2018/Efficiencies_muon_generalTracks_Z_Run2018_UL_ID.root", "READ" )
+                histName_MuID_ = "NUM_TrkHighPtID_DEN_TrackerMuons_abseta_pt"
 
             # muon_scale_factor_ = MuonScaleFactor( histos={ "MuID": file_eff_MuID.Get( "NUM_TightID_DEN_genTracks_pt_abseta" ) } )
-            muon_scale_factor_ = MuonScaleFactor(
-                histos={ "MuID": file_eff_syst_MuID_.Get( histName_ ),
-                         "MuID_stat": file_eff_syst_MuID_.Get( histName_ + "_stat" ),
-                         "MuID_syst": file_eff_syst_MuID_.Get( histName_ + "_syst" ) }
+            muon_scale_factor_ID_ = MuonIDScaleFactor(
+                histos={ "MuID": file_eff_MuID_.Get( histName_MuID_ ),
+                         "MuID_stat": file_eff_MuID_.Get( histName_MuID_ + "_stat" ),
+                         "MuID_syst": file_eff_MuID_.Get( histName_MuID_ + "_syst" ) }
                 )
-            f_sf_muon_id_ = lambda row: muon_scale_factor_( row["muon0_pt"], row["muon0_eta"] )[ 0 ]
-            f_sf_muon_id_unc_ = lambda row: muon_scale_factor_( row["muon0_pt"], row["muon0_eta"] )[ 1 ]
-            df.loc[ :, 'sf_muon_id' ] = df[ ["muon0_pt", "muon0_eta"] ].apply( f_sf_muon_id_, axis=1 )
-            df.loc[ :, 'sf_muon_id_unc' ] = df[ ["muon0_pt", "muon0_eta"] ].apply( f_sf_muon_id_unc_, axis=1 )
+            # f_sf_muon_id_ = lambda row: muon_scale_factor_( row["muon0_pt"], row["muon0_eta"] )[ 0 ]
+            # f_sf_muon_id_unc_ = lambda row: muon_scale_factor_( row["muon0_pt"], row["muon0_eta"] )[ 1 ]
+            f_sf_muon_id_ = lambda row: muon_scale_factor_ID_( row["muon0_eta"], row["muon0_pt"] )[ 0 ]
+            f_sf_muon_id_unc_ = lambda row: muon_scale_factor_ID_( row["muon0_eta"], row["muon0_pt"] )[ 1 ]
+            df.loc[ :, 'sf_muon_id' ] = df[ [ "muon0_eta", "muon0_pt" ] ].apply( f_sf_muon_id_, axis=1 )
+            df.loc[ :, 'sf_muon_id_unc' ] = df[ [ "muon0_eta", "muon0_pt" ] ].apply( f_sf_muon_id_unc_, axis=1 )
             df.loc[ :, 'sf_muon_id_up' ] = ( df.loc[ :, 'sf_muon_id' ] + df.loc[ :, 'sf_muon_id_unc' ] )
             df.loc[ :, 'sf_muon_id_dw' ] = ( df.loc[ :, 'sf_muon_id' ] - df.loc[ :, 'sf_muon_id_unc' ] )
+
+            # TRG
+            file_eff_MuTRG_ = None
+            histName_MuTRG_ = None
+            if self.data_sample_ == '2017':
+                file_eff_MuTRG_ = ROOT.TFile.Open( "efficiencies/muon/trigger/2017/Efficiencies_muon_generalTracks_Z_Run2017_UL_SingleMuonTriggers.root", "READ" )
+                histName_MuTRG_ = "NUM_IsoMu27_DEN_CutBasedIdTight_and_PFIsoTight_abseta_pt"
+            elif self.data_sample_ == '2018':
+                file_eff_MuTRG_ = ROOT.TFile.Open( "efficiencies/muon/trigger/2018/Efficiencies_muon_generalTracks_Z_Run2018_UL_SingleMuonTriggers.root", "READ" )
+                histName_MuTRG_ = "NUM_IsoMu24_DEN_CutBasedIdTight_and_PFIsoTight_abseta_pt"
+
+            muon_scale_factor_TRG_ = MuonTRGScaleFactor(
+                histos={ "MuTRG": file_eff_MuTRG_.Get( histName_MuTRG_ ),
+                         "MuTRG_stat": file_eff_MuTRG_.Get( histName_MuTRG_ + "_stat" ),
+                         "MuTRG_syst": file_eff_MuTRG_.Get( histName_MuTRG_ + "_syst" ) }
+                )
+            f_sf_muon_trigger_ = lambda row: muon_scale_factor_TRG_( row["muon0_eta"], row["muon0_pt"] )[ 0 ]
+            f_sf_muon_trigger_unc_ = lambda row: muon_scale_factor_TRG_( row["muon0_eta"], row["muon0_pt"] )[ 1 ]
+            df.loc[ :, 'sf_muon_trigger' ] = df[ [ "muon0_eta", "muon0_pt" ] ].apply( f_sf_muon_trigger_, axis=1 )
+            df.loc[ :, 'sf_muon_trigger_unc' ] = df[ [ "muon0_eta", "muon0_pt" ] ].apply( f_sf_muon_trigger_unc_, axis=1 )
+            df.loc[ :, 'sf_muon_trigger_up' ] = ( df.loc[ :, 'sf_muon_trigger' ] + df.loc[ :, 'sf_muon_trigger_unc' ] )
+            df.loc[ :, 'sf_muon_trigger_dw' ] = ( df.loc[ :, 'sf_muon_trigger' ] - df.loc[ :, 'sf_muon_trigger_unc' ] )
 
     def calculateElectrons( self, df ):
         label_ = "_nom"
@@ -220,22 +250,39 @@ class ProcessData:
         df.loc[ :, "electron0_pz" + label_ ]     = ( df.loc[ :, "electron0_pt" + label_ ] * np.sinh( df.loc[ :, "electron0_eta" ] ) )
         if self.runOnMC_:
             # Electron scale factor
-            from electron_efficiency import ElectronScaleFactor
+            from electron_efficiency import ElectronIDScaleFactor, ElectronTRGScaleFactor 
+            # ID
             # file_eff_EleID = ROOT.TFile.Open( "efficiencies/electron/2017_ElectronTight.root", "READ" )
             file_eff_EleID_ = None
-            histName_ = "EGamma_SF2D"
+            histName_EleID_ = "EGamma_SF2D"
             if self.data_sample_ == '2017':
-                file_eff_EleID_ = ROOT.TFile.Open( "efficiencies/electron/2017/2017_ElectronTight.root", "READ" )
+                file_eff_EleID_ = ROOT.TFile.Open( "efficiencies/electron/id/2017/egammaEffi.txt_EGM2D_Tight_UL17.root", "READ" )
             elif self.data_sample_ == '2018':
-                file_eff_EleID_ = ROOT.TFile.Open( "efficiencies/electron/2018/2018_ElectronTight.root", "READ" )
+                file_eff_EleID_ = ROOT.TFile.Open( "efficiencies/electron/id/2018/egammaEffi.txt_Ele_Tight_EGM2D.root", "READ" )
 
-            electron_scale_factor_ = ElectronScaleFactor( histos={ "EleID": file_eff_EleID_.Get( histName_ ) } )
-            f_sf_electron_id_ = lambda row: electron_scale_factor_( row["electron0_pt"], row["electron0_eta"] )[ 0 ]
-            f_sf_electron_id_unc_ = lambda row: electron_scale_factor_( row["electron0_pt"], row["electron0_eta"] )[ 1 ]
-            df.loc[ :, 'sf_electron_id' ] = df[ ["electron0_pt", "electron0_eta"] ].apply( f_sf_electron_id_, axis=1 )
-            df.loc[ :, 'sf_electron_id_unc' ] = df[ ["electron0_pt", "electron0_eta"] ].apply( f_sf_electron_id_unc_, axis=1 )
+            electron_scale_factor_ID_ = ElectronIDScaleFactor( histos={ "EleID": file_eff_EleID_.Get( histName_EleID_ ) } )
+            f_sf_electron_id_ = lambda row: electron_scale_factor_ID_( row["electron0_eta"], row["electron0_pt"] )[ 0 ]
+            f_sf_electron_id_unc_ = lambda row: electron_scale_factor_ID_( row["electron0_eta"], row["electron0_pt"] )[ 1 ]
+            df.loc[ :, 'sf_electron_id' ] = df[ [ "electron0_eta", "electron0_pt" ] ].apply( f_sf_electron_id_, axis=1 )
+            df.loc[ :, 'sf_electron_id_unc' ] = df[ [ "electron0_eta", "electron0_pt" ] ].apply( f_sf_electron_id_unc_, axis=1 )
             df.loc[ :, 'sf_electron_id_up' ] = ( df.loc[ :, 'sf_electron_id' ] + df.loc[ :, 'sf_electron_id_unc' ] )
             df.loc[ :, 'sf_electron_id_dw' ] = ( df.loc[ :, 'sf_electron_id' ] - df.loc[ :, 'sf_electron_id_unc' ] )
+
+            # TRG
+            file_eff_EleTRG_ = None
+            histName_EleTRG_ = "EGamma_SF2D"
+            if self.data_sample_ == '2017':
+                file_eff_EleTRG_ = ROOT.TFile.Open( "", "READ" )
+            elif self.data_sample_ == '2018':
+                file_eff_EleTRG_ = ROOT.TFile.Open( "efficiencies/electron/trigger/2018/egammaEffi.txt_EGM2D-Trigger.root", "READ" )
+
+            electron_scale_factor_TRG_ = ElectronTRGScaleFactor( histos={ "EleTRG": file_eff_EleTRG_.Get( histName_EleTRG_ ) } )
+            f_sf_electron_trigger_ = lambda row: electron_scale_factor_TRG_( row["electron0_eta"], row["electron0_pt"] )[ 0 ]
+            f_sf_electron_trigger_unc_ = lambda row: electron_scale_factor_TRG_( row["electron0_eta"], row["electron0_pt"] )[ 1 ]
+            df.loc[ :, 'sf_electron_trigger' ] = df[ [ "electron0_eta", "electron0_pt" ] ].apply( f_sf_electron_trigger_, axis=1 )
+            df.loc[ :, 'sf_electron_trigger_unc' ] = df[ [ "electron0_eta", "electron0_pt" ] ].apply( f_sf_electron_trigger_unc_, axis=1 )
+            df.loc[ :, 'sf_electron_trigger_up' ] = ( df.loc[ :, 'sf_electron_trigger' ] + df.loc[ :, 'sf_electron_trigger_unc' ] )
+            df.loc[ :, 'sf_electron_trigger_dw' ] = ( df.loc[ :, 'sf_electron_trigger' ] - df.loc[ :, 'sf_electron_trigger_unc' ] )
 
     def calculateWLep( self, df ):
         label_ = "_nom"
@@ -326,7 +373,15 @@ class ProcessData:
                df.loc[ :, "xi" + names_varminus_[ idx_ ] ] = df_arr_xi_ - val_ * sigma_xi_
            df.loc[ :, "sigma_xi" ] = sigma_xi_
 
-    def __call__( self, apply_fiducial=True, within_aperture=False, select_2protons=True ):
+    def __call__( self, apply_fiducial=True, within_aperture=False, select_2protons=True, runMin=None, runMax=None ):
+
+        if runMin is not None and runMin <= 0:
+            raise RuntimeError( "Invalid data_sample argument." )
+        if runMax is not None and runMax <= 0:
+            raise RuntimeError( "Invalid data_sample argument." )
+
+        runMin_ = runMin
+        runMax_ = runMax
 
         df_counts = {}
         df_protons_multiRP_index = {}
@@ -347,7 +402,7 @@ class ProcessData:
             # with pd.HDFStore( "reduced-data-store-{}.h5".format( label_ ), complevel=5 ) as store_:
             with pd.HDFStore( file_path_, 'w', complevel=5 ) as store_:
         
-                df_counts_, df_protons_multiRP_, df_protons_singleRP_, df_ppstracks_ = get_data( self.fileNames_[ label_ ] )
+                df_counts_, df_protons_multiRP_, df_protons_singleRP_, df_ppstracks_ = get_data( self.fileNames_[ label_ ], runMin=runMin_, runMax=runMax_ )
 
                 self.fetchDataPeriod( df_protons_multiRP_ ) 
 

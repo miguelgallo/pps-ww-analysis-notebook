@@ -4,8 +4,8 @@
 
 from CreateTable import *
 
-lepton_type = 'muon'
-# lepton_type = 'electron'
+#lepton_type = 'muon'
+lepton_type = 'electron'
 
 # data_sample = '2017'
 data_sample = '2018'
@@ -84,34 +84,34 @@ elif data_sample == '2018':
     if lepton_type == 'muon':
         fileNames_data[ "2018A" ] = [
             # "/eos/home-a/antoniov/Workspace/analysis/data/PPS/SingleMuon-Run2018A/SingleMuon-Run2018A_merged.root"
-            "/eos/home-a/antoniov/Workspace/analysis/data/PPS/SingleMuon_UL2018A_MiniAODv2-v3_noduplicates.root"
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/Data/SingleMuon_UL2018A_MiniAODv2-v3_noduplicates.root"
         ]
         fileNames_data[ "2018B" ] = [
             # "/eos/home-a/antoniov/Workspace/analysis/data/PPS/SingleMuon-Run2018B/SingleMuon-Run2018B_merged.root"
-            "/eos/home-a/antoniov/Workspace/analysis/data/PPS/SingleMuon_UL2018B_MiniAODv2-v2_noduplicates.root"
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/Data/SingleMuon_UL2018B_MiniAODv2-v2_noduplicates.root"
         ]
         fileNames_data[ "2018C" ] = [
             # "/eos/home-a/antoniov/Workspace/analysis/data/PPS/SingleMuon-Run2018C/SingleMuon-Run2018C_merged.root"
-            "/eos/home-a/antoniov/Workspace/analysis/data/PPS/SingleMuon_UL2018C_MiniAODv2-v2_noduplicates.root"
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/Data/SingleMuon_UL2018C_MiniAODv2-v2_noduplicates.root"
         ]
         fileNames_data[ "2018D" ] = [
             # "/eos/home-a/antoniov/Workspace/analysis/data/PPS/SingleMuon-Run2018D/SingleMuon-Run2018D_merged.root"
-            "/eos/home-a/antoniov/Workspace/analysis/data/PPS/SingleMuon_UL2018D_MiniAODv2-v3_noduplicates.root"
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/Data/SingleMuon_UL2018D_MiniAODv2-v3_noduplicates.root"
         ]
     elif lepton_type == 'electron':
         fileNames_data[ "2018A" ] = [
-            "/eos/home-a/antoniov/Workspace/analysis/data/PPS/EGamma-Run2018A/EGamma-Run2018A_merged.root"
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/Data/EGamma_UL2018A_MiniAODv2-v1_noduplicates.root"
         ]
         fileNames_data[ "2018B" ] = [
-            "/eos/home-a/antoniov/Workspace/analysis/data/PPS/EGamma-Run2018B/EGamma-Run2018B_merged.root"
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/Data/EGamma_UL2018B_MiniAODv2-v1_noduplicates.root"
         ]
         fileNames_data[ "2018C" ] = [
-            "/eos/home-a/antoniov/Workspace/analysis/data/PPS/EGamma-Run2018C/EGamma-Run2018C_merged.root"
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/Data/EGamma_UL2018C_MiniAODv2-v1_noduplicates.root"
         ]
         fileNames_data[ "2018D" ] = [
-            "/eos/home-a/antoniov/Workspace/analysis/data/PPS/EGamma-Run2018D/EGamma-Run2018D_merged.root"
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/Data/EGamma_UL2018D_MiniAODv2-v2_noduplicates.root"
         ]
 
-create_table_ = CreateTable( label=label, lepton_type=lepton_type, data_sample=data_sample, fileNames=fileNames_data, tree_path=tree_path, output_dir="output" )
+create_table_ = CreateTable( label=label, lepton_type=lepton_type, data_sample=data_sample, fileNames=fileNames_data, tree_path=tree_path, output_dir="/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output" )
 
 create_table_( random_protons=False, step_size=step_size, firstEvent=None, entryStop=None, debug=debug ) 

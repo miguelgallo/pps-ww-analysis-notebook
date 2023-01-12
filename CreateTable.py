@@ -19,6 +19,11 @@ class CreateTable:
 
             print ( key_, self.fileNames_[ key_ ] )
             label__ = "{}-{}".format( self.label_, key_ )
+            if firstEvent is not None and firstEvent >= 0:
+                label__ = label__ + "-{}".format( firstEvent )
+            if entryStop is not None and entryStop >= 0:
+                label__ = label__ + "-{}".format( entryStop )
+
             create_table(
                 self.fileNames_[ key_ ],
                 label=label__,

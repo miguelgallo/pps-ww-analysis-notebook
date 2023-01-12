@@ -7,16 +7,16 @@ import h5py
 # run_ranges_periods, df_run_ranges, fiducial_cuts, fiducial_cuts_all, aperture_period_map, aperture_parametrisation, check_aperture, get_data, process_data_protons_multiRP
 from processing import *
 
-lepton_type = 'muon'
-# lepton_type = 'electron'
+#lepton_type = 'muon'
+lepton_type = 'electron'
 
 # data_sample = '2017'
 data_sample = '2018'
 
 use_hash_index = True
 
-base_path_ = 'output'
-output_dir_ = 'output'
+base_path_ = '/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output'
+output_dir_ = '/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output'
 
 # Signal
 labels_signals = []

@@ -1,8 +1,8 @@
 #!/bin/tcsh
 
 ### Replace the following lines according to your setup.
-set EXEC=/eos/home-a/antoniov/SWAN_projects/pps-ww-analysis
-set OUTPUT=/eos/home-a/antoniov/SWAN_projects/pps-ww-analysis/output
+set EXEC=/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/src/workspace/pps-ww-analysis-notebook
+set OUTPUT=/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output
 ###
 
 set option1="$1"

@@ -1,14 +1,14 @@
 from ProcessData import *
 
-lepton_type_ = "muon"
-# lepton_type_ = "electron"
+#lepton_type_ = "muon"
+lepton_type_ = "electron"
 
 # data_sample = '2017'
 data_sample = '2018'
 
 label__ = "data-{}-{}".format( data_sample, lepton_type_ )
 
-base_path_ = "/eos/home-a/antoniov/SWAN_projects/pps-ww-analysis/output"
+base_path_ = "/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output"
 labels_ = []
 fileNames_data_ = {}
 if data_sample == '2017':
@@ -61,7 +61,7 @@ print ( labels_ )
 print ( fileNames_data_ )
 
 # output_dir_=""
-output_dir_="output"
+output_dir_="/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output"
 # process_data_ = ProcessData( lepton_type=lepton_type_, data_sample=data_sample, labels=[ label_ ], fileNames={ label_: fileNames_data_ }, runOnMC=False )
 process_data_ = ProcessData( lepton_type=lepton_type_, data_sample=data_sample, labels=labels_, fileNames=fileNames_data_, runOnMC=False, output_dir=output_dir_ )
 

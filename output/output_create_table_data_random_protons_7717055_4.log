@@ -1,0 +1,42 @@
+000 (7717055.004.000) 12/19 13:34:21 Job submitted from host: <137.138.156.150:9618?addrs=137.138.156.150-9618+[2001-1458-d00-14--9a]-9618&alias=bigbird13.cern.ch&noUDP&sock=schedd_1788_ff6c>
+...
+040 (7717055.004.000) 12/19 13:36:21 Started transferring input files
+	Transferring to host: <128.142.60.84:9618?addrs=128.142.60.84-9618+[2001-1458-301-22--100-53]-9618&alias=b7s05p3151.cern.ch&noUDP&sock=slot1_2_4942_d602_21292>
+...
+040 (7717055.004.000) 12/19 13:36:21 Finished transferring input files
+...
+001 (7717055.004.000) 12/19 13:36:21 Job executing on host: <128.142.60.84:9618?addrs=128.142.60.84-9618+[2001-1458-301-22--100-53]-9618&alias=b7s05p3151.cern.ch&noUDP&sock=startd_4441_bc2e>
+...
+006 (7717055.004.000) 12/19 13:36:30 Image size of job updated: 169640
+	48  -  MemoryUsage of job (MB)
+	48968  -  ResidentSetSize of job (KB)
+...
+006 (7717055.004.000) 12/19 13:41:31 Image size of job updated: 15801048
+	13744  -  MemoryUsage of job (MB)
+	14073036  -  ResidentSetSize of job (KB)
+...
+006 (7717055.004.000) 12/19 13:43:26 Image size of job updated: 15801048
+	13753  -  MemoryUsage of job (MB)
+	14082108  -  ResidentSetSize of job (KB)
+...
+040 (7717055.004.000) 12/19 13:43:26 Started transferring output files
+...
+040 (7717055.004.000) 12/19 13:43:26 Finished transferring output files
+...
+005 (7717055.004.000) 12/19 13:43:26 Job terminated.
+	(1) Normal termination (return value 1)
+		Usr 0 00:04:56, Sys 0 00:00:34  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:04:56, Sys 0 00:00:34  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	119862  -  Run Bytes Sent By Job
+	1047  -  Run Bytes Received By Job
+	119862  -  Total Bytes Sent By Job
+	1047  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated 
+	   Cpus                 :                 8         8 
+	   Disk (KB)            :      175        2   1295397 
+	   Memory (MB)          :    13753    16000     16000 
+
+	Job terminated of its own accord at 2022-12-19T12:43:26Z.
+...

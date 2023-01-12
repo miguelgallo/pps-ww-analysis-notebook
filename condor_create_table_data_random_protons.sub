@@ -28,4 +28,15 @@ should_transfer_files = IF_NEEDED
 when_to_transfer_output = ON_EXIT
 transfer_output_files = ""
 
-queue
+# queue
+queue arguments from (
+#    --period=2018A
+#    --period=2018B
+#    --period=2018C
+    --period=2018D --start=0 --stop=200000
+    --period=2018D --start=200000 --stop=400000
+    --period=2018D --start=400000 --stop=600000
+    --period=2018D --start=600000 --stop=800000
+    --period=2018D --start=800000 --stop=1000000
+    --period=2018D --start=1000000
+)

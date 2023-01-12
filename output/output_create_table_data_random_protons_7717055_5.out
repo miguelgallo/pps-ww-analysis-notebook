@@ -1,0 +1,1645 @@
+option: --period=2018D
+option: --start=1000000
+option: 
+/afs/cern.ch/user/m/malvesga/work/ProtonRecon/TEST/CMSSW_11_2_4/src/workspace/pps-ww-analysis-notebook
+/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output
+/afs/cern.ch/user/m/malvesga/work/ProtonRecon/TEST/CMSSW_11_2_4/src/workspace/pps-ww-analysis-notebook
+/pool/condor/dir_13749
+_condor_stderr
+_condor_stdout
+condor_exec.exe
+malvesga.cc
+tmp
+var
+PYTHON3PATH set to /cvmfs/cms.cern.ch/share/overrides/python:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/python:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/python:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw-tool-conf/46.0-ghbfee12/lib/python3.8/site-packages:/afs/cern.ch/user/m/malvesga/work/ProtonRecon/TEST/CMSSW_11_2_4/src/workspace/pps-ww-analysis-notebook
+SRT_G4LEVELGAMMADATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4PhotonEvaporation/5.5/data/PhotonEvaporation5.5
+REMOTEHOST=2804
+G4LEVELGAMMADATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4PhotonEvaporation/5.5/data/PhotonEvaporation5.5
+UTM_XSD_DIR=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/utm/utm_0.8.1
+CUBACORES=8
+CMSSW_RELEASE_BASE=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4
+_CONDOR_JOB_PIDS=
+MANPATH=/cvmfs/cms.cern.ch/share/man:/cvmfs/cms.cern.ch/share/man:/opt/glite/share/man:/cvmfs/cms.cern.ch/share/man:/cvmfs/cms.cern.ch/share/man::/opt/puppetlabs/puppet/share/man::
+SCRAMRT_SET=CMSSW:CMSSW_11_2_4:slc7_amd64_gcc900:V2_2_9_pre16:SRT_
+CMSSW_FWLITE_INCLUDE_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/sherpa/2.2.10-ljfedo/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/hepmc/2.06.07-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/clhep/2.4.1.3-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/boost/1.72.0-ghbfee4/include
+XDG_SESSION_ID=c40211
+SRT_GCC_RUNTIME_ASAN_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0/lib64/libasan.so
+HOSTNAME=b7s03p3926.cern.ch
+MKFIT_BASE=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/mkfit/2.0.1-ghbfee4
+GUESTFISH_INIT=\e[1;34m
+VIRTUALENVWRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
+SELINUX_ROLE_REQUESTED=
+VO_VO_L3_CERN_CH_SW_DIR=/afs/cern.ch/l3
+VO_ALICE_SW_DIR=/afs/cern.ch/project/gd/apps/alice
+ROOT_INCLUDE_PATH=/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/src:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/src:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/coral/CORAL_2_3_21-ghbfee11/include/LCG:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/mctester/1.25.0a-ghbfee11/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/dd4hep/v01-14x-ghbfee4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/herwigpp/7.2.0-ghbfee13/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/tauolapp/1.1.5-ghbfee3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/charybdis/1.003-ghbfee3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/sherpa/2.2.10-ljfedo/include/SHERPA-MC:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/thepeg/2.2.0-ghbfee4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/pythia8/303/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/herwig/6.521-ghbfee2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/lwtnn/2.10-ghbfee4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/lhapdf/6.2.3-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/cgal/4.2-ghbfee4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/starlight/r193-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/rivet/3.1.3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/highfive/2.0-ghbfee3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4/10.6.2-ghbfee/include/Geant4:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/classlib/3.1.3-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/tkonlinesw/4.2.0-1_gcc7-ghbfee11/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/libungif/4.1.4-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/libtiff/4.0.10-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/libpng/1.6.37-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/frontier_client/2.9.1-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/pcre/8.43-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/zstd/1.4.5/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/xrootd/4.12.3/include/xrootd/private:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/vdt/0.4.0-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/valgrind/3.15.0-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/utm/utm_0.8.1/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/toprex/4.23-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/tauola/27.121.5-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/sigcpp/2.6.2-bcolbf2/include/sigc++-2.0:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/sqlite/3.22.0-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/pacparser/1.3.5-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/oracle/12.1.0.2.0-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/py2-numpy/1.16.6-ghbfee/c-api/core/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/meschach/1.2.pCMS1-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/lz4/1.9.2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/libuuid/2.34-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/libunwind/1.4.0/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/ktjet/1.06-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/jimmy/4.2-ghbfee3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/jemalloc/5.2.1-ghbfee3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/hls/2019.08-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/madgraph5amcatnlo/2.6.0-ghbfee12:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/heppdt/3.03.00-ghbfee2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/hector/1.3.4_patch1-ghbfee11/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gsl/2.6-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/protobuf/3.11.3-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/libjpeg-turbo/2.0.2-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/giflib/5.2.0-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gdbm/1.10-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/freetype/2.10.0-bcolbf3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/fftw3/3.3.8-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/fftjet/1.5.0-bcolbf3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/fastjet/3.3.4-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/hepmc/2.06.07-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/dpm/1.8.0.1-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/expat/2.1.0-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/vecgeom/v1.1.6-ghbfee3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/vecgeom/v1.1.6-ghbfee3/include/VecGeom:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/xerces-c/3.1.3-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/xz/5.2.4-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/lcg/root/6.22.06/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/dcap/2.47.12-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/libxml2/2.9.10/include/libxml2:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/openssl/1.0.2d-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/curl/7.70.0/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/cppunit/1.15.x-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/clhep/2.4.1.3-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/pythia6/426-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/photos/215.5-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/zlib/1.2.11-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/cascade/2.2.04-ghbfee3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/bz2lib/1.0.6-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/python/2.7.15-bcolbf2/include/python2.7:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/tbb/2020_U2-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/boost/1.72.0-ghbfee4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/tinyxml2/6.2.0-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/ittnotify/16.06.18-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gosamcontrib/2.0-20150803-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/fmt/7.0.1/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/eigen/d812f411c3f9-ghbfee/include/eigen3:/usr/local/include:/usr/include
+INTEL_LICENSE_FILE=28518@lxlicen01.cern.ch,28518@lxlicen02.cern.ch,28518@lxlicen03.cern.ch
+SRT_TEXMFHOME_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/rivet/3.1.3/share/Rivet/texmf
+GRID_ENV_LOCATION=/usr/libexec
+TERM=xterm
+SHELL=/bin/bash
+HOST=b7s03p3926.cern.ch
+SRT_GEANT4_PARFULLCMS_CONFIG_DIR_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-parfullcms/2014.01.27-ghbfee3/share/ParFullCMS
+HISTSIZE=1000
+SRT_TNS_ADMIN_SCRAMRTDEL=/etc
+PDFPATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/rivet/3.1.3/share
+TMPDIR=/pool/condor/dir_13749/tmp
+SSH_CLIENT=2804:d41:c905:1100:704d:c166:932b:5b95 56993 22
+ROOT_GCC_TOOLCHAIN=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0
+VO_OPS_DEFAULT_SE=srm-public.cern.ch
+G4FORCENUMBEROFTHREADS=max
+OPENBLAS_NUM_THREADS=1
+PERL5LIB=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/git/2.23.0-ghbfee/share/perl5
+SRT_PDFPATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/rivet/3.1.3/share
+CONDA_SHLVL=0
+LHAPDF_DATA_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/lhapdf/6.2.3-ghbfee/share/LHAPDF
+SELINUX_USE_CURRENT_RANGE=
+CMSSW_DATA_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms
+CVSROOT=:gserver:cmssw.cvs.cern.ch:/local/reps/CMSSW
+_CONDOR_SCRATCH_DIR=/pool/condor/dir_13749
+CMSSW_GIT_HASH=CMSSW_11_2_4
+SRT_G4ABLADATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4ABLA/3.1/data/G4ABLA3.1
+VO_NA48_SW_DIR=/afs/cern.ch/project/gd/apps/na48
+QTDIR=/usr/lib64/qt-3.3
+SRT_SCONS_LIB_DIR_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/scons/3.0.1-bcolbf2/lib
+QTINC=/usr/lib64/qt-3.3/include
+SCRAM_ARCH=slc7_amd64_gcc900
+SRT_MKFIT_BASE_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/mkfit/2.0.1-ghbfee4
+VO_VO_OPAL_CERN_CH_DEFAULT_SE=srm-public.cern.ch
+GIT_SSL_CAINFO=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/git/2.23.0-ghbfee/share/ssl/certs/ca-bundle.crt
+SRT_THEPEGPATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/thepeg/2.2.0-ghbfee4/share/ThePEG
+SSH_TTY=/dev/pts/7
+SRT_CMS_OPENLOOPS_PREFIX_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/openloops/2.1.1-gchjei
+SRT_GIT_EXEC_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/git/2.23.0-ghbfee/libexec/git-core
+GRIDMAPDIR=/etc/grid-security/gridmapdir
+SRT_ROOT_INCLUDE_PATH_SCRAMRTDEL=/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/src:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/src:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/coral/CORAL_2_3_21-ghbfee11/include/LCG:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/mctester/1.25.0a-ghbfee11/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/dd4hep/v01-14x-ghbfee4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/herwigpp/7.2.0-ghbfee13/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/tauolapp/1.1.5-ghbfee3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/charybdis/1.003-ghbfee3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/sherpa/2.2.10-ljfedo/include/SHERPA-MC:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/thepeg/2.2.0-ghbfee4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/pythia8/303/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/herwig/6.521-ghbfee2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/lwtnn/2.10-ghbfee4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/lhapdf/6.2.3-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/cgal/4.2-ghbfee4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/starlight/r193-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/rivet/3.1.3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/highfive/2.0-ghbfee3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4/10.6.2-ghbfee/include/Geant4:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/classlib/3.1.3-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/tkonlinesw/4.2.0-1_gcc7-ghbfee11/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/libungif/4.1.4-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/libtiff/4.0.10-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/libpng/1.6.37-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/frontier_client/2.9.1-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/pcre/8.43-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/zstd/1.4.5/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/xrootd/4.12.3/include/xrootd/private:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/vdt/0.4.0-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/valgrind/3.15.0-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/utm/utm_0.8.1/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/toprex/4.23-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/tauola/27.121.5-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/sigcpp/2.6.2-bcolbf2/include/sigc++-2.0:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/sqlite/3.22.0-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/pacparser/1.3.5-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/oracle/12.1.0.2.0-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/py2-numpy/1.16.6-ghbfee/c-api/core/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/meschach/1.2.pCMS1-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/lz4/1.9.2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/libuuid/2.34-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/libunwind/1.4.0/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/ktjet/1.06-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/jimmy/4.2-ghbfee3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/jemalloc/5.2.1-ghbfee3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/hls/2019.08-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/madgraph5amcatnlo/2.6.0-ghbfee12:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/heppdt/3.03.00-ghbfee2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/hector/1.3.4_patch1-ghbfee11/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gsl/2.6-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/protobuf/3.11.3-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/libjpeg-turbo/2.0.2-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/giflib/5.2.0-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gdbm/1.10-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/freetype/2.10.0-bcolbf3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/fftw3/3.3.8-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/fftjet/1.5.0-bcolbf3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/fastjet/3.3.4-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/hepmc/2.06.07-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/dpm/1.8.0.1-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/expat/2.1.0-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/vecgeom/v1.1.6-ghbfee3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/vecgeom/v1.1.6-ghbfee3/include/VecGeom:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/xerces-c/3.1.3-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/xz/5.2.4-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/lcg/root/6.22.06/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/dcap/2.47.12-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/libxml2/2.9.10/include/libxml2:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/openssl/1.0.2d-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/curl/7.70.0/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/cppunit/1.15.x-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/clhep/2.4.1.3-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/pythia6/426-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/photos/215.5-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/zlib/1.2.11-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/cascade/2.2.04-ghbfee3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/bz2lib/1.0.6-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/python/2.7.15-bcolbf2/include/python2.7:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/tbb/2020_U2-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/boost/1.72.0-ghbfee4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/tinyxml2/6.2.0-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/ittnotify/16.06.18-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gosamcontrib/2.0-20150803-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/fmt/7.0.1/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/eigen/d812f411c3f9-ghbfee/include/eigen3:/usr/local/include:/usr/include
+SRT_INTEL_LICENSE_FILE_SCRAMRTDEL=28518@lxlicen01.cern.ch,28518@lxlicen02.cern.ch,28518@lxlicen03.cern.ch
+EVTGENDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/evtgen/1.6.0-ghbfee3/share
+ROOT_TTREECACHE_SIZE=0
+STAGE_HOST=castorcms
+VO_VO_ALEPH_CERN_CH_SW_DIR=/afs/cern.ch/aleph
+SRT_ROOT_TTREECACHE_PREFILL_SCRAMRTDEL=0
+QT_GRAPHICSSYSTEM_CHECKED=1
+G4LEDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4EMLOW/7.9.1/data/G4EMLOW7.9.1
+GROUP=zh
+OPAL_PREFIX=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/openmpi/4.0.5
+USER=malvesga
+_CHIRP_DELAYED_UPDATE_PREFIX=Chirp*
+LD_LIBRARY_PATH=/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/biglib/slc7_amd64_gcc900:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/external/slc7_amd64_gcc900/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/biglib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/external/slc7_amd64_gcc900/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/llvm/10.0.0-ghbfee4/lib64:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0/lib64:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/cuda/11.1.1/drivers
+TEMP=/tmp
+SRT_LHAPDF_DATA_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/lhapdf/6.2.3-ghbfee/share/LHAPDF
+ROOT_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/madgraph5amcatnlo/2.6.0-ghbfee12:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gosamcontrib/2.0-20150803-bcolbf2
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:
+SRT_PYTHON27PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/share/overrides/python:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/python:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/python:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/coral/CORAL_2_3_21-ghbfee11/slc7_amd64_gcc900/python:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/coral/CORAL_2_3_21-ghbfee11/slc7_amd64_gcc900/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/fastjet/3.3.4-ghbfee/lib/python2.7/site-packages:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw-tool-conf/46.0-ghbfee12/lib/python2.7/site-packages
+SHERPA_INCLUDE_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/sherpa/2.2.10-ljfedo/include/SHERPA-MC
+SRT_RIVET_ANALYSIS_PATH_SCRAMRTDEL=/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/rivet/3.1.3/lib/Rivet
+SRT_CMSSW_RELEASE_BASE_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4
+VO_DTEAM_SW_DIR=/afs/cern.ch/project/gd/apps/dteam
+VO_CMS_SW_DIR=/cvmfs/cms.cern.ch
+VO_VO_ALEPH_CERN_CH_DEFAULT_SE=srm-public.cern.ch
+LCG_LOCATION=/usr
+SRT_CMSSW_VERSION_SCRAMRTDEL=CMSSW_11_2_4
+JULIA_NUM_THREADS=8
+BATCH_SYSTEM=HTCondor
+SCRAM_CXX11_ABI=1
+GCC_RUNTIME_LSAN=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0/lib64/libasan.so
+VALGRIND_LIB=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/valgrind/3.15.0-bcolbf2/lib/valgrind
+SRT_ROOTSYS_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/lcg/root/6.22.06/
+SRT_CMSSW_GIT_HASH_SCRAMRTDEL=CMSSW_11_2_4
+_CONDOR_ANCESTOR_3366=13749:1671453380:1488376949
+VO_VO_OPAL_CERN_CH_SW_DIR=/afs/cern.ch/opal
+G4NEUTRONHPDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4NDL/4.6/data/G4NDL4.6
+_CONDOR_CHIRP_CONFIG=/pool/condor/dir_13749/.chirp.config
+GEANT4_PARFULLCMS_CONFIG_DIR=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-parfullcms/2014.01.27-ghbfee3/share/ParFullCMS
+HOSTTYPE=x86_64-linux
+VO_ILC_DEFAULT_SE=srm-public.cern.ch
+CSC_TRACK_FINDER_DATA_DIR=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/CSCTrackFinderEmulation/1.2-bcolbf/data/
+RIVET_DATA_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/rivet/3.1.3/share/Rivet
+VO_LHCB_DEFAULT_SE=srm-lhcb.cern.ch
+SRT_CLHEP_PARAM_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/clhep/2.4.1.3-ghbfee
+SRT_G4RADIOACTIVEDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4RadioactiveDecay/5.4/data/RadioactiveDecay5.4
+G4ENSDFSTATEDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4ENSDFSTATE/2.2/data/G4ENSDFSTATE2.2
+SRT_ROOFITSYS_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/lcg/root/6.22.06/
+ROOFITSYS=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/lcg/root/6.22.06/
+CASTOR_HOME=/castor/cern.ch/user/m/malvesga
+SRT_G4ENSDFSTATEDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4ENSDFSTATE/2.2/data/G4ENSDFSTATE2.2
+G4RADIOACTIVEDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4RadioactiveDecay/5.4/data/RadioactiveDecay5.4
+VO_OPS_SW_DIR=/afs/cern.ch/project/gd/apps/ops
+VIRTUAL_ENV=/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/src/workspace/pps-ww-analysis-notebook/uproot-LCG_101
+G4ABLADATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4ABLA/3.1/data/G4ABLA3.1
+VO_GEANT4_DEFAULT_SE=lxdpm101.cern.ch
+VO_ATLAS_DEFAULT_SE=srm-atlas.cern.ch
+SRT_SHERPA_INCLUDE_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/sherpa/2.2.10-ljfedo/include/SHERPA-MC
+SRT_WORKER_DATA_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/blackhat/0.9.9-ghbfee/share/blackhat/datafiles/
+SRT_PERL5LIB_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/git/2.23.0-ghbfee/share/perl5
+GUESTFISH_PS1=\[\e[1;32m\]><fs>\[\e[0;31m\] 
+SITECONFIG_PATH=/cvmfs/cms.cern.ch/SITECONF/local
+SRT_G4FORCENUMBEROFTHREADS_SCRAMRTDEL=max
+SRT_G4PARTICLEXSDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4PARTICLEXS/2.1/data/G4PARTICLEXS2.1
+_CONDOR_ANCESTOR_2856=3366:1671055591:1580894225
+ATLAS_CGROUPS_BASE=/cgroup/memory
+VO_UNOSAT_DEFAULT_SE=srm-public.cern.ch
+GCC_RUNTIME_TSAN=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0/lib64/libtsan.so
+MAIL=/var/spool/mail/malvesga
+TNS_ADMIN=/etc
+PATH=/afs/cern.ch/cms/caf/scripts:/cvmfs/cms.cern.ch/common:/afs/cern.ch/cms/caf/scripts:/cvmfs/cms.cern.ch/common:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/src/workspace/pps-ww-analysis-notebook/uproot-LCG_101/bin:/cvmfs/cms.cern.ch/share/overrides/bin:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/bin/slc7_amd64_gcc900:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/external/slc7_amd64_gcc900/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/bin/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/external/slc7_amd64_gcc900/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/llvm/10.0.0-ghbfee4/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0/bin:/afs/cern.ch/cms/caf/scripts:/cvmfs/cms.cern.ch/common:/afs/cern.ch/cms/caf/scripts:/cvmfs/cms.cern.ch/common:/usr/sue/bin:/usr/lib64/qt-3.3/bin:/usr/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin:/afs/cern.ch/user/m/malvesga/bin:/opt/puppetlabs/bin:/opt/puppetlabs/bin
+SRT_HEPPDT_PARAM_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/heppdt/3.03.00-ghbfee2
+THEPEGPATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/thepeg/2.2.0-ghbfee4/share/ThePEG
+SRT_GIT_SSL_CAINFO_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/git/2.23.0-ghbfee/share/ssl/certs/ca-bundle.crt
+_CONDOR_BIN=/usr/bin
+SRT_CMSSW_SEARCH_PATH_SCRAMRTDEL=/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/poison:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/src:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/external/slc7_amd64_gcc900/data:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/src:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/external/slc7_amd64_gcc900/data
+SRT_GCC_RUNTIME_LSAN_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0/lib64/libasan.so
+CMS_PATH=/cvmfs/cms.cern.ch
+MKL_NUM_THREADS=8
+VO_DTEAM_DEFAULT_SE=srm-public.cern.ch
+VO_CMS_DEFAULT_SE=srm-cms.cern.ch
+SRT_UTM_XSD_DIR_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/utm/utm_0.8.1
+SRT_PATH_SCRAMRT=/cvmfs/cms.cern.ch/share/overrides/bin:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/bin/slc7_amd64_gcc900:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/external/slc7_amd64_gcc900/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/bin/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/external/slc7_amd64_gcc900/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/llvm/10.0.0-ghbfee4/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0/bin
+SRT_CMSSW_BASE_SCRAMRTDEL=/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4
+SRT_LANG_SCRAMRT=C
+SRT_LOCALRT_SCRAMRTDEL=/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4
+PWD=/pool/condor/dir_13749
+RIVET_ANALYSIS_PATH=/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/rivet/3.1.3/lib/Rivet
+NUMEXPR_NUM_THREADS=8
+SRT_OPAL_PREFIX_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/openmpi/4.0.5
+EDITOR=/bin/nano -w
+PYTHON_VALGRIND_SUPP=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/python/2.7.15-bcolbf2/share/valgrind/valgrind-python.supp
+JOBFEATURES=/tmp/mjf-malvesga/jobfeatures-bigbird13.cern.ch_7717055.5_1671453260
+VO_VO_DELPHI_CERN_CH_SW_DIR=/afs/cern.ch/delphi
+GCC_RUNTIME_UBSAN=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0/lib64/libubsan.so
+LANG=C
+_CONDOR_WRAPPER_ERROR_FILE=/pool/condor/dir_13749/.job_wrapper_failure
+G4PARTICLEXSDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4PARTICLEXS/2.1/data/G4PARTICLEXS2.1
+MODULEPATH=/usr/share/Modules/modulefiles:/etc/modulefiles
+GUESTFISH_OUTPUT=\e[0m
+KDEDIRS=/usr
+QT_GRAPHICSSYSTEM=native
+LOADEDMODULES=
+SRT_G4NEUTRONHPDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4NDL/4.6/data/G4NDL4.6
+SRT_G4INCLDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4INCL/1.0/data/G4INCL1.0
+SRT_SHERPA_SHARE_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/sherpa/2.2.10-ljfedo/share/SHERPA-MC
+_CONDOR_SLOT=slot1_1
+SRT_GCC_RUNTIME_TSAN_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0/lib64/libtsan.so
+CASCADE_PDFPATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/cascade/2.2.04-ghbfee3/share
+SELINUX_LEVEL_REQUESTED=
+SRT_ROOT_GCC_TOOLCHAIN_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0
+MYPROXY_SERVER=myproxy.cern.ch
+SRT_CASCADE_PDFPATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/cascade/2.2.04-ghbfee3/share
+EOS_MGM_URL=root://eoscms.cern.ch
+G4SAIDXSDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4SAIDDATA/2.0/data/G4SAIDDATA2.0
+WORKER_DATA_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/blackhat/0.9.9-ghbfee/share/blackhat/datafiles/
+GIT_TEMPLATE_DIR=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/git/2.23.0-ghbfee/share/git-core/templates
+MLAS_DYNAMIC_CPU_ARCH=0
+PYTHON27PATH=/cvmfs/cms.cern.ch/share/overrides/python:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/python:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/python:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/coral/CORAL_2_3_21-ghbfee11/slc7_amd64_gcc900/python:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/coral/CORAL_2_3_21-ghbfee11/slc7_amd64_gcc900/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/fastjet/3.3.4-ghbfee/lib/python2.7/site-packages:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw-tool-conf/46.0-ghbfee12/lib/python2.7/site-packages
+SRT_CMSSW_FWLITE_INCLUDE_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/sherpa/2.2.10-ljfedo/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/hepmc/2.06.07-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/clhep/2.4.1.3-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/boost/1.72.0-ghbfee4/include
+SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
+SRT_PYTHIA8DATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/pythia8/303/share/Pythia8/xmldoc
+SRT_HERWIGPATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/herwigpp/7.2.0-ghbfee13/share/Herwig
+HISTCONTROL=ignoredups
+GOMAXPROCS=8
+ROOTSYS=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/lcg/root/6.22.06/
+KRB5CCNAME=FILE:/pool/condor/dir_13749/malvesga.cc
+VO_LHCB_SW_DIR=/cvmfs/lhcb.cern.ch
+GLEXEC_LOCATION=/usr
+TEXINPUTS=:/cvmfs/cms.cern.ch/latex/styles
+SRT_PYTHON3PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/share/overrides/python:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/python:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/python:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw-tool-conf/46.0-ghbfee12/lib/python3.8/site-packages
+VO_VO_L3_CERN_CH_DEFAULT_SE=srm-public.cern.ch
+VO_ALICE_DEFAULT_SE=srm-alice.cern.ch
+GLITE_LOCATION_VAR=/var
+HOME=/afs/cern.ch/user/m/malvesga
+SHERPA_LIBRARY_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/sherpa/2.2.10-ljfedo/lib/SHERPA-MC
+SHLVL=3
+SRT_PYTHON_VALGRIND_SUPP_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/python/2.7.15-bcolbf2/share/valgrind/valgrind-python.supp
+MACHINEFEATURES=/etc/machinefeatures
+_CONDOR_MACHINE_AD=/pool/condor/dir_13749/.machine.ad
+CMSSW_SEARCH_PATH=/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/poison:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/src:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/external/slc7_amd64_gcc900/data:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/src:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/external/slc7_amd64_gcc900/data
+OSTYPE=linux
+_CONDOR_PID_NS_INIT_STATUS_FILENAME=/pool/condor/dir_13749/.condor_pid_ns_status
+G4REALSURFACEDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4RealSurface/2.1.1/data/RealSurface2.1.1
+GRID_VO_ENV_SET=true
+_VIRTUALENVWRAPPER_API= mkvirtualenv rmvirtualenv lsvirtualenv showvirtualenv workon add2virtualenv cdsitepackages cdvirtualenv lssitepackages toggleglobalsitepackages cpvirtualenv setvirtualenvproject mkproject cdproject mktmpenv wipeenv allvirtualenv mkvirtualenv rmvirtualenv lsvirtualenv showvirtualenv workon add2virtualenv cdsitepackages cdvirtualenv lssitepackages toggleglobalsitepackages cpvirtualenv setvirtualenvproject mkproject cdproject mktmpenv wipeenv allvirtualenv
+VO_VO_DELPHI_CERN_CH_DEFAULT_SE=srm-public.cern.ch
+SRT_GENREFLEX_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/lcg/root/6.22.06/bin/genreflex
+GENREFLEX=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/lcg/root/6.22.06/bin/genreflex
+SRT_G4LEDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4EMLOW/7.9.1/data/G4EMLOW7.9.1
+GOSAMCONTRIB_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gosamcontrib/2.0-20150803-bcolbf2
+SRT_GOSAMCONTRIB_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gosamcontrib/2.0-20150803-bcolbf2
+ROOT_TTREECACHE_PREFILL=0
+SRT_EVTGENDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/evtgen/1.6.0-ghbfee3/share
+SRT_ROOT_TTREECACHE_SIZE_SCRAMRTDEL=0
+GLITE_ENV_SET=TRUE
+VENDOR=unknown
+SRT_CMSSW_DATA_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms
+VO_ILC_SW_DIR=/cvmfs/ilc.desy.de
+LCG_GFAL_INFOSYS=lcg-bdii.cern.ch:2170
+HEPPDT_PARAM_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/heppdt/3.03.00-ghbfee2
+LOGNAME=malvesga
+MACHTYPE=x86_64
+TMP=/tmp
+QTLIB=/usr/lib64/qt-3.3/lib
+PYTHON3PATH=/cvmfs/cms.cern.ch/share/overrides/python:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/python:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/python:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw-tool-conf/46.0-ghbfee12/lib/python3.8/site-packages:/afs/cern.ch/user/m/malvesga/work/ProtonRecon/TEST/CMSSW_11_2_4/src/workspace/pps-ww-analysis-notebook
+SCONS_LIB_DIR=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/scons/3.0.1-bcolbf2/lib
+CVS_RSH=ssh
+VO_UNOSAT_SW_DIR=/afs/cern.ch/project/gd/apps/unosat
+SSH_CONNECTION=2804:d41:c905:1100:704d:c166:932b:5b95 56993 2001:1458:d00:17::100:25f 22
+XDG_DATA_DIRS=/afs/cern.ch/user/m/malvesga/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
+MODULESHOME=/usr/share/Modules
+COMPILER_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0
+SRT_SHERPA_LIBRARY_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/sherpa/2.2.10-ljfedo/lib/SHERPA-MC
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+FRONTIER_CLIENT=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/frontier_client/2.9.1-ghbfee/
+OMP_NUM_THREADS=8
+VO_NA48_DEFAULT_SE=srm-public.cern.ch
+_CONDOR_JOB_AD=/pool/condor/dir_13749/.job.ad
+CLHEP_PARAM_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/clhep/2.4.1.3-ghbfee
+SRT_COMPILER_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0
+PYTHIA8DATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/pythia8/303/share/Pythia8/xmldoc
+SRT_FRONTIER_CLIENT_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/frontier_client/2.9.1-ghbfee/
+SRT_CSC_TRACK_FINDER_DATA_DIR_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/CSCTrackFinderEmulation/1.2-bcolbf/data/
+SRT_RIVET_DATA_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/rivet/3.1.3/share/Rivet
+HERWIGPATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/herwigpp/7.2.0-ghbfee13/share/Herwig
+VO_GEANT4_SW_DIR=/afs/cern.ch/project/gd/apps/geant4
+VO_ATLAS_SW_DIR=/cvmfs/atlas.cern.ch/repo/sw
+SRT_LD_LIBRARY_PATH_SCRAMRTDEL=/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/biglib/slc7_amd64_gcc900:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/external/slc7_amd64_gcc900/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/biglib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/external/slc7_amd64_gcc900/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/llvm/10.0.0-ghbfee4/lib64:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0/lib64:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/cuda/11.1.1/drivers
+GCC_RUNTIME_ASAN=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0/lib64/libasan.so
+DISPLAY=localhost:12.0
+XDG_RUNTIME_DIR=/run/user/109700
+SRT_ROOT_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/madgraph5amcatnlo/2.6.0-ghbfee12:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gosamcontrib/2.0-20150803-bcolbf2
+GLITE_LOCATION=/usr
+SRT_OPENBLAS_NUM_THREADS_SCRAMRTDEL=1
+SRT_MLAS_DYNAMIC_CPU_ARCH_SCRAMRTDEL=0
+QT_PLUGIN_PATH=/usr/lib64/kde4/plugins:/usr/lib/kde4/plugins
+SRT_G4SAIDXSDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4SAIDDATA/2.0/data/G4SAIDDATA2.0
+TEXMFHOME=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/rivet/3.1.3/share/Rivet/texmf
+OMP_THREAD_LIMIT=8
+SRT_GIT_TEMPLATE_DIR_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/git/2.23.0-ghbfee/share/git-core/templates
+_CONDOR_ANCESTOR_13749=13855:1671453381:537162738
+CMSSW_VERSION=CMSSW_11_2_4
+SRT_GCC_RUNTIME_UBSAN_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0/lib64/libubsan.so
+SITE_NAME=CERN-PROD
+_CONDOR_JOB_IWD=/pool/condor/dir_13749
+GUESTFISH_RESTORE=\e[0m
+SHERPA_SHARE_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/sherpa/2.2.10-ljfedo/share/SHERPA-MC
+G4INCLDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4INCL/1.0/data/G4INCL1.0
+SRM_PATH=/opt/d-cache/srm
+GIT_EXEC_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/git/2.23.0-ghbfee/libexec/git-core
+SRT_G4REALSURFACEDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4RealSurface/2.1.1/data/RealSurface2.1.1
+CMS_OPENLOOPS_PREFIX=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/openloops/2.1.1-gchjei
+CMSSW_BASE=/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4
+LOCALRT=/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4
+SRT_SCRAM_CXX11_ABI_SCRAMRTDEL=1
+SRT_VALGRIND_LIB_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/valgrind/3.15.0-bcolbf2/lib/valgrind
+BASH_FUNC_cmsrel()=() {  scramv1 project CMSSW $@
+}
+BASH_FUNC_cmsenv()=() {  eval `scramv1 runtime -sh`
+}
+Running...
+python3 /afs/cern.ch/user/m/malvesga/work/ProtonRecon/TEST/CMSSW_11_2_4/src/workspace/pps-ww-analysis-notebook/create_table_data_random_protons.py --period=2018D --start=1000000
+{'muon': {'2017B': 4.799881474, '2017C1': 5.785813941, '2017C2': 3.786684323, '2017D': 4.247682053, '2017E': 9.312832062, '2017F1': 1.738905587, '2017F2': 8.125575961, '2017F3': 3.674404546}, 'electron': {'2017B': 4.594096155565198, '2017C1': 5.521298099245362, '2017C2': 3.6135646891210857, '2017D': 4.0518639103567, '2017E': 8.906848461089172, '2017F1': 1.6584516422062712, '2017F2': 7.749629938012412, '2017F3': 3.504400870870218}}
+Luminosity 2017 muon: 41.471779946999995
+Luminosity 2017 electron: 39.60015376646642
+{'muon': {'2018A': 14.025827145867588, '2018B1': 6.620869367493728, '2018B2': 0.430376623828928, '2018C': 6.891684998276784, '2018D1': 20.939902986506983, '2018D2': 10.856932131702669}, 'electron': {'2018A': 13.088399561509418, '2018B1': 6.629521091507798, '2018B2': 0.430939012174748, '2018C': 6.8915954055654725, '2018D1': 20.94983928140255, '2018D2': 10.862083907209522}}
+Luminosity 2018 muon: 59.76559325367668
+Luminosity 2018 electron: 58.85237825936951
+Namespace(period='2018D', start='1000000', stop=None)
+Period: 2018D
+Event start: 1000000
+2022/12/19 13:36:38
+2018D ['/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/Data/EGamma_UL2018D_MiniAODv2-v2_noduplicates.root']
+           min     max
+2018A   315252  316995
+2018B1  316998  317696
+2018B2  318622  319312
+2018C   319313  320393
+2018D1  320394  322633
+2018D2  323363  325273
+           min     max
+2018A   315252  316995
+2018B   316998  319312
+2018C   319313  320393
+2018D1  320394  322633
+2018D2  323363  325273
+Run on MC: False
+Mix protons: False
+Random protons: True
+Resample: True / Resample factor: 50
+/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output/output-data-random-resample_50-2018-electron-2018D-1000000.h5
+Initial dataset shape: (50000, 72)
+Initial dataset shape: (50000, 68)
+Initial dataset shape: (50000, 14)
+/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/Data/EGamma_UL2018D_MiniAODv2-v2_noduplicates.root
+Number of events in tree: 1212952
+['run', 'event', 'lumiblock', 'crossingAngle', 'betaStar', 'instLumi', 'nVertices', 'num_bjets_ak8', 'num_bjets_ak4', 'num_jets_ak4', 'pfcand_nextracks', 'pfcand_nextracks_noDRl', 'recoMWhad', 'recoMWlep', 'recoMWW', 'recoRapidityWW', 'dphiWW', 'WLeptonicPt', 'WLeptonicEta', 'WLeptonicPhi', 'pileupWeight', 'mc_pu_trueinteractions', 'mcWeight', 'jet_cjer', 'jet_cjer_up', 'jet_cjer_down', 'jet_pt', 'jet_px', 'jet_py', 'jet_pz', 'jet_energy', 'jet_phi', 'jet_eta', 'jet_mass', 'jet_tau1', 'jet_tau2', 'jet_corrmass', 'jet_vertexz', 'jet_jer_res', 'jet_jer_sf', 'jet_jer_sfup', 'jet_jer_sfdown', 'gen_jet_pt', 'gen_jet_phi', 'gen_jet_eta', 'gen_jet_energy', 'gen_muon_pt', 'gen_muon_eta', 'gen_muon_phi', 'gen_muon_charge', 'gen_muon_mass', 'gen_muon_energy', 'gen_electron_pt', 'gen_electron_eta', 'gen_electron_phi', 'gen_electron_charge', 'gen_electron_mass', 'gen_electron_energy', 'electron_pt', 'electron_eta', 'electron_phi', 'electron_dxy', 'electron_dz', 'electron_px', 'electron_py', 'electron_pz', 'electron_e', 'electron_charge', 'electron_corr', 'electron_ecalTrkEnPostCorr', 'electron_ecalTrkEnErrPostCorr', 'electron_ecalTrkEnPreCorr', 'electron_energyScaleValue', 'electron_energyScaleUp', 'electron_energyScaleDown', 'electron_energySigmaValue', 'electron_energySigmaUp', 'electron_energySigmaDown', 'met', 'met_x', 'met_y', 'met_phi', 'met_ptJER_Up', 'met_ptJER_Down', 'met_phiJER_Up', 'met_phiJER_Down', 'met_ptJES_Up', 'met_ptJES_Down', 'met_phiJES_Up', 'met_phiJES_Down', 'calo_met', 'prefiring_weight', 'prefiring_weight_up', 'prefiring_weight_down', 'prefiring_weight_ECAL', 'prefiring_weight_ECAL_up', 'prefiring_weight_ECAL_down', 'prefiring_weight_muon', 'prefiring_weight_muon_up', 'prefiring_weight_muon_down', 'proton_xi', 'proton_thx', 'proton_thy', 'proton_t', 'proton_ismultirp_', 'proton_rpid', 'proton_arm', 'proton_time', 'proton_trackx1', 'proton_tracky1', 'proton_trackx2', 'proton_tracky2', 'proton_trackpixshift1', 'proton_trackpixshift2', 'proton_rpid1', 'proton_rpid2', 'pps_track_x', 'pps_track_y', 'pps_track_rpid']
+20000 [{run: 324785, event: 196769887, lumiblock: 179, crossingAngle: 150, ... 103, 123]}]
+Num jets: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num electrons: [0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 2, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1]
+Num protons: [6, 3, 9, 15, 5, 0, 0, 7, 3, 9, 11, 3, 12, ... 3, 8, 5, 7, 7, 4, 9, 7, 3, 0, 3, 3]
+Num pps tracks: [9, 3, 7, 17, 5, 0, 0, 5, 2, 9, 14, 3, 10, ... 3, 7, 16, 9, 20, 3, 9, 6, 2, 0, 2, 3]
+Run: [324785, 324785, 324785, 324785, 324785, ... 321124, 321124, 321124, 321124, 321124]
+Lumi: [179, 179, 179, 179, 179, 179, 179, 179, ... 287, 287, 287, 794, 794, 794, 794, 794]
+Event: [197580480, 196952175, 196630558, 197399188, ... 1186814928, 1186402988, 1186146807]
+Slice: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49]
+Crossing angle: [150, 150, 150, 150, 150, 150, 150, 150, ... 147, 147, 147, 130, 130, 130, 130, 130]
+Num jets: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num electrons: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num protons: [3, 9, 15, 5, 0, 7, 3, 9, 11, 3, 12, 5, 3, ... 13, 3, 8, 5, 7, 7, 4, 7, 3, 0, 3, 3]
+Num pps tracks: [3, 7, 17, 5, 0, 5, 2, 9, 14, 3, 10, 4, 3, ... 14, 3, 7, 16, 9, 20, 3, 6, 2, 0, 2, 3]
+Run: [324785, 324785, 324785, 324785, 324785, ... 321124, 321124, 321124, 321124, 321124]
+Run randomized: [324835, 324878, 325101, 324980, 325159, ... 324846, 325099, 325099, 324970, 324841]
+Lumi: [179, 179, 179, 179, 179, 179, 179, 179, ... 287, 287, 287, 794, 794, 794, 794, 794]
+Lumi randomized: [40, 912, 406, 704, 198, 914, 140, 313, ... 1238, 275, 4, 109, 179, 180, 1498, 947]
+Event: [197580480, 196952175, 196630558, 197399188, ... 1186814928, 1186402988, 1186146807]
+Event randomized: [20573643, 1665719872, 754951954, 1317685300, ... 357183466, 2783186571, 1743374309]
+Crossing angle: [150, 150, 150, 150, 150, 150, 150, 150, ... 147, 147, 147, 130, 130, 130, 130, 130]
+Crossing angle randomized: [160, 135, 133, 141, 149, 135, 157, 138, ... 130, 153, 139, 130, 151, 151, 130, 130]
+Beta*: [0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, ... 0.3, 0.3, 0.27, 0.27, 0.27, 0.27, 0.27]
+Beta* randomized: [0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, ... 0.3, 0.3, 0.25, 0.3, 0.3, 0.25, 0.27]
+Num protons: [3, 9, 15, 5, 0, 7, 3, 9, 11, 3, 12, 5, 3, ... 13, 3, 8, 5, 7, 7, 4, 7, 3, 0, 3, 3]
+Num protons randomized: [0, 3, 6, 7, 1, 3, 0, 9, 0, 7, 0, 3, 3, ... 11, 12, 2, 8, 13, 3, 5, 0, 1, 6, 7, 3, 0]
+Num pps tracks: [3, 7, 17, 5, 0, 5, 2, 9, 14, 3, 10, 4, 3, ... 14, 3, 7, 16, 9, 20, 3, 6, 2, 0, 2, 3]
+Num pps tracks randomized: [0, 3, 5, 7, 1, 2, 0, 9, 0, 7, 0, 3, 2, ... 15, 2, 13, 10, 9, 4, 0, 1, 8, 23, 3, 0]
+Num protons extra: [1, 3, 3, 1, 0, 2, 1, 2, 2, 1, 4, 1, 1, 1, ... 2, 3, 1, 2, 1, 1, 1, 1, 2, 1, 0, 1, 1]
+Num protons extra randomized: [0, 1, 2, 2, 0, 1, 0, 2, 0, 1, 0, 0, 1, 3, ... 3, 3, 0, 1, 4, 0, 1, 0, 0, 1, 1, 1, 0]
+Num protons: [0, 3, 6, 7, 1, 3, 0, 9, 0, 7, 0, 3, 3, ... 11, 12, 2, 8, 13, 3, 5, 0, 1, 6, 7, 3, 0]
+Num protons extra: [0, 1, 2, 2, 0, 1, 0, 2, 0, 1, 0, 0, 1, 3, ... 3, 3, 0, 1, 4, 0, 1, 0, 0, 1, 1, 1, 0]
+Num pps tracks: [0, 3, 5, 7, 1, 2, 0, 9, 0, 7, 0, 3, 2, ... 15, 2, 13, 10, 9, 4, 0, 1, 8, 23, 3, 0]
+check_none 0 [False, False, False, False, False, False, ... False, False, False, False, False]
+[True, True, True, True, True, True, True, ... True, True, True, True, True, True]
+
+Num protons RP 3: [0, 1, 0, 1, 0, 0, 0, 1, 0, 3, 0, 0, 0, 2, ... 3, 2, 0, 1, 4, 3, 2, 0, 0, 2, 4, 0, 0]
+
+Num protons RP 23: [0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 3, 0, 2, ... 2, 1, 0, 4, 5, 0, 0, 0, 0, 1, 0, 0, 0]
+
+Num protons RP 103: [0, 0, 2, 1, 1, 1, 0, 2, 0, 2, 0, 0, 1, 1, ... 2, 2, 2, 2, 0, 0, 1, 0, 1, 0, 1, 1, 0]
+
+Num protons RP 123: [0, 0, 2, 2, 0, 1, 0, 3, 0, 0, 0, 0, 1, 1, ... 1, 4, 0, 0, 0, 0, 1, 0, 0, 2, 1, 1, 0]
+
+Num multi-RP protons Arm 0: [0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 2, ... 2, 1, 0, 1, 4, 0, 0, 0, 0, 1, 0, 0, 0]
+
+Num multi-RP protons Arm 1: [0, 0, 2, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, ... 1, 2, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0]
+
+
+634800
+[1, 2, 2, 1, 2, 1, 1, 3, 2, 2, 1, 1, 2, 1, ... 1, 2, 1, 4, 1, 3, 3, 1, 4, 1, 1, 1, 1]
+['All' 'Jet' 'Electron' 'ProtonRnd_check_none' 'ProtonRnd']
+[1000000 1000000  975100  975100  634800]
+Flattened array size multi-RP: 1126450
+Flattened array size single-RP: 3007250
+Flattened array size tracks: 4048200
+Resizing output dataset by 1100000 entries.
+Dataset shape: (1150000, 72)
+Resizing output dataset by 3000000 entries.
+Dataset shape: (3050000, 68)
+Resizing output dataset by 4000000 entries.
+Dataset shape: (4050000, 14)
+Stacking data.
+(1126450, 72)
+[[ 3.24785000e+05  1.79000000e+02  1.96952175e+08 ...  1.27441406e+00
+   0.00000000e+00  2.30000000e+01]
+ [ 3.24785000e+05  1.79000000e+02  1.96630558e+08 ...  3.04443359e+00
+   0.00000000e+00  1.23000000e+02]
+ [ 3.24785000e+05  1.79000000e+02  1.96630558e+08 ... -5.30883789e-01
+   0.00000000e+00  1.23000000e+02]
+ ...
+ [ 3.21124000e+05  7.94000000e+02  1.18597121e+09 ...  1.29431152e+00
+   0.00000000e+00  2.30000000e+01]
+ [ 3.21124000e+05  7.94000000e+02  1.18681493e+09 ...  2.99902344e+00
+   0.00000000e+00  1.23000000e+02]
+ [ 3.21124000e+05  7.94000000e+02  1.18640299e+09 ...  7.90588379e-01
+   0.00000000e+00  1.23000000e+02]]
+(3007250, 68)
+[[3.24785000e+05 1.79000000e+02 1.96952175e+08 ... 1.28271484e+00
+  0.00000000e+00 3.00000000e+00]
+ [3.24785000e+05 1.79000000e+02 1.96952175e+08 ... 1.27441406e+00
+  0.00000000e+00 2.30000000e+01]
+ [3.24785000e+05 1.79000000e+02 1.96630558e+08 ... 2.97558594e+00
+  0.00000000e+00 1.03000000e+02]
+ ...
+ [3.21124000e+05 7.94000000e+02 1.18681493e+09 ... 2.99902344e+00
+  0.00000000e+00 1.23000000e+02]
+ [3.21124000e+05 7.94000000e+02 1.18640299e+09 ... 8.96362305e-01
+  0.00000000e+00 1.03000000e+02]
+ [3.21124000e+05 7.94000000e+02 1.18640299e+09 ... 7.90588379e-01
+  0.00000000e+00 1.23000000e+02]]
+(4048200, 14)
+[[3.24785000e+05 1.79000000e+02 1.96952175e+08 ... 1.66571987e+09
+  1.35000000e+02 3.00000012e-01]
+ [3.24785000e+05 1.79000000e+02 1.96952175e+08 ... 1.66571987e+09
+  1.35000000e+02 3.00000012e-01]
+ [3.24785000e+05 1.79000000e+02 1.96952175e+08 ... 1.66571987e+09
+  1.35000000e+02 3.00000012e-01]
+ ...
+ [3.21124000e+05 7.94000000e+02 1.18640299e+09 ... 2.78318657e+09
+  1.30000000e+02 2.50000000e-01]
+ [3.21124000e+05 7.94000000e+02 1.18640299e+09 ... 2.78318657e+09
+  1.30000000e+02 2.50000000e-01]
+ [3.21124000e+05 7.94000000e+02 1.18640299e+09 ... 2.78318657e+09
+  1.30000000e+02 2.50000000e-01]]
+Slice: 22
+Writing in positions (0,1126450)
+Slice: 60
+Writing in positions (0,3007250)
+Slice: 80
+Writing in positions (0,4048200)
+20000 [{run: 321124, event: 1186280341, lumiblock: 794, crossingAngle: 130, ... 103, 123]}]
+Num jets: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num electrons: [1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, ... 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num protons: [10, 9, 3, 0, 0, 8, 10, 3, 9, 0, 10, 7, 7, ... 3, 3, 4, 12, 4, 1, 4, 13, 2, 9, 9, 10]
+Num pps tracks: [8, 8, 3, 5, 0, 9, 9, 2, 8, 0, 8, 5, 6, ... 19, 3, 3, 3, 10, 4, 2, 4, 12, 4, 8, 6, 9]
+Run: [321124, 321124, 321124, 321124, 321124, ... 322430, 322430, 322430, 322430, 322430]
+Lumi: [794, 794, 794, 794, 794, 38, 38, 38, 38, ... 330, 330, 330, 327, 327, 327, 327, 327]
+Event: [1186280341, 1186574786, 1186045449, 1185421883, ... 534930267, 534719387, 534978803]
+Slice: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49]
+Crossing angle: [130, 130, 130, 130, 130, 147, 147, 147, ... 150, 150, 150, 150, 150, 150, 150, 150]
+Num jets: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num electrons: [1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num protons: [10, 9, 3, 0, 0, 8, 10, 3, 9, 0, 10, 7, ... 17, 3, 4, 12, 4, 1, 4, 13, 2, 9, 9, 10]
+Num pps tracks: [8, 8, 3, 5, 0, 9, 9, 2, 8, 0, 8, 5, 6, ... 5, 19, 3, 3, 10, 4, 2, 4, 12, 4, 8, 6, 9]
+Run: [321124, 321124, 321124, 321124, 321124, ... 322430, 322430, 322430, 322430, 322430]
+Run randomized: [322179, 321007, 320995, 322201, 322322, ... 322348, 322605, 322605, 321831, 321831]
+Lumi: [794, 794, 794, 794, 794, 38, 38, 38, 38, ... 330, 330, 330, 327, 327, 327, 327, 327]
+Lumi randomized: [312, 359, 73, 189, 70, 617, 187, 1092, ... 375, 1068, 349, 445, 106, 104, 43, 26]
+Event: [1186280341, 1186574786, 1186045449, 1185421883, ... 534930267, 534719387, 534978803]
+Event randomized: [510085125, 581485126, 96575718, 290135150, ... 198416428, 39669857, 19418621]
+Crossing angle: [130, 130, 130, 130, 130, 147, 147, 147, ... 150, 150, 150, 150, 150, 150, 150, 150]
+Crossing angle randomized: [153, 135, 157, 155, 151, 130, 146, 134, ... 151, 136, 144, 149, 148, 148, 160, 160]
+Beta*: [0.27, 0.27, 0.27, 0.27, 0.27, 0.3, 0.3, 0.3, ... 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3]
+Beta* randomized: [0.3, 0.3, 0.3, 0.3, 0.3, 0.27, 0.3, 0.3, ... 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3]
+Num protons: [10, 9, 3, 0, 0, 8, 10, 3, 9, 0, 10, 7, ... 17, 3, 4, 12, 4, 1, 4, 13, 2, 9, 9, 10]
+Num protons randomized: [6, 9, 15, 9, 3, 11, 0, 3, 0, 2, 7, 0, 9, ... 5, 4, 0, 15, 4, 3, 4, 0, 9, 5, 0, 4, 0]
+Num pps tracks: [8, 8, 3, 5, 0, 9, 9, 2, 8, 0, 8, 5, 6, ... 5, 19, 3, 3, 10, 4, 2, 4, 12, 4, 8, 6, 9]
+Num pps tracks randomized: [5, 7, 15, 17, 2, 9, 0, 3, 0, 2, 6, 0, 7, ... 7, 4, 0, 13, 3, 2, 7, 0, 6, 4, 0, 5, 0]
+Num protons extra: [3, 3, 1, 0, 0, 2, 3, 1, 2, 0, 3, 2, 2, 1, ... 0, 5, 1, 1, 4, 1, 0, 1, 4, 0, 3, 3, 3]
+Num protons extra randomized: [2, 3, 4, 1, 1, 3, 0, 1, 0, 0, 1, 0, 3, 3, ... 1, 1, 0, 5, 1, 1, 1, 0, 3, 1, 0, 0, 0]
+Num protons: [6, 9, 15, 9, 3, 11, 0, 3, 0, 2, 7, 0, 9, ... 5, 4, 0, 15, 4, 3, 4, 0, 9, 5, 0, 4, 0]
+Num protons extra: [2, 3, 4, 1, 1, 3, 0, 1, 0, 0, 1, 0, 3, 3, ... 1, 1, 0, 5, 1, 1, 1, 0, 3, 1, 0, 0, 0]
+Num pps tracks: [5, 7, 15, 17, 2, 9, 0, 3, 0, 2, 6, 0, 7, ... 7, 4, 0, 13, 3, 2, 7, 0, 6, 4, 0, 5, 0]
+check_none 0 [False, False, False, False, False, False, ... False, False, False, False, False]
+[True, True, True, True, True, True, True, ... True, True, True, True, True, True]
+
+Num protons RP 3: [1, 1, 3, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 1, ... 2, 1, 0, 1, 2, 0, 1, 0, 0, 0, 0, 1, 0]
+
+Num protons RP 23: [1, 1, 6, 5, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, ... 2, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0]
+
+Num protons RP 103: [1, 2, 1, 1, 1, 3, 0, 1, 0, 1, 0, 0, 3, 2, ... 0, 0, 0, 4, 0, 1, 1, 0, 3, 2, 0, 0, 0]
+
+Num protons RP 123: [1, 2, 1, 2, 1, 5, 0, 1, 0, 1, 3, 0, 3, 4, ... 0, 1, 0, 4, 0, 1, 0, 0, 3, 2, 0, 2, 0]
+
+Num multi-RP protons Arm 0: [1, 1, 3, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, ... 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0]
+
+Num multi-RP protons Arm 1: [1, 2, 1, 1, 1, 3, 0, 1, 0, 0, 0, 0, 3, 2, ... 0, 0, 0, 4, 0, 1, 0, 0, 3, 1, 0, 0, 0]
+
+
+679450
+[2, 3, 4, 1, 1, 3, 1, 1, 3, 3, 2, 3, 1, 2, ... 3, 3, 2, 3, 3, 1, 1, 5, 1, 1, 1, 3, 1]
+['All' 'Jet' 'Electron' 'ProtonRnd_check_none' 'ProtonRnd']
+[2000000 2000000 1951200 1951200 1314250]
+Flattened array size multi-RP: 1279650
+Flattened array size single-RP: 3363250
+Flattened array size tracks: 4499300
+Resizing output dataset by 1300000 entries.
+Dataset shape: (2450000, 72)
+Resizing output dataset by 3350000 entries.
+Dataset shape: (6400000, 68)
+Resizing output dataset by 4500000 entries.
+Dataset shape: (8550000, 14)
+Stacking data.
+(1279650, 72)
+[[3.21124000e+05 7.94000000e+02 1.18628034e+09 ... 9.24682617e-01
+  0.00000000e+00 2.30000000e+01]
+ [3.21124000e+05 7.94000000e+02 1.18628034e+09 ... 3.21997070e+00
+  0.00000000e+00 1.23000000e+02]
+ [3.21124000e+05 7.94000000e+02 1.18657479e+09 ... 1.68609619e-01
+  0.00000000e+00 2.30000000e+01]
+ ...
+ [3.22430000e+05 3.27000000e+02 5.34486895e+08 ... 2.33007812e+00
+  0.00000000e+00 1.23000000e+02]
+ [3.22430000e+05 3.27000000e+02 5.34486895e+08 ... 4.54052734e+00
+  0.00000000e+00 1.23000000e+02]
+ [3.22430000e+05 3.27000000e+02 5.35036978e+08 ... 4.53515625e+00
+  0.00000000e+00 1.23000000e+02]]
+(3363250, 68)
+[[3.21124000e+05 7.94000000e+02 1.18628034e+09 ... 9.99267578e-01
+  0.00000000e+00 3.00000000e+00]
+ [3.21124000e+05 7.94000000e+02 1.18628034e+09 ... 9.24682617e-01
+  0.00000000e+00 2.30000000e+01]
+ [3.21124000e+05 7.94000000e+02 1.18628034e+09 ... 3.24877930e+00
+  0.00000000e+00 1.03000000e+02]
+ ...
+ [3.22430000e+05 3.27000000e+02 5.35036978e+08 ... 4.47265625e+00
+  0.00000000e+00 1.03000000e+02]
+ [3.22430000e+05 3.27000000e+02 5.35036978e+08 ... 8.66943359e-01
+  0.00000000e+00 1.23000000e+02]
+ [3.22430000e+05 3.27000000e+02 5.35036978e+08 ... 4.53515625e+00
+  0.00000000e+00 1.23000000e+02]]
+(4499300, 14)
+[[3.21124000e+05 7.94000000e+02 1.18628034e+09 ... 5.10085125e+08
+  1.53000000e+02 3.00000012e-01]
+ [3.21124000e+05 7.94000000e+02 1.18628034e+09 ... 5.10085125e+08
+  1.53000000e+02 3.00000012e-01]
+ [3.21124000e+05 7.94000000e+02 1.18628034e+09 ... 5.10085125e+08
+  1.53000000e+02 3.00000012e-01]
+ ...
+ [3.22430000e+05 3.27000000e+02 5.35036978e+08 ... 2.01840925e+08
+  1.48000000e+02 3.00000012e-01]
+ [3.22430000e+05 3.27000000e+02 5.35036978e+08 ... 2.01840925e+08
+  1.48000000e+02 3.00000012e-01]
+ [3.22430000e+05 3.27000000e+02 5.35036978e+08 ... 2.01840925e+08
+  1.48000000e+02 3.00000012e-01]]
+Slice: 48
+Writing in positions (1126450,2406100)
+Slice: 127
+Writing in positions (3007250,6370500)
+Slice: 170
+Writing in positions (4048200,8547500)
+20000 [{run: 322430, event: 535583079, lumiblock: 327, crossingAngle: 150, ... 123, 123]}]
+Num jets: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num electrons: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num protons: [13, 0, 12, 10, 7, 3, 1, 6, 8, 3, 1, 10, 4, ... 0, 1, 3, 3, 3, 0, 0, 0, 7, 6, 4, 6]
+Num pps tracks: [14, 0, 11, 8, 5, 2, 1, 5, 10, 2, 1, 8, 3, ... 0, 1, 3, 3, 3, 0, 0, 0, 10, 4, 4, 5]
+Run: [322430, 322430, 322430, 322430, 322430, ... 323493, 323493, 323493, 323493, 323493]
+Lumi: [327, 327, 327, 327, 327, 327, 327, 327, 327, ... 19, 19, 21, 21, 21, 21, 21, 21, 21]
+Event: [535583079, 535107356, 535190295, 535284285, ... 42263369, 41734156, 41898204]
+Slice: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49]
+Crossing angle: [150, 150, 150, 150, 150, 150, 150, 150, ... 130, 130, 130, 130, 130, 130, 130, 130]
+Num jets: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num electrons: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num protons: [13, 0, 12, 10, 7, 3, 1, 6, 8, 3, 1, 10, 4, ... 0, 1, 3, 3, 3, 0, 0, 0, 7, 6, 4, 6]
+Num pps tracks: [14, 0, 11, 8, 5, 2, 1, 5, 10, 2, 1, 8, 3, ... 0, 1, 3, 3, 3, 0, 0, 0, 10, 4, 4, 5]
+Run: [322430, 322430, 322430, 322430, 322430, ... 323493, 323493, 323493, 323493, 323493]
+Run randomized: [322430, 322617, 322617, 322625, 322625, ... 322625, 323488, 322625, 323492, 322492]
+Lumi: [327, 327, 327, 327, 327, 327, 327, 327, 327, ... 19, 19, 21, 21, 21, 21, 21, 21, 21]
+Lumi randomized: [611, 494, 352, 575, 575, 421, 411, 161, ... 1074, 123, 167, 1052, 602, 575, 22, 674]
+Event: [535583079, 535107356, 535190295, 535284285, ... 42263369, 41734156, 41898204]
+Event randomized: [1068288744, 838364187, 607075453, 1019188886, ... 1018836985, 45772353, 1154942150]
+Crossing angle: [150, 150, 150, 150, 150, 150, 150, 150, ... 130, 130, 130, 130, 130, 130, 130, 130]
+Crossing angle randomized: [144, 131, 134, 146, 146, 148, 148, 155, ... 130, 156, 137, 137, 134, 146, 130, 132]
+Beta*: [0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, ... 0.27, 0.27, 0.27, 0.27, 0.27, 0.27, 0.27]
+Beta* randomized: [0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, ... 0.3, 0.3, 0.3, 0.3, 0.3, 0.27, 0.3]
+Num protons: [13, 0, 12, 10, 7, 3, 1, 6, 8, 3, 1, 10, 4, ... 0, 1, 3, 3, 3, 0, 0, 0, 7, 6, 4, 6]
+Num protons randomized: [6, 0, 4, 9, 0, 1, 6, 13, 4, 3, 5, 3, 6, ... 3, 5, 9, 3, 0, 6, 1, 14, 10, 6, 3, 7]
+Num pps tracks: [14, 0, 11, 8, 5, 2, 1, 5, 10, 2, 1, 8, 3, ... 0, 1, 3, 3, 3, 0, 0, 0, 10, 4, 4, 5]
+Num pps tracks randomized: [5, 0, 4, 7, 0, 1, 4, 13, 4, 2, 5, 3, 4, ... 12, 3, 7, 9, 3, 0, 4, 3, 13, 8, 4, 3, 6]
+Num protons extra: [3, 0, 4, 3, 2, 1, 0, 2, 1, 1, 0, 3, 1, 3, ... 2, 0, 0, 1, 1, 1, 0, 0, 0, 1, 2, 1, 2]
+Num protons extra randomized: [2, 0, 0, 3, 0, 0, 2, 4, 1, 1, 1, 1, 2, 0, ... 4, 1, 0, 2, 1, 0, 2, 0, 4, 3, 2, 1, 2]
+Num protons: [6, 0, 4, 9, 0, 1, 6, 13, 4, 3, 5, 3, 6, ... 3, 5, 9, 3, 0, 6, 1, 14, 10, 6, 3, 7]
+Num protons extra: [2, 0, 0, 3, 0, 0, 2, 4, 1, 1, 1, 1, 2, 0, ... 4, 1, 0, 2, 1, 0, 2, 0, 4, 3, 2, 1, 2]
+Num pps tracks: [5, 0, 4, 7, 0, 1, 4, 13, 4, 2, 5, 3, 4, ... 12, 3, 7, 9, 3, 0, 4, 3, 13, 8, 4, 3, 6]
+check_none 0 [False, False, False, False, False, False, ... False, False, False, False, False]
+[True, True, True, True, True, True, True, ... True, True, True, True, True, True]
+
+Num protons RP 3: [0, 0, 0, 1, 0, 0, 1, 3, 1, 1, 1, 0, 0, 0, ... 1, 0, 5, 2, 1, 0, 1, 0, 0, 2, 1, 0, 1]
+
+Num protons RP 23: [0, 0, 0, 1, 0, 0, 1, 3, 0, 1, 3, 0, 0, 1, ... 1, 0, 0, 3, 1, 0, 1, 0, 0, 2, 1, 0, 1]
+
+Num protons RP 103: [2, 0, 2, 2, 0, 1, 1, 1, 1, 0, 0, 1, 2, 0, ... 3, 1, 0, 1, 0, 0, 1, 0, 4, 2, 1, 1, 1]
+
+Num protons RP 123: [2, 0, 2, 2, 0, 0, 1, 2, 1, 0, 0, 1, 2, 0, ... 3, 1, 0, 1, 0, 0, 1, 1, 6, 1, 1, 1, 2]
+
+Num multi-RP protons Arm 0: [0, 0, 0, 1, 0, 0, 1, 3, 0, 1, 1, 0, 0, 0, ... 1, 0, 0, 1, 1, 0, 1, 0, 0, 2, 1, 0, 1]
+
+Num multi-RP protons Arm 1: [2, 0, 0, 2, 0, 0, 1, 1, 1, 0, 0, 1, 2, 0, ... 3, 1, 0, 1, 0, 0, 1, 0, 4, 1, 1, 1, 1]
+
+
+665800
+[2, 3, 2, 4, 1, 1, 1, 1, 2, 3, 1, 2, 3, 1, ... 2, 2, 1, 4, 1, 2, 1, 2, 4, 3, 2, 1, 2]
+['All' 'Jet' 'Electron' 'ProtonRnd_check_none' 'ProtonRnd']
+[3000000 3000000 2924300 2924300 1980050]
+Flattened array size multi-RP: 1201300
+Flattened array size single-RP: 3164850
+Flattened array size tracks: 4237000
+Resizing output dataset by 1200000 entries.
+Dataset shape: (3650000, 72)
+Resizing output dataset by 3150000 entries.
+Dataset shape: (9550000, 68)
+Resizing output dataset by 4250000 entries.
+Dataset shape: (12800000, 14)
+Stacking data.
+(1201300, 72)
+[[3.22430000e+05 3.27000000e+02 5.35583079e+08 ... 3.51293945e+00
+  0.00000000e+00 1.23000000e+02]
+ [3.22430000e+05 3.27000000e+02 5.35583079e+08 ... 9.73876953e-01
+  0.00000000e+00 1.23000000e+02]
+ [3.22430000e+05 3.27000000e+02 5.35284285e+08 ... 3.65014648e+00
+  0.00000000e+00 2.30000000e+01]
+ ...
+ [3.23493000e+05 2.10000000e+01 4.17341560e+07 ... 1.80944824e+00
+  0.00000000e+00 1.23000000e+02]
+ [3.23493000e+05 2.10000000e+01 4.18982040e+07 ... 5.25634766e-01
+  0.00000000e+00 2.30000000e+01]
+ [3.23493000e+05 2.10000000e+01 4.18982040e+07 ... 1.19238281e+00
+  0.00000000e+00 1.23000000e+02]]
+(3164850, 68)
+[[3.22430000e+05 3.27000000e+02 5.35583079e+08 ... 3.44726562e+00
+  0.00000000e+00 1.03000000e+02]
+ [3.22430000e+05 3.27000000e+02 5.35583079e+08 ... 1.09216309e+00
+  0.00000000e+00 1.03000000e+02]
+ [3.22430000e+05 3.27000000e+02 5.35583079e+08 ... 3.51293945e+00
+  0.00000000e+00 1.23000000e+02]
+ ...
+ [3.23493000e+05 2.10000000e+01 4.18982040e+07 ... 1.33728027e+00
+  0.00000000e+00 1.03000000e+02]
+ [3.23493000e+05 2.10000000e+01 4.18982040e+07 ... 7.63916016e-01
+  0.00000000e+00 1.23000000e+02]
+ [3.23493000e+05 2.10000000e+01 4.18982040e+07 ... 1.19238281e+00
+  0.00000000e+00 1.23000000e+02]]
+(4237000, 14)
+[[3.22430000e+05 3.27000000e+02 5.35583079e+08 ... 1.06828874e+09
+  1.44000000e+02 3.00000012e-01]
+ [3.22430000e+05 3.27000000e+02 5.35583079e+08 ... 1.06828874e+09
+  1.44000000e+02 3.00000012e-01]
+ [3.22430000e+05 3.27000000e+02 5.35583079e+08 ... 1.06828874e+09
+  1.44000000e+02 3.00000012e-01]
+ ...
+ [3.23493000e+05 2.10000000e+01 4.18982040e+07 ... 1.15494215e+09
+  1.32000000e+02 3.00000012e-01]
+ [3.23493000e+05 2.10000000e+01 4.18982040e+07 ... 1.15494215e+09
+  1.32000000e+02 3.00000012e-01]
+ [3.23493000e+05 2.10000000e+01 4.18982040e+07 ... 1.15494215e+09
+  1.32000000e+02 3.00000012e-01]]
+Slice: 72
+Writing in positions (2406100,3607400)
+Slice: 190
+Writing in positions (6370500,9535350)
+Slice: 255
+Writing in positions (8547500,12784500)
+20000 [{run: 323493, event: 67922355, lumiblock: 34, crossingAngle: 130, ... 123, 123]}]
+Num jets: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num electrons: [1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num protons: [1, 0, 10, 4, 1, 3, 0, 3, 4, 0, 1, 3, 1, ... 3, 13, 3, 5, 12, 1, 9, 9, 5, 13, 6, 8]
+Num pps tracks: [1, 1, 10, 4, 1, 4, 11, 2, 5, 0, 1, 3, 1, ... 3, 9, 2, 4, 14, 1, 8, 7, 7, 21, 4, 7]
+Run: [323493, 323493, 323493, 323493, 323493, ... 323978, 323978, 323978, 323978, 323978]
+Lumi: [34, 34, 34, 34, 34, 34, 34, 34, 34, 34, ... 67, 67, 67, 67, 67, 67, 67, 68, 68, 68]
+Event: [67922355, 68023419, 68382598, 69806639, ... 102610958, 102661619, 102692479]
+Slice: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49]
+Crossing angle: [130, 130, 130, 130, 130, 130, 130, 130, ... 155, 155, 155, 155, 155, 155, 155, 155]
+Num jets: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num electrons: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num protons: [1, 0, 10, 4, 1, 3, 0, 4, 0, 1, 3, 1, 6, ... 3, 13, 3, 5, 12, 1, 9, 9, 5, 13, 6, 8]
+Num pps tracks: [1, 1, 10, 4, 1, 4, 11, 5, 0, 1, 3, 1, 5, ... 3, 9, 2, 4, 14, 1, 8, 7, 7, 21, 4, 7]
+Run: [323493, 323493, 323493, 323493, 323493, ... 323978, 323978, 323978, 323978, 323978]
+Run randomized: [323755, 323794, 323940, 323778, 323755, ... 323755, 323940, 323755, 323524, 323525]
+Lumi: [34, 34, 34, 34, 34, 34, 34, 34, 34, 34, ... 67, 67, 67, 67, 67, 67, 67, 68, 68, 68]
+Lumi randomized: [648, 21, 1020, 343, 648, 962, 52, 594, 9, ... 59, 412, 283, 216, 993, 479, 147, 963]
+Event: [67922355, 68023419, 68382598, 69806639, ... 102610958, 102661619, 102692479]
+Event randomized: [1181786054, 39119294, 1868080083, 671170078, ... 859717341, 279871607, 1691035135]
+Crossing angle: [130, 130, 130, 130, 130, 130, 130, 130, ... 155, 155, 155, 155, 155, 155, 155, 155]
+Crossing angle randomized: [143, 136, 144, 146, 143, 130, 157, 147, ... 157, 130, 151, 153, 144, 147, 154, 130]
+Beta*: [0.27, 0.27, 0.27, 0.27, 0.27, 0.27, 0.27, ... 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3]
+Beta* randomized: [0.3, 0.3, 0.3, 0.3, 0.3, 0.27, 0.3, 0.3, ... 0.25, 0.3, 0.3, 0.3, 0.3, 0.3, 0.27]
+Num protons: [1, 0, 10, 4, 1, 3, 0, 4, 0, 1, 3, 1, 6, ... 3, 13, 3, 5, 12, 1, 9, 9, 5, 13, 6, 8]
+Num protons randomized: [2, 1, 7, 5, 3, 3, 0, 6, 3, 15, 3, 7, 5, ... 4, 11, 3, 7, 5, 4, 0, 3, 6, 1, 6, 13, 3]
+Num pps tracks: [1, 1, 10, 4, 1, 4, 11, 5, 0, 1, 3, 1, 5, ... 3, 9, 2, 4, 14, 1, 8, 7, 7, 21, 4, 7]
+Num pps tracks randomized: [4, 1, 7, 4, 3, 3, 0, 5, 2, 11, 3, 7, 5, ... 4, 9, 3, 11, 5, 4, 0, 2, 9, 1, 5, 10, 3]
+Num protons extra: [0, 0, 3, 1, 0, 1, 0, 1, 0, 0, 1, 0, 2, 2, ... 1, 1, 4, 1, 1, 2, 0, 2, 3, 1, 2, 2, 2]
+Num protons extra randomized: [0, 0, 2, 1, 1, 1, 0, 2, 1, 4, 1, 1, 1, 0, ... 1, 3, 1, 1, 1, 1, 0, 1, 1, 0, 2, 4, 1]
+Num protons: [2, 1, 7, 5, 3, 3, 0, 6, 3, 15, 3, 7, 5, ... 4, 11, 3, 7, 5, 4, 0, 3, 6, 1, 6, 13, 3]
+Num protons extra: [0, 0, 2, 1, 1, 1, 0, 2, 1, 4, 1, 1, 1, 0, ... 1, 3, 1, 1, 1, 1, 0, 1, 1, 0, 2, 4, 1]
+Num pps tracks: [4, 1, 7, 4, 3, 3, 0, 5, 2, 11, 3, 7, 5, ... 4, 9, 3, 11, 5, 4, 0, 2, 9, 1, 5, 10, 3]
+check_none 0 [False, False, False, False, False, False, ... False, False, False, False, False]
+[True, True, True, True, True, True, True, ... True, True, True, True, True, True]
+
+Num protons RP 3: [0, 0, 1, 1, 1, 1, 0, 2, 0, 3, 1, 0, 3, 0, ... 1, 3, 1, 1, 2, 1, 0, 1, 2, 1, 2, 2, 1]
+
+Num protons RP 23: [0, 0, 2, 1, 1, 1, 0, 2, 0, 3, 1, 1, 1, 0, ... 1, 4, 1, 1, 0, 0, 0, 1, 3, 0, 2, 2, 1]
+
+Num protons RP 103: [2, 1, 1, 2, 0, 0, 0, 0, 1, 3, 0, 2, 0, 1, ... 0, 0, 0, 4, 1, 1, 0, 0, 0, 0, 0, 3, 0]
+
+Num protons RP 123: [0, 0, 1, 0, 0, 0, 0, 0, 1, 2, 0, 3, 0, 0, ... 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 2, 0]
+
+Num multi-RP protons Arm 0: [0, 0, 1, 1, 1, 1, 0, 2, 0, 2, 1, 0, 1, 0, ... 1, 3, 1, 1, 0, 0, 0, 1, 1, 0, 2, 2, 1]
+
+Num multi-RP protons Arm 1: [0, 0, 1, 0, 0, 0, 0, 0, 1, 2, 0, 1, 0, 0, ... 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 2, 0]
+
+
+658100
+[2, 1, 1, 1, 2, 1, 4, 1, 1, 1, 1, 4, 4, 2, ... 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 2, 4, 1]
+['All' 'Jet' 'Electron' 'ProtonRnd_check_none' 'ProtonRnd']
+[4000000 4000000 3898800 3898800 2638150]
+Flattened array size multi-RP: 1175900
+Flattened array size single-RP: 3105000
+Flattened array size tracks: 4134250
+Resizing output dataset by 1150000 entries.
+Dataset shape: (4800000, 72)
+Resizing output dataset by 3100000 entries.
+Dataset shape: (12650000, 68)
+Resizing output dataset by 4150000 entries.
+Dataset shape: (16950000, 14)
+Stacking data.
+(1175900, 72)
+[[ 3.23493000e+05  3.40000000e+01  6.83825980e+07 ...  4.69055176e-01
+   0.00000000e+00  2.30000000e+01]
+ [ 3.23493000e+05  3.40000000e+01  6.83825980e+07 ...  1.68676758e+00
+   0.00000000e+00  1.23000000e+02]
+ [ 3.23493000e+05  3.40000000e+01  6.98066390e+07 ... -5.54687500e+00
+   0.00000000e+00  2.30000000e+01]
+ ...
+ [ 3.23978000e+05  6.80000000e+01  1.02661619e+08 ...  4.35028076e-01
+   0.00000000e+00  1.23000000e+02]
+ [ 3.23978000e+05  6.80000000e+01  1.02661619e+08 ...  3.71411133e+00
+   0.00000000e+00  1.23000000e+02]
+ [ 3.23978000e+05  6.80000000e+01  1.02692479e+08 ...  2.29736328e+00
+   0.00000000e+00  2.30000000e+01]]
+(3105000, 68)
+[[ 3.23493000e+05  3.40000000e+01  6.83825980e+07 ...  4.90142822e-01
+   0.00000000e+00  3.00000000e+00]
+ [ 3.23493000e+05  3.40000000e+01  6.83825980e+07 ...  4.69055176e-01
+   0.00000000e+00  2.30000000e+01]
+ [ 3.23493000e+05  3.40000000e+01  6.83825980e+07 ... -5.61474609e+00
+   0.00000000e+00  2.30000000e+01]
+ ...
+ [ 3.23978000e+05  6.80000000e+01  1.02661619e+08 ...  3.71411133e+00
+   0.00000000e+00  1.23000000e+02]
+ [ 3.23978000e+05  6.80000000e+01  1.02692479e+08 ...  2.35839844e+00
+   0.00000000e+00  3.00000000e+00]
+ [ 3.23978000e+05  6.80000000e+01  1.02692479e+08 ...  2.29736328e+00
+   0.00000000e+00  2.30000000e+01]]
+(4134250, 14)
+[[3.23493000e+05 3.40000000e+01 6.83825980e+07 ... 1.86808008e+09
+  1.44000000e+02 3.00000012e-01]
+ [3.23493000e+05 3.40000000e+01 6.83825980e+07 ... 1.86808008e+09
+  1.44000000e+02 3.00000012e-01]
+ [3.23493000e+05 3.40000000e+01 6.83825980e+07 ... 1.86808008e+09
+  1.44000000e+02 3.00000012e-01]
+ ...
+ [3.23978000e+05 6.80000000e+01 1.02692479e+08 ... 1.69103514e+09
+  1.30000000e+02 2.70000011e-01]
+ [3.23978000e+05 6.80000000e+01 1.02692479e+08 ... 1.69103514e+09
+  1.30000000e+02 2.70000011e-01]
+ [3.23978000e+05 6.80000000e+01 1.02692479e+08 ... 1.69103514e+09
+  1.30000000e+02 2.70000011e-01]]
+Slice: 95
+Writing in positions (3607400,4783300)
+Slice: 252
+Writing in positions (9535350,12640350)
+Slice: 338
+Writing in positions (12784500,16918750)
+20000 [{run: 323976, event: 59760046, lumiblock: 55, ... pps_track_rpid: []}]
+Num jets: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num electrons: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 2]
+Num protons: [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, ... 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Num pps tracks: [0, 1, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, ... 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Run: [323976, 323976, 323976, 323976, 323976, ... 324245, 324245, 324245, 324245, 324245]
+Lumi: [55, 55, 55, 55, 55, 55, 55, 55, ... 1629, 1629, 1630, 1630, 1630, 1634, 1634, 1634]
+Event: [59760046, 61298685, 60897274, 60216400, ... 3038320559, 3038128399, 3038038553]
+Slice: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49]
+Crossing angle: [160, 160, 160, 160, 160, 160, 160, 160, ... 130, 130, 130, 130, 130, 130, 130, 130]
+Num jets: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num electrons: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2]
+Num protons: [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, ... 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Num pps tracks: [0, 1, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, ... 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Run: [323976, 323976, 323976, 323976, 323976, ... 324245, 324245, 324245, 324245, 324245]
+Run randomized: [324201, 324201, 324205, 324293, 324201, ... 324021, 324201, 324077, 324245, 324245]
+Lumi: [55, 55, 55, 55, 55, 55, 55, 55, ... 1629, 1629, 1630, 1630, 1630, 1634, 1634, 1634]
+Lumi randomized: [419, 395, 83, 325, 26, 199, 86, 223, ... 696, 451, 644, 95, 667, 742, 1489, 1017]
+Event: [59760046, 61298685, 60897274, 60216400, ... 3038320559, 3038128399, 3038038553]
+Event randomized: [819294838, 770498883, 123135521, 563833513, ... 1346507013, 2768883229, 1912262959]
+Crossing angle: [160, 160, 160, 160, 160, 160, 160, 160, ... 130, 130, 130, 130, 130, 130, 130, 130]
+Crossing angle randomized: [146, 146, 130, 150, 160, 137, 130, 160, ... 160, 145, 160, 160, 139, 143, 160, 160]
+Beta*: [0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, ... 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3]
+Beta* randomized: [0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, ... 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3]
+Num protons: [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, ... 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Num protons randomized: [19, 10, 3, 2, 0, 0, 5, 9, 0, 7, 2, 0, 7, ... 9, 0, 15, 2, 3, 6, 4, 9, 7, 0, 0, 6]
+Num pps tracks: [0, 1, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, ... 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Num pps tracks randomized: [15, 9, 3, 2, 0, 0, 4, 13, 1, 15, 2, 0, 6, ... 8, 0, 17, 2, 2, 4, 10, 7, 7, 0, 0, 6]
+Num protons extra: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Num protons extra randomized: [6, 2, 1, 0, 0, 0, 1, 2, 0, 0, 0, 0, 2, 4, ... 4, 2, 0, 3, 0, 1, 2, 1, 3, 2, 0, 0, 1]
+Num protons: [19, 10, 3, 2, 0, 0, 5, 9, 0, 7, 2, 0, 7, ... 9, 0, 15, 2, 3, 6, 4, 9, 7, 0, 0, 6]
+Num protons extra: [6, 2, 1, 0, 0, 0, 1, 2, 0, 0, 0, 0, 2, 4, ... 4, 2, 0, 3, 0, 1, 2, 1, 3, 2, 0, 0, 1]
+Num pps tracks: [15, 9, 3, 2, 0, 0, 4, 13, 1, 15, 2, 0, 6, ... 8, 0, 17, 2, 2, 4, 10, 7, 7, 0, 0, 6]
+check_none 0 [False, False, False, False, False, False, ... False, False, False, False, False]
+[True, True, True, True, True, True, True, ... True, True, True, True, True, True]
+
+Num protons RP 3: [4, 2, 0, 0, 0, 0, 1, 3, 0, 1, 0, 0, 3, 2, ... 1, 1, 0, 5, 0, 0, 1, 2, 1, 1, 0, 0, 1]
+
+Num protons RP 23: [5, 1, 0, 0, 0, 0, 1, 0, 0, 5, 0, 0, 2, 2, ... 1, 1, 0, 3, 0, 0, 1, 1, 1, 1, 0, 0, 1]
+
+Num protons RP 103: [2, 3, 1, 1, 0, 0, 2, 2, 0, 1, 1, 0, 0, 2, ... 3, 2, 0, 2, 0, 1, 1, 0, 2, 1, 0, 0, 0]
+
+Num protons RP 123: [2, 2, 1, 1, 0, 0, 0, 2, 0, 0, 1, 0, 0, 2, ... 3, 3, 0, 2, 2, 1, 1, 0, 2, 2, 0, 0, 3]
+
+Num multi-RP protons Arm 0: [4, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 2, ... 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1]
+
+Num multi-RP protons Arm 1: [2, 1, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 2, ... 3, 1, 0, 2, 0, 1, 1, 0, 2, 1, 0, 0, 0]
+
+
+618600
+[6, 2, 1, 1, 2, 2, 4, 1, 1, 1, 1, 2, 1, 3, ... 2, 3, 1, 3, 4, 2, 3, 1, 2, 1, 3, 2, 1]
+['All' 'Jet' 'Electron' 'ProtonRnd_check_none' 'ProtonRnd']
+[5000000 5000000 4872250 4872250 3256750]
+Flattened array size multi-RP: 1103150
+Flattened array size single-RP: 2919600
+Flattened array size tracks: 3900050
+Resizing output dataset by 1100000 entries.
+Dataset shape: (5900000, 72)
+Resizing output dataset by 2950000 entries.
+Dataset shape: (15600000, 68)
+Resizing output dataset by 3900000 entries.
+Dataset shape: (20850000, 14)
+Stacking data.
+(1103150, 72)
+[[ 3.23976000e+05  5.50000000e+01  5.97600460e+07 ...  2.68725586e+00
+   0.00000000e+00  2.30000000e+01]
+ [ 3.23976000e+05  5.50000000e+01  5.97600460e+07 ... -1.91253662e-01
+   0.00000000e+00  2.30000000e+01]
+ [ 3.23976000e+05  5.50000000e+01  5.97600460e+07 ...  1.80895996e+00
+   0.00000000e+00  2.30000000e+01]
+ ...
+ [ 3.24245000e+05  1.63000000e+03  3.03097751e+09 ... -9.94415283e-02
+   0.00000000e+00  2.30000000e+01]
+ [ 3.24245000e+05  1.63000000e+03  3.03097751e+09 ... -1.53405762e+00
+   0.00000000e+00  1.23000000e+02]
+ [ 3.24245000e+05  1.63400000e+03  3.03803855e+09 ...  1.76611328e+00
+   0.00000000e+00  2.30000000e+01]]
+(2919600, 68)
+[[ 3.23976000e+05  5.50000000e+01  5.97600460e+07 ...  2.68066406e+00
+   0.00000000e+00  3.00000000e+00]
+ [ 3.23976000e+05  5.50000000e+01  5.97600460e+07 ...  1.84535980e-02
+   0.00000000e+00  3.00000000e+00]
+ [ 3.23976000e+05  5.50000000e+01  5.97600460e+07 ...  1.99060059e+00
+   0.00000000e+00  3.00000000e+00]
+ ...
+ [ 3.24245000e+05  1.63400000e+03  3.03803855e+09 ...  9.40673828e-01
+   0.00000000e+00  1.23000000e+02]
+ [ 3.24245000e+05  1.63400000e+03  3.03803855e+09 ... -2.26904297e+00
+   0.00000000e+00  1.23000000e+02]
+ [ 3.24245000e+05  1.63400000e+03  3.03803855e+09 ... -1.17529297e+01
+   0.00000000e+00  1.23000000e+02]]
+(3900050, 14)
+[[3.23976000e+05 5.50000000e+01 5.97600460e+07 ... 8.19294838e+08
+  1.46000000e+02 3.00000012e-01]
+ [3.23976000e+05 5.50000000e+01 5.97600460e+07 ... 8.19294838e+08
+  1.46000000e+02 3.00000012e-01]
+ [3.23976000e+05 5.50000000e+01 5.97600460e+07 ... 8.19294838e+08
+  1.46000000e+02 3.00000012e-01]
+ ...
+ [3.24245000e+05 1.63400000e+03 3.03803855e+09 ... 1.91226296e+09
+  1.60000000e+02 3.00000012e-01]
+ [3.24245000e+05 1.63400000e+03 3.03803855e+09 ... 1.91226296e+09
+  1.60000000e+02 3.00000012e-01]
+ [3.24245000e+05 1.63400000e+03 3.03803855e+09 ... 1.91226296e+09
+  1.60000000e+02 3.00000012e-01]]
+Slice: 117
+Writing in positions (4783300,5886450)
+Slice: 311
+Writing in positions (12640350,15559950)
+Slice: 416
+Writing in positions (16918750,20818800)
+20000 [{run: 324245, event: 3038852817, lumiblock: 1634, ... pps_track_rpid: []}]
+Num jets: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num electrons: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num protons: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... 8, 2, 0, 3, 3, 1, 1, 4, 12, 3, 6, 6, 0]
+Num pps tracks: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... 7, 5, 0, 2, 3, 1, 1, 11, 14, 3, 5, 5, 0]
+Run: [324245, 324245, 324245, 324245, 324245, ... 324765, 324765, 324765, 324765, 324765]
+Lumi: [1634, 1634, 1634, 1635, 1635, 1635, 1635, ... 123, 124, 124, 124, 124, 124, 125]
+Event: [3038852817, 3038112535, 3039285890, 3041260918, ... 243242724, 241702506, 243934256]
+Slice: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49]
+Crossing angle: [130, 130, 130, 130, 130, 130, 130, 130, ... 130, 130, 130, 130, 130, 130, 130, 130]
+Num jets: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num electrons: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num protons: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... 8, 2, 0, 3, 3, 1, 1, 4, 12, 3, 6, 6, 0]
+Num pps tracks: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... 7, 5, 0, 2, 3, 1, 1, 11, 14, 3, 5, 5, 0]
+Run: [324245, 324245, 324245, 324245, 324245, ... 324765, 324765, 324765, 324765, 324765]
+Run randomized: [324747, 324293, 324747, 324747, 324293, ... 324420, 324420, 324747, 324747, 324747]
+Lumi: [1634, 1634, 1634, 1635, 1635, 1635, 1635, ... 123, 124, 124, 124, 124, 124, 125]
+Lumi randomized: [846, 712, 662, 634, 929, 2042, 333, 202, ... 144, 878, 474, 301, 89, 184, 642, 1124]
+Event: [3038852817, 3038112535, 3039285890, 3041260918, ... 243242724, 241702506, 243934256]
+Event randomized: [1533947204, 1330976872, 1199382866, ... 229423284, 1159768351, 2059233304]
+Crossing angle: [130, 130, 130, 130, 130, 130, 130, 130, ... 130, 130, 130, 130, 130, 130, 130, 130]
+Crossing angle randomized: [136, 141, 140, 141, 136, 130, 150, 151, ... 153, 136, 132, 148, 153, 151, 141, 131]
+Beta*: [0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, ... 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25]
+Beta* randomized: [0.3, 0.3, 0.3, 0.3, 0.3, 0.25, 0.3, 0.3, ... 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3]
+Num protons: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... 8, 2, 0, 3, 3, 1, 1, 4, 12, 3, 6, 6, 0]
+Num protons randomized: [3, 5, 6, 3, 12, 3, 7, 2, 3, 8, 4, 0, 0, ... 6, 4, 6, 8, 7, 7, 6, 7, 0, 4, 3, 3, 3]
+Num pps tracks: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... 7, 5, 0, 2, 3, 1, 1, 11, 14, 3, 5, 5, 0]
+Num pps tracks randomized: [24, 5, 5, 4, 10, 2, 7, 2, 4, 9, 4, 0, 0, ... 5, 6, 5, 16, 5, 6, 4, 7, 0, 4, 3, 2, 3]
+Num protons extra: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... 1, 0, 0, 1, 1, 0, 0, 0, 2, 1, 2, 2, 0]
+Num protons extra randomized: [1, 0, 2, 1, 4, 1, 2, 0, 1, 2, 1, 0, 0, 1, ... 2, 0, 2, 1, 2, 1, 2, 2, 0, 1, 1, 1, 1]
+Num protons: [3, 5, 6, 3, 12, 3, 7, 2, 3, 8, 4, 0, 0, ... 6, 4, 6, 8, 7, 7, 6, 7, 0, 4, 3, 3, 3]
+Num protons extra: [1, 0, 2, 1, 4, 1, 2, 0, 1, 2, 1, 0, 0, 1, ... 2, 0, 2, 1, 2, 1, 2, 2, 0, 1, 1, 1, 1]
+Num pps tracks: [24, 5, 5, 4, 10, 2, 7, 2, 4, 9, 4, 0, 0, ... 5, 6, 5, 16, 5, 6, 4, 7, 0, 4, 3, 2, 3]
+check_none 0 [False, False, False, False, False, False, ... False, False, False, False, False]
+[True, True, True, True, True, True, True, ... True, True, True, True, True, True]
+
+Num protons RP 3: [1, 0, 1, 0, 1, 1, 1, 1, 1, 2, 1, 0, 0, 2, ... 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1]
+
+Num protons RP 23: [1, 0, 1, 0, 1, 1, 2, 0, 1, 1, 0, 0, 0, 1, ... 1, 0, 1, 5, 1, 0, 1, 0, 0, 1, 1, 0, 1]
+
+Num protons RP 103: [0, 1, 1, 1, 3, 0, 1, 1, 0, 2, 1, 0, 0, 1, ... 1, 4, 1, 0, 2, 4, 1, 2, 0, 1, 0, 1, 0]
+
+Num protons RP 123: [0, 4, 1, 1, 3, 0, 1, 0, 0, 1, 1, 0, 0, 0, ... 1, 0, 1, 1, 1, 2, 1, 3, 0, 0, 0, 1, 0]
+
+Num multi-RP protons Arm 0: [1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, ... 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1]
+
+Num multi-RP protons Arm 1: [0, 0, 1, 1, 3, 0, 1, 0, 0, 1, 1, 0, 0, 0, ... 1, 0, 1, 0, 1, 1, 1, 2, 0, 0, 0, 1, 0]
+
+
+619450
+[1, 2, 1, 4, 1, 2, 1, 2, 1, 1, 3, 2, 2, 3, ... 2, 1, 2, 2, 1, 2, 1, 2, 2, 1, 1, 1, 1]
+['All' 'Jet' 'Electron' 'ProtonRnd_check_none' 'ProtonRnd']
+[6000000 6000000 5845650 5845650 3876200]
+Flattened array size multi-RP: 1119850
+Flattened array size single-RP: 3017600
+Flattened array size tracks: 4036900
+Resizing output dataset by 1150000 entries.
+Dataset shape: (7050000, 72)
+Resizing output dataset by 3000000 entries.
+Dataset shape: (18600000, 68)
+Resizing output dataset by 4050000 entries.
+Dataset shape: (24900000, 14)
+Stacking data.
+(1119850, 72)
+[[ 3.24245000e+05  1.63400000e+03  3.03885282e+09 ... -3.05389404e-01
+   0.00000000e+00  2.30000000e+01]
+ [ 3.24245000e+05  1.63400000e+03  3.03928589e+09 ... -2.54764557e-02
+   0.00000000e+00  2.30000000e+01]
+ [ 3.24245000e+05  1.63400000e+03  3.03928589e+09 ... -2.43115234e+00
+   0.00000000e+00  1.23000000e+02]
+ ...
+ [ 3.24765000e+05  1.24000000e+02  2.43242724e+08 ...  2.69848633e+00
+   0.00000000e+00  2.30000000e+01]
+ [ 3.24765000e+05  1.24000000e+02  2.41702506e+08 ...  3.67016602e+00
+   0.00000000e+00  1.23000000e+02]
+ [ 3.24765000e+05  1.25000000e+02  2.43934256e+08 ...  1.03381348e+00
+   0.00000000e+00  2.30000000e+01]]
+(3017600, 68)
+[[ 3.24245000e+05  1.63400000e+03  3.03885282e+09 ... -1.24006271e-02
+   0.00000000e+00  3.00000000e+00]
+ [ 3.24245000e+05  1.63400000e+03  3.03885282e+09 ... -3.05389404e-01
+   0.00000000e+00  2.30000000e+01]
+ [ 3.24245000e+05  1.63400000e+03  3.03928589e+09 ...  1.57775879e-01
+   0.00000000e+00  3.00000000e+00]
+ ...
+ [ 3.24765000e+05  1.24000000e+02  2.41702506e+08 ...  3.67016602e+00
+   0.00000000e+00  1.23000000e+02]
+ [ 3.24765000e+05  1.25000000e+02  2.43934256e+08 ...  1.23547363e+00
+   0.00000000e+00  3.00000000e+00]
+ [ 3.24765000e+05  1.25000000e+02  2.43934256e+08 ...  1.03381348e+00
+   0.00000000e+00  2.30000000e+01]]
+(4036900, 14)
+[[3.24245000e+05 1.63400000e+03 3.03885282e+09 ... 1.53394720e+09
+  1.36000000e+02 3.00000012e-01]
+ [3.24245000e+05 1.63400000e+03 3.03885282e+09 ... 1.53394720e+09
+  1.36000000e+02 3.00000012e-01]
+ [3.24245000e+05 1.63400000e+03 3.03885282e+09 ... 1.53394720e+09
+  1.36000000e+02 3.00000012e-01]
+ ...
+ [3.24765000e+05 1.25000000e+02 2.43934256e+08 ... 2.05923330e+09
+  1.31000000e+02 3.00000012e-01]
+ [3.24765000e+05 1.25000000e+02 2.43934256e+08 ... 2.05923330e+09
+  1.31000000e+02 3.00000012e-01]
+ [3.24765000e+05 1.25000000e+02 2.43934256e+08 ... 2.05923330e+09
+  1.31000000e+02 3.00000012e-01]]
+Slice: 140
+Writing in positions (5886450,7006300)
+Slice: 371
+Writing in positions (15559950,18577550)
+Slice: 497
+Writing in positions (20818800,24855700)
+20000 [{run: 324765, event: 243908688, lumiblock: 125, crossingAngle: 130, ... 3, 23]}]
+Num jets: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num electrons: [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1]
+Num protons: [6, 0, 9, 7, 8, 6, 10, 3, 4, 0, 5, 6, 0, ... 9, 7, 7, 13, 12, 8, 3, 5, 1, 10, 4, 3]
+Num pps tracks: [4, 0, 8, 6, 8, 6, 9, 3, 4, 0, 5, 5, 0, ... 1, 8, 5, 6, 15, 9, 7, 10, 6, 2, 9, 4, 2]
+Run: [324765, 324765, 324765, 324765, 324765, ... 325099, 325099, 325099, 325099, 324841]
+Lumi: [125, 125, 125, 125, 126, 126, 126, 126, ... 383, 383, 383, 383, 383, 383, 383, 1230]
+Event: [243908688, 243986493, 245393953, 244935889, ... 778425114, 779653452, 2259562923]
+Slice: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49]
+Crossing angle: [130, 130, 130, 130, 130, 130, 130, 130, ... 146, 146, 146, 146, 146, 146, 146, 130]
+Num jets: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num electrons: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num protons: [6, 0, 9, 7, 8, 6, 3, 4, 0, 5, 6, 0, 12, ... 1, 9, 7, 7, 13, 12, 8, 3, 5, 1, 10, 3]
+Num pps tracks: [4, 0, 8, 6, 8, 6, 3, 4, 0, 5, 5, 0, 10, ... 5, 1, 8, 5, 6, 15, 9, 7, 10, 6, 2, 9, 2]
+Run: [324765, 324765, 324765, 324765, 324765, ... 325099, 325099, 325099, 325099, 324841]
+Run randomized: [324791, 324785, 324785, 324769, 324841, ... 324841, 324785, 324785, 324841, 324841]
+Lumi: [125, 125, 125, 125, 126, 126, 126, 126, ... 383, 383, 383, 383, 383, 383, 383, 1230]
+Lumi randomized: [341, 274, 114, 162, 846, 746, 1062, 847, ... 153, 705, 1296, 4, 528, 632, 770, 1048]
+Event: [243908688, 243986493, 245393953, 244935889, ... 778425114, 779653452, 2259562923]
+Event randomized: [629776692, 387663112, 70278524, 252203191, ... 1103837235, 1421858109, 1935893382]
+Crossing angle: [130, 130, 130, 130, 130, 130, 130, 130, ... 146, 146, 146, 146, 146, 146, 146, 130]
+Crossing angle randomized: [133, 148, 153, 130, 130, 130, 130, 130, ... 130, 131, 130, 145, 142, 140, 130, 130]
+Beta*: [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, ... 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.25]
+Beta* randomized: [0.3, 0.3, 0.3, 0.25, 0.27, 0.25, 0.27, ... 0.3, 0.27, 0.3, 0.3, 0.3, 0.27, 0.27]
+Num protons: [6, 0, 9, 7, 8, 6, 3, 4, 0, 5, 6, 0, 12, ... 1, 9, 7, 7, 13, 12, 8, 3, 5, 1, 10, 3]
+Num protons randomized: [12, 6, 3, 6, 6, 0, 4, 5, 10, 3, 14, 0, 3, ... 0, 3, 5, 3, 4, 6, 5, 7, 10, 10, 6, 0]
+Num pps tracks: [4, 0, 8, 6, 8, 6, 3, 4, 0, 5, 5, 0, 10, ... 5, 1, 8, 5, 6, 15, 9, 7, 10, 6, 2, 9, 2]
+Num pps tracks randomized: [11, 4, 3, 6, 6, 0, 18, 8, 8, 2, 12, 1, 4, ... 0, 3, 6, 3, 5, 7, 7, 7, 10, 11, 4, 0]
+Num protons extra: [2, 0, 3, 2, 2, 2, 1, 1, 0, 1, 2, 0, 4, 1, ... 2, 0, 3, 2, 2, 3, 4, 1, 0, 1, 0, 3, 1]
+Num protons extra randomized: [3, 2, 1, 2, 1, 0, 1, 1, 3, 1, 4, 0, 1, 0, ... 2, 0, 1, 1, 1, 1, 0, 0, 0, 3, 1, 2, 0]
+Num protons: [12, 6, 3, 6, 6, 0, 4, 5, 10, 3, 14, 0, 3, ... 0, 3, 5, 3, 4, 6, 5, 7, 10, 10, 6, 0]
+Num protons extra: [3, 2, 1, 2, 1, 0, 1, 1, 3, 1, 4, 0, 1, 0, ... 2, 0, 1, 1, 1, 1, 0, 0, 0, 3, 1, 2, 0]
+Num pps tracks: [11, 4, 3, 6, 6, 0, 18, 8, 8, 2, 12, 1, 4, ... 0, 3, 6, 3, 5, 7, 7, 7, 10, 11, 4, 0]
+check_none 0 [False, False, False, False, False, False, ... False, False, False, False, False]
+[True, True, True, True, True, True, True, ... True, True, True, True, True, True]
+
+Num protons RP 3: [1, 0, 1, 0, 1, 0, 2, 1, 3, 0, 3, 0, 0, 0, ... 1, 0, 0, 1, 1, 1, 0, 0, 0, 2, 1, 0, 0]
+
+Num protons RP 23: [3, 0, 1, 0, 1, 0, 1, 1, 3, 0, 3, 0, 0, 0, ... 1, 0, 0, 3, 1, 1, 0, 1, 0, 2, 1, 0, 0]
+
+Num protons RP 103: [3, 2, 0, 2, 2, 0, 0, 2, 1, 1, 2, 0, 1, 0, ... 1, 0, 1, 0, 0, 1, 6, 2, 1, 2, 0, 2, 0]
+
+Num protons RP 123: [2, 2, 0, 2, 1, 0, 0, 0, 0, 1, 2, 0, 1, 0, ... 1, 0, 1, 0, 0, 0, 0, 2, 6, 1, 7, 2, 0]
+
+Num multi-RP protons Arm 0: [1, 0, 1, 0, 0, 0, 1, 1, 3, 0, 2, 0, 0, 0, ... 1, 0, 0, 1, 1, 1, 0, 0, 0, 2, 1, 0, 0]
+
+Num multi-RP protons Arm 1: [2, 2, 0, 2, 1, 0, 0, 0, 0, 1, 2, 0, 1, 0, ... 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0]
+
+
+622100
+[3, 2, 1, 2, 1, 1, 1, 3, 1, 4, 1, 1, 2, 3, ... 1, 3, 1, 1, 2, 2, 1, 1, 1, 1, 3, 1, 2]
+['All' 'Jet' 'Electron' 'ProtonRnd_check_none' 'ProtonRnd']
+[7000000 7000000 6820150 6820150 4498300]
+Flattened array size multi-RP: 1060200
+Flattened array size single-RP: 2790750
+Flattened array size tracks: 3743100
+Resizing output dataset by 1050000 entries.
+Dataset shape: (8100000, 72)
+Resizing output dataset by 2800000 entries.
+Dataset shape: (21400000, 68)
+Resizing output dataset by 3700000 entries.
+Dataset shape: (28600000, 14)
+Stacking data.
+(1060200, 72)
+[[3.24765000e+05 1.25000000e+02 2.43908688e+08 ... 2.96435547e+00
+  0.00000000e+00 2.30000000e+01]
+ [3.24765000e+05 1.25000000e+02 2.43908688e+08 ... 1.85681152e+00
+  0.00000000e+00 1.23000000e+02]
+ [3.24765000e+05 1.25000000e+02 2.43908688e+08 ... 6.48010254e-01
+  0.00000000e+00 1.23000000e+02]
+ ...
+ [3.25099000e+05 3.83000000e+02 7.78425114e+08 ... 2.45703125e+00
+  0.00000000e+00 2.30000000e+01]
+ [3.25099000e+05 3.83000000e+02 7.79653452e+08 ... 3.85522461e+00
+  0.00000000e+00 1.23000000e+02]
+ [3.25099000e+05 3.83000000e+02 7.79653452e+08 ... 7.65441895e-01
+  0.00000000e+00 1.23000000e+02]]
+(2790750, 68)
+[[ 3.24765000e+05  1.25000000e+02  2.43908688e+08 ...  2.78320312e+00
+   0.00000000e+00  3.00000000e+00]
+ [ 3.24765000e+05  1.25000000e+02  2.43908688e+08 ...  2.96435547e+00
+   0.00000000e+00  2.30000000e+01]
+ [ 3.24765000e+05  1.25000000e+02  2.43908688e+08 ... -3.63598633e+00
+   0.00000000e+00  2.30000000e+01]
+ ...
+ [ 3.25099000e+05  3.83000000e+02  7.79653452e+08 ...  9.25964355e-01
+   0.00000000e+00  1.03000000e+02]
+ [ 3.25099000e+05  3.83000000e+02  7.79653452e+08 ...  3.85522461e+00
+   0.00000000e+00  1.23000000e+02]
+ [ 3.25099000e+05  3.83000000e+02  7.79653452e+08 ...  7.65441895e-01
+   0.00000000e+00  1.23000000e+02]]
+(3743100, 14)
+[[3.24765000e+05 1.25000000e+02 2.43908688e+08 ... 6.29776692e+08
+  1.33000000e+02 3.00000012e-01]
+ [3.24765000e+05 1.25000000e+02 2.43908688e+08 ... 6.29776692e+08
+  1.33000000e+02 3.00000012e-01]
+ [3.24765000e+05 1.25000000e+02 2.43908688e+08 ... 6.29776692e+08
+  1.33000000e+02 3.00000012e-01]
+ ...
+ [3.25099000e+05 3.83000000e+02 7.79653452e+08 ... 1.42185811e+09
+  1.30000000e+02 2.70000011e-01]
+ [3.25099000e+05 3.83000000e+02 7.79653452e+08 ... 1.42185811e+09
+  1.30000000e+02 2.70000011e-01]
+ [3.25099000e+05 3.83000000e+02 7.79653452e+08 ... 1.42185811e+09
+  1.30000000e+02 2.70000011e-01]]
+Slice: 161
+Writing in positions (7006300,8066500)
+Slice: 427
+Writing in positions (18577550,21368300)
+Slice: 571
+Writing in positions (24855700,28598800)
+20000 [{run: 324841, event: 2259696850, lumiblock: 1230, ... pps_track_rpid: [23]}]
+Num jets: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num electrons: [1, 1, 0, 0, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num protons: [1, 3, 2, 0, 9, 0, 6, 0, 0, 7, 3, 4, 0, ... 4, 1, 8, 6, 14, 4, 3, 5, 3, 10, 0, 0, 1]
+Num pps tracks: [1, 2, 4, 0, 9, 0, 5, 0, 0, 5, 3, 5, 0, ... 3, 1, 8, 5, 14, 4, 2, 5, 3, 8, 0, 0, 1]
+Run: [324841, 324841, 324841, 324841, 324841, ... 325022, 325022, 325022, 325022, 325022]
+Lumi: [1230, 1230, 1231, 1231, 1231, 1231, 1231, ... 801, 801, 803, 803, 803, 803, 803]
+Event: [2259696850, 2259423473, 2260416381, ... 1250867538, 1250140154, 1250428234]
+Slice: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49]
+Crossing angle: [130, 130, 130, 130, 130, 130, 130, 130, ... 141, 141, 141, 141, 141, 141, 141, 141]
+Num jets: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num electrons: [1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num protons: [1, 3, 9, 0, 6, 0, 0, 7, 3, 4, 0, 5, 0, ... 4, 1, 8, 6, 14, 4, 3, 5, 3, 10, 0, 0, 1]
+Num pps tracks: [1, 2, 9, 0, 5, 0, 0, 5, 3, 5, 0, 6, 0, ... 3, 1, 8, 5, 14, 4, 2, 5, 3, 8, 0, 0, 1]
+Run: [324841, 324841, 324841, 324841, 324841, ... 325022, 325022, 325022, 325022, 325022]
+Run randomized: [325099, 325022, 324970, 325022, 324970, ... 325022, 324980, 324970, 325022, 324846]
+Lumi: [1230, 1230, 1231, 1231, 1231, 1231, 1231, ... 801, 801, 803, 803, 803, 803, 803]
+Lumi randomized: [217, 591, 1824, 670, 1653, 329, 154, 1768, ... 1517, 1639, 637, 51, 1424, 758, 506]
+Event: [2259696850, 2259423473, 2260416381, ... 1250867538, 1250140154, 1250428234]
+Event randomized: [435250962, 949926449, 3314584332, 1067727369, ... 2644364050, 1190600919, 694954039]
+Crossing angle: [130, 130, 130, 130, 130, 130, 130, 130, ... 141, 141, 141, 141, 141, 141, 141, 141]
+Crossing angle randomized: [150, 145, 130, 144, 130, 130, 154, 130, ... 130, 130, 130, 144, 160, 130, 142, 130]
+Beta*: [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, ... 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3]
+Beta* randomized: [0.3, 0.3, 0.25, 0.3, 0.25, 0.25, 0.3, ... 0.25, 0.25, 0.3, 0.3, 0.27, 0.3, 0.25]
+Num protons: [1, 3, 9, 0, 6, 0, 0, 7, 3, 4, 0, 5, 0, ... 4, 1, 8, 6, 14, 4, 3, 5, 3, 10, 0, 0, 1]
+Num protons randomized: [9, 3, 0, 3, 6, 3, 11, 0, 3, 1, 6, 7, 6, ... 10, 1, 1, 6, 0, 4, 6, 0, 3, 4, 0, 9, 0]
+Num pps tracks: [1, 2, 9, 0, 5, 0, 0, 5, 3, 5, 0, 6, 0, ... 3, 1, 8, 5, 14, 4, 2, 5, 3, 8, 0, 0, 1]
+Num pps tracks randomized: [8, 4, 0, 3, 4, 2, 8, 0, 2, 1, 5, 7, 5, ... 10, 1, 1, 4, 0, 4, 5, 0, 20, 4, 0, 8, 0]
+Num protons extra: [0, 1, 2, 0, 2, 0, 0, 2, 1, 1, 0, 1, 0, 1, ... 1, 0, 2, 2, 4, 1, 1, 1, 1, 3, 0, 0, 0]
+Num protons extra randomized: [2, 1, 0, 1, 2, 1, 3, 0, 1, 0, 2, 2, 2, 1, ... 3, 0, 0, 2, 0, 1, 2, 0, 1, 1, 0, 3, 0]
+Num protons: [9, 3, 0, 3, 6, 3, 11, 0, 3, 1, 6, 7, 6, ... 10, 1, 1, 6, 0, 4, 6, 0, 3, 4, 0, 9, 0]
+Num protons extra: [2, 1, 0, 1, 2, 1, 3, 0, 1, 0, 2, 2, 2, 1, ... 3, 0, 0, 2, 0, 1, 2, 0, 1, 1, 0, 3, 0]
+Num pps tracks: [8, 4, 0, 3, 4, 2, 8, 0, 2, 1, 5, 7, 5, ... 10, 1, 1, 4, 0, 4, 5, 0, 20, 4, 0, 8, 0]
+check_none 0 [False, False, False, False, False, False, ... False, False, False, False, False]
+[True, True, True, True, True, True, True, ... True, True, True, True, True, True]
+
+Num protons RP 3: [1, 1, 0, 0, 0, 1, 2, 0, 0, 1, 2, 3, 0, 0, ... 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 2, 0]
+
+Num protons RP 23: [4, 1, 0, 0, 0, 1, 1, 0, 0, 0, 2, 2, 0, 0, ... 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 2, 0]
+
+Num protons RP 103: [1, 0, 0, 1, 2, 0, 2, 0, 1, 0, 0, 0, 2, 1, ... 3, 0, 1, 1, 0, 0, 2, 0, 1, 1, 0, 1, 0]
+
+Num protons RP 123: [1, 0, 0, 1, 2, 0, 3, 0, 1, 0, 0, 0, 2, 1, ... 2, 0, 0, 1, 0, 1, 2, 0, 1, 1, 0, 1, 0]
+
+Num multi-RP protons Arm 0: [1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 2, 2, 0, 0, ... 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 2, 0]
+
+Num multi-RP protons Arm 1: [1, 0, 0, 1, 2, 0, 2, 0, 1, 0, 0, 0, 2, 1, ... 2, 0, 0, 1, 0, 0, 2, 0, 1, 1, 0, 1, 0]
+
+
+603750
+[2, 1, 1, 2, 1, 3, 1, 2, 2, 2, 1, 1, 1, 1, ... 1, 1, 2, 2, 1, 3, 3, 2, 1, 2, 1, 1, 3]
+['All' 'Jet' 'Electron' 'ProtonRnd_check_none' 'ProtonRnd']
+[8000000 8000000 7791300 7791300 5102050]
+Flattened array size multi-RP: 1021950
+Flattened array size single-RP: 2712450
+Flattened array size tracks: 3647150
+Resizing output dataset by 1000000 entries.
+Dataset shape: (9100000, 72)
+Resizing output dataset by 2700000 entries.
+Dataset shape: (24100000, 68)
+Resizing output dataset by 3650000 entries.
+Dataset shape: (32250000, 14)
+Stacking data.
+(1021950, 72)
+[[ 3.24841000e+05  1.23000000e+03  2.25969685e+09 ...  1.88568115e-01
+   0.00000000e+00  2.30000000e+01]
+ [ 3.24841000e+05  1.23000000e+03  2.25969685e+09 ...  3.51708984e+00
+   0.00000000e+00  1.23000000e+02]
+ [ 3.24841000e+05  1.23000000e+03  2.25942347e+09 ... -2.00610352e+00
+   0.00000000e+00  2.30000000e+01]
+ ...
+ [ 3.25022000e+05  8.03000000e+02  1.25014015e+09 ...  1.03843689e-01
+   0.00000000e+00  2.30000000e+01]
+ [ 3.25022000e+05  8.03000000e+02  1.25014015e+09 ...  9.97680664e-01
+   0.00000000e+00  2.30000000e+01]
+ [ 3.25022000e+05  8.03000000e+02  1.25014015e+09 ...  3.95678711e+00
+   0.00000000e+00  1.23000000e+02]]
+(2712450, 68)
+[[3.24841000e+05 1.23000000e+03 2.25969685e+09 ... 3.87969971e-01
+  0.00000000e+00 3.00000000e+00]
+ [3.24841000e+05 1.23000000e+03 2.25969685e+09 ... 1.17541504e+00
+  0.00000000e+00 2.30000000e+01]
+ [3.24841000e+05 1.23000000e+03 2.25969685e+09 ... 1.88568115e-01
+  0.00000000e+00 2.30000000e+01]
+ ...
+ [3.25022000e+05 8.03000000e+02 1.25014015e+09 ... 9.97680664e-01
+  0.00000000e+00 2.30000000e+01]
+ [3.25022000e+05 8.03000000e+02 1.25014015e+09 ... 3.95800781e+00
+  0.00000000e+00 1.03000000e+02]
+ [3.25022000e+05 8.03000000e+02 1.25014015e+09 ... 3.95678711e+00
+  0.00000000e+00 1.23000000e+02]]
+(3647150, 14)
+[[3.24841000e+05 1.23000000e+03 2.25969685e+09 ... 4.35250962e+08
+  1.50000000e+02 3.00000012e-01]
+ [3.24841000e+05 1.23000000e+03 2.25969685e+09 ... 4.35250962e+08
+  1.50000000e+02 3.00000012e-01]
+ [3.24841000e+05 1.23000000e+03 2.25969685e+09 ... 4.35250962e+08
+  1.50000000e+02 3.00000012e-01]
+ ...
+ [3.25022000e+05 8.03000000e+02 1.25014015e+09 ... 1.19060092e+09
+  1.42000000e+02 3.00000012e-01]
+ [3.25022000e+05 8.03000000e+02 1.25014015e+09 ... 1.19060092e+09
+  1.42000000e+02 3.00000012e-01]
+ [3.25022000e+05 8.03000000e+02 1.25014015e+09 ... 1.19060092e+09
+  1.42000000e+02 3.00000012e-01]]
+Slice: 181
+Writing in positions (8066500,9088450)
+Slice: 481
+Writing in positions (21368300,24080750)
+Slice: 644
+Writing in positions (28598800,32245950)
+20000 [{run: 325022, event: 1250616604, lumiblock: 803, crossingAngle: 141, ... 103, 123]}]
+Num jets: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num electrons: [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num protons: [1, 2, 3, 3, 2, 6, 4, 10, 6, 3, 6, 3, 4, ... 6, 5, 3, 3, 5, 9, 8, 3, 3, 3, 0, 1, 6]
+Num pps tracks: [1, 2, 3, 2, 2, 5, 4, 8, 5, 2, 6, 3, 4, ... 4, 6, 3, 2, 4, 12, 8, 3, 2, 3, 0, 1, 4]
+Run: [325022, 325022, 325022, 325022, 325022, ... 321051, 321051, 321051, 321051, 321051]
+Lumi: [803, 803, 803, 803, 803, 803, 803, 803, ... 757, 757, 757, 757, 757, 757, 757, 757]
+Event: [1250323868, 1249808845, 1249735090, ... 1116507700, 1115977374, 1116130318]
+Slice: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49]
+Crossing angle: [141, 141, 141, 141, 141, 141, 141, 141, ... 138, 138, 138, 138, 138, 138, 138, 138]
+Num jets: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num electrons: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num protons: [2, 3, 3, 2, 6, 4, 10, 6, 3, 6, 3, 4, 4, ... 6, 5, 3, 3, 5, 9, 8, 3, 3, 3, 0, 1, 6]
+Num pps tracks: [2, 3, 2, 2, 5, 4, 8, 5, 2, 6, 3, 4, 4, ... 4, 6, 3, 2, 4, 12, 8, 3, 2, 3, 0, 1, 4]
+Run: [325022, 325022, 325022, 325022, 325022, ... 321051, 321051, 321051, 321051, 321051]
+Run randomized: [325117, 325117, 325057, 320980, 325117, ... 325099, 325099, 321010, 325117, 325117]
+Lumi: [803, 803, 803, 803, 803, 803, 803, 803, ... 757, 757, 757, 757, 757, 757, 757, 757]
+Lumi randomized: [433, 146, 243, 103, 456, 130, 127, 282, ... 1701, 125, 168, 128, 26, 171, 326, 238]
+Event: [1250323868, 1249808845, 1249735090, ... 1116507700, 1115977374, 1116130318]
+Event randomized: [744800001, 269819398, 389812001, 118414477, ... 280828750, 578249052, 432656625]
+Crossing angle: [141, 141, 141, 141, 141, 141, 141, 141, ... 138, 138, 138, 138, 138, 138, 138, 138]
+Crossing angle randomized: [130, 130, 152, 158, 130, 155, 152, 154, ... 130, 151, 137, 152, 155, 130, 130, 130]
+Beta*: [0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, ... 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3]
+Beta* randomized: [0.25, 0.25, 0.3, 0.3, 0.25, 0.3, 0.3, 0.3, ... 0.3, 0.3, 0.3, 0.3, 0.27, 0.25, 0.25]
+Num protons: [2, 3, 3, 2, 6, 4, 10, 6, 3, 6, 3, 4, 4, ... 6, 5, 3, 3, 5, 9, 8, 3, 3, 3, 0, 1, 6]
+Num protons randomized: [0, 3, 9, 15, 0, 6, 9, 10, 6, 6, 3, 3, 4, ... 2, 3, 1, 8, 1, 1, 1, 0, 0, 4, 0, 4, 0]
+Num pps tracks: [2, 3, 2, 2, 5, 4, 8, 5, 2, 6, 3, 4, 4, ... 4, 6, 3, 2, 4, 12, 8, 3, 2, 3, 0, 1, 4]
+Num pps tracks randomized: [0, 3, 6, 12, 0, 4, 11, 9, 6, 4, 2, 3, 12, ... 9, 4, 1, 7, 1, 1, 1, 0, 1, 5, 0, 3, 0]
+Num protons extra: [0, 1, 1, 0, 2, 1, 3, 2, 1, 2, 1, 1, 1, 2, ... 2, 1, 1, 1, 1, 1, 2, 0, 1, 1, 0, 0, 2]
+Num protons extra randomized: [0, 1, 3, 4, 0, 2, 2, 3, 2, 2, 1, 1, 1, 2, ... 0, 1, 0, 2, 0, 0, 0, 0, 0, 1, 0, 1, 0]
+Num protons: [0, 3, 9, 15, 0, 6, 9, 10, 6, 6, 3, 3, 4, ... 2, 3, 1, 8, 1, 1, 1, 0, 0, 4, 0, 4, 0]
+Num protons extra: [0, 1, 3, 4, 0, 2, 2, 3, 2, 2, 1, 1, 1, 2, ... 0, 1, 0, 2, 0, 0, 0, 0, 0, 1, 0, 1, 0]
+Num pps tracks: [0, 3, 6, 12, 0, 4, 11, 9, 6, 4, 2, 3, 12, ... 9, 4, 1, 7, 1, 1, 1, 0, 1, 5, 0, 3, 0]
+check_none 0 [False, False, False, False, False, False, ... False, False, False, False, False]
+[True, True, True, True, True, True, True, ... True, True, True, True, True, True]
+
+Num protons RP 3: [0, 0, 1, 4, 0, 2, 0, 1, 1, 0, 0, 0, 1, 1, ... 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0]
+
+Num protons RP 23: [0, 0, 1, 3, 0, 2, 0, 1, 1, 0, 0, 0, 1, 0, ... 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+Num protons RP 103: [0, 1, 2, 2, 0, 0, 2, 2, 1, 2, 1, 1, 1, 3, ... 1, 1, 1, 3, 1, 1, 1, 0, 0, 1, 0, 1, 0]
+
+Num protons RP 123: [0, 1, 2, 2, 0, 0, 5, 3, 1, 2, 1, 1, 0, 2, ... 0, 1, 0, 2, 0, 0, 0, 0, 0, 2, 0, 1, 0]
+
+Num multi-RP protons Arm 0: [0, 0, 1, 2, 0, 2, 0, 1, 1, 0, 0, 0, 1, 0, ... 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+Num multi-RP protons Arm 1: [0, 1, 2, 2, 0, 0, 2, 2, 1, 2, 1, 1, 0, 2, ... 0, 1, 0, 2, 0, 0, 0, 0, 0, 1, 0, 1, 0]
+
+
+635550
+[1, 3, 4, 2, 2, 3, 2, 2, 1, 1, 1, 2, 1, 2, ... 3, 3, 2, 1, 1, 3, 2, 2, 2, 1, 2, 1, 1]
+['All' 'Jet' 'Electron' 'ProtonRnd_check_none' 'ProtonRnd']
+[9000000 9000000 8766900 8766900 5737600]
+Flattened array size multi-RP: 1131000
+Flattened array size single-RP: 2932000
+Flattened array size tracks: 3910250
+Resizing output dataset by 1150000 entries.
+Dataset shape: (10250000, 72)
+Resizing output dataset by 2950000 entries.
+Dataset shape: (27050000, 68)
+Resizing output dataset by 3950000 entries.
+Dataset shape: (36200000, 14)
+Stacking data.
+(1131000, 72)
+[[3.25022000e+05 8.03000000e+02 1.24980884e+09 ... 1.23657227e+00
+  0.00000000e+00 1.23000000e+02]
+ [3.25022000e+05 8.03000000e+02 1.24973509e+09 ... 3.50122070e+00
+  0.00000000e+00 2.30000000e+01]
+ [3.25022000e+05 8.03000000e+02 1.24973509e+09 ... 3.14062500e+00
+  0.00000000e+00 1.23000000e+02]
+ ...
+ [3.21051000e+05 7.57000000e+02 1.11591776e+09 ... 3.94750977e+00
+  0.00000000e+00 1.23000000e+02]
+ [3.21051000e+05 7.57000000e+02 1.11642943e+09 ... 2.05541992e+00
+  0.00000000e+00 1.23000000e+02]
+ [3.21051000e+05 7.57000000e+02 1.11597737e+09 ... 4.18603516e+00
+  0.00000000e+00 1.23000000e+02]]
+(2932000, 68)
+[[3.25022000e+05 8.03000000e+02 1.24980884e+09 ... 1.30200195e+00
+  0.00000000e+00 1.03000000e+02]
+ [3.25022000e+05 8.03000000e+02 1.24980884e+09 ... 1.23657227e+00
+  0.00000000e+00 1.23000000e+02]
+ [3.25022000e+05 8.03000000e+02 1.24973509e+09 ... 3.48632812e+00
+  0.00000000e+00 3.00000000e+00]
+ ...
+ [3.21051000e+05 7.57000000e+02 1.11597737e+09 ... 3.83154297e+00
+  0.00000000e+00 3.00000000e+00]
+ [3.21051000e+05 7.57000000e+02 1.11597737e+09 ... 4.07421875e+00
+  0.00000000e+00 1.03000000e+02]
+ [3.21051000e+05 7.57000000e+02 1.11597737e+09 ... 4.18603516e+00
+  0.00000000e+00 1.23000000e+02]]
+(3910250, 14)
+[[3.25022000e+05 8.03000000e+02 1.24980884e+09 ... 2.69819398e+08
+  1.30000000e+02 2.50000000e-01]
+ [3.25022000e+05 8.03000000e+02 1.24980884e+09 ... 2.69819398e+08
+  1.30000000e+02 2.50000000e-01]
+ [3.25022000e+05 8.03000000e+02 1.24980884e+09 ... 2.69819398e+08
+  1.30000000e+02 2.50000000e-01]
+ ...
+ [3.21051000e+05 7.57000000e+02 1.11597737e+09 ... 5.78249052e+08
+  1.30000000e+02 2.50000000e-01]
+ [3.21051000e+05 7.57000000e+02 1.11597737e+09 ... 5.78249052e+08
+  1.30000000e+02 2.50000000e-01]
+ [3.21051000e+05 7.57000000e+02 1.11597737e+09 ... 5.78249052e+08
+  1.30000000e+02 2.50000000e-01]]
+Slice: 204
+Writing in positions (9088450,10219450)
+Slice: 540
+Writing in positions (24080750,27012750)
+Slice: 723
+Writing in positions (32245950,36156200)
+20000 [{run: 321051, event: 1115870673, lumiblock: 757, crossingAngle: 138, ... 103, 123]}]
+Num jets: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num electrons: [1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1]
+Num protons: [2, 0, 7, 9, 0, 1, 3, 17, 7, 3, 8, 13, 12, ... 7, 6, 3, 9, 7, 3, 3, 10, 5, 4, 3, 6]
+Num pps tracks: [2, 0, 8, 10, 0, 1, 2, 17, 8, 3, 8, 11, 12, ... 7, 7, 3, 7, 6, 3, 3, 9, 5, 4, 2, 4]
+Run: [321051, 321051, 321051, 321051, 321051, ... 321908, 321908, 321908, 321908, 321908]
+Lumi: [757, 757, 757, 758, 758, 758, 758, 758, ... 420, 420, 420, 420, 420, 420, 420, 420]
+Event: [1115870673, 1115642151, 1116269377, 1117247264, ... 683747457, 682252444, 683388480]
+Slice: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49]
+Crossing angle: [138, 138, 138, 138, 138, 138, 138, 138, ... 148, 148, 148, 148, 148, 148, 148, 148]
+Num jets: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num electrons: [1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1]
+Num protons: [2, 0, 7, 9, 0, 1, 3, 17, 7, 3, 8, 13, 12, ... 7, 6, 3, 9, 7, 3, 3, 10, 5, 4, 3, 6]
+Num pps tracks: [2, 0, 8, 10, 0, 1, 2, 17, 8, 3, 8, 11, 12, ... 7, 7, 3, 7, 6, 3, 3, 9, 5, 4, 2, 4]
+Run: [321051, 321051, 321051, 321051, 321051, ... 321908, 321908, 321908, 321908, 321908]
+Run randomized: [321475, 321820, 321124, 321475, 321475, ... 321831, 321124, 321436, 321475, 321879]
+Lumi: [757, 757, 757, 758, 758, 758, 758, 758, ... 420, 420, 420, 420, 420, 420, 420, 420]
+Lumi randomized: [1222, 58, 788, 1500, 1220, 1230, 1029, 76, ... 1150, 649, 218, 649, 686, 781, 347]
+Event: [1115870673, 1115642151, 1116269377, 1117247264, ... 683747457, 682252444, 683388480]
+Event randomized: [1932048564, 90031105, 1178267363, 2330614549, ... 1048086716, 1252041017, 576683320]
+Crossing angle: [138, 138, 138, 138, 138, 138, 138, 138, ... 148, 148, 148, 148, 148, 148, 148, 148]
+Crossing angle randomized: [131, 130, 130, 130, 131, 131, 135, 160, ... 150, 132, 130, 154, 130, 130, 140, 148]
+Beta*: [0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, ... 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3]
+Beta* randomized: [0.3, 0.25, 0.27, 0.27, 0.3, 0.3, 0.3, 0.3, ... 0.3, 0.27, 0.3, 0.27, 0.25, 0.3, 0.3]
+Num protons: [2, 0, 7, 9, 0, 1, 3, 17, 7, 3, 8, 13, 12, ... 7, 6, 3, 9, 7, 3, 3, 10, 5, 4, 3, 6]
+Num protons randomized: [0, 3, 0, 6, 9, 4, 7, 1, 0, 0, 6, 1, 3, 9, ... 3, 0, 6, 6, 6, 2, 3, 3, 4, 3, 0, 0, 7]
+Num pps tracks: [2, 0, 8, 10, 0, 1, 2, 17, 8, 3, 8, 11, 12, ... 7, 7, 3, 7, 6, 3, 3, 9, 5, 4, 2, 4]
+Num pps tracks randomized: [10, 2, 0, 4, 9, 3, 6, 2, 0, 0, 6, 1, 3, ... 3, 0, 6, 5, 5, 3, 3, 2, 3, 5, 0, 0, 7]
+Num protons extra: [0, 0, 1, 2, 0, 0, 1, 5, 2, 0, 2, 4, 3, 3, ... 2, 2, 2, 1, 2, 2, 1, 1, 3, 1, 1, 1, 2]
+Num protons extra randomized: [0, 1, 0, 2, 3, 1, 2, 0, 0, 0, 1, 0, 1, 3, ... 1, 0, 2, 2, 2, 0, 1, 1, 1, 0, 0, 0, 2]
+Num protons: [0, 3, 0, 6, 9, 4, 7, 1, 0, 0, 6, 1, 3, 9, ... 3, 0, 6, 6, 6, 2, 3, 3, 4, 3, 0, 0, 7]
+Num protons extra: [0, 1, 0, 2, 3, 1, 2, 0, 0, 0, 1, 0, 1, 3, ... 1, 0, 2, 2, 2, 0, 1, 1, 1, 0, 0, 0, 2]
+Num pps tracks: [10, 2, 0, 4, 9, 3, 6, 2, 0, 0, 6, 1, 3, ... 3, 0, 6, 5, 5, 3, 3, 2, 3, 5, 0, 0, 7]
+check_none 0 [False, False, False, False, False, False, ... False, False, False, False, False]
+[True, True, True, True, True, True, True, ... True, True, True, True, True, True]
+
+Num protons RP 3: [0, 0, 0, 0, 1, 1, 3, 0, 0, 0, 2, 0, 0, 2, ... 0, 0, 2, 2, 0, 1, 1, 0, 2, 3, 0, 0, 1]
+
+Num protons RP 23: [0, 0, 0, 0, 1, 1, 2, 1, 0, 0, 0, 0, 0, 2, ... 0, 0, 2, 2, 0, 0, 1, 0, 1, 0, 0, 0, 2]
+
+Num protons RP 103: [0, 1, 0, 2, 2, 1, 0, 0, 0, 0, 2, 0, 1, 1, ... 1, 0, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 1]
+
+Num protons RP 123: [0, 1, 0, 2, 2, 0, 0, 0, 0, 0, 1, 1, 1, 1, ... 1, 0, 0, 0, 2, 1, 0, 1, 0, 0, 0, 0, 1]
+
+Num multi-RP protons Arm 0: [0, 0, 0, 0, 1, 1, 2, 0, 0, 0, 0, 0, 0, 2, ... 0, 0, 2, 2, 0, 0, 1, 0, 1, 0, 0, 0, 1]
+
+Num multi-RP protons Arm 1: [0, 1, 0, 2, 2, 0, 0, 0, 0, 0, 1, 0, 1, 1, ... 1, 0, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 1]
+
+
+670100
+[1, 2, 3, 1, 2, 1, 1, 3, 2, 5, 1, 1, 2, 2, ... 1, 3, 1, 2, 1, 1, 2, 2, 2, 1, 1, 1, 2]
+['All' 'Jet' 'Electron' 'ProtonRnd_check_none' 'ProtonRnd']
+[10000000 10000000  9742200  9742200  6407700]
+Flattened array size multi-RP: 1220900
+Flattened array size single-RP: 3158600
+Flattened array size tracks: 4198650
+Resizing output dataset by 1200000 entries.
+Dataset shape: (11450000, 72)
+Resizing output dataset by 3150000 entries.
+Dataset shape: (30200000, 68)
+Resizing output dataset by 4200000 entries.
+Dataset shape: (40400000, 14)
+Stacking data.
+(1220900, 72)
+[[ 3.21051000e+05  7.57000000e+02  1.11564215e+09 ... -9.55957031e+00
+   0.00000000e+00  1.23000000e+02]
+ [ 3.21051000e+05  7.58000000e+02  1.11724726e+09 ...  2.48144531e+00
+   0.00000000e+00  1.23000000e+02]
+ [ 3.21051000e+05  7.58000000e+02  1.11724726e+09 ...  3.12695312e+00
+   0.00000000e+00  1.23000000e+02]
+ ...
+ [ 3.21908000e+05  4.20000000e+02  6.82453287e+08 ...  8.55285645e-01
+   0.00000000e+00  2.30000000e+01]
+ [ 3.21908000e+05  4.20000000e+02  6.83388480e+08 ...  1.04272461e+00
+   0.00000000e+00  2.30000000e+01]
+ [ 3.21908000e+05  4.20000000e+02  6.83388480e+08 ...  2.51269531e+00
+   0.00000000e+00  1.23000000e+02]]
+(3158600, 68)
+[[ 3.21051000e+05  7.57000000e+02  1.11564215e+09 ... -8.84570312e+00
+   0.00000000e+00  1.03000000e+02]
+ [ 3.21051000e+05  7.57000000e+02  1.11564215e+09 ... -9.55957031e+00
+   0.00000000e+00  1.23000000e+02]
+ [ 3.21051000e+05  7.58000000e+02  1.11724726e+09 ...  2.38085938e+00
+   0.00000000e+00  1.03000000e+02]
+ ...
+ [ 3.21908000e+05  4.20000000e+02  6.83388480e+08 ...  1.04272461e+00
+   0.00000000e+00  2.30000000e+01]
+ [ 3.21908000e+05  4.20000000e+02  6.83388480e+08 ...  2.49291992e+00
+   0.00000000e+00  1.03000000e+02]
+ [ 3.21908000e+05  4.20000000e+02  6.83388480e+08 ...  2.51269531e+00
+   0.00000000e+00  1.23000000e+02]]
+(4198650, 14)
+[[3.21051000e+05 7.57000000e+02 1.11564215e+09 ... 9.00311050e+07
+  1.30000000e+02 2.50000000e-01]
+ [3.21051000e+05 7.57000000e+02 1.11564215e+09 ... 9.00311050e+07
+  1.30000000e+02 2.50000000e-01]
+ [3.21051000e+05 7.58000000e+02 1.11724726e+09 ... 2.33061455e+09
+  1.30000000e+02 2.70000011e-01]
+ ...
+ [3.21908000e+05 4.20000000e+02 6.83388480e+08 ... 5.76683320e+08
+  1.48000000e+02 3.00000012e-01]
+ [3.21908000e+05 4.20000000e+02 6.83388480e+08 ... 5.76683320e+08
+  1.48000000e+02 3.00000012e-01]
+ [3.21908000e+05 4.20000000e+02 6.83388480e+08 ... 5.76683320e+08
+  1.48000000e+02 3.00000012e-01]]
+Slice: 228
+Writing in positions (10219450,11440350)
+Slice: 603
+Writing in positions (27012750,30171350)
+Slice: 807
+Writing in positions (36156200,40354850)
+12952 [{run: 321908, event: 683175539, lumiblock: 420, crossingAngle: 148, ... 123, 123]}]
+Num jets: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num electrons: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num protons: [9, 7, 13, 6, 13, 5, 2, 10, 1, 1, 13, 5, ... 14, 6, 21, 5, 11, 7, 3, 13, 3, 6, 1, 6]
+Num pps tracks: [9, 6, 11, 10, 9, 5, 2, 7, 4, 1, 16, 4, ... 25, 5, 22, 13, 11, 5, 2, 13, 2, 8, 3, 7]
+Run: [321908, 321908, 321908, 321908, 321908, ... 324980, 324980, 324980, 324980, 324980]
+Lumi: [420, 420, 420, 420, 420, 420, 420, 420, 421, ... 86, 86, 86, 86, 86, 86, 86, 86, 86]
+Event: [683175539, 684030881, 682816587, 682748831, ... 93585123, 95391101, 93976850]
+Slice: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... 49, 49, 49, 49, 49, 49, 49, 49, 49, 49, 49]
+Crossing angle: [148, 148, 148, 148, 148, 148, 148, 148, ... 160, 160, 160, 160, 160, 160, 160, 160]
+Num jets: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num electrons: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ... 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Num protons: [9, 7, 13, 6, 13, 5, 2, 10, 1, 1, 5, 3, ... 14, 6, 21, 5, 11, 7, 3, 13, 3, 6, 1, 6]
+Num pps tracks: [9, 6, 11, 10, 9, 5, 2, 7, 4, 1, 4, 2, ... 25, 5, 22, 13, 11, 5, 2, 13, 2, 8, 3, 7]
+Run: [321908, 321908, 321908, 321908, 321908, ... 324980, 324980, 324980, 324980, 324980]
+Run randomized: [321973, 322317, 322605, 324878, 322605, ... 321917, 321917, 324077, 323778, 322319]
+Lumi: [420, 420, 420, 420, 420, 420, 420, 420, 421, ... 86, 86, 86, 86, 86, 86, 86, 86, 86]
+Lumi randomized: [496, 74, 272, 362, 211, 436, 217, 25, ... 288, 1063, 388, 113, 273, 166, 456, 24]
+Event: [683175539, 684030881, 682816587, 682748831, ... 93585123, 95391101, 93976850]
+Event randomized: [866411075, 61530936, 519412888, 631487399, ... 231226155, 878471431, 22356170]
+Crossing angle: [148, 148, 148, 148, 148, 148, 148, 148, ... 160, 160, 160, 160, 160, 160, 160, 160]
+Crossing angle randomized: [149, 160, 144, 146, 146, 150, 145, 149, ... 150, 132, 146, 158, 153, 157, 143, 156]
+Beta*: [0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, ... 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3]
+Beta* randomized: [0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, ... 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3]
+Num protons: [9, 7, 13, 6, 13, 5, 2, 10, 1, 1, 5, 3, ... 14, 6, 21, 5, 11, 7, 3, 13, 3, 6, 1, 6]
+Num protons randomized: [1, 0, 4, 3, 10, 13, 5, 6, 7, 7, 0, 4, 7, ... 4, 4, 5, 7, 11, 6, 12, 10, 1, 9, 3, 6]
+Num pps tracks: [9, 6, 11, 10, 9, 5, 2, 7, 4, 1, 4, 2, ... 25, 5, 22, 13, 11, 5, 2, 13, 2, 8, 3, 7]
+Num pps tracks randomized: [1, 0, 5, 3, 8, 11, 6, 6, 8, 6, 0, 3, 7, ... 7, 11, 4, 6, 10, 5, 12, 10, 1, 7, 2, 5]
+Num protons extra: [2, 2, 3, 0, 4, 1, 0, 3, 0, 0, 1, 1, 2, 0, ... 3, 3, 2, 4, 1, 2, 2, 1, 3, 1, 1, 0, 2]
+Num protons extra randomized: [0, 0, 1, 1, 3, 4, 1, 2, 2, 2, 0, 1, 1, 0, ... 2, 0, 1, 1, 2, 3, 2, 2, 2, 0, 3, 1, 2]
+Num protons: [1, 0, 4, 3, 10, 13, 5, 6, 7, 7, 0, 4, 7, ... 4, 4, 5, 7, 11, 6, 12, 10, 1, 9, 3, 6]
+Num protons extra: [0, 0, 1, 1, 3, 4, 1, 2, 2, 2, 0, 1, 1, 0, ... 2, 0, 1, 1, 2, 3, 2, 2, 2, 0, 3, 1, 2]
+Num pps tracks: [1, 0, 5, 3, 8, 11, 6, 6, 8, 6, 0, 3, 7, ... 7, 11, 4, 6, 10, 5, 12, 10, 1, 7, 2, 5]
+check_none 0 [False, False, False, False, False, False, ... False, False, False, False, False]
+[True, True, True, True, True, True, True, ... True, True, True, True, True, True]
+
+Num protons RP 3: [0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, ... 1, 0, 1, 1, 1, 0, 0, 3, 2, 0, 0, 0, 0]
+
+Num protons RP 23: [0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 2, 0, ... 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+
+Num protons RP 103: [1, 0, 1, 0, 3, 4, 0, 1, 3, 2, 0, 2, 1, 5, ... 1, 4, 1, 1, 2, 4, 2, 5, 2, 1, 3, 1, 2]
+
+Num protons RP 123: [0, 0, 0, 0, 2, 3, 2, 1, 2, 2, 0, 1, 2, 0, ... 1, 0, 0, 2, 1, 4, 2, 2, 4, 0, 3, 1, 2]
+
+Num multi-RP protons Arm 0: [0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, ... 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+
+Num multi-RP protons Arm 1: [0, 0, 0, 0, 2, 3, 0, 1, 2, 2, 0, 1, 1, 0, ... 1, 0, 0, 1, 1, 3, 2, 2, 2, 0, 3, 1, 2]
+
+
+451500
+[1, 1, 3, 4, 1, 2, 2, 2, 1, 1, 2, 3, 2, 2, ... 2, 1, 2, 1, 1, 2, 3, 2, 2, 2, 3, 1, 2]
+['All' 'Jet' 'Electron' 'ProtonRnd_check_none' 'ProtonRnd']
+[10647600 10647600 10373050 10373050  6859200]
+Flattened array size multi-RP: 870450
+Flattened array size single-RP: 2348950
+Flattened array size tracks: 3136700
+Resizing output dataset by 900000 entries.
+Dataset shape: (12350000, 72)
+Resizing output dataset by 2350000 entries.
+Dataset shape: (32550000, 68)
+Resizing output dataset by 3100000 entries.
+Dataset shape: (43500000, 14)
+Stacking data.
+(870450, 72)
+[[3.21908000e+05 4.20000000e+02 6.82816587e+08 ... 1.86169434e+00
+  0.00000000e+00 2.30000000e+01]
+ [3.21908000e+05 4.20000000e+02 6.82748831e+08 ... 1.27062988e+00
+  0.00000000e+00 2.30000000e+01]
+ [3.21908000e+05 4.20000000e+02 6.82870639e+08 ... 7.53295898e-01
+  0.00000000e+00 2.30000000e+01]
+ ...
+ [3.24980000e+05 8.60000000e+01 9.53911010e+07 ... 4.94873047e+00
+  0.00000000e+00 1.23000000e+02]
+ [3.24980000e+05 8.60000000e+01 9.39768500e+07 ... 4.38934326e-01
+  0.00000000e+00 1.23000000e+02]
+ [3.24980000e+05 8.60000000e+01 9.39768500e+07 ... 2.84399414e+00
+  0.00000000e+00 1.23000000e+02]]
+(2348950, 68)
+[[3.21908000e+05 4.20000000e+02 6.82816587e+08 ... 1.99816895e+00
+  0.00000000e+00 3.00000000e+00]
+ [3.21908000e+05 4.20000000e+02 6.82816587e+08 ... 1.86169434e+00
+  0.00000000e+00 2.30000000e+01]
+ [3.21908000e+05 4.20000000e+02 6.82816587e+08 ... 7.47314453e-01
+  0.00000000e+00 1.03000000e+02]
+ ...
+ [3.24980000e+05 8.60000000e+01 9.39768500e+07 ... 2.88354492e+00
+  0.00000000e+00 1.03000000e+02]
+ [3.24980000e+05 8.60000000e+01 9.39768500e+07 ... 4.38934326e-01
+  0.00000000e+00 1.23000000e+02]
+ [3.24980000e+05 8.60000000e+01 9.39768500e+07 ... 2.84399414e+00
+  0.00000000e+00 1.23000000e+02]]
+(3136700, 14)
+[[3.21908000e+05 4.20000000e+02 6.82816587e+08 ... 5.19412888e+08
+  1.44000000e+02 3.00000012e-01]
+ [3.21908000e+05 4.20000000e+02 6.82816587e+08 ... 5.19412888e+08
+  1.44000000e+02 3.00000012e-01]
+ [3.21908000e+05 4.20000000e+02 6.82816587e+08 ... 5.19412888e+08
+  1.44000000e+02 3.00000012e-01]
+ ...
+ [3.24980000e+05 8.60000000e+01 9.39768500e+07 ... 2.23561700e+07
+  1.56000000e+02 3.00000012e-01]
+ [3.24980000e+05 8.60000000e+01 9.39768500e+07 ... 2.23561700e+07
+  1.56000000e+02 3.00000012e-01]
+ [3.24980000e+05 8.60000000e+01 9.39768500e+07 ... 2.23561700e+07
+  1.56000000e+02 3.00000012e-01]]
+Slice: 246
+Writing in positions (11440350,12310800)
+Slice: 650
+Writing in positions (30171350,32520300)
+Slice: 869
+Writing in positions (40354850,43491550)
+Reduce dataset.
+Dataset shape: (12310800, 72)
+Dataset shape: (32520300, 68)
+Dataset shape: (43491550, 14)
+Writing column names and event counts.
+[b'run' b'lumiblock' b'event' b'slice' b'crossingAngle' b'betaStar'
+ b'instLumi' b'xi' b'thx' b'thy' b't' b'ismultirp' b'rpid' b'arm'
+ b'random' b'jet0_pt' b'jet0_eta' b'jet0_phi' b'jet0_energy' b'jet0_mass'
+ b'jet0_corrmass' b'jet0_tau1' b'jet0_tau2' b'jet0_vertexz' b'jet0_px'
+ b'jet0_py' b'jet0_pz' b'calo_met' b'met' b'met_x' b'met_y' b'met_phi'
+ b'nVertices' b'num_bjets_ak8' b'num_bjets_ak4' b'num_jets_ak4'
+ b'pfcand_nextracks' b'pfcand_nextracks_noDRl' b'recoMWhad' b'recoMWlep'
+ b'recoMWW' b'recoRapidityWW' b'dphiWW' b'WLeptonicPt' b'WLeptonicEta'
+ b'WLeptonicPhi' b'electron0_pt' b'electron0_eta' b'electron0_phi'
+ b'electron0_energy' b'electron0_charge' b'electron0_dxy' b'electron0_dz'
+ b'electron0_corr' b'electron0_ecalTrkEnPostCorr'
+ b'electron0_ecalTrkEnErrPostCorr' b'electron0_ecalTrkEnPreCorr'
+ b'electron0_energyScaleUp' b'electron0_energyScaleDown' b'run_rnd'
+ b'lumiblock_rnd' b'event_rnd' b'crossingAngle_rnd' b'betaStar_rnd'
+ b'trackx1' b'tracky1' b'trackpixshift1' b'rpid1' b'trackx2' b'tracky2'
+ b'trackpixshift2' b'rpid2']
+[b'run' b'lumiblock' b'event' b'slice' b'crossingAngle' b'betaStar'
+ b'instLumi' b'xi' b'thx' b'thy' b't' b'ismultirp' b'rpid' b'arm'
+ b'random' b'jet0_pt' b'jet0_eta' b'jet0_phi' b'jet0_energy' b'jet0_mass'
+ b'jet0_corrmass' b'jet0_tau1' b'jet0_tau2' b'jet0_vertexz' b'jet0_px'
+ b'jet0_py' b'jet0_pz' b'calo_met' b'met' b'met_x' b'met_y' b'met_phi'
+ b'nVertices' b'num_bjets_ak8' b'num_bjets_ak4' b'num_jets_ak4'
+ b'pfcand_nextracks' b'pfcand_nextracks_noDRl' b'recoMWhad' b'recoMWlep'
+ b'recoMWW' b'recoRapidityWW' b'dphiWW' b'WLeptonicPt' b'WLeptonicEta'
+ b'WLeptonicPhi' b'electron0_pt' b'electron0_eta' b'electron0_phi'
+ b'electron0_energy' b'electron0_charge' b'electron0_dxy' b'electron0_dz'
+ b'electron0_corr' b'electron0_ecalTrkEnPostCorr'
+ b'electron0_ecalTrkEnErrPostCorr' b'electron0_ecalTrkEnPreCorr'
+ b'electron0_energyScaleUp' b'electron0_energyScaleDown' b'run_rnd'
+ b'lumiblock_rnd' b'event_rnd' b'crossingAngle_rnd' b'betaStar_rnd'
+ b'trackx1' b'tracky1' b'trackpixshift1' b'rpid1']
+[b'run' b'lumiblock' b'event' b'slice' b'crossingAngle' b'betaStar' b'x'
+ b'y' b'rpid' b'run_rnd' b'lumiblock_rnd' b'event_rnd'
+ b'crossingAngle_rnd' b'betaStar_rnd']
+[10647600 10647600 10373050 10373050  6859200]
+[b'All' b'Jet' b'Electron' b'ProtonRnd_check_none' b'ProtonRnd']
+<HDF5 dataset "protons_multiRP": shape (12310800, 72), type "<f4">
+[ 3.24980000e+05  8.60000000e+01  9.39768480e+07  4.90000000e+01
+  1.60000000e+02  3.00000012e-01  1.78184357e+01  1.50678113e-01
+  4.20738143e-05 -4.28046915e-05 -1.52766541e-01  1.00000000e+00
+  1.23000000e+02  1.00000000e+00  1.00000000e+00  2.23390411e+02
+ -3.28061521e-01 -1.15017259e+00  2.39332855e+02  6.55075026e+00
+  7.14502239e+00  8.15358534e-02  6.08835965e-02  0.00000000e+00
+  9.12169876e+01 -2.03918457e+02 -7.46074448e+01  6.51421432e+01
+  6.51421356e+01 -2.95467606e+01  5.80558929e+01  2.04156756e+00
+  3.00000000e+01  0.00000000e+00  0.00000000e+00  1.00000000e+00
+  3.50000000e+01  3.50000000e+01  4.25519524e+01  8.03800125e+01
+  4.10801727e+02  1.16716616e-01  3.03805757e+00  1.16499870e+02
+  7.92591810e-01  1.88788509e+00  5.30707550e+01  1.46656764e+00
+  1.71521473e+00  1.21532608e+02 -1.00000000e+00  7.86383823e-03
+  4.15369635e-03  1.00535190e+00  1.21532608e+02  2.81467748e+00
+  1.20885643e+02  1.21601601e+02  1.21463600e+02  3.22319000e+05
+  2.40000000e+01  2.23561700e+07  1.56000000e+02  3.00000012e-01
+  1.39460449e+01  2.88354492e+00  0.00000000e+00  1.03000000e+02
+  1.39362793e+01  2.84399414e+00  0.00000000e+00  1.23000000e+02]
+<HDF5 dataset "protons_singleRP": shape (32520300, 68), type "<f4">
+[ 3.24980000e+05  8.60000000e+01  9.39768480e+07  4.90000000e+01
+  1.60000000e+02  3.00000012e-01  1.78184357e+01  1.72451273e-01
+  0.00000000e+00 -3.02790431e-05 -6.36836961e-02  0.00000000e+00
+  1.23000000e+02 -9.99000000e+02  1.00000000e+00  2.23390411e+02
+ -3.28061521e-01 -1.15017259e+00  2.39332855e+02  6.55075026e+00
+  7.14502239e+00  8.15358534e-02  6.08835965e-02  0.00000000e+00
+  9.12169876e+01 -2.03918457e+02 -7.46074448e+01  6.51421432e+01
+  6.51421356e+01 -2.95467606e+01  5.80558929e+01  2.04156756e+00
+  3.00000000e+01  0.00000000e+00  0.00000000e+00  1.00000000e+00
+  3.50000000e+01  3.50000000e+01  4.25519524e+01  8.03800125e+01
+  4.10801727e+02  1.16716616e-01  3.03805757e+00  1.16499870e+02
+  7.92591810e-01  1.88788509e+00  5.30707550e+01  1.46656764e+00
+  1.71521473e+00  1.21532608e+02 -1.00000000e+00  7.86383823e-03
+  4.15369635e-03  1.00535190e+00  1.21532608e+02  2.81467748e+00
+  1.20885643e+02  1.21601601e+02  1.21463600e+02  3.22319000e+05
+  2.40000000e+01  2.23561700e+07  1.56000000e+02  3.00000012e-01
+  1.39362793e+01  2.84399414e+00  0.00000000e+00  1.23000000e+02]
+<HDF5 dataset "ppstracks": shape (43491550, 14), type "<f4">
+[3.2498000e+05 8.6000000e+01 9.3976848e+07 4.9000000e+01 1.6000000e+02
+ 3.0000001e-01 1.3936279e+01 2.8439941e+00 1.2300000e+02 3.2231900e+05
+ 2.4000000e+01 2.2356170e+07 1.5600000e+02 3.0000001e-01]
+<HDF5 dataset "columns_protons_multiRP": shape (72,), type "|S30">
+[b'run', b'lumiblock', b'event', b'slice', b'crossingAngle', b'betaStar', b'instLumi', b'xi', b'thx', b'thy', b't', b'ismultirp', b'rpid', b'arm', b'random', b'jet0_pt', b'jet0_eta', b'jet0_phi', b'jet0_energy', b'jet0_mass', b'jet0_corrmass', b'jet0_tau1', b'jet0_tau2', b'jet0_vertexz', b'jet0_px', b'jet0_py', b'jet0_pz', b'calo_met', b'met', b'met_x', b'met_y', b'met_phi', b'nVertices', b'num_bjets_ak8', b'num_bjets_ak4', b'num_jets_ak4', b'pfcand_nextracks', b'pfcand_nextracks_noDRl', b'recoMWhad', b'recoMWlep', b'recoMWW', b'recoRapidityWW', b'dphiWW', b'WLeptonicPt', b'WLeptonicEta', b'WLeptonicPhi', b'electron0_pt', b'electron0_eta', b'electron0_phi', b'electron0_energy', b'electron0_charge', b'electron0_dxy', b'electron0_dz', b'electron0_corr', b'electron0_ecalTrkEnPostCorr', b'electron0_ecalTrkEnErrPostCorr', b'electron0_ecalTrkEnPreCorr', b'electron0_energyScaleUp', b'electron0_energyScaleDown', b'run_rnd', b'lumiblock_rnd', b'event_rnd', b'crossingAngle_rnd', b'betaStar_rnd', b'trackx1', b'tracky1', b'trackpixshift1', b'rpid1', b'trackx2', b'tracky2', b'trackpixshift2', b'rpid2']
+<HDF5 dataset "columns_protons_singleRP": shape (68,), type "|S30">
+[b'run', b'lumiblock', b'event', b'slice', b'crossingAngle', b'betaStar', b'instLumi', b'xi', b'thx', b'thy', b't', b'ismultirp', b'rpid', b'arm', b'random', b'jet0_pt', b'jet0_eta', b'jet0_phi', b'jet0_energy', b'jet0_mass', b'jet0_corrmass', b'jet0_tau1', b'jet0_tau2', b'jet0_vertexz', b'jet0_px', b'jet0_py', b'jet0_pz', b'calo_met', b'met', b'met_x', b'met_y', b'met_phi', b'nVertices', b'num_bjets_ak8', b'num_bjets_ak4', b'num_jets_ak4', b'pfcand_nextracks', b'pfcand_nextracks_noDRl', b'recoMWhad', b'recoMWlep', b'recoMWW', b'recoRapidityWW', b'dphiWW', b'WLeptonicPt', b'WLeptonicEta', b'WLeptonicPhi', b'electron0_pt', b'electron0_eta', b'electron0_phi', b'electron0_energy', b'electron0_charge', b'electron0_dxy', b'electron0_dz', b'electron0_corr', b'electron0_ecalTrkEnPostCorr', b'electron0_ecalTrkEnErrPostCorr', b'electron0_ecalTrkEnPreCorr', b'electron0_energyScaleUp', b'electron0_energyScaleDown', b'run_rnd', b'lumiblock_rnd', b'event_rnd', b'crossingAngle_rnd', b'betaStar_rnd', b'trackx1', b'tracky1', b'trackpixshift1', b'rpid1']
+<HDF5 dataset "columns_ppstracks": shape (14,), type "|S17">
+[b'run', b'lumiblock', b'event', b'slice', b'crossingAngle', b'betaStar', b'x', b'y', b'rpid', b'run_rnd', b'lumiblock_rnd', b'event_rnd', b'crossingAngle_rnd', b'betaStar_rnd']
+<HDF5 dataset "event_counts": shape (5,), type "<i8">
+[10647600, 10647600, 10373050, 10373050, 6859200]
+<HDF5 dataset "selections": shape (5,), type "|S20">
+[b'All', b'Jet', b'Electron', b'ProtonRnd_check_none', b'ProtonRnd']
+Total time elapsed: 423

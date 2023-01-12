@@ -11,8 +11,8 @@ getenv     = True
 requirements = (OpSysAndVer =?= "CentOS7")
 
 # request_memory = 16000
-request_memory = 32000
-# request_memory = 48000
+# request_memory = 32000
+request_memory = 48000
 # request_memory = 54000
 # request_memory = 64000
 
@@ -33,5 +33,10 @@ queue arguments from (
     --period=2018A
     --period=2018B
     --period=2018C
-    --period=2018D
+    --period=2018D-1
+    --period=2018D-2
+    --period=2018D-3
+    --period=2018D-4
+    --period=2018D-5
+    --period=2018D-6
 )

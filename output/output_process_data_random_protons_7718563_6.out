@@ -1,0 +1,1451 @@
+option: --period=2018D-4
+/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/src/workspace/pps-ww-analysis-notebook
+/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output
+/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/src/workspace/pps-ww-analysis-notebook
+/pool/condor/dir_34551
+_condor_stderr
+_condor_stdout
+condor_exec.exe
+malvesga.cc
+tmp
+var
+PYTHON3PATH set to /cvmfs/cms.cern.ch/share/overrides/python:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/python:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/python:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw-tool-conf/46.0-ghbfee12/lib/python3.8/site-packages:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/src/workspace/pps-ww-analysis-notebook
+SRT_G4LEVELGAMMADATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4PhotonEvaporation/5.5/data/PhotonEvaporation5.5
+REMOTEHOST=2804
+G4LEVELGAMMADATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4PhotonEvaporation/5.5/data/PhotonEvaporation5.5
+UTM_XSD_DIR=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/utm/utm_0.8.1
+CUBACORES=24
+CMSSW_RELEASE_BASE=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4
+_CONDOR_JOB_PIDS=
+MANPATH=/cvmfs/cms.cern.ch/share/man:/cvmfs/cms.cern.ch/share/man:/opt/glite/share/man:/cvmfs/cms.cern.ch/share/man:/cvmfs/cms.cern.ch/share/man::/opt/puppetlabs/puppet/share/man::
+SCRAMRT_SET=CMSSW:CMSSW_11_2_4:slc7_amd64_gcc900:V2_2_9_pre16:SRT_
+CMSSW_FWLITE_INCLUDE_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/sherpa/2.2.10-ljfedo/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/hepmc/2.06.07-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/clhep/2.4.1.3-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/boost/1.72.0-ghbfee4/include
+XDG_SESSION_ID=c40211
+SRT_GCC_RUNTIME_ASAN_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0/lib64/libasan.so
+HOSTNAME=b7g25p5869.cern.ch
+MKFIT_BASE=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/mkfit/2.0.1-ghbfee4
+GUESTFISH_INIT=\e[1;34m
+VIRTUALENVWRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
+_CONDOR_ANCESTOR_43454=34551:1671464988:4011346426
+SELINUX_ROLE_REQUESTED=
+VO_VO_L3_CERN_CH_SW_DIR=/afs/cern.ch/l3
+VO_ALICE_SW_DIR=/afs/cern.ch/project/gd/apps/alice
+ROOT_INCLUDE_PATH=/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/src:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/src:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/coral/CORAL_2_3_21-ghbfee11/include/LCG:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/mctester/1.25.0a-ghbfee11/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/dd4hep/v01-14x-ghbfee4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/herwigpp/7.2.0-ghbfee13/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/tauolapp/1.1.5-ghbfee3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/charybdis/1.003-ghbfee3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/sherpa/2.2.10-ljfedo/include/SHERPA-MC:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/thepeg/2.2.0-ghbfee4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/pythia8/303/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/herwig/6.521-ghbfee2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/lwtnn/2.10-ghbfee4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/lhapdf/6.2.3-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/cgal/4.2-ghbfee4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/starlight/r193-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/rivet/3.1.3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/highfive/2.0-ghbfee3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4/10.6.2-ghbfee/include/Geant4:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/classlib/3.1.3-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/tkonlinesw/4.2.0-1_gcc7-ghbfee11/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/libungif/4.1.4-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/libtiff/4.0.10-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/libpng/1.6.37-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/frontier_client/2.9.1-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/pcre/8.43-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/zstd/1.4.5/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/xrootd/4.12.3/include/xrootd/private:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/vdt/0.4.0-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/valgrind/3.15.0-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/utm/utm_0.8.1/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/toprex/4.23-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/tauola/27.121.5-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/sigcpp/2.6.2-bcolbf2/include/sigc++-2.0:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/sqlite/3.22.0-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/pacparser/1.3.5-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/oracle/12.1.0.2.0-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/py2-numpy/1.16.6-ghbfee/c-api/core/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/meschach/1.2.pCMS1-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/lz4/1.9.2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/libuuid/2.34-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/libunwind/1.4.0/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/ktjet/1.06-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/jimmy/4.2-ghbfee3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/jemalloc/5.2.1-ghbfee3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/hls/2019.08-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/madgraph5amcatnlo/2.6.0-ghbfee12:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/heppdt/3.03.00-ghbfee2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/hector/1.3.4_patch1-ghbfee11/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gsl/2.6-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/protobuf/3.11.3-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/libjpeg-turbo/2.0.2-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/giflib/5.2.0-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gdbm/1.10-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/freetype/2.10.0-bcolbf3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/fftw3/3.3.8-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/fftjet/1.5.0-bcolbf3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/fastjet/3.3.4-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/hepmc/2.06.07-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/dpm/1.8.0.1-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/expat/2.1.0-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/vecgeom/v1.1.6-ghbfee3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/vecgeom/v1.1.6-ghbfee3/include/VecGeom:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/xerces-c/3.1.3-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/xz/5.2.4-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/lcg/root/6.22.06/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/dcap/2.47.12-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/libxml2/2.9.10/include/libxml2:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/openssl/1.0.2d-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/curl/7.70.0/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/cppunit/1.15.x-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/clhep/2.4.1.3-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/pythia6/426-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/photos/215.5-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/zlib/1.2.11-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/cascade/2.2.04-ghbfee3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/bz2lib/1.0.6-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/python/2.7.15-bcolbf2/include/python2.7:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/tbb/2020_U2-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/boost/1.72.0-ghbfee4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/tinyxml2/6.2.0-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/ittnotify/16.06.18-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gosamcontrib/2.0-20150803-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/fmt/7.0.1/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/eigen/d812f411c3f9-ghbfee/include/eigen3:/usr/local/include:/usr/include
+INTEL_LICENSE_FILE=28518@lxlicen01.cern.ch,28518@lxlicen02.cern.ch,28518@lxlicen03.cern.ch
+SRT_TEXMFHOME_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/rivet/3.1.3/share/Rivet/texmf
+GRID_ENV_LOCATION=/usr/libexec
+TERM=xterm
+SHELL=/bin/bash
+HOST=b7g25p5869.cern.ch
+SRT_GEANT4_PARFULLCMS_CONFIG_DIR_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-parfullcms/2014.01.27-ghbfee3/share/ParFullCMS
+HISTSIZE=1000
+SRT_TNS_ADMIN_SCRAMRTDEL=/etc
+PDFPATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/rivet/3.1.3/share
+TMPDIR=/pool/condor/dir_34551/tmp
+SSH_CLIENT=2804:d41:c905:1100:704d:c166:932b:5b95 56993 22
+ROOT_GCC_TOOLCHAIN=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0
+VO_OPS_DEFAULT_SE=srm-public.cern.ch
+G4FORCENUMBEROFTHREADS=max
+OPENBLAS_NUM_THREADS=1
+PERL5LIB=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/git/2.23.0-ghbfee/share/perl5
+SRT_PDFPATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/rivet/3.1.3/share
+CONDA_SHLVL=0
+LHAPDF_DATA_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/lhapdf/6.2.3-ghbfee/share/LHAPDF
+SELINUX_USE_CURRENT_RANGE=
+CMSSW_DATA_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms
+CVSROOT=:gserver:cmssw.cvs.cern.ch:/local/reps/CMSSW
+_CONDOR_SCRATCH_DIR=/pool/condor/dir_34551
+CMSSW_GIT_HASH=CMSSW_11_2_4
+SRT_G4ABLADATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4ABLA/3.1/data/G4ABLA3.1
+VO_NA48_SW_DIR=/afs/cern.ch/project/gd/apps/na48
+QTDIR=/usr/lib64/qt-3.3
+SRT_SCONS_LIB_DIR_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/scons/3.0.1-bcolbf2/lib
+QTINC=/usr/lib64/qt-3.3/include
+SCRAM_ARCH=slc7_amd64_gcc900
+SRT_MKFIT_BASE_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/mkfit/2.0.1-ghbfee4
+_CONDOR_ANCESTOR_34551=34641:1671464989:2938604324
+VO_VO_OPAL_CERN_CH_DEFAULT_SE=srm-public.cern.ch
+GIT_SSL_CAINFO=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/git/2.23.0-ghbfee/share/ssl/certs/ca-bundle.crt
+SRT_THEPEGPATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/thepeg/2.2.0-ghbfee4/share/ThePEG
+SSH_TTY=/dev/pts/7
+SRT_CMS_OPENLOOPS_PREFIX_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/openloops/2.1.1-gchjei
+SRT_GIT_EXEC_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/git/2.23.0-ghbfee/libexec/git-core
+GRIDMAPDIR=/etc/grid-security/gridmapdir
+SRT_ROOT_INCLUDE_PATH_SCRAMRTDEL=/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/src:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/src:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/coral/CORAL_2_3_21-ghbfee11/include/LCG:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/mctester/1.25.0a-ghbfee11/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/dd4hep/v01-14x-ghbfee4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/herwigpp/7.2.0-ghbfee13/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/tauolapp/1.1.5-ghbfee3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/charybdis/1.003-ghbfee3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/sherpa/2.2.10-ljfedo/include/SHERPA-MC:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/thepeg/2.2.0-ghbfee4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/pythia8/303/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/herwig/6.521-ghbfee2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/lwtnn/2.10-ghbfee4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/lhapdf/6.2.3-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/cgal/4.2-ghbfee4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/starlight/r193-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/rivet/3.1.3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/highfive/2.0-ghbfee3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4/10.6.2-ghbfee/include/Geant4:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/classlib/3.1.3-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/tkonlinesw/4.2.0-1_gcc7-ghbfee11/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/libungif/4.1.4-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/libtiff/4.0.10-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/libpng/1.6.37-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/frontier_client/2.9.1-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/pcre/8.43-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/zstd/1.4.5/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/xrootd/4.12.3/include/xrootd/private:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/vdt/0.4.0-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/valgrind/3.15.0-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/utm/utm_0.8.1/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/toprex/4.23-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/tauola/27.121.5-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/sigcpp/2.6.2-bcolbf2/include/sigc++-2.0:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/sqlite/3.22.0-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/pacparser/1.3.5-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/oracle/12.1.0.2.0-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/py2-numpy/1.16.6-ghbfee/c-api/core/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/meschach/1.2.pCMS1-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/lz4/1.9.2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/libuuid/2.34-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/libunwind/1.4.0/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/ktjet/1.06-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/jimmy/4.2-ghbfee3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/jemalloc/5.2.1-ghbfee3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/hls/2019.08-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/madgraph5amcatnlo/2.6.0-ghbfee12:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/heppdt/3.03.00-ghbfee2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/hector/1.3.4_patch1-ghbfee11/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gsl/2.6-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/protobuf/3.11.3-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/libjpeg-turbo/2.0.2-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/giflib/5.2.0-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gdbm/1.10-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/freetype/2.10.0-bcolbf3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/fftw3/3.3.8-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/fftjet/1.5.0-bcolbf3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/fastjet/3.3.4-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/hepmc/2.06.07-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/dpm/1.8.0.1-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/expat/2.1.0-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/vecgeom/v1.1.6-ghbfee3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/vecgeom/v1.1.6-ghbfee3/include/VecGeom:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/xerces-c/3.1.3-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/xz/5.2.4-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/lcg/root/6.22.06/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/dcap/2.47.12-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/libxml2/2.9.10/include/libxml2:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/openssl/1.0.2d-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/curl/7.70.0/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/cppunit/1.15.x-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/clhep/2.4.1.3-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/pythia6/426-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/photos/215.5-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/zlib/1.2.11-bcolbf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/cascade/2.2.04-ghbfee3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/bz2lib/1.0.6-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/python/2.7.15-bcolbf2/include/python2.7:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/tbb/2020_U2-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/boost/1.72.0-ghbfee4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/tinyxml2/6.2.0-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/ittnotify/16.06.18-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gosamcontrib/2.0-20150803-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/fmt/7.0.1/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/eigen/d812f411c3f9-ghbfee/include/eigen3:/usr/local/include:/usr/include
+SRT_INTEL_LICENSE_FILE_SCRAMRTDEL=28518@lxlicen01.cern.ch,28518@lxlicen02.cern.ch,28518@lxlicen03.cern.ch
+EVTGENDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/evtgen/1.6.0-ghbfee3/share
+ROOT_TTREECACHE_SIZE=0
+STAGE_HOST=castorcms
+VO_VO_ALEPH_CERN_CH_SW_DIR=/afs/cern.ch/aleph
+SRT_ROOT_TTREECACHE_PREFILL_SCRAMRTDEL=0
+QT_GRAPHICSSYSTEM_CHECKED=1
+G4LEDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4EMLOW/7.9.1/data/G4EMLOW7.9.1
+GROUP=zh
+OPAL_PREFIX=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/openmpi/4.0.5
+USER=malvesga
+_CHIRP_DELAYED_UPDATE_PREFIX=Chirp*
+LD_LIBRARY_PATH=/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/biglib/slc7_amd64_gcc900:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/external/slc7_amd64_gcc900/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/biglib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/external/slc7_amd64_gcc900/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/llvm/10.0.0-ghbfee4/lib64:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0/lib64:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/cuda/11.1.1/drivers
+TEMP=/tmp
+SRT_LHAPDF_DATA_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/lhapdf/6.2.3-ghbfee/share/LHAPDF
+ROOT_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/madgraph5amcatnlo/2.6.0-ghbfee12:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gosamcontrib/2.0-20150803-bcolbf2
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:
+SRT_PYTHON27PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/share/overrides/python:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/python:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/python:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/coral/CORAL_2_3_21-ghbfee11/slc7_amd64_gcc900/python:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/coral/CORAL_2_3_21-ghbfee11/slc7_amd64_gcc900/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/fastjet/3.3.4-ghbfee/lib/python2.7/site-packages:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw-tool-conf/46.0-ghbfee12/lib/python2.7/site-packages
+SHERPA_INCLUDE_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/sherpa/2.2.10-ljfedo/include/SHERPA-MC
+SRT_RIVET_ANALYSIS_PATH_SCRAMRTDEL=/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/rivet/3.1.3/lib/Rivet
+SRT_CMSSW_RELEASE_BASE_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4
+VO_DTEAM_SW_DIR=/afs/cern.ch/project/gd/apps/dteam
+VO_CMS_SW_DIR=/cvmfs/cms.cern.ch
+VO_VO_ALEPH_CERN_CH_DEFAULT_SE=srm-public.cern.ch
+LCG_LOCATION=/usr
+SRT_CMSSW_VERSION_SCRAMRTDEL=CMSSW_11_2_4
+JULIA_NUM_THREADS=24
+BATCH_SYSTEM=HTCondor
+SCRAM_CXX11_ABI=1
+GCC_RUNTIME_LSAN=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0/lib64/libasan.so
+VALGRIND_LIB=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/valgrind/3.15.0-bcolbf2/lib/valgrind
+SRT_ROOTSYS_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/lcg/root/6.22.06/
+SRT_CMSSW_GIT_HASH_SCRAMRTDEL=CMSSW_11_2_4
+VO_VO_OPAL_CERN_CH_SW_DIR=/afs/cern.ch/opal
+G4NEUTRONHPDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4NDL/4.6/data/G4NDL4.6
+_CONDOR_CHIRP_CONFIG=/pool/condor/dir_34551/.chirp.config
+GEANT4_PARFULLCMS_CONFIG_DIR=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-parfullcms/2014.01.27-ghbfee3/share/ParFullCMS
+HOSTTYPE=x86_64-linux
+VO_ILC_DEFAULT_SE=srm-public.cern.ch
+CSC_TRACK_FINDER_DATA_DIR=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/CSCTrackFinderEmulation/1.2-bcolbf/data/
+RIVET_DATA_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/rivet/3.1.3/share/Rivet
+VO_LHCB_DEFAULT_SE=srm-lhcb.cern.ch
+SRT_CLHEP_PARAM_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/clhep/2.4.1.3-ghbfee
+SRT_G4RADIOACTIVEDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4RadioactiveDecay/5.4/data/RadioactiveDecay5.4
+G4ENSDFSTATEDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4ENSDFSTATE/2.2/data/G4ENSDFSTATE2.2
+SRT_ROOFITSYS_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/lcg/root/6.22.06/
+ROOFITSYS=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/lcg/root/6.22.06/
+CASTOR_HOME=/castor/cern.ch/user/m/malvesga
+SRT_G4ENSDFSTATEDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4ENSDFSTATE/2.2/data/G4ENSDFSTATE2.2
+G4RADIOACTIVEDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4RadioactiveDecay/5.4/data/RadioactiveDecay5.4
+VO_OPS_SW_DIR=/afs/cern.ch/project/gd/apps/ops
+VIRTUAL_ENV=/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/src/workspace/pps-ww-analysis-notebook/uproot-LCG_101
+G4ABLADATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4ABLA/3.1/data/G4ABLA3.1
+VO_GEANT4_DEFAULT_SE=lxdpm101.cern.ch
+VO_ATLAS_DEFAULT_SE=srm-atlas.cern.ch
+SRT_SHERPA_INCLUDE_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/sherpa/2.2.10-ljfedo/include/SHERPA-MC
+SRT_WORKER_DATA_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/blackhat/0.9.9-ghbfee/share/blackhat/datafiles/
+SRT_PERL5LIB_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/git/2.23.0-ghbfee/share/perl5
+GUESTFISH_PS1=\[\e[1;32m\]><fs>\[\e[0;31m\] 
+SITECONFIG_PATH=/cvmfs/cms.cern.ch/SITECONF/local
+SRT_G4FORCENUMBEROFTHREADS_SCRAMRTDEL=max
+SRT_G4PARTICLEXSDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4PARTICLEXS/2.1/data/G4PARTICLEXS2.1
+ATLAS_CGROUPS_BASE=/cgroup/memory
+VO_UNOSAT_DEFAULT_SE=srm-public.cern.ch
+GCC_RUNTIME_TSAN=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0/lib64/libtsan.so
+MAIL=/var/spool/mail/malvesga
+TNS_ADMIN=/etc
+PATH=/afs/cern.ch/cms/caf/scripts:/cvmfs/cms.cern.ch/common:/afs/cern.ch/cms/caf/scripts:/cvmfs/cms.cern.ch/common:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/src/workspace/pps-ww-analysis-notebook/uproot-LCG_101/bin:/cvmfs/cms.cern.ch/share/overrides/bin:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/bin/slc7_amd64_gcc900:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/external/slc7_amd64_gcc900/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/bin/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/external/slc7_amd64_gcc900/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/llvm/10.0.0-ghbfee4/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0/bin:/afs/cern.ch/cms/caf/scripts:/cvmfs/cms.cern.ch/common:/afs/cern.ch/cms/caf/scripts:/cvmfs/cms.cern.ch/common:/usr/sue/bin:/usr/lib64/qt-3.3/bin:/usr/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin:/afs/cern.ch/user/m/malvesga/bin:/opt/puppetlabs/bin:/opt/puppetlabs/bin
+SRT_HEPPDT_PARAM_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/heppdt/3.03.00-ghbfee2
+THEPEGPATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/thepeg/2.2.0-ghbfee4/share/ThePEG
+SRT_GIT_SSL_CAINFO_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/git/2.23.0-ghbfee/share/ssl/certs/ca-bundle.crt
+_CONDOR_BIN=/usr/bin
+SRT_CMSSW_SEARCH_PATH_SCRAMRTDEL=/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/poison:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/src:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/external/slc7_amd64_gcc900/data:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/src:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/external/slc7_amd64_gcc900/data
+SRT_GCC_RUNTIME_LSAN_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0/lib64/libasan.so
+CMS_PATH=/cvmfs/cms.cern.ch
+MKL_NUM_THREADS=24
+VO_DTEAM_DEFAULT_SE=srm-public.cern.ch
+VO_CMS_DEFAULT_SE=srm-cms.cern.ch
+SRT_UTM_XSD_DIR_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/utm/utm_0.8.1
+SRT_PATH_SCRAMRT=/cvmfs/cms.cern.ch/share/overrides/bin:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/bin/slc7_amd64_gcc900:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/external/slc7_amd64_gcc900/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/bin/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/external/slc7_amd64_gcc900/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/llvm/10.0.0-ghbfee4/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0/bin
+SRT_CMSSW_BASE_SCRAMRTDEL=/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4
+SRT_LANG_SCRAMRT=C
+SRT_LOCALRT_SCRAMRTDEL=/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4
+PWD=/pool/condor/dir_34551
+RIVET_ANALYSIS_PATH=/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/rivet/3.1.3/lib/Rivet
+NUMEXPR_NUM_THREADS=24
+SRT_OPAL_PREFIX_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/openmpi/4.0.5
+EDITOR=/bin/nano -w
+PYTHON_VALGRIND_SUPP=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/python/2.7.15-bcolbf2/share/valgrind/valgrind-python.supp
+JOBFEATURES=/tmp/mjf-malvesga/jobfeatures-bigbird13.cern.ch_7718563.6_1671462573
+VO_VO_DELPHI_CERN_CH_SW_DIR=/afs/cern.ch/delphi
+GCC_RUNTIME_UBSAN=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0/lib64/libubsan.so
+LANG=C
+_CONDOR_WRAPPER_ERROR_FILE=/pool/condor/dir_34551/.job_wrapper_failure
+G4PARTICLEXSDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4PARTICLEXS/2.1/data/G4PARTICLEXS2.1
+MODULEPATH=/usr/share/Modules/modulefiles:/etc/modulefiles
+GUESTFISH_OUTPUT=\e[0m
+KDEDIRS=/usr
+QT_GRAPHICSSYSTEM=native
+LOADEDMODULES=
+SRT_G4NEUTRONHPDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4NDL/4.6/data/G4NDL4.6
+SRT_G4INCLDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4INCL/1.0/data/G4INCL1.0
+SRT_SHERPA_SHARE_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/sherpa/2.2.10-ljfedo/share/SHERPA-MC
+_CONDOR_SLOT=slot1_1
+SRT_GCC_RUNTIME_TSAN_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0/lib64/libtsan.so
+CASCADE_PDFPATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/cascade/2.2.04-ghbfee3/share
+SELINUX_LEVEL_REQUESTED=
+SRT_ROOT_GCC_TOOLCHAIN_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0
+MYPROXY_SERVER=myproxy.cern.ch
+SRT_CASCADE_PDFPATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/cascade/2.2.04-ghbfee3/share
+_CONDOR_ANCESTOR_39467=43454:1669119816:152526096
+EOS_MGM_URL=root://eoscms.cern.ch
+G4SAIDXSDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4SAIDDATA/2.0/data/G4SAIDDATA2.0
+WORKER_DATA_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/blackhat/0.9.9-ghbfee/share/blackhat/datafiles/
+GIT_TEMPLATE_DIR=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/git/2.23.0-ghbfee/share/git-core/templates
+MLAS_DYNAMIC_CPU_ARCH=0
+PYTHON27PATH=/cvmfs/cms.cern.ch/share/overrides/python:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/python:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/python:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/coral/CORAL_2_3_21-ghbfee11/slc7_amd64_gcc900/python:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/coral/CORAL_2_3_21-ghbfee11/slc7_amd64_gcc900/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/fastjet/3.3.4-ghbfee/lib/python2.7/site-packages:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw-tool-conf/46.0-ghbfee12/lib/python2.7/site-packages
+SRT_CMSSW_FWLITE_INCLUDE_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/sherpa/2.2.10-ljfedo/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/hepmc/2.06.07-bcolbf2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/clhep/2.4.1.3-ghbfee/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/boost/1.72.0-ghbfee4/include
+SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
+SRT_PYTHIA8DATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/pythia8/303/share/Pythia8/xmldoc
+SRT_HERWIGPATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/herwigpp/7.2.0-ghbfee13/share/Herwig
+HISTCONTROL=ignoredups
+GOMAXPROCS=24
+ROOTSYS=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/lcg/root/6.22.06/
+KRB5CCNAME=FILE:/pool/condor/dir_34551/malvesga.cc
+VO_LHCB_SW_DIR=/cvmfs/lhcb.cern.ch
+GLEXEC_LOCATION=/usr
+TEXINPUTS=:/cvmfs/cms.cern.ch/latex/styles
+SRT_PYTHON3PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/share/overrides/python:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/python:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/python:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw-tool-conf/46.0-ghbfee12/lib/python3.8/site-packages
+VO_VO_L3_CERN_CH_DEFAULT_SE=srm-public.cern.ch
+VO_ALICE_DEFAULT_SE=srm-alice.cern.ch
+GLITE_LOCATION_VAR=/var
+HOME=/afs/cern.ch/user/m/malvesga
+SHERPA_LIBRARY_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/sherpa/2.2.10-ljfedo/lib/SHERPA-MC
+SHLVL=3
+SRT_PYTHON_VALGRIND_SUPP_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/python/2.7.15-bcolbf2/share/valgrind/valgrind-python.supp
+MACHINEFEATURES=/etc/machinefeatures
+_CONDOR_MACHINE_AD=/pool/condor/dir_34551/.machine.ad
+CMSSW_SEARCH_PATH=/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/poison:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/src:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/external/slc7_amd64_gcc900/data:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/src:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/external/slc7_amd64_gcc900/data
+OSTYPE=linux
+_CONDOR_PID_NS_INIT_STATUS_FILENAME=/pool/condor/dir_34551/.condor_pid_ns_status
+G4REALSURFACEDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4RealSurface/2.1.1/data/RealSurface2.1.1
+GRID_VO_ENV_SET=true
+_VIRTUALENVWRAPPER_API= mkvirtualenv rmvirtualenv lsvirtualenv showvirtualenv workon add2virtualenv cdsitepackages cdvirtualenv lssitepackages toggleglobalsitepackages cpvirtualenv setvirtualenvproject mkproject cdproject mktmpenv wipeenv allvirtualenv mkvirtualenv rmvirtualenv lsvirtualenv showvirtualenv workon add2virtualenv cdsitepackages cdvirtualenv lssitepackages toggleglobalsitepackages cpvirtualenv setvirtualenvproject mkproject cdproject mktmpenv wipeenv allvirtualenv
+VO_VO_DELPHI_CERN_CH_DEFAULT_SE=srm-public.cern.ch
+SRT_GENREFLEX_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/lcg/root/6.22.06/bin/genreflex
+GENREFLEX=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/lcg/root/6.22.06/bin/genreflex
+SRT_G4LEDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4EMLOW/7.9.1/data/G4EMLOW7.9.1
+GOSAMCONTRIB_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gosamcontrib/2.0-20150803-bcolbf2
+SRT_GOSAMCONTRIB_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gosamcontrib/2.0-20150803-bcolbf2
+ROOT_TTREECACHE_PREFILL=0
+SRT_EVTGENDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/evtgen/1.6.0-ghbfee3/share
+SRT_ROOT_TTREECACHE_SIZE_SCRAMRTDEL=0
+GLITE_ENV_SET=TRUE
+VENDOR=unknown
+SRT_CMSSW_DATA_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms
+VO_ILC_SW_DIR=/cvmfs/ilc.desy.de
+LCG_GFAL_INFOSYS=lcg-bdii.cern.ch:2170
+HEPPDT_PARAM_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/heppdt/3.03.00-ghbfee2
+LOGNAME=malvesga
+MACHTYPE=x86_64
+TMP=/tmp
+QTLIB=/usr/lib64/qt-3.3/lib
+PYTHON3PATH=/cvmfs/cms.cern.ch/share/overrides/python:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/python:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/python:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw-tool-conf/46.0-ghbfee12/lib/python3.8/site-packages:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/src/workspace/pps-ww-analysis-notebook
+SCONS_LIB_DIR=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/scons/3.0.1-bcolbf2/lib
+CVS_RSH=ssh
+VO_UNOSAT_SW_DIR=/afs/cern.ch/project/gd/apps/unosat
+SSH_CONNECTION=2804:d41:c905:1100:704d:c166:932b:5b95 56993 2001:1458:d00:17::100:25f 22
+XDG_DATA_DIRS=/afs/cern.ch/user/m/malvesga/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
+MODULESHOME=/usr/share/Modules
+COMPILER_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0
+SRT_SHERPA_LIBRARY_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/sherpa/2.2.10-ljfedo/lib/SHERPA-MC
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+FRONTIER_CLIENT=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/frontier_client/2.9.1-ghbfee/
+OMP_NUM_THREADS=24
+VO_NA48_DEFAULT_SE=srm-public.cern.ch
+_CONDOR_JOB_AD=/pool/condor/dir_34551/.job.ad
+CLHEP_PARAM_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/clhep/2.4.1.3-ghbfee
+SRT_COMPILER_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0
+PYTHIA8DATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/pythia8/303/share/Pythia8/xmldoc
+SRT_FRONTIER_CLIENT_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/frontier_client/2.9.1-ghbfee/
+SRT_CSC_TRACK_FINDER_DATA_DIR_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/CSCTrackFinderEmulation/1.2-bcolbf/data/
+SRT_RIVET_DATA_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/rivet/3.1.3/share/Rivet
+HERWIGPATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/herwigpp/7.2.0-ghbfee13/share/Herwig
+VO_GEANT4_SW_DIR=/afs/cern.ch/project/gd/apps/geant4
+VO_ATLAS_SW_DIR=/cvmfs/atlas.cern.ch/repo/sw
+SRT_LD_LIBRARY_PATH_SCRAMRTDEL=/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/biglib/slc7_amd64_gcc900:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/external/slc7_amd64_gcc900/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/biglib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/lib/slc7_amd64_gcc900:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/cms/cmssw/CMSSW_11_2_4/external/slc7_amd64_gcc900/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/llvm/10.0.0-ghbfee4/lib64:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0/lib64:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/cuda/11.1.1/drivers
+GCC_RUNTIME_ASAN=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0/lib64/libasan.so
+DISPLAY=localhost:12.0
+XDG_RUNTIME_DIR=/run/user/109700
+SRT_ROOT_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/madgraph5amcatnlo/2.6.0-ghbfee12:/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gosamcontrib/2.0-20150803-bcolbf2
+GLITE_LOCATION=/usr
+SRT_OPENBLAS_NUM_THREADS_SCRAMRTDEL=1
+SRT_MLAS_DYNAMIC_CPU_ARCH_SCRAMRTDEL=0
+QT_PLUGIN_PATH=/usr/lib64/kde4/plugins:/usr/lib/kde4/plugins
+SRT_G4SAIDXSDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4SAIDDATA/2.0/data/G4SAIDDATA2.0
+TEXMFHOME=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/rivet/3.1.3/share/Rivet/texmf
+OMP_THREAD_LIMIT=24
+SRT_GIT_TEMPLATE_DIR_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/git/2.23.0-ghbfee/share/git-core/templates
+CMSSW_VERSION=CMSSW_11_2_4
+SRT_GCC_RUNTIME_UBSAN_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0/lib64/libubsan.so
+SITE_NAME=CERN-PROD
+_CONDOR_JOB_IWD=/pool/condor/dir_34551
+GUESTFISH_RESTORE=\e[0m
+SHERPA_SHARE_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/sherpa/2.2.10-ljfedo/share/SHERPA-MC
+G4INCLDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4INCL/1.0/data/G4INCL1.0
+SRM_PATH=/opt/d-cache/srm
+GIT_EXEC_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/git/2.23.0-ghbfee/libexec/git-core
+SRT_G4REALSURFACEDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/geant4-G4RealSurface/2.1.1/data/RealSurface2.1.1
+CMS_OPENLOOPS_PREFIX=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/openloops/2.1.1-gchjei
+CMSSW_BASE=/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4
+LOCALRT=/afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4
+SRT_SCRAM_CXX11_ABI_SCRAMRTDEL=1
+SRT_VALGRIND_LIB_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/valgrind/3.15.0-bcolbf2/lib/valgrind
+BASH_FUNC_cmsrel()=() {  scramv1 project CMSSW $@
+}
+BASH_FUNC_cmsenv()=() {  eval `scramv1 runtime -sh`
+}
+Running...
+python3 /afs/cern.ch/work/m/malvesga/ProtonRecon/TEST/CMSSW_11_2_4/src/workspace/pps-ww-analysis-notebook/process_data_random_protons.py --period=2018D-4
+{'muon': {'2017B': 4.799881474, '2017C1': 5.785813941, '2017C2': 3.786684323, '2017D': 4.247682053, '2017E': 9.312832062, '2017F1': 1.738905587, '2017F2': 8.125575961, '2017F3': 3.674404546}, 'electron': {'2017B': 4.594096155565198, '2017C1': 5.521298099245362, '2017C2': 3.6135646891210857, '2017D': 4.0518639103567, '2017E': 8.906848461089172, '2017F1': 1.6584516422062712, '2017F2': 7.749629938012412, '2017F3': 3.504400870870218}}
+Luminosity 2017 muon: 41.471779946999995
+Luminosity 2017 electron: 39.60015376646642
+{'muon': {'2018A': 14.025827145867588, '2018B1': 6.620869367493728, '2018B2': 0.430376623828928, '2018C': 6.891684998276784, '2018D1': 20.939902986506983, '2018D2': 10.856932131702669}, 'electron': {'2018A': 13.088399561509418, '2018B1': 6.629521091507798, '2018B2': 0.430939012174748, '2018C': 6.8915954055654725, '2018D1': 20.94983928140255, '2018D2': 10.862083907209522}}
+Luminosity 2018 muon: 59.76559325367668
+Luminosity 2018 electron: 58.85237825936951
+Namespace(period='2018D-4', runMax=None, runMin=None)
+Period: 2018D-4
+data-random-resample_50-2018-electron
+['data-random-resample_50-2018-electron-2018D-4']
+{'data-random-resample_50-2018-electron-2018D-4': ['/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output/output-data-random-resample_50-2018-electron-2018D-600000-800000.h5']}
+2022/12/19 16:49:57
+data-store-data-random-resample_50-2018-electron-2018D-4.h5
+/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output/output-data-random-resample_50-2018-electron-2018D-600000-800000.h5
+['columns_ppstracks', 'columns_protons_multiRP', 'columns_protons_singleRP', 'event_counts', 'ppstracks', 'protons_multiRP', 'protons_singleRP', 'selections']
+(12826650, 72)
+[[ 3.2116700e+05  4.2900000e+02  6.7323181e+08 ...  2.1345215e+00
+   0.0000000e+00  2.3000000e+01]
+ [ 3.2116700e+05  4.2900000e+02  6.7379021e+08 ...  2.8662109e+00
+   0.0000000e+00  1.2300000e+02]
+ [ 3.2116700e+05  4.2900000e+02  6.7322272e+08 ...  2.7119141e+00
+   0.0000000e+00  2.3000000e+01]
+ ...
+ [ 3.2243000e+05  6.4900000e+02  1.1389192e+09 ...  1.6804199e+00
+   0.0000000e+00  2.3000000e+01]
+ [ 3.2243000e+05  6.4900000e+02  1.1380713e+09 ... -7.1151733e-02
+   0.0000000e+00  2.3000000e+01]
+ [ 3.2243000e+05  6.4900000e+02  1.1380713e+09 ...  4.0278320e+00
+   0.0000000e+00  1.2300000e+02]]
+(33946400, 68)
+[[ 3.2116700e+05  4.2900000e+02  6.7323181e+08 ...  2.1538086e+00
+   0.0000000e+00  3.0000000e+00]
+ [ 3.2116700e+05  4.2900000e+02  6.7323181e+08 ...  2.1345215e+00
+   0.0000000e+00  2.3000000e+01]
+ [ 3.2116700e+05  4.2900000e+02  6.7379021e+08 ...  2.8095703e+00
+   0.0000000e+00  1.0300000e+02]
+ ...
+ [ 3.2243000e+05  6.4900000e+02  1.1380713e+09 ... -7.1151733e-02
+   0.0000000e+00  2.3000000e+01]
+ [ 3.2243000e+05  6.4900000e+02  1.1380713e+09 ...  3.9729004e+00
+   0.0000000e+00  1.0300000e+02]
+ [ 3.2243000e+05  6.4900000e+02  1.1380713e+09 ...  4.0278320e+00
+   0.0000000e+00  1.2300000e+02]]
+(45113000, 14)
+[[3.2116700e+05 4.2900000e+02 6.7323181e+08 ... 9.3315763e+08
+  1.4700000e+02 3.0000001e-01]
+ [3.2116700e+05 4.2900000e+02 6.7323181e+08 ... 9.3315763e+08
+  1.4700000e+02 3.0000001e-01]
+ [3.2116700e+05 4.2900000e+02 6.7379021e+08 ... 5.1256771e+08
+  1.4900000e+02 3.0000001e-01]
+ ...
+ [3.2243000e+05 6.4900000e+02 1.1380713e+09 ... 1.7765704e+08
+  1.3400000e+02 3.0000001e-01]
+ [3.2243000e+05 6.4900000e+02 1.1380713e+09 ... 1.7765704e+08
+  1.3400000e+02 3.0000001e-01]
+ [3.2243000e+05 6.4900000e+02 1.1380713e+09 ... 1.7765704e+08
+  1.3400000e+02 3.0000001e-01]]
+(72,)
+['run', 'lumiblock', 'event', 'slice', 'crossingAngle', 'betaStar', 'instLumi', 'xi', 'thx', 'thy', 't', 'ismultirp', 'rpid', 'arm', 'random', 'jet0_pt', 'jet0_eta', 'jet0_phi', 'jet0_energy', 'jet0_mass', 'jet0_corrmass', 'jet0_tau1', 'jet0_tau2', 'jet0_vertexz', 'jet0_px', 'jet0_py', 'jet0_pz', 'calo_met', 'met', 'met_x', 'met_y', 'met_phi', 'nVertices', 'num_bjets_ak8', 'num_bjets_ak4', 'num_jets_ak4', 'pfcand_nextracks', 'pfcand_nextracks_noDRl', 'recoMWhad', 'recoMWlep', 'recoMWW', 'recoRapidityWW', 'dphiWW', 'WLeptonicPt', 'WLeptonicEta', 'WLeptonicPhi', 'electron0_pt', 'electron0_eta', 'electron0_phi', 'electron0_energy', 'electron0_charge', 'electron0_dxy', 'electron0_dz', 'electron0_corr', 'electron0_ecalTrkEnPostCorr', 'electron0_ecalTrkEnErrPostCorr', 'electron0_ecalTrkEnPreCorr', 'electron0_energyScaleUp', 'electron0_energyScaleDown', 'run_rnd', 'lumiblock_rnd', 'event_rnd', 'crossingAngle_rnd', 'betaStar_rnd', 'trackx1', 'tracky1', 'trackpixshift1', 'rpid1', 'trackx2', 'tracky2', 'trackpixshift2', 'rpid2']
+(68,)
+['run', 'lumiblock', 'event', 'slice', 'crossingAngle', 'betaStar', 'instLumi', 'xi', 'thx', 'thy', 't', 'ismultirp', 'rpid', 'arm', 'random', 'jet0_pt', 'jet0_eta', 'jet0_phi', 'jet0_energy', 'jet0_mass', 'jet0_corrmass', 'jet0_tau1', 'jet0_tau2', 'jet0_vertexz', 'jet0_px', 'jet0_py', 'jet0_pz', 'calo_met', 'met', 'met_x', 'met_y', 'met_phi', 'nVertices', 'num_bjets_ak8', 'num_bjets_ak4', 'num_jets_ak4', 'pfcand_nextracks', 'pfcand_nextracks_noDRl', 'recoMWhad', 'recoMWlep', 'recoMWW', 'recoRapidityWW', 'dphiWW', 'WLeptonicPt', 'WLeptonicEta', 'WLeptonicPhi', 'electron0_pt', 'electron0_eta', 'electron0_phi', 'electron0_energy', 'electron0_charge', 'electron0_dxy', 'electron0_dz', 'electron0_corr', 'electron0_ecalTrkEnPostCorr', 'electron0_ecalTrkEnErrPostCorr', 'electron0_ecalTrkEnPreCorr', 'electron0_energyScaleUp', 'electron0_energyScaleDown', 'run_rnd', 'lumiblock_rnd', 'event_rnd', 'crossingAngle_rnd', 'betaStar_rnd', 'trackx1', 'tracky1', 'trackpixshift1', 'rpid1']
+(14,)
+['run', 'lumiblock', 'event', 'slice', 'crossingAngle', 'betaStar', 'x', 'y', 'rpid', 'run_rnd', 'lumiblock_rnd', 'event_rnd', 'crossingAngle_rnd', 'betaStar_rnd']
+['All', 'Jet', 'Electron', 'ProtonRnd_check_none', 'ProtonRnd']
+All                     10000000
+Jet                     10000000
+Electron                 9745250
+ProtonRnd_check_none     9745250
+ProtonRnd                6784250
+dtype: int64
+[0, 1000000, 2000000, 3000000, 4000000, 5000000, 6000000, 7000000, 8000000, 9000000, 10000000, 11000000, 12000000]
+[1000000, 2000000, 3000000, 4000000, 5000000, 6000000, 7000000, 8000000, 9000000, 10000000, 11000000, 12000000, 12826650]
+0 1000000
+      run  lumiblock      event  ...   tracky2  trackpixshift2  rpid2
+0  321167        429  673231808  ...  2.134521               0     23
+1  321167        429  673790208  ...  2.866211               0    123
+2  321167        429  673222720  ...  2.711914               0     23
+3  321167        429  673222720  ...  2.485352               0    123
+4  321167        429  672996608  ...  1.171387               0     23
+
+[5 rows x 72 columns]
+Data set size: 1000000
+1000000 2000000
+      run  lumiblock     event  ...   tracky2  trackpixshift2  rpid2
+0  321393         17  28481100  ...  1.394531               0     23
+1  321393         17  28060128  ...  1.441895               0    123
+2  321393         17  28060128  ...  0.324310               0    123
+3  321393         17  27121256  ...  0.539795               0     23
+4  321393         17  27674456  ...  1.270630               0     23
+
+[5 rows x 72 columns]
+Data set size: 1000000
+2000000 3000000
+      run  lumiblock       event  ...   tracky2  trackpixshift2  rpid2
+0  321732       1375  2463179008  ...  0.569702               0     23
+1  321732       1375  2463179008  ...  3.045166               0    123
+2  321732       1375  2463905280  ...  0.667908               0     23
+3  321732       1375  2463905280  ...  0.538147               0    123
+4  321732       1375  2463749376  ...  4.177246               0     23
+
+[5 rows x 72 columns]
+Data set size: 1000000
+3000000 4000000
+      run  lumiblock       event  ...   tracky2  trackpixshift2  rpid2
+0  322179       1015  1742460800  ...  2.316650               0     23
+1  322179       1015  1742460800  ...  0.934326               0    123
+2  322179       1015  1742016384  ...  3.998779               0     23
+3  322179       1015  1742059904  ...  2.974365               0     23
+4  322179       1015  1742059904  ...  2.897949               0     23
+
+[5 rows x 72 columns]
+Data set size: 1000000
+4000000 5000000
+      run  lumiblock      event  ...   tracky2  trackpixshift2  rpid2
+0  322204        380  700583040  ... -3.104492               0    123
+1  322204        380  701227840  ...  0.774841               0     23
+2  322204        380  701227840  ...  2.772705               0    123
+3  322204        380  701227840  ...  0.310333               0    123
+4  322204        380  701227840  ...  3.339600               0    123
+
+[5 rows x 72 columns]
+Data set size: 1000000
+5000000 6000000
+      run  lumiblock       event  ...   tracky2  trackpixshift2  rpid2
+0  321149        814  1235632000  ...  0.352692               0     23
+1  321149        814  1234751104  ...  1.093384               0     23
+2  321149        814  1234632192  ...  2.811279               0     23
+3  321149        814  1235927680  ...  4.555664               0    123
+4  321149        814  1236060544  ...  1.611572               0    123
+
+[5 rows x 72 columns]
+Data set size: 1000000
+6000000 7000000
+      run  lumiblock      event  ...   tracky2  trackpixshift2  rpid2
+0  324841        420  783305600  ...  2.624756               0    123
+1  324841        420  783305600  ...  1.828247               0    123
+2  324841        420  783279168  ... -1.168823               0    123
+3  324841        420  782610112  ... -3.263428               0    123
+4  324841        420  782988608  ...  1.428467               0    123
+
+[5 rows x 72 columns]
+Data set size: 1000000
+7000000 8000000
+      run  lumiblock     event  ...   tracky2  trackpixshift2  rpid2
+0  321432         29  45835412  ... -0.020000               0     23
+1  321432         29  45835412  ... -0.640442               0     23
+2  321432         29  45973712  ...  1.047363               0     23
+3  321432         29  45973712  ...  2.987793               0    123
+4  321432         29  46977760  ...  1.118164               0     23
+
+[5 rows x 72 columns]
+Data set size: 1000000
+8000000 9000000
+      run  lumiblock      event  ...   tracky2  trackpixshift2  rpid2
+0  321933        118  148103136  ... -3.303467               0     23
+1  321933        118  148301232  ... -0.365417               0     23
+2  321933        118  148601120  ...  1.244629               0     23
+3  321933        118  148601120  ...  1.582642               0     23
+4  321933        118  148601120  ...  1.331787               0    123
+
+[5 rows x 72 columns]
+Data set size: 1000000
+9000000 10000000
+      run  lumiblock    event  slice  ...   trackx2   tracky2  trackpixshift2  rpid2
+0  321815          6  7197655      0  ...  6.004272  0.432312               0    123
+1  321815          6  7197655      0  ...  9.982788 -1.263672               0    123
+2  321815          6  6644308      0  ...  4.001709  1.788330               0    123
+3  321815          7  8203084      0  ...  6.571289  2.030762               0    123
+4  321815          7  8343634      0  ...  4.148254  0.317017               0     23
+
+[5 rows x 72 columns]
+Data set size: 1000000
+10000000 11000000
+      run  lumiblock       event  ...   tracky2  trackpixshift2  rpid2
+0  324201       1078  2054426752  ...  1.355103               0    123
+1  324201       1078  2054426752  ...  3.265869               0    123
+2  324201       1078  2054449664  ...  0.580994               0     23
+3  324201       1078  2054449664  ...  3.218750               0    123
+4  324201       1078  2054842496  ...  0.955444               0    123
+
+[5 rows x 72 columns]
+Data set size: 1000000
+11000000 12000000
+      run  lumiblock      event  ...   tracky2  trackpixshift2  rpid2
+0  324980        315  543119040  ...  1.684937               0    123
+1  324980        315  543119040  ...  3.130371               0    123
+2  324980        315  542612160  ...  1.597046               0     23
+3  324980        315  542612160  ...  0.941406               0     23
+4  324980        315  542612160  ... -1.658936               0     23
+
+[5 rows x 72 columns]
+Data set size: 1000000
+12000000 12826650
+      run  lumiblock       event  ...   tracky2  trackpixshift2  rpid2
+0  321305        754  1230791808  ...  2.712891               0    123
+1  321305        754  1230791808  ...  2.029297               0    123
+2  321305        754  1231049216  ...  2.121338               0    123
+3  321305        754  1230472192  ...  0.712585               0    123
+4  321305        754  1230472192  ... -2.564697               0    123
+
+[5 rows x 72 columns]
+Data set size: 826650
+[0, 1000000, 2000000, 3000000, 4000000, 5000000, 6000000, 7000000, 8000000, 9000000, 10000000, 11000000, 12000000, 13000000, 14000000, 15000000, 16000000, 17000000, 18000000, 19000000, 20000000, 21000000, 22000000, 23000000, 24000000, 25000000, 26000000, 27000000, 28000000, 29000000, 30000000, 31000000, 32000000, 33000000]
+[1000000, 2000000, 3000000, 4000000, 5000000, 6000000, 7000000, 8000000, 9000000, 10000000, 11000000, 12000000, 13000000, 14000000, 15000000, 16000000, 17000000, 18000000, 19000000, 20000000, 21000000, 22000000, 23000000, 24000000, 25000000, 26000000, 27000000, 28000000, 29000000, 30000000, 31000000, 32000000, 33000000, 33946400]
+0 1000000
+      run  lumiblock      event  ...   tracky1  trackpixshift1  rpid1
+0  321167        429  673231808  ...  2.153809               0      3
+1  321167        429  673231808  ...  2.134521               0     23
+2  321167        429  673790208  ...  2.809570               0    103
+3  321167        429  673790208  ...  6.361816               0    103
+4  321167        429  673790208  ...  2.866211               0    123
+
+[5 rows x 68 columns]
+Data set size: 1000000
+1000000 2000000
+      run  lumiblock      event  ...   tracky1  trackpixshift1  rpid1
+0  321295        192  309250368  ...  2.412842               0     23
+1  321295        192  309250368  ...  0.070236               0     23
+2  321295        192  309250368  ...  3.768311               0    103
+3  321295        192  309250368  ...  3.430176               0    103
+4  321295        192  309250368  ...  3.790283               0    123
+
+[5 rows x 68 columns]
+Data set size: 1000000
+2000000 3000000
+      run  lumiblock       event  ...   tracky1  trackpixshift1  rpid1
+0  321457        652  1042402304  ...  0.041607               0    103
+1  321457        652  1042402304  ... -0.275543               0    123
+2  321457        652  1043141824  ...  1.080933               0      3
+3  321457        652  1043141824  ...  0.962219               0     23
+4  321457        652  1043208768  ...  1.174316               0      3
+
+[5 rows x 68 columns]
+Data set size: 1000000
+3000000 4000000
+      run  lumiblock      event  ...   tracky1  trackpixshift1  rpid1
+0  321283        343  515145632  ...  0.554810               0     23
+1  321283        343  515145632  ...  2.668213               0     23
+2  321283        343  515145632  ...  4.072754               0     23
+3  321283        343  515145632  ...  5.448730               0    103
+4  321283        343  515787808  ...  1.557983               0      3
+
+[5 rows x 68 columns]
+Data set size: 1000000
+4000000 5000000
+      run  lumiblock      event  ...   tracky1  trackpixshift1  rpid1
+0  321988        458  790107264  ... -0.401123               0    123
+1  321988        483  839517120  ...  0.594482               0      3
+2  321988        483  839517120  ...  0.443237               0     23
+3  321988        483  839517120  ...  0.479462               0    103
+4  321988        483  839517120  ...  0.744507               0    103
+
+[5 rows x 68 columns]
+Data set size: 1000000
+5000000 6000000
+      run  lumiblock      event  ...   tracky1  trackpixshift1  rpid1
+0  322179        135  176375424  ...  1.145264               0    103
+1  322179        135  176375424  ...  4.461914               0    103
+2  322179        135  176375424  ...  1.030640               0    123
+3  322179        135  176375424  ...  4.469727               0    123
+4  322179        135  176744992  ...  2.358154               0      3
+
+[5 rows x 68 columns]
+Data set size: 1000000
+6000000 7000000
+      run  lumiblock       event  ...   tracky1  trackpixshift1  rpid1
+0  321988        587  1039583104  ... -0.071472               0     23
+1  321988        587  1039583104  ... -3.447510               0     23
+2  321988        587  1039583104  ...  0.607483               0     23
+3  321988        587  1039583104  ...  0.150620               0    103
+4  321988        587  1039583104  ... -5.702148               0    103
+
+[5 rows x 68 columns]
+Data set size: 1000000
+7000000 8000000
+      run  lumiblock       event  ...   tracky1  trackpixshift1  rpid1
+0  321732       1061  1879614336  ...  0.755432               0     23
+1  321732       1061  1879614336  ...  1.297852               0    103
+2  321732       1061  1879614336  ...  1.222046               0    123
+3  321732       1061  1879776896  ...  4.578125               0      3
+4  321732       1061  1879776896  ...  2.247314               0    103
+
+[5 rows x 68 columns]
+Data set size: 1000000
+8000000 9000000
+      run  lumiblock      event  ...   tracky1  trackpixshift1  rpid1
+0  322322        292  551456320  ...  0.094398               0      3
+1  322322        292  551456320  ...  0.692688               0      3
+2  322322        292  551456320  ...  2.920410               0      3
+3  322322        292  551456320  ... -0.145020               0     23
+4  322322        292  551456320  ...  0.564026               0     23
+
+[5 rows x 68 columns]
+Data set size: 1000000
+9000000 10000000
+      run  lumiblock       event  ...   tracky1  trackpixshift1  rpid1
+0  322322        611  1128458368  ...  3.218262               0      3
+1  322322        611  1128458368  ...  5.331055               0      3
+2  322322        611  1128458368  ...  3.243896               0     23
+3  322322        611  1128458368  ...  4.154785               0     23
+4  322322        611  1128458368  ...  0.793884               0    103
+
+[5 rows x 68 columns]
+Data set size: 1000000
+10000000 11000000
+      run  lumiblock      event  ...   tracky1  trackpixshift1  rpid1
+0  322332        223  348397600  ... -0.148514               0      3
+1  322332        223  348397600  ...  1.919678               0      3
+2  322332        223  348397600  ...  2.709717               0     23
+3  322332        223  348397600  ... -0.394379               0     23
+4  322332        223  348397600  ...  1.804199               0     23
+
+[5 rows x 68 columns]
+Data set size: 1000000
+11000000 12000000
+      run  lumiblock       event  ...   tracky1  trackpixshift1  rpid1
+0  322332        400   682781440  ... -2.017090               0    103
+1  322332        400   682781440  ... -2.394775               0    123
+2  322332        680  1201694848  ...  0.668884               0      3
+3  322332        680  1201694848  ... -0.918640               0      3
+4  322332        680  1201694848  ...  0.449890               0     23
+
+[5 rows x 68 columns]
+Data set size: 1000000
+12000000 13000000
+      run  lumiblock      event  ...   tracky1  trackpixshift1  rpid1
+0  322407        504  879752896  ...  0.346497               0     23
+1  322407        504  879752896  ...  4.190430               0     23
+2  322407        504  878479296  ...  4.773438               0    103
+3  322407        504  878479296  ...  4.783691               0    123
+4  322407        504  878430464  ...  2.209473               0    103
+
+[5 rows x 68 columns]
+Data set size: 1000000
+13000000 14000000
+      run  lumiblock      event  ...   tracky1  trackpixshift1  rpid1
+0  322407        218  330968672  ...  0.339142               0     23
+1  322407        218  330968672  ...  0.766479               0     23
+2  322407        218  330874976  ...  0.697083               0      3
+3  322407        218  330874976  ...  3.810791               0      3
+4  322407        218  330874976  ...  6.552246               0      3
+
+[5 rows x 68 columns]
+Data set size: 1000000
+14000000 15000000
+      run  lumiblock       event  ...   tracky1  trackpixshift1  rpid1
+0  321732       1003  1785226880  ... -2.094971               0    123
+1  321732       1003  1785226880  ...  0.961121               0    123
+2  321732       1004  1787283840  ...  2.354980               0      3
+3  321732       1004  1787283840  ...  2.578125               0     23
+4  321732       1004  1787283840  ...  3.439209               0    103
+
+[5 rows x 68 columns]
+Data set size: 1000000
+15000000 16000000
+      run  lumiblock      event  ...   tracky1  trackpixshift1  rpid1
+0  321755        524  808220480  ...  5.867676               0      3
+1  321755        524  808220480  ... -0.536255               0     23
+2  321755        524  808220480  ...  0.495514               0     23
+3  321755        524  808220480  ...  2.439209               0     23
+4  321755        524  809109376  ... -0.055443               0      3
+
+[5 rows x 68 columns]
+Data set size: 1000000
+16000000 17000000
+      run  lumiblock       event  ...   tracky1  trackpixshift1  rpid1
+0  322322       1148  2060539264  ...  1.029297               0     23
+1  322322       1148  2061378560  ...  4.372070               0    103
+2  322322       1148  2061378560  ...  4.460938               0    123
+3  322322       1148  2060973440  ...  0.478668               0      3
+4  322322       1148  2060973440  ...  1.729858               0      3
+
+[5 rows x 68 columns]
+Data set size: 1000000
+17000000 18000000
+      run  lumiblock       event  ...   tracky1  trackpixshift1  rpid1
+0  324201        601  1174226176  ... -0.948792               0     23
+1  324201        601  1174226176  ...  0.440857               0     23
+2  324201        601  1174226176  ...  3.812256               0    103
+3  324201        601  1174226176  ... -3.274414               0    103
+4  324201        601  1174226176  ...  3.888672               0    123
+
+[5 rows x 68 columns]
+Data set size: 1000000
+18000000 19000000
+      run  lumiblock      event  ...   tracky1  trackpixshift1  rpid1
+0  321760        532  910575296  ... -3.195068               0     23
+1  321760        532  910575296  ...  2.179443               0     23
+2  321760        532  910575296  ... -1.456787               0     23
+3  321760        532  910575296  ... -2.201172               0     23
+4  321760        532  910575296  ... -5.138184               0     23
+
+[5 rows x 68 columns]
+Data set size: 1000000
+19000000 20000000
+      run  lumiblock       event  ...   tracky1  trackpixshift1  rpid1
+0  325170       1002  1874604800  ...  4.645996               0    103
+1  325170       1002  1874604800  ...  0.346283               0    123
+2  325170       1002  1874604800  ...  0.249969               0    123
+3  325170       1002  1874604800  ...  0.668884               0    123
+4  325170       1002  1874604800  ... -1.036499               0    123
+
+[5 rows x 68 columns]
+Data set size: 1000000
+20000000 21000000
+      run  lumiblock      event  ...   tracky1  trackpixshift1  rpid1
+0  321415        244  384887296  ...  0.349823               0     23
+1  321415        244  384887296  ...  3.266113               0    103
+2  321415        244  384887296  ...  3.288818               0    123
+3  321415        244  385420064  ...  1.353638               0      3
+4  321415        244  385420064  ... -3.430664               0     23
+
+[5 rows x 68 columns]
+Data set size: 1000000
+21000000 22000000
+      run  lumiblock      event  ...   tracky1  trackpixshift1  rpid1
+0  321457        295  447733728  ...  0.835999               0      3
+1  321457        295  447733728  ... -0.280396               0     23
+2  321457        295  447733728  ...  0.716370               0     23
+3  321457        295  447733728  ...  3.757812               0    103
+4  321457        295  447733728  ...  3.681396               0    123
+
+[5 rows x 68 columns]
+Data set size: 1000000
+22000000 23000000
+      run  lumiblock     event  ...   tracky1  trackpixshift1  rpid1
+0  321760         19  30709990  ... -1.130127               0      3
+1  321760         19  30709990  ...  5.367676               0      3
+2  321760         19  30709990  ... -1.525513               0     23
+3  321760         19  29549316  ...  0.337097               0      3
+4  321760         19  29549316  ...  0.086304               0     23
+
+[5 rows x 68 columns]
+Data set size: 1000000
+23000000 24000000
+      run  lumiblock      event  ...   tracky1  trackpixshift1  rpid1
+0  321760        145  240231008  ...  0.264130               0      3
+1  321760        145  240231008  ...  0.144958               0     23
+2  321760        145  240231008  ...  1.525879               0     23
+3  321760        145  240231008  ...  0.037251               0     23
+4  321760        145  240231008  ...  2.112793               0    103
+
+[5 rows x 68 columns]
+Data set size: 1000000
+24000000 25000000
+      run  lumiblock      event  ...   tracky1  trackpixshift1  rpid1
+0  322348        177  281360928  ...  1.730347               0      3
+1  322348        177  281360928  ...  1.605957               0     23
+2  322348        177  280656416  ...  0.810242               0      3
+3  322348        177  280656416  ...  0.711426               0     23
+4  322348        177  280953344  ...  0.855042               0      3
+
+[5 rows x 68 columns]
+Data set size: 1000000
+25000000 26000000
+      run  lumiblock     event  ...   tracky1  trackpixshift1  rpid1
+0  323983         24  48784056  ...  3.281494               0      3
+1  323983         24  48784056  ...  0.705017               0      3
+2  323983         24  48784056  ...  0.269287               0     23
+3  323983         24  48784056  ...  1.302612               0     23
+4  323983         24  48784056  ...  3.267578               0     23
+
+[5 rows x 68 columns]
+Data set size: 1000000
+26000000 27000000
+      run  lumiblock       event  ...   tracky1  trackpixshift1  rpid1
+0  322106        767  1356384512  ... -8.000977               0    103
+1  322106        767  1356384512  ... -8.709961               0    123
+2  322106        767  1356613248  ...  4.047363               0    103
+3  322106        767  1356613248  ...  4.159180               0    123
+4  322106        767  1356227584  ...  0.054756               0    103
+
+[5 rows x 68 columns]
+Data set size: 1000000
+27000000 28000000
+      run  lumiblock      event  ...   tracky1  trackpixshift1  rpid1
+0  324201        206  381896448  ...  4.119141               0    103
+1  324201        206  381896448  ...  4.256836               0    123
+2  324201        206  380505728  ...  1.239258               0    103
+3  324201        206  380505728  ...  4.394531               0    103
+4  324201        206  380505728  ...  1.461792               0    103
+
+[5 rows x 68 columns]
+Data set size: 1000000
+28000000 29000000
+      run  lumiblock     event  ...   tracky1  trackpixshift1  rpid1
+0  320822         39  61681184  ... -1.293579               0     23
+1  320822         39  61681184  ...  1.115112               0    103
+2  320822         39  61681184  ...  1.014648               0    123
+3  320822         39  61264128  ...  1.279053               0      3
+4  320822         39  61264128  ...  1.268066               0     23
+
+[5 rows x 68 columns]
+Data set size: 1000000
+29000000 30000000
+      run  lumiblock      event  ...   tracky1  trackpixshift1  rpid1
+0  324841         89  167550768  ...  0.559570               0     23
+1  324841         89  167550768  ...  0.590332               0     23
+2  324841         89  167550768  ...  2.667969               0     23
+3  324841         89  167550768  ...  4.176270               0     23
+4  324841         89  168257904  ...  1.183716               0    103
+
+[5 rows x 68 columns]
+Data set size: 1000000
+30000000 31000000
+      run  lumiblock      event  ...   tracky1  trackpixshift1  rpid1
+0  321295        462  733780608  ...  0.563171               0    123
+1  321295        462  734125504  ... -0.016853               0    103
+2  321295        462  734125504  ... -0.343018               0    123
+3  321295        462  734877184  ...  0.887756               0      3
+4  321295        462  734877184  ...  0.782043               0     23
+
+[5 rows x 68 columns]
+Data set size: 1000000
+31000000 32000000
+      run  lumiblock      event  ...   tracky1  trackpixshift1  rpid1
+0  322431        283  494876960  ...  1.384277               0      3
+1  322431        283  494876960  ... -0.062660               0    103
+2  322431        283  494876960  ... -0.270569               0    123
+3  322431        283  495331168  ...  0.109848               0      3
+4  322431        283  495331168  ... -0.123901               0     23
+
+[5 rows x 68 columns]
+Data set size: 1000000
+32000000 33000000
+      run  lumiblock       event  ...   tracky1  trackpixshift1  rpid1
+0  322431        985  1723606656  ...  1.572510               0    123
+1  322431        985  1723606656  ...  1.161621               0    123
+2  322431        985  1723606656  ...  3.296387               0    123
+3  322431        985  1723606656  ... -0.626099               0    123
+4  322431        986  1725536384  ...  3.850098               0      3
+
+[5 rows x 68 columns]
+Data set size: 1000000
+33000000 33946400
+      run  lumiblock      event  ...   tracky1  trackpixshift1  rpid1
+0  320674        407  223216896  ...  0.855408               0    123
+1  320674        407  222842288  ...  3.802734               0      3
+2  320674        407  222842288  ...  4.358887               0    103
+3  320674        407  222842288  ...  4.378906               0    123
+4  320674        408  223477888  ...  0.834351               0      3
+
+[5 rows x 68 columns]
+Data set size: 946400
+[0, 1000000, 2000000, 3000000, 4000000, 5000000, 6000000, 7000000, 8000000, 9000000, 10000000, 11000000, 12000000, 13000000, 14000000, 15000000, 16000000, 17000000, 18000000, 19000000, 20000000, 21000000, 22000000, 23000000, 24000000, 25000000, 26000000, 27000000, 28000000, 29000000, 30000000, 31000000, 32000000, 33000000, 34000000, 35000000, 36000000, 37000000, 38000000, 39000000, 40000000, 41000000, 42000000, 43000000, 44000000, 45000000]
+[1000000, 2000000, 3000000, 4000000, 5000000, 6000000, 7000000, 8000000, 9000000, 10000000, 11000000, 12000000, 13000000, 14000000, 15000000, 16000000, 17000000, 18000000, 19000000, 20000000, 21000000, 22000000, 23000000, 24000000, 25000000, 26000000, 27000000, 28000000, 29000000, 30000000, 31000000, 32000000, 33000000, 34000000, 35000000, 36000000, 37000000, 38000000, 39000000, 40000000, 41000000, 42000000, 43000000, 44000000, 45000000, 45113000]
+0 1000000
+      run  lumiblock      event  ...  event_rnd  crossingAngle_rnd  betaStar_rnd
+0  321167        429  673231808  ...  933157632              147.0           0.3
+1  321167        429  673231808  ...  933157632              147.0           0.3
+2  321167        429  673790208  ...  512567712              149.0           0.3
+3  321167        429  673790208  ...  512567712              149.0           0.3
+4  321167        429  673790208  ...  512567712              149.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+1000000 2000000
+      run  lumiblock       event  ...   event_rnd  crossingAngle_rnd  betaStar_rnd
+0  321305        641  1042043328  ...  1103801856              144.0           0.3
+1  321305        641  1042043328  ...  1103801856              144.0           0.3
+2  321305        641  1042043328  ...  1103801856              144.0           0.3
+3  321305        641  1041962880  ...   314168032              154.0           0.3
+4  321305        641  1041962880  ...   314168032              154.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+2000000 3000000
+      run  lumiblock       event  ...  event_rnd  crossingAngle_rnd  betaStar_rnd
+0  321457       1228  1931062144  ...  336874560              147.0           0.3
+1  321457       1228  1931062144  ...  336874560              147.0           0.3
+2  321457       1228  1931062144  ...  336874560              147.0           0.3
+3  321457       1228  1931062144  ...  336874560              147.0           0.3
+4  321457       1228  1932469632  ...  241189408              144.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+3000000 4000000
+      run  lumiblock      event  ...   event_rnd  crossingAngle_rnd  betaStar_rnd
+0  321295        139  219689744  ...  1986897280              130.0          0.27
+1  321295        139  219689744  ...  1986897280              130.0          0.27
+2  321295        139  219689744  ...  1986897280              130.0          0.27
+3  321295        139  219689744  ...  1986897280              130.0          0.27
+4  321295        139  219689744  ...  1986897280              130.0          0.27
+
+[5 rows x 14 columns]
+Data set size: 1000000
+4000000 5000000
+      run  lumiblock       event  ...  event_rnd  crossingAngle_rnd  betaStar_rnd
+0  321457       1224  1925585024  ...  938377984              147.0           0.3
+1  321457       1224  1925585024  ...  938377984              147.0           0.3
+2  321457       1224  1925585024  ...  938377984              147.0           0.3
+3  321457       1224  1925585024  ...  938377984              147.0           0.3
+4  321457       1224  1925338624  ...  677458304              143.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+5000000 6000000
+      run  lumiblock       event  ...  event_rnd  crossingAngle_rnd  betaStar_rnd
+0  321732       1023  1818044672  ...  883020992              148.0           0.3
+1  321732       1023  1818044672  ...  883020992              148.0           0.3
+2  321732       1023  1818044672  ...  883020992              148.0           0.3
+3  321732       1023  1818044672  ...  883020992              148.0           0.3
+4  321732       1023  1818044672  ...  883020992              148.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+6000000 7000000
+      run  lumiblock      event  ...  event_rnd  crossingAngle_rnd  betaStar_rnd
+0  321755        136  187671024  ...  127388336              160.0           0.3
+1  321755        136  187671024  ...  127388336              160.0           0.3
+2  321755        136  187671024  ...  127388336              160.0           0.3
+3  321755        136  187671024  ...  127388336              160.0           0.3
+4  321755        136  187671024  ...  127388336              160.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+7000000 8000000
+      run  lumiblock      event  ...  event_rnd  crossingAngle_rnd  betaStar_rnd
+0  321813        270  458763968  ...  295975104              155.0           0.3
+1  321813        270  459513120  ...  569141824              151.0           0.3
+2  321813        270  459513120  ...  569141824              151.0           0.3
+3  321813        270  459513120  ...  569141824              151.0           0.3
+4  321813        270  459513120  ...  569141824              151.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+8000000 9000000
+      run  lumiblock    event  ...   event_rnd  crossingAngle_rnd  betaStar_rnd
+0  321880          4  7077897  ...  2020397568              135.0           0.3
+1  321880          4  7077897  ...  2020397568              135.0           0.3
+2  321880          4  7077897  ...  2020397568              135.0           0.3
+3  321880          4  7077897  ...  2020397568              135.0           0.3
+4  321880          4  7622149  ...   338663040              155.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+9000000 10000000
+      run  lumiblock      event  ...   event_rnd  crossingAngle_rnd  betaStar_rnd
+0  321887        227  322142944  ...  1043786624              146.0           0.3
+1  321887        227  322142944  ...  1043786624              146.0           0.3
+2  321887        227  322142944  ...  1043786624              146.0           0.3
+3  321887        227  322142944  ...  1043786624              146.0           0.3
+4  321887        227  322142944  ...  1043786624              146.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+10000000 11000000
+      run  lumiblock       event  ...   event_rnd  crossingAngle_rnd  betaStar_rnd
+0  322252        677  1194754816  ...    62705456              160.0           0.3
+1  322252        677  1194732672  ...  1073000512              145.0           0.3
+2  322252        677  1194732672  ...  1073000512              145.0           0.3
+3  322252        677  1194732672  ...  1073000512              145.0           0.3
+4  322252        677  1194851968  ...  1105167104              145.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+11000000 12000000
+      run  lumiblock      event  ...   event_rnd  crossingAngle_rnd  betaStar_rnd
+0  322204        189  352100224  ...  1504192640              135.0           0.3
+1  322204        189  352100224  ...  1504192640              135.0           0.3
+2  322204        189  352100224  ...  1504192640              135.0           0.3
+3  322204        189  352100224  ...  1504192640              135.0           0.3
+4  322204        189  352100224  ...  1504192640              135.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+12000000 13000000
+      run  lumiblock      event  ...   event_rnd  crossingAngle_rnd  betaStar_rnd
+0  322068        279  438053440  ...   483123456              152.0           0.3
+1  322068        279  438053440  ...   483123456              152.0           0.3
+2  322068        279  437970784  ...  1107484288              145.0           0.3
+3  322068        279  437970784  ...  1107484288              145.0           0.3
+4  322068        279  437970784  ...  1107484288              145.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+13000000 14000000
+      run  lumiblock       event  ...  event_rnd  crossingAngle_rnd  betaStar_rnd
+0  322332        770  1362259712  ...  183269664              156.0           0.3
+1  322332        770  1362259712  ...  183269664              156.0           0.3
+2  322332        770  1362259712  ...  183269664              156.0           0.3
+3  322332        770  1362259712  ...  183269664              156.0           0.3
+4  322332        770  1362259712  ...  183269664              156.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+14000000 15000000
+      run  lumiblock      event  ...   event_rnd  crossingAngle_rnd  betaStar_rnd
+0  322252        519  908133312  ...  1401083264              138.0           0.3
+1  322252        519  908133312  ...  1401083264              138.0           0.3
+2  322252        519  908133312  ...  1401083264              138.0           0.3
+3  322252        519  908133312  ...  1401083264              138.0           0.3
+4  322252        519  908133312  ...  1401083264              138.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+15000000 16000000
+      run  lumiblock      event  ...  event_rnd  crossingAngle_rnd  betaStar_rnd
+0  320688        389  536332064  ...  414063616              152.0           0.3
+1  320688        389  536332064  ...  414063616              152.0           0.3
+2  320688        389  536332064  ...  414063616              152.0           0.3
+3  320688        389  536332064  ...  414063616              152.0           0.3
+4  320688        389  536332064  ...  414063616              152.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+16000000 17000000
+      run  lumiblock     event  ...   event_rnd  crossingAngle_rnd  betaStar_rnd
+0  321908         83  84543320  ...  1244487168              139.0           0.3
+1  321908         83  84543320  ...  1244487168              139.0           0.3
+2  321908         83  84543320  ...  1244487168              139.0           0.3
+3  321908         83  84543320  ...  1244487168              139.0           0.3
+4  321908         83  84543320  ...  1244487168              139.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+17000000 18000000
+      run  lumiblock      event  ...   event_rnd  crossingAngle_rnd  betaStar_rnd
+0  321149        394  572452224  ...  1847702144              130.0          0.27
+1  321149        394  572452224  ...  1847702144              130.0          0.27
+2  321149        394  572452224  ...  1847702144              130.0          0.27
+3  321149        394  571546432  ...   159742128              156.0          0.30
+4  321149        394  571546432  ...   159742128              156.0          0.30
+
+[5 rows x 14 columns]
+Data set size: 1000000
+18000000 19000000
+      run  lumiblock      event  ...  event_rnd  crossingAngle_rnd  betaStar_rnd
+0  321457        157  214367136  ...  606424768              149.0           0.3
+1  321457        157  214367136  ...  606424768              149.0           0.3
+2  321457        157  214098656  ...  589090816              148.0           0.3
+3  321457        157  214098656  ...  589090816              148.0           0.3
+4  321457        157  214098656  ...  589090816              148.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+19000000 20000000
+      run  lumiblock      event  ...  event_rnd  crossingAngle_rnd  betaStar_rnd
+0  322430        488  845063232  ...  847099520              146.0           0.3
+1  322430        488  845063232  ...  847099520              146.0           0.3
+2  322430        488  845063232  ...  847099520              146.0           0.3
+3  322430        488  845063232  ...  847099520              146.0           0.3
+4  322430        488  845063232  ...  847099520              146.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+20000000 21000000
+      run  lumiblock      event  ...   event_rnd  crossingAngle_rnd  betaStar_rnd
+0  322252        404  686709056  ...  1274434816              140.0           0.3
+1  322252        404  686709056  ...  1274434816              140.0           0.3
+2  322252        404  686709056  ...  1274434816              140.0           0.3
+3  322252        404  686709056  ...  1274434816              140.0           0.3
+4  322252        404  686910848  ...   985281088              143.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+21000000 22000000
+      run  lumiblock      event  ...   event_rnd  crossingAngle_rnd  betaStar_rnd
+0  324201        499  976872128  ...  1008178752              140.0           0.3
+1  324201        499  977165056  ...   984601216              143.0           0.3
+2  324201        499  977165056  ...   984601216              143.0           0.3
+3  324201        499  977165056  ...   984601216              143.0           0.3
+4  324201        499  977165056  ...   984601216              143.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+22000000 23000000
+      run  lumiblock       event  ...  event_rnd  crossingAngle_rnd  betaStar_rnd
+0  322118        758  1367141120  ...   26615998              159.0           0.3
+1  322118        758  1367141120  ...   26615998              159.0           0.3
+2  322118        758  1367141120  ...   26615998              159.0           0.3
+3  322118        758  1367141120  ...   26615998              159.0           0.3
+4  322118        758  1367141120  ...   26615998              159.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+23000000 24000000
+      run  lumiblock      event  ...   event_rnd  crossingAngle_rnd  betaStar_rnd
+0  324022        455  813147648  ...  1513289984              139.0           0.3
+1  324022        455  813147648  ...  1513289984              139.0           0.3
+2  324022        455  814017728  ...   821564224              136.0           0.3
+3  324022        455  814017728  ...   821564224              136.0           0.3
+4  324022        455  814017728  ...   821564224              136.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+24000000 25000000
+      run  lumiblock      event  ...   event_rnd  crossingAngle_rnd  betaStar_rnd
+0  321068        157  224287280  ...  3813911552              130.0          0.25
+1  321068        157  224287280  ...  3813911552              130.0          0.25
+2  321068        157  224467696  ...  1712681216              130.0          0.27
+3  321068        157  224467696  ...  1712681216              130.0          0.27
+4  321068        157  224467696  ...  1712681216              130.0          0.27
+
+[5 rows x 14 columns]
+Data set size: 1000000
+25000000 26000000
+      run  lumiblock     event  ...  event_rnd  crossingAngle_rnd  betaStar_rnd
+0  325097         77  70159032  ...  453464768              150.0           0.3
+1  325097         77  70159032  ...  453464768              150.0           0.3
+2  325097         77  70159032  ...  453464768              150.0           0.3
+3  325097         77  70159032  ...  453464768              150.0           0.3
+4  325097         77  70159032  ...  453464768              150.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+26000000 27000000
+      run  lumiblock       event  ...  event_rnd  crossingAngle_rnd  betaStar_rnd
+0  325170        805  1486193280  ...  130116848              139.0           0.3
+1  325170        805  1486193280  ...  130116848              139.0           0.3
+2  325170        805  1486193280  ...  130116848              139.0           0.3
+3  325170        805  1486736000  ...  303135520              143.0           0.3
+4  325170        805  1486736000  ...  303135520              143.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+27000000 28000000
+      run  lumiblock       event  ...  event_rnd  crossingAngle_rnd  betaStar_rnd
+0  320824        952  1374594176  ...  285953760              150.0           0.3
+1  320824        952  1374594176  ...  285953760              150.0           0.3
+2  320824        952  1374594176  ...  285953760              150.0           0.3
+3  320824        952  1374594176  ...  285953760              150.0           0.3
+4  320824        952  1374594176  ...  285953760              150.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+28000000 29000000
+      run  lumiblock      event  ...  event_rnd  crossingAngle_rnd  betaStar_rnd
+0  322356        295  565020352  ...  156994656              139.0           0.3
+1  322356        295  565020352  ...  156994656              139.0           0.3
+2  322356        295  565020352  ...  156994656              139.0           0.3
+3  322356        295  565020352  ...  156994656              139.0           0.3
+4  322356        295  565020352  ...  156994656              139.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+29000000 30000000
+      run  lumiblock      event  ...  event_rnd  crossingAngle_rnd  betaStar_rnd
+0  321415        499  784633856  ...  563015680              134.0           0.3
+1  321415        500  785674752  ...  143710432              139.0           0.3
+2  321415        500  785674752  ...  143710432              139.0           0.3
+3  321415        500  785674752  ...  143710432              139.0           0.3
+4  321415        500  785674752  ...  143710432              139.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+30000000 31000000
+      run  lumiblock       event  ...  event_rnd  crossingAngle_rnd  betaStar_rnd
+0  322106        587  1029807680  ...  854710848              130.0          0.25
+1  322106        587  1029807680  ...  854710848              130.0          0.25
+2  322106        587  1029807680  ...  854710848              130.0          0.25
+3  322106        588  1032446208  ...  143855648              130.0          0.27
+4  322106        588  1032446208  ...  143855648              130.0          0.27
+
+[5 rows x 14 columns]
+Data set size: 1000000
+31000000 32000000
+      run  lumiblock      event  ...  event_rnd  crossingAngle_rnd  betaStar_rnd
+0  322106        262  422770688  ...   27205130              136.0          0.30
+1  322106        262  422553344  ...  386865888              130.0          0.27
+2  322106        262  422553344  ...  386865888              130.0          0.27
+3  322106        262  422553344  ...  386865888              130.0          0.27
+4  322106        262  422553344  ...  386865888              130.0          0.27
+
+[5 rows x 14 columns]
+Data set size: 1000000
+32000000 33000000
+      run  lumiblock      event  ...   event_rnd  crossingAngle_rnd  betaStar_rnd
+0  323980        169  340498656  ...  2343425024              130.0           0.3
+1  323980        169  340498656  ...  2343425024              130.0           0.3
+2  323980        169  340498656  ...  2343425024              130.0           0.3
+3  323980        169  340498656  ...  2343425024              130.0           0.3
+4  323980        169  340498656  ...  2343425024              130.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+33000000 34000000
+      run  lumiblock       event  ...   event_rnd  crossingAngle_rnd  betaStar_rnd
+0  322322       1038  1866712448  ...  1159325440              145.0           0.3
+1  322322       1038  1866712448  ...  1159325440              145.0           0.3
+2  322322       1038  1866373760  ...  1481861760              142.0           0.3
+3  322322       1038  1866373760  ...  1481861760              142.0           0.3
+4  322322       1038  1866373760  ...  1481861760              142.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+34000000 35000000
+      run  lumiblock      event  ...   event_rnd  crossingAngle_rnd  betaStar_rnd
+0  323980        141  286713760  ...  1245054720              144.0           0.3
+1  323980        141  286713760  ...  1245054720              144.0           0.3
+2  323980        141  285468352  ...   610381056              151.0           0.3
+3  323980        141  285468352  ...   610381056              151.0           0.3
+4  323980        141  285468352  ...   610381056              151.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+35000000 36000000
+      run  lumiblock       event  ...   event_rnd  crossingAngle_rnd  betaStar_rnd
+0  322332        964  1689211648  ...  2095562240              130.0           0.3
+1  322332        964  1689211648  ...  2095562240              130.0           0.3
+2  322332        964  1689211648  ...  2095562240              130.0           0.3
+3  322332        964  1689211648  ...  2095562240              130.0           0.3
+4  322332        964  1689211648  ...  2095562240              130.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+36000000 37000000
+      run  lumiblock      event  ...   event_rnd  crossingAngle_rnd  betaStar_rnd
+0  324021        111  135753728  ...  1812204928              135.0           0.3
+1  324021        111  135753728  ...  1812204928              135.0           0.3
+2  324021        111  135753728  ...  1812204928              135.0           0.3
+3  324021        111  136727392  ...   535663872              152.0           0.3
+4  324021        111  136727392  ...   535663872              152.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+37000000 38000000
+      run  lumiblock      event  ...   event_rnd  crossingAngle_rnd  betaStar_rnd
+0  320838        299  437739008  ...   620705536              148.0           0.3
+1  320838        299  437739008  ...   620705536              148.0           0.3
+2  320838        299  437739008  ...   620705536              148.0           0.3
+3  320838        299  437739008  ...   620705536              148.0           0.3
+4  320838        299  438288864  ...  1668564224              137.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+38000000 39000000
+      run  lumiblock      event  ...  event_rnd  crossingAngle_rnd  betaStar_rnd
+0  324420        391  812879936  ...  676155520              147.0           0.3
+1  324420        391  812879936  ...  676155520              147.0           0.3
+2  324420        391  812879936  ...  676155520              147.0           0.3
+3  324420        391  812879936  ...  676155520              147.0           0.3
+4  324420        391  812879936  ...  676155520              147.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+39000000 40000000
+      run  lumiblock       event  ...  event_rnd  crossingAngle_rnd  betaStar_rnd
+0  321218        843  1249042048  ...  477459296              140.0           0.3
+1  321218        843  1249042048  ...  477459296              140.0           0.3
+2  321218        843  1249042048  ...  477459296              140.0           0.3
+3  321218        843  1249042048  ...  477459296              140.0           0.3
+4  321218        843  1249042048  ...  477459296              140.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+40000000 41000000
+      run  lumiblock      event  ...  event_rnd  crossingAngle_rnd  betaStar_rnd
+0  320822        391  646628480  ...  478985408              154.0           0.3
+1  320822        391  646628480  ...  478985408              154.0           0.3
+2  320822        391  646628480  ...  478985408              154.0           0.3
+3  320822        391  646628480  ...  478985408              154.0           0.3
+4  320822        391  647271872  ...  666619712              147.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+41000000 42000000
+      run  lumiblock      event  ...  event_rnd  crossingAngle_rnd  betaStar_rnd
+0  322431        558  956129216  ...  782747456              145.0           0.3
+1  322431        558  956129216  ...  782747456              145.0           0.3
+2  322431        558  956129216  ...  782747456              145.0           0.3
+3  322431        558  956129216  ...  782747456              145.0           0.3
+4  322431        558  956129216  ...  782747456              145.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+42000000 43000000
+      run  lumiblock     event  ...  event_rnd  crossingAngle_rnd  betaStar_rnd
+0  320674         68  35913856  ...   30272618              137.0           0.3
+1  320674         68  35913856  ...   30272618              137.0           0.3
+2  320674         68  35913856  ...   30272618              137.0           0.3
+3  320674         68  35913856  ...   30272618              137.0           0.3
+4  320674         68  35913856  ...   30272618              137.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+43000000 44000000
+      run  lumiblock      event  ...  event_rnd  crossingAngle_rnd  betaStar_rnd
+0  320757        127  125518200  ...   94234264              153.0           0.3
+1  320757        127  125518200  ...   94234264              153.0           0.3
+2  320757        127  125518200  ...   94234264              153.0           0.3
+3  320757        127  125518200  ...   94234264              153.0           0.3
+4  320757        127  125518200  ...   94234264              153.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+44000000 45000000
+      run  lumiblock       event  ...  event_rnd  crossingAngle_rnd  betaStar_rnd
+0  322431       1047  1818411776  ...   72173128              136.0           0.3
+1  322431       1047  1818411776  ...   72173128              136.0           0.3
+2  322431       1047  1818411776  ...   72173128              136.0           0.3
+3  322431       1047  1818411776  ...   72173128              136.0           0.3
+4  322431       1047  1818411776  ...   72173128              136.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 1000000
+45000000 45113000
+      run  lumiblock      event  ...  event_rnd  crossingAngle_rnd  betaStar_rnd
+0  320688        430  599266176  ...  185430208              160.0           0.3
+1  320688        430  599266176  ...  185430208              160.0           0.3
+2  320688        430  599318016  ...  666158080              140.0           0.3
+3  320688        430  599318016  ...  666158080              140.0           0.3
+4  320688        430  599318016  ...  666158080              140.0           0.3
+
+[5 rows x 14 columns]
+Data set size: 113000
+All                     10000000
+Jet                     10000000
+Electron                 9745250
+ProtonRnd_check_none     9745250
+ProtonRnd                6784250
+dtype: int64
+           run  lumiblock       event  ...   tracky2  trackpixshift2  rpid2
+0       321167        429   673231808  ...  2.134521               0     23
+1       321167        429   673790208  ...  2.866211               0    123
+2       321167        429   673222720  ...  2.711914               0     23
+3       321167        429   673222720  ...  2.485352               0    123
+4       321167        429   672996608  ...  1.171387               0     23
+...        ...        ...         ...  ...       ...             ...    ...
+826645  322430        649  1139303296  ...  1.347168               0    123
+826646  322430        649  1139048448  ...  0.430634               0     23
+826647  322430        649  1138919168  ...  1.680420               0     23
+826648  322430        649  1138071296  ... -0.071152               0     23
+826649  322430        649  1138071296  ...  4.027832               0    123
+
+[12826650 rows x 72 columns]
+           run  lumiblock       event  ...   tracky1  trackpixshift1  rpid1
+0       321167        429   673231808  ...  2.153809               0      3
+1       321167        429   673231808  ...  2.134521               0     23
+2       321167        429   673790208  ...  2.809570               0    103
+3       321167        429   673790208  ...  6.361816               0    103
+4       321167        429   673790208  ...  2.866211               0    123
+...        ...        ...         ...  ...       ...             ...    ...
+946395  322430        649  1138919168  ...  1.680420               0     23
+946396  322430        649  1138071296  ...  0.156174               0      3
+946397  322430        649  1138071296  ... -0.071152               0     23
+946398  322430        649  1138071296  ...  3.972900               0    103
+946399  322430        649  1138071296  ...  4.027832               0    123
+
+[33946400 rows x 68 columns]
+           run  lumiblock  ...  crossingAngle_rnd  betaStar_rnd
+0       321167        429  ...              147.0           0.3
+1       321167        429  ...              147.0           0.3
+2       321167        429  ...              149.0           0.3
+3       321167        429  ...              149.0           0.3
+4       321167        429  ...              149.0           0.3
+...        ...        ...  ...                ...           ...
+112995  322430        649  ...              134.0           0.3
+112996  322430        649  ...              134.0           0.3
+112997  322430        649  ...              134.0           0.3
+112998  322430        649  ...              134.0           0.3
+112999  322430        649  ...              134.0           0.3
+
+[45113000 rows x 14 columns]
+2018D1: 10635650
+2018D2: 2191000
+0         2018D1
+1         2018D1
+2         2018D1
+3         2018D1
+4         2018D1
+           ...  
+826645    2018D2
+826646    2018D1
+826647    2018D1
+826648    2018D1
+826649    2018D1
+Name: period, Length: 12826650, dtype: object
+{'2017B': {0: {2: 1.995}, 1: {2: 2.422}}, '2017C1': {0: {2: 1.86}, 1: {2: 2.422}}, '2017C2': {0: {2: 1.86}, 1: {2: 2.422}}, '2017D': {0: {2: 1.86}, 1: {2: 2.422}}, '2017E': {0: {2: 1.995}, 1: {2: 2.422}}, '2017F1': {0: {2: 1.995}, 1: {2: 2.422}}, '2017F2': {0: {2: 1.995}, 1: {2: 2.422}}, '2017F3': {0: {2: 1.995}, 1: {2: 2.422}}, '2018A': {0: {0: 2.85, 2: 2.421}, 1: {0: 3.275, 2: 2.421}}, '2018B1': {0: {0: 2.85, 2: 2.421}, 1: {0: 3.275, 2: 2.564}}, '2018B2': {0: {0: 2.564, 2: 2.14}, 1: {0: 3.275, 2: 2.279}}, '2018C': {0: {0: 2.564, 2: 2.421}, 1: {0: 3.275, 2: 2.279}}, '2018D1': {0: {0: 2.85, 2: 2.421}, 1: {0: 3.275, 2: 2.279}}, '2018D2': {0: {0: 2.85, 2: 2.421}, 1: {0: 3.275, 2: 2.279}}} {'2017B': {0: {2: 24.479}, 1: {2: 24.62}}, '2017C1': {0: {2: 24.334}, 1: {2: 24.62}}, '2017C2': {0: {2: 24.334}, 1: {2: 24.62}}, '2017D': {0: {2: 24.334}, 1: {2: 24.62}}, '2017E': {0: {2: 24.479}, 1: {2: 24.62}}, '2017F1': {0: {2: 24.479}, 1: {2: 24.62}}, '2017F2': {0: {2: 24.479}, 1: {2: 24.62}}, '2017F3': {0: {2: 24.479}, 1: {2: 24.62}}, '2018A': {0: {0: 17.927, 2: 24.62}, 1: {0: 18.498, 2: 20.045}}, '2018B1': {0: {0: 17.927, 2: 24.62}, 1: {0: 18.07, 2: 20.045}}, '2018B2': {0: {0: 17.64, 2: 24.479}, 1: {0: 17.931, 2: 24.76}}, '2018C': {0: {0: 17.93, 2: 24.62}, 1: {0: 17.931, 2: 24.76}}, '2018D1': {0: {0: 17.931, 2: 24.62}, 1: {0: 17.931, 2: 24.76}}, '2018D2': {0: {0: 17.931, 2: 24.62}, 1: {0: 17.931, 2: 24.76}}} {'2017B': {0: {2: -11.098}, 1: {2: -10.698}}, '2017C1': {0: {2: -11.098}, 1: {2: -10.698}}, '2017C2': {0: {2: -11.098}, 1: {2: -10.698}}, '2017D': {0: {2: -11.098}, 1: {2: -10.698}}, '2017E': {0: {2: -10.098}, 1: {2: -9.698}}, '2017F1': {0: {2: -10.098}, 1: {2: -9.698}}, '2017F2': {0: {2: -10.098}, 1: {2: -9.698}}, '2017F3': {0: {2: -10.098}, 1: {2: -9.698}}, '2018A': {0: {0: -11.598, 2: -10.898}, 1: {0: -11.298, 2: -10.398}}, '2018B1': {0: {0: -11.598, 2: -10.898}, 1: {0: -11.198, 2: -10.398}}, '2018B2': {0: {0: -11.598, 2: -11.398}, 1: {0: -10.498, 2: -10.598}}, '2018C': {0: {0: -11.098, 2: -11.398}, 1: {0: -10.498, 2: -10.598}}, '2018D1': {0: {0: -11.098, 2: -11.398}, 1: {0: -10.498, 2: -10.598}}, '2018D2': {0: {0: -10.598, 2: -11.698}, 1: {0: -9.998, 2: -10.598}}} {'2017B': {0: {2: 4.298}, 1: {2: 4.698}}, '2017C1': {0: {2: 4.298}, 1: {2: 4.698}}, '2017C2': {0: {2: 4.298}, 1: {2: 4.698}}, '2017D': {0: {2: 4.298}, 1: {2: 4.698}}, '2017E': {0: {2: 4.998}, 1: {2: 5.398}}, '2017F1': {0: {2: 4.998}, 1: {2: 5.398}}, '2017F2': {0: {2: 4.998}, 1: {2: 5.398}}, '2017F3': {0: {2: 4.998}, 1: {2: 5.398}}, '2018A': {0: {0: 3.698, 2: 4.398}, 1: {0: 3.298, 2: 5.098}}, '2018B1': {0: {0: 3.698, 2: 4.198}, 1: {0: 4.098, 2: 5.098}}, '2018B2': {0: {0: 4.198, 2: 3.798}, 1: {0: 4.098, 2: 4.498}}, '2018C': {0: {0: 4.198, 2: 3.698}, 1: {0: 4.698, 2: 4.398}}, '2018D1': {0: {0: 4.098, 2: 3.698}, 1: {0: 4.698, 2: 4.398}}, '2018D2': {0: {0: 4.498, 2: 3.298}, 1: {0: 4.698, 2: 3.898}}}
+{0: {2: 2.421}, 1: {2: 2.564}} {0: {2: 24.479}, 1: {2: 20.045}} {0: {2: -10.898}, 1: {2: -10.398}} {0: {2: 3.298}, 1: {2: 3.898}}
+['run', 'lumiblock', 'event', 'slice']
+0         True
+1         True
+2         True
+3         True
+4         True
+          ... 
+826645    True
+826646    True
+826647    True
+826648    True
+826649    True
+Name: within_aperture, Length: 12826650, dtype: bool
+Within aperture: 12738350
+['run', 'lumiblock', 'event', 'slice']
+['xi', 'thx', 'thy', 't', 'ismultirp', 'rpid', 'arm', 'random', 'trackx1', 'tracky1', 'trackpixshift1', 'rpid1', 'trackx2', 'tracky2', 'trackpixshift2', 'rpid2']
+['run', 'lumiblock', 'event', 'slice']
+run     lumiblock  event       slice
+321167  429        673231808   0         True
+                   673790208   0         True
+                   673222720   0         True
+                               0         True
+                   672996608   0         True
+                                        ...  
+322430  649        1139303296  49        True
+                               49       False
+                   1139048448  49        True
+                   1138919168  49        True
+                   1138071296  49        True
+Name: xi, Length: 11270300, dtype: bool
+run     lumiblock  event       slice
+321167  429        673231808   0        False
+                   673790208   0        False
+                   673222720   0         True
+                               0         True
+                   672996608   0        False
+                                        ...  
+322430  649        1139532544  49       False
+                   1139303296  49       False
+                   1139048448  49       False
+                   1138919168  49       False
+                   1138071296  49       False
+Name: arm, Length: 8290068, dtype: bool
+Number of events: 1909605
+run     lumiblock  event      slice
+321167  429        673222720  0        1091.231517
+        411        642903424  0        1290.371895
+        412        644103744  0        1013.426818
+                   643751936  0        1787.421778
+        413        645825472  0        1616.149835
+                                          ...     
+321233  87         133319184  49        610.721998
+                   134015104  49        783.097971
+322430  493        855898240  49        923.178345
+        514        894461312  49       1175.758906
+                   895329792  49       1273.616411
+Name: MX, Length: 1909605, dtype: float64
+run     lumiblock  event      slice
+321167  429        673222720  0        0.146637
+        411        642903424  0       -0.077638
+        412        644103744  0       -0.415335
+                   643751936  0       -0.061778
+        413        645825472  0       -0.230731
+                                         ...   
+321233  87         133319184  49       0.231613
+                   134015104  49       0.627500
+322430  493        855898240  49       0.441893
+        514        894461312  49      -0.595863
+                   895329792  49      -0.579046
+Name: YX, Length: 1909605, dtype: float64
+                                  crossingAngle  betaStar  ...    ylow  yhigh
+run    lumiblock event     slice                           ...               
+321167 429       673222720 0              143.0       0.3  ... -10.898  3.298
+                           0              143.0       0.3  ... -10.398  3.898
+       411       642903424 0              144.0       0.3  ... -10.898  3.298
+                           0              144.0       0.3  ... -10.398  3.898
+       412       644103744 0              144.0       0.3  ... -10.898  3.298
+...                                         ...       ...  ...     ...    ...
+322430 493       855898240 49             147.0       0.3  ... -10.398  3.898
+       514       894461312 49             146.0       0.3  ... -10.898  3.298
+                           49             146.0       0.3  ... -10.398  3.898
+                 895329792 49             146.0       0.3  ... -10.898  3.298
+                           49             146.0       0.3  ... -10.398  3.898
+
+[3819210 rows x 99 columns]
+Total time elapsed: 9931
+['/counts', '/events_multiRP', '/protons_multiRP']
