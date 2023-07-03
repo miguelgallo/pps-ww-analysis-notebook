@@ -117,23 +117,33 @@ class CreateTableEvents:
             "nVertices",
             "num_bjets_ak8", "num_bjets_ak4", "num_jets_ak4",
             "pfcand_nextracks", "pfcand_nextracks_noDRl",
-            "recoMWhad", "recoMWlep", "recoMWW", "recoRapidityWW", "dphiWW", "WLeptonicPt", "WLeptonicEta", "WLeptonicPhi" ]
+            "recoMWhad", "recoMWlep", "recoMWlep_metJER_Up", "recoMWlep_metJER_Down", "recoMWlep_metJES_Up", "recoMWlep_metJES_Down", 
+            "recoMWW", "recoMWW_metJER_Up", "recoMWW_metJER_Down", "recoMWW_metJES_Up", "recoMWW_metJES_Down", 
+            "recoRapidityWW", "dphiWW", 
+            "WLeptonicPt", "WLeptonicPt_metJER_Up", "WLeptonicPt_metJER_Down", "WLeptonicPt_metJES_Up", "WLeptonicPt_metJES_Down",
+            "WLeptonicEta", "WLeptonicPhi" ]
         if lepton_type__ == 'muon':
-            columns_events.extend( [ "muon0_pt", "muon0_eta", "muon0_phi", "muon0_energy", "muon0_charge", "muon0_iso", "muon0_dxy", "muon0_dz", "muon0_trackerLayersWithMeasurement" ] )
+            columns_events.extend( [ "muon0_pt", "muon0_eta", "muon0_phi", "muon0_energy", "muon0_charge", "muon0_iso", "muon0_dxy", "muon0_dz", "muon0_trackerLayersWithMeasurement", "muon0_Roccor", "muon0_deltaRoccor" ] )
         elif lepton_type__ == 'electron':
-            columns_events.extend( [ "electron0_pt", "electron0_eta", "electron0_phi", "electron0_energy", "electron0_charge", "electron0_dxy", "electron0_dz", 'electron0_corr', 'electron0_ecalTrkEnPostCorr', 'electron0_ecalTrkEnErrPostCorr', 'electron0_ecalTrkEnPreCorr', 'electron0_energyScaleUp', 'electron0_energyScaleDown' ] )
+            columns_events.extend( [ "electron0_pt", "electron0_eta", "electron0_phi", "electron0_energy", "electron0_charge", "electron0_dxy", "electron0_dz", 'electron0_corr', 'electron0_ecalTrkEnPostCorr', 'electron0_ecalTrkEnErrPostCorr', 'electron0_ecalTrkEnPreCorr', 'electron0_energyScaleValue', 'electron0_energyScaleUp', 'electron0_energyScaleDown' ] )
     
         if runOnMC_:
             columns_runOnMC_  = []
     
             columns_runOnMC_.extend( [ "run_mc" ] )
     
-            columns_runOnMC_.extend( [ "pileupWeight", "mc_pu_trueinteractions", "mcWeight", 'prefiring_weight', 'prefiring_weight_up', 'prefiring_weight_down', 'prefiring_weight_ECAL', 'prefiring_weight_ECAL_up', 'prefiring_weight_ECAL_down', 'prefiring_weight_Muon', 'prefiring_weight_Muon_up', 'prefiring_weight_Muon_down' ] )
+            columns_runOnMC_.extend( [ "pileupWeight", "mc_pu_trueinteractions", "mcWeight", 'prefiring_weight', 'prefiring_weight_up', 'prefiring_weight_down' ] )
+           
+            if lepton_type__ == 'electron':
+               columns_runOnMC_.extend( [ 'prefiring_weight_ECAL', 'prefiring_weight_ECAL_up', 'prefiring_weight_ECAL_down' ] )
+            
+            if lepton_type__ == 'muon':
+               columns_runOnMC_.extend( [ 'prefiring_weight_Muon', 'prefiring_weight_Muon_up', 'prefiring_weight_Muon_down' ] )
     
             columns_runOnMC_.extend( [ "jet0_jer_res", "jet0_jer_sf", "jet0_jer_sfup", "jet0_jer_sfdown", 'jet0_cjer', 'jet0_cjer_up', 'jet0_cjer_down' ] )
     
             if lepton_type__ == 'electron':
-                columns_runOnMC_.extend( [ 'electron0_energySigmaUp', 'electron0_energySigmaDown' ] )
+                columns_runOnMC_.extend( [ 'electron0_energySigmaValue', 'electron0_energySigmaUp', 'electron0_energySigmaDown' ] )
     
             columns_runOnMC_.extend( [ 'met_ptJER_Up', 'met_ptJER_Down', 'met_phiJER_Up', 'met_phiJER_Down', 'met_ptJES_Up', 'met_ptJES_Down', 'met_phiJES_Up', 'met_phiJES_Down' ] )
             columns_runOnMC_.extend( [ "gen_jet0_pt", "gen_jet0_eta", "gen_jet0_phi", "gen_jet0_energy" ] )
@@ -150,12 +160,15 @@ class CreateTableEvents:
         events_keys[ 'prefiring_weight' ] = 'prefiring_weight_0'
         events_keys[ 'prefiring_weight_up' ] = 'prefiring_weight_up_0'
         events_keys[ 'prefiring_weight_down' ] = 'prefiring_weight_down_0'
-        events_keys[ 'prefiring_weight_ECAL' ] = 'prefiring_weight_ECAL_0'
-        events_keys[ 'prefiring_weight_ECAL_up' ] = 'prefiring_weight_ECAL_up_0'
-        events_keys[ 'prefiring_weight_ECAL_down' ] = 'prefiring_weight_ECAL_down_0'
-        events_keys[ 'prefiring_weight_Muon' ] = 'prefiring_weight_Muon_0'
-        events_keys[ 'prefiring_weight_Muon_up' ] = 'prefiring_weight_Muon_up_0'
-        events_keys[ 'prefiring_weight_Muon_down' ] = 'prefiring_weight_Muon_down_0'
+
+        if lepton_type__ == 'electron':
+           events_keys[ 'prefiring_weight_ECAL' ] = 'prefiring_weight_ECAL_0'
+           events_keys[ 'prefiring_weight_ECAL_up' ] = 'prefiring_weight_ECAL_up_0'
+           events_keys[ 'prefiring_weight_ECAL_down' ] = 'prefiring_weight_ECAL_down_0'
+        if lepton_type__ == 'muon':
+           events_keys[ 'prefiring_weight_Muon' ] = 'prefiring_weight_Muon_0'
+           events_keys[ 'prefiring_weight_Muon_up' ] = 'prefiring_weight_Muon_up_0'
+           events_keys[ 'prefiring_weight_Muon_down' ] = 'prefiring_weight_Muon_down_0'
 
         file_name_label_ = 'output-{}.h5'.format( label__ )
         if output_dir__ is not None and output_dir__ != "":
@@ -191,8 +204,11 @@ class CreateTableEvents:
                     "run", "event", "lumiblock", "crossingAngle", "betaStar", "instLumi", "nVertices",
                     "num_bjets_ak8", "num_bjets_ak4", "num_jets_ak4",
                     "pfcand_nextracks", "pfcand_nextracks_noDRl",
-                    "recoMWhad", "recoMWlep", "recoMWW", "recoRapidityWW", "dphiWW", "WLeptonicPt", "WLeptonicEta", "WLeptonicPhi",
-                    "pileupWeight", "mc_pu_trueinteractions", "mcWeight" ]
+                    "recoMWhad", "recoMWlep", "recoMWlep_metJER_Up", "recoMWlep_metJER_Down", "recoMWlep_metJES_Up", "recoMWlep_metJES_Down", 
+                    "recoMWW", "recoMWW_metJER_Up", "recoMWW_metJER_Down", "recoMWW_metJES_Up", "recoMWW_metJES_Down", 
+                    "recoRapidityWW", "dphiWW", 
+                    "WLeptonicPt", "WLeptonicPt_metJER_Up", "WLeptonicPt_metJER_Down", "WLeptonicPt_metJES_Up", "WLeptonicPt_metJES_Down",
+                    "WLeptonicEta", "WLeptonicPhi", "pileupWeight", "mc_pu_trueinteractions", "mcWeight" ]
                 keys_jet = tree_.keys( filter_name="jet*")
                 keys_.extend( keys_jet )
                 keys_genjet = tree_.keys( filter_name="gen_jet*")
@@ -399,6 +415,8 @@ class CreateTableEvents:
                         events_["muon0_dxy"]                          = events_[ "muon_dxy" ][:,0]
                         events_["muon0_dz"]                           = events_[ "muon_dz" ][:,0]
                         events_["muon0_trackerLayersWithMeasurement"] = events_[ "muon_trackerLayersWithMeasurement" ][:,0]
+                        events_["muon0_Roccor"]                       = events_[ "muon_Roccor" ][:,0]
+                        events_["muon0_deltaRoccor"]                  = events_[ "muon_deltaRoccor" ][:,0]
                         if runOnMC_:
                             # msk__ = ( ak.num( genmuons_sel_ ) >= 1 )
                             # print ( ak.to_list( ak.num( genmuons_sel_ ) ) )
@@ -435,9 +453,11 @@ class CreateTableEvents:
                         events_["electron0_ecalTrkEnPostCorr"]    = events_[ "electron_ecalTrkEnPostCorr" ][:,0]
                         events_["electron0_ecalTrkEnErrPostCorr"] = events_[ "electron_ecalTrkEnErrPostCorr" ][:,0]
                         events_["electron0_ecalTrkEnPreCorr"]     = events_[ "electron_ecalTrkEnPreCorr" ][:,0]
+                        events_["electron0_energyScaleValue"]     = events_[ "electron_energyScaleValue" ][:,0]
                         events_["electron0_energyScaleUp"]        = events_[ "electron_energyScaleUp" ][:,0]
                         events_["electron0_energyScaleDown"]      = events_[ "electron_energyScaleDown" ][:,0]
                         if runOnMC_:
+                            events_["electron0_energySigmaValue"] = events_[ "electron_energySigmaValue" ][:,0]
                             events_["electron0_energySigmaUp"]    = events_[ "electron_energySigmaUp" ][:,0]
                             events_["electron0_energySigmaDown"]  = events_[ "electron_energySigmaDown" ][:,0]
                             events_["gen_electron0_pt"]        = genelectrons_sel_[ "pt" ][:,0]
@@ -463,12 +483,14 @@ class CreateTableEvents:
                         events_["prefiring_weight_0"]       = events_["prefiring_weight"][ 0 ]
                         events_["prefiring_weight_up_0"]    = events_["prefiring_weight_up"][ 0 ]
                         events_["prefiring_weight_down_0"]  = events_["prefiring_weight_down"][ 0 ]
-                        events_["prefiring_weight_ECAL_0"]       = events_["prefiring_weight_ECAL"][ 0 ]
-                        events_["prefiring_weight_ECAL_up_0"]    = events_["prefiring_weight_ECAL_up"][ 0 ]
-                        events_["prefiring_weight_ECAL_down_0"]  = events_["prefiring_weight_ECAL_down"][ 0 ]
-                        events_["prefiring_weight_Muon_0"]       = events_["prefiring_weight_Muon"][ 0 ]
-                        events_["prefiring_weight_Muon_up_0"]    = events_["prefiring_weight_Muon_up"][ 0 ]
-                        events_["prefiring_weight_Muon_down_0"]  = events_["prefiring_weight_Muon_down"][ 0 ]
+                        if lepton_type__ == 'electron':
+                           events_["prefiring_weight_ECAL_0"]       = events_["prefiring_weight_ECAL"][ 0 ]
+                           events_["prefiring_weight_ECAL_up_0"]    = events_["prefiring_weight_ECAL_up"][ 0 ]
+                           events_["prefiring_weight_ECAL_down_0"]  = events_["prefiring_weight_ECAL_down"][ 0 ]
+                        if lepton_type__ == 'muon':
+                           events_["prefiring_weight_Muon_0"]       = events_["prefiring_weight_Muon"][ 0 ]
+                           events_["prefiring_weight_Muon_up_0"]    = events_["prefiring_weight_Muon_up"][ 0 ]
+                           events_["prefiring_weight_Muon_down_0"]  = events_["prefiring_weight_Muon_down"][ 0 ]
                     
                     check_none_ = ak.is_none( events_ )
                     arr_check_none_ = np.array( check_none_ ).astype("int32")

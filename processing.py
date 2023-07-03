@@ -25,8 +25,9 @@ run_ranges_periods_2018[ "2018D2" ] = (323363,325273)
 df_run_ranges_2018 = pd.DataFrame( run_ranges_periods_2018, index=("min","max") ).transpose()
 run_ranges_periods_mixing_2018 = {}
 run_ranges_periods_mixing_2018[ "2018A" ]  = (315252,316995)
-run_ranges_periods_mixing_2018[ "2018B" ]  = (316998,319312)
-run_ranges_periods_mixing_2018[ "2018C" ]  = (319313,320393)
+#run_ranges_periods_mixing_2018[ "2018B" ]  = (316998,319312)
+#run_ranges_periods_mixing_2018[ "2018C" ]  = (319313,320393)
+run_ranges_periods_mixing_2018[ "2018BC" ]  = (316998,320393)
 run_ranges_periods_mixing_2018[ "2018D1" ] = (320394,322633)
 run_ranges_periods_mixing_2018[ "2018D2" ] = (323363,325273)
 df_run_ranges_mixing_2018 = pd.DataFrame( run_ranges_periods_mixing_2018, index=("min","max") ).transpose()
@@ -76,27 +77,47 @@ print ( "Luminosity 2017 electron: {}".format( np.sum( list( lumi_periods_2017[ 
 # L_2018C  = 6.5297
 # L_2018D1 = 19.88
 # L_2018D2 = 10.4157
-L_2018A  = 14.027047499
-L_2018B1 = 6.629673574
-L_2018B2 = 0.430948924
-L_2018C  = 6.891747024
-L_2018D1 = 20.962647459
-L_2018D2 = 10.868724698
+##### muon lumi ######
+L_mu_2018A  = 12.103512482
+L_mu_2018B1 = 6.3798061
+L_mu_2018B2 = 0.40141386
+L_mu_2018C  = 6.524227381
+L_mu_2018D1 = 19.877577
+L_mu_2018D2 = 10.414449
+##### electron lumi ######
+L_el_2018A  = 12.103189833
+L_el_2018B1 = 6.3798060
+L_el_2018B2 = 0.40141386
+L_el_2018C  = 6.527251329
+L_el_2018D1 = 19.876804
+L_el_2018D2 = 10.414449
 lumi_periods_2018 = {}
 lumi_periods_2018[ 'muon' ] = {}
-lumi_periods_2018[ 'muon' ][ "2018A" ]  = L_2018A * 0.999913
-lumi_periods_2018[ 'muon' ][ "2018B1" ] = L_2018B1 * 0.998672
-lumi_periods_2018[ 'muon' ][ "2018B2" ] = L_2018B2 * 0.998672
-lumi_periods_2018[ 'muon' ][ "2018C" ]  = L_2018C * 0.999991
-lumi_periods_2018[ 'muon' ][ "2018D1" ] = L_2018D1 * 0.998915
-lumi_periods_2018[ 'muon' ][ "2018D2" ] = L_2018D2 * 0.998915
+#lumi_periods_2018[ 'muon' ][ "2018A" ]  = L_mu_2018A * 0.999913
+#lumi_periods_2018[ 'muon' ][ "2018B1" ] = L_mu_2018B1 * 0.998672
+#lumi_periods_2018[ 'muon' ][ "2018B2" ] = L_mu_2018B2 * 0.998672
+#lumi_periods_2018[ 'muon' ][ "2018C" ]  = L_mu_2018C * 0.999991
+#lumi_periods_2018[ 'muon' ][ "2018D1" ] = L_mu_2018D1 * 0.998915
+#lumi_periods_2018[ 'muon' ][ "2018D2" ] = L_mu_2018D2 * 0.998915
+lumi_periods_2018[ 'muon' ][ "2018A" ]  = L_mu_2018A
+lumi_periods_2018[ 'muon' ][ "2018B1" ] = L_mu_2018B1
+lumi_periods_2018[ 'muon' ][ "2018B2" ] = L_mu_2018B2
+lumi_periods_2018[ 'muon' ][ "2018C" ]  = L_mu_2018C
+lumi_periods_2018[ 'muon' ][ "2018D1" ] = L_mu_2018D1
+lumi_periods_2018[ 'muon' ][ "2018D2" ] = L_mu_2018D2
 lumi_periods_2018[ 'electron' ] = {}
-lumi_periods_2018[ 'electron' ][ "2018A" ]  = L_2018A * 0.933083
-lumi_periods_2018[ 'electron' ][ "2018B1" ] = L_2018B1 * 0.999977
-lumi_periods_2018[ 'electron' ][ "2018B2" ] = L_2018B2 * 0.999977
-lumi_periods_2018[ 'electron' ][ "2018C" ]  = L_2018C * 0.999978
-lumi_periods_2018[ 'electron' ][ "2018D1" ] = L_2018D1 * 0.999389
-lumi_periods_2018[ 'electron' ][ "2018D2" ] = L_2018D2 * 0.999389
+#lumi_periods_2018[ 'electron' ][ "2018A" ]  = L_el_2018A * 0.933083
+#lumi_periods_2018[ 'electron' ][ "2018B1" ] = L_el_2018B1 * 0.999977
+#lumi_periods_2018[ 'electron' ][ "2018B2" ] = L_el_2018B2 * 0.999977
+#lumi_periods_2018[ 'electron' ][ "2018C" ]  = L_el_2018C * 0.999978
+#lumi_periods_2018[ 'electron' ][ "2018D1" ] = L_el_2018D1 * 0.999389
+#lumi_periods_2018[ 'electron' ][ "2018D2" ] = L_el_2018D2 * 0.999389
+lumi_periods_2018[ 'electron' ][ "2018A" ]  = L_el_2018A
+lumi_periods_2018[ 'electron' ][ "2018B1" ] = L_el_2018B1
+lumi_periods_2018[ 'electron' ][ "2018B2" ] = L_el_2018B2 
+lumi_periods_2018[ 'electron' ][ "2018C" ]  = L_el_2018C
+lumi_periods_2018[ 'electron' ][ "2018D1" ] = L_el_2018D1
+lumi_periods_2018[ 'electron' ][ "2018D2" ] = L_el_2018D2
 print ( lumi_periods_2018 )
 print ( "Luminosity 2018 muon: {}".format( np.sum( list( lumi_periods_2018[ 'muon' ].values() ) ) ) )
 print ( "Luminosity 2018 electron: {}".format( np.sum( list( lumi_periods_2018[ 'electron' ].values() ) ) ) )
@@ -660,7 +681,7 @@ def get_data( fileNames, runMin=None, runMax=None ):
     return (df_counts, df_protons_multiRP, df_protons_singleRP, df_ppstracks)
 
 
-def process_data_protons_multiRP( lepton_type, data_sample, df_protons_multiRP, df_ppstracks=None, apply_fiducial=True, within_aperture=False, random_protons=False, mix_protons=False, select_2protons=True, runOnMC=False, use_hash_index=False ):
+def process_data_protons_multiRP( lepton_type, data_sample, df_protons_multiRP, df_ppstracks=None, apply_fiducial=True, within_aperture=False, random_protons=False, mix_protons=False, select_2protons=True, runOnMC=False, use_hash_index=False, nprot_value=5 ):
 
     # if runOnMC and not mix_protons:
     #     print ( "Turning within_aperture OFF for MC." )
@@ -980,7 +1001,7 @@ def process_data_protons_multiRP( lepton_type, data_sample, df_protons_multiRP, 
     print ( columns_drop_ )
 
     # df_protons_multiRP_events, df_protons_multiRP_index_2protons = process_events( data_sample, df_protons_multiRP_index, runOnMC=runOnMC, mix_protons=mix_protons, columns_drop=columns_drop_ )
-    df_protons_multiRP_events, df_protons_multiRP_index_2protons = process_events( data_sample, df_protons_multiRP_index, runOnMC=runOnMC, mix_protons=mix_protons, columns_drop=columns_drop_, use_hash_index=use_hash_index )
+    df_protons_multiRP_events, df_protons_multiRP_index_2protons = process_events( data_sample, df_protons_multiRP_index, runOnMC=runOnMC, mix_protons=mix_protons, columns_drop=columns_drop_, use_hash_index=use_hash_index, nprot_value=nprot_value )
 
     if select_2protons:
         df_protons_multiRP_index = df_protons_multiRP_index_2protons
@@ -989,7 +1010,7 @@ def process_data_protons_multiRP( lepton_type, data_sample, df_protons_multiRP, 
 
     return (df_protons_multiRP_index, df_protons_multiRP_events, df_ppstracks_index)
 
-def process_events( data_sample, df_protons_multiRP_index, runOnMC=False, mix_protons=False, columns_drop=None, use_hash_index=False ):
+def process_events( data_sample, df_protons_multiRP_index, runOnMC=False, mix_protons=False, columns_drop=None, use_hash_index=False, nprot_value=5 ):
 
     index_vars_ = None
     if not use_hash_index:
@@ -997,24 +1018,43 @@ def process_events( data_sample, df_protons_multiRP_index, runOnMC=False, mix_pr
     else:
         index_vars_ = ['run', 'lumiblock', 'event', 'hash_id', 'slice']
     print ( index_vars_ )
-   
+
+    df_protons_multiRP_groupby_arm = df_protons_multiRP_index[ [ "arm" ] ].groupby( index_vars_ )
+    df_protons_multiRP_index['nprotons_arm0'] = df_protons_multiRP_groupby_arm[ "arm" ].transform( lambda s_: ( np.sum( s_ == 0 ) ) )
+    df_protons_multiRP_index['nprotons_arm1'] = df_protons_multiRP_groupby_arm[ "arm" ].transform( lambda s_: ( np.sum( s_ == 1 ) ) )
+    print( df_protons_multiRP_index['nprotons_arm0'] )
+    print( df_protons_multiRP_index['nprotons_arm1'] )
+
+    msk_nprotons = None
+    if data_sample == '2017':
+        #msk_nprotons = df_protons_multiRP_groupby_arm[ "arm" ].transform( lambda s_: ( np.sum( s_ == 0 ) == 1 ) & ( np.sum( s_ == 1 ) == 1 ) )
+        msk_nprotons = ( df_protons_multiRP_index['nprotons_arm0'] == 1 ) & ( df_protons_multiRP_index['nprotons_arm1'] == 1 )
+    elif data_sample == '2018':
+        #msk_nprotons = df_protons_multiRP_groupby_arm[ "arm" ].transform( lambda s_: ( np.sum( s_ == 0 ) <= 3 ) & ( np.sum( s_ == 1 ) <= 3 ) )
+        #msk_nprotons = df_protons_multiRP_groupby_arm[ "arm" ].transform( lambda s_: ( np.sum( s_ == 0 ) <= nprot_value ) & ( np.sum( s_ == 1 ) <= nprot_value ) )
+        msk_nprotons = ( df_protons_multiRP_index['nprotons_arm0'] <= nprot_value ) & ( df_protons_multiRP_index['nprotons_arm1'] <= nprot_value )
+    print ( msk_nprotons )
+    df_protons_multiRP_index_nprotons = df_protons_multiRP_index.loc[ msk_nprotons ]
+
     # df_protons_multiRP_groupby_byarm_xi_max = df_protons_multiRP_index[ [ "arm", "xi" ] ].groupby( ["run","lumiblock","event","slice","arm"] )
     groupby_vars_ = index_vars_.copy()
     groupby_vars_.append( 'arm' )
-    df_protons_multiRP_groupby_byarm_xi_max = df_protons_multiRP_index[ [ "arm", "xi" ] ].groupby( groupby_vars_ )
+    # df_protons_multiRP_groupby_byarm_xi_max = df_protons_multiRP_index[ [ "arm", "xi" ] ].groupby( groupby_vars_ )
+    df_protons_multiRP_groupby_byarm_xi_max = df_protons_multiRP_index_nprotons[ [ "arm", "xi" ] ].groupby( groupby_vars_ )
     msk_xi_max = df_protons_multiRP_groupby_byarm_xi_max[ "xi" ].transform( lambda s_: ( s_ == s_.max() ) )
     print ( msk_xi_max )
-    df_protons_multiRP_index_xi_max = df_protons_multiRP_index.loc[ msk_xi_max ]
+    # df_protons_multiRP_index_xi_max = df_protons_multiRP_index.loc[ msk_xi_max ]
+    df_protons_multiRP_index_xi_max = df_protons_multiRP_index_nprotons.loc[ msk_xi_max ]
 
     # df_protons_multiRP_groupby_arm = df_protons_multiRP_index[ [ "arm" ] ].groupby( ["run","lumiblock","event","slice"] )
     # msk_2protons = df_protons_multiRP_groupby_arm[ "arm" ].transform( lambda s_: ( np.sum( s_ == 0 ) >= 1 ) & ( np.sum( s_ == 1 ) >= 1 ) )
     # print ( msk_2protons )
     # df_protons_multiRP_index_2protons = df_protons_multiRP_index.loc[ msk_2protons ]
     # df_protons_multiRP_groupby_arm = df_protons_multiRP_index_xi_max[ [ "arm" ] ].groupby( ["run","lumiblock","event","slice"] )
-    df_protons_multiRP_groupby_arm = df_protons_multiRP_index_xi_max[ [ "arm" ] ].groupby( index_vars_ )
-    msk_2protons = df_protons_multiRP_groupby_arm[ "arm" ].transform( lambda s_: ( np.sum( s_ == 0 ) == 1 ) & ( np.sum( s_ == 1 ) == 1 ) )
-    print ( msk_2protons )
-    df_protons_multiRP_index_2protons = df_protons_multiRP_index_xi_max.loc[ msk_2protons ]
+    df_protons_multiRP_groupby_arm_xi_max = df_protons_multiRP_index_xi_max[ [ "arm" ] ].groupby( index_vars_ )
+    msk_2protons_xi_max = df_protons_multiRP_groupby_arm_xi_max[ "arm" ].transform( lambda s_: ( np.sum( s_ == 0 ) == 1 ) & ( np.sum( s_ == 1 ) == 1 ) )
+    print ( msk_2protons_xi_max )
+    df_protons_multiRP_index_2protons = df_protons_multiRP_index_xi_max.loc[ msk_2protons_xi_max ]
 
     var_list_ = None
     if data_sample == '2017':
@@ -1023,9 +1063,14 @@ def process_events( data_sample, df_protons_multiRP_index, runOnMC=False, mix_pr
         var_list_ = [ "arm", "xi", "eff_proton_all_weighted", "eff_proton_all", "eff_proton_unc" ] if ( runOnMC and not mix_protons ) else [ "arm", "xi" ]
 
     # labels_xi_ = [ "_nom", "_p10", "_p30", "_p60", "_p100", "_m10", "_m30", "_m60", "_m100" ]
+    #labels_xi_ = None
+    #if runOnMC and not mix_protons:
+    #  labels_xi_ = [ "_nom", "_p100", "_m100" ]
+    #else: 
+    #  labels_xi_ = [ "_nom" ]
     labels_xi_ = [ "_nom", "_p100", "_m100" ]
     if runOnMC:
-        var_list_.extend( [ "xi" + label_ for label_ in labels_xi_ ] )
+       var_list_.extend( [ "xi" + label_ for label_ in labels_xi_ ] )
 
     # df_protons_multiRP_2protons_groupby = df_protons_multiRP_index_2protons[ var_list_ ].groupby( ["run","lumiblock","event","slice"] )
     df_protons_multiRP_2protons_groupby = df_protons_multiRP_index_2protons[ var_list_ ].groupby( index_vars_ )
@@ -1037,17 +1082,29 @@ def process_events( data_sample, df_protons_multiRP_index, runOnMC=False, mix_pr
     df_protons_multiRP_events = df_protons_multiRP_events[ ~df_protons_multiRP_events.index.duplicated(keep='first') ]
     print ( "Number of events: {}".format( df_protons_multiRP_events.shape[0] ) )
 
+    
+    df_protons_multiRP_events.loc[ :, "xi_max_arm0" ] = df_protons_multiRP_2protons_groupby[ ["arm", "xi"] ].apply(
+          lambda df__: df__[ "xi" ][ df__[ "arm" ] == 0 ].iloc[0]  
+          )
+    print ( df_protons_multiRP_events.loc[ :, "xi_max_arm0" ] )
+
+    df_protons_multiRP_events.loc[ :, "xi_max_arm1" ] = df_protons_multiRP_2protons_groupby[ ["arm", "xi"] ].apply(
+          lambda df__: df__[ "xi" ][ df__[ "arm" ] == 1 ].iloc[0]  
+          )
+    print ( df_protons_multiRP_events.loc[ :, "xi_max_arm1" ] )
+    
     # df_protons_multiRP_events.loc[ :, "MX" ] = df_protons_multiRP_2protons_groupby[ "xi" ].agg(
     #     lambda s_: 13000. * np.sqrt( s_.iloc[0] * s_.iloc[1] )
     #     )
     df_protons_multiRP_events.loc[ :, "MX" ] = df_protons_multiRP_2protons_groupby[ "xi" ].agg(
-        lambda s_: 13000. * np.sqrt( s_.iloc[0] * s_.iloc[1] )
-        )
+          lambda s_: 13000. * np.sqrt( s_.iloc[0] * s_.iloc[1] )
+          )
     print ( df_protons_multiRP_events.loc[ :, "MX" ] )
     df_protons_multiRP_events.loc[ :, "YX" ] = df_protons_multiRP_2protons_groupby[ ["arm", "xi"] ].apply(
-        lambda df__: 0.5 * np.log( df__[ "xi" ][ df__[ "arm" ] == 0 ].iloc[0] / df__[ "xi" ][ df__[ "arm" ] == 1 ].iloc[0] )
-        )
+          lambda df__: 0.5 * np.log( df__[ "xi" ][ df__[ "arm" ] == 0 ].iloc[0] / df__[ "xi" ][ df__[ "arm" ] == 1 ].iloc[0] )
+          )
     print ( df_protons_multiRP_events.loc[ :, "YX" ] )
+
     df_protons_multiRP_events.loc[ :, "diffMWW_MX" ]  = df_protons_multiRP_events[ "recoMWW" ] - df_protons_multiRP_events[ "MX" ]
     df_protons_multiRP_events.loc[ :, "ratioMWW_MX" ] = df_protons_multiRP_events[ "recoMWW" ] / df_protons_multiRP_events[ "MX" ]
     df_protons_multiRP_events.loc[ :, "shiftedRatioMWW_MX" ] = df_protons_multiRP_events[ "ratioMWW_MX" ] - 1.

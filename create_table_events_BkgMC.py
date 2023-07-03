@@ -4,8 +4,8 @@
 
 from CreateTableEvents import *
 
-lepton_type = 'muon'
-# lepton_type = 'electron'
+#lepton_type = 'muon'
+lepton_type = 'electron'
 
 # data_sample = '2017'
 data_sample = '2018'
@@ -28,9 +28,9 @@ elif data_sample == '2018':
     fileNames_[ "ST_s-channel_4f_leptonDecays" ] = [
         "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Bkg/ST_s-channel_4f_leptonDecays_TuneCP5_13TeV-amcatnlo-pythia8.root"
     ]
-    #fileNames_[ "ST_t-channel_top_4f_InclusiveDecays" ] = [
-    #    "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Bkg/ST_t-channel_top_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8.root"
-    #]
+    fileNames_[ "ST_t-channel_top_4f_InclusiveDecays" ] = [
+        "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Bkg/ST_t-channel_top_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8.root"
+    ]
     fileNames_[ "ST_t-channel_antitop_4f_InclusiveDecays" ] = [
         "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Bkg/ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8.root"
     ]
@@ -76,9 +76,9 @@ elif data_sample == '2018':
     fileNames_[ "QCD_Pt_470to600" ] = [
         "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Bkg/QCD_Pt_470to600_TuneCP5_13TeV_pythia8.root"
     ]
-    #fileNames_[ "QCD_Pt_600to800" ] = [
-    #    "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Bkg/QCD_Pt_600to800_TuneCP5_13TeV_pythia8.root"
-    #]
+    fileNames_[ "QCD_Pt_600to800" ] = [
+        "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Bkg/QCD_Pt_600to800_TuneCP5_13TeV_pythia8.root"
+    ]
     fileNames_[ "QCD_Pt_800to1000" ] = [
         "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Bkg/QCD_Pt_800to1000_TuneCP5_13TeV_pythia8.root"
     ]
@@ -99,7 +99,7 @@ elif data_sample == '2018':
     ]
 
 # output_dir_=""
-output_dir_="output"
+output_dir_="/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output_events"
 create_table_events_ = CreateTableEvents( label=label, lepton_type=lepton_type, data_sample=data_sample, fileNames=fileNames_, tree_path=tree_path, output_dir=output_dir_ )
 
 create_table_events_( runOnMC=True, step_size=step_size, firstEvent=None, entryStop=None, debug=debug ) 

@@ -84,8 +84,9 @@ elif data_sample == '2018':
             "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_bSM_13tev_a0w_0_aCw_2e-5_semi_pt0.root"
         ]
 
-# output_dir_=""
+#output_dir_="output_test"
 output_dir_="/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output"
+#output_dir_="/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output_new"
 create_table_ = CreateTable( label=label, lepton_type=lepton_type, data_sample=data_sample, fileNames=fileNames_A0W_ACW, tree_path=tree_path, output_dir=output_dir_ )
 
 create_table_( mix_protons=False, runOnMC=True, step_size=step_size, firstEvent=None, entryStop=None, debug=debug ) 

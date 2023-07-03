@@ -50,16 +50,16 @@ class ProcessData:
             # if self.data_sample_ == '2017' or self.data_sample_ == '2018':
             #     self.jecPars_ = ROOT.JetCorrectorParameters( cmssw_base_ + "/src/PhysicsTools/NanoAODTools/data/jme/" + "Fall17_17Nov2017_V32_MC_Uncertainty_AK8PFchs.txt" )
             if self.data_sample_ == '2017':
-                self.jecPars_ = ROOT.JetCorrectorParameters( "jes_jer/2017-JEC-JER/" + "Summer19UL17_V5_MC_Uncertainty_AK8PFchs.txt" )
+                self.jecPars_ = ROOT.JetCorrectorParameters( cmssw_base_ + "/src/workspace/pps-ww-analysis-notebook/jes_jer/2017-JEC-JER/" + "Summer19UL17_V5_MC_Uncertainty_AK8PFchs.txt" )
             elif self.data_sample_ == '2018':
-                self.jecPars_ = ROOT.JetCorrectorParameters( "jes_jer/2018-JEC-JER/" + "Summer19UL18_V5_MC_Uncertainty_AK8PFchs.txt" )
+                self.jecPars_ = ROOT.JetCorrectorParameters( cmssw_base_ + "/src/workspace/pps-ww-analysis-notebook/jes_jer/2018-JEC-JER/" + "Summer19UL18_V5_MC_Uncertainty_AK8PFchs.txt" )
             print ( self.jecPars_ )
             self.jecUncertainty_ = ROOT.JetCorrectionUncertainty( self.jecPars_ )
             print ( self.jecUncertainty_ )
 
             self.systematics_Xi_X_, self.systematics_Xi_Y_ = get_systematics_vs_xi_h5(
                 data_periods=self.data_periods_,
-                fileName="reco_characteristics/reco_characteristics_version1.h5"
+                fileName= cmssw_base_ + "/src/workspace/pps-ww-analysis-notebook/reco_characteristics/reco_characteristics_version1.h5"
                 )
 
     def getJetUncertainty( self, jet_eta, jet_pt ):
@@ -186,11 +186,24 @@ class ProcessData:
     def calculateMuons( self, df ):
         label_ = "_nom"
         df.loc[ :, "muon0_pt" + label_ ]     = df.loc[ :, "muon0_pt" ]
-        df.loc[ :, "muon0_energy" + label_ ] = df.loc[ :, "muon0_energy" ]
+        df.loc[ :, "muon0_energy" + label_ ] = df.loc[ :, "muon0_energy" ] * df.loc[ :, "muon0_Roccor" ]
         df.loc[ :, "muon0_px" + label_ ]     = ( df.loc[ :, "muon0_pt" + label_ ] * np.cos( df.loc[ :, "muon0_phi" ] ) )
         df.loc[ :, "muon0_py" + label_ ]     = ( df.loc[ :, "muon0_pt" + label_ ] * np.sin( df.loc[ :, "muon0_phi" ] ) )
         df.loc[ :, "muon0_pz" + label_ ]     = ( df.loc[ :, "muon0_pt" + label_ ] * np.sinh( df.loc[ :, "muon0_eta" ] ) )
         if self.runOnMC_:
+            label_ = "_mu_roccor_up"
+            df.loc[ :, "muon0_pt" + label_ ]       = df.loc[ :, "muon0_pt" + "_nom" ] * ( 1. + df.loc[ :, "muon0_deltaRoccor" ] / df.loc[ :, "muon0_Roccor" ] ) 
+            df.loc[ :, "muon0_energy" + label_ ]   = df.loc[ :, "muon0_energy" + "_nom" ] * ( 1. + df.loc[ :, "muon0_deltaRoccor" ] / df.loc[ :, "muon0_Roccor" ]) 
+            df.loc[ :, "muon0_px" + label_ ]       = ( df.loc[ :, "muon0_pt" + label_ ] * np.cos( df.loc[ :, "muon0_phi" ] ) )
+            df.loc[ :, "muon0_py" + label_ ]       = ( df.loc[ :, "muon0_pt" + label_ ] * np.sin( df.loc[ :, "muon0_phi" ] ) )
+            df.loc[ :, "muon0_pz" + label_ ]       = ( df.loc[ :, "muon0_pt" + label_ ] * np.sinh( df.loc[ :, "muon0_eta" ] ) )
+            
+            label_ = "_mu_roccor_down"
+            df.loc[ :, "muon0_pt" + label_ ]       = df.loc[ :, "muon0_pt" + "_nom" ] * ( 1. - df.loc[ :, "muon0_deltaRoccor" ] / df.loc[ :, "muon0_Roccor" ] ) 
+            df.loc[ :, "muon0_energy" + label_ ]   = df.loc[ :, "muon0_energy" + "_nom" ] * ( 1. - df.loc[ :, "muon0_deltaRoccor" ] / df.loc[ :, "muon0_Roccor" ] ) 
+            df.loc[ :, "muon0_px" + label_ ]       = ( df.loc[ :, "muon0_pt" + label_ ] * np.cos( df.loc[ :, "muon0_phi" ] ) )
+            df.loc[ :, "muon0_py" + label_ ]       = ( df.loc[ :, "muon0_pt" + label_ ] * np.sin( df.loc[ :, "muon0_phi" ] ) )
+            df.loc[ :, "muon0_pz" + label_ ]       = ( df.loc[ :, "muon0_pt" + label_ ] * np.sinh( df.loc[ :, "muon0_eta" ] ) )
             # Muon scale factors
             from muon_efficiency import MuonIDScaleFactor, MuonTRGScaleFactor 
             # ID
@@ -198,10 +211,10 @@ class ProcessData:
             file_eff_MuID_ = None
             histName_MuID_ = None
             if self.data_sample_ == '2017':
-                file_eff_MuID_ = ROOT.TFile.Open( "efficiencies/muon/id/2017/Efficiencies_muon_generalTracks_Z_Run2017_UL_ID.root", "READ" )
+                file_eff_MuID_ = ROOT.TFile.Open( "/afs/cern.ch/user/m/malvesga/work/ProtonRecon/TEST/CMSSW_11_2_4/src/workspace/pps-ww-analysis-notebook/efficiencies/muon/id/2017/Efficiencies_muon_generalTracks_Z_Run2017_UL_ID.root", "READ" )
                 histName_MuID_ = "NUM_TrkHighPtID_DEN_TrackerMuons_abseta_pt"
             elif self.data_sample_ == '2018':
-                file_eff_MuID_ = ROOT.TFile.Open( "efficiencies/muon/id/2018/Efficiencies_muon_generalTracks_Z_Run2018_UL_ID.root", "READ" )
+                file_eff_MuID_ = ROOT.TFile.Open( "/afs/cern.ch/user/m/malvesga/work/ProtonRecon/TEST/CMSSW_11_2_4/src/workspace/pps-ww-analysis-notebook/efficiencies/muon/id/2018/Efficiencies_muon_generalTracks_Z_Run2018_UL_ID.root", "READ" )
                 histName_MuID_ = "NUM_TrkHighPtID_DEN_TrackerMuons_abseta_pt"
 
             # muon_scale_factor_ = MuonScaleFactor( histos={ "MuID": file_eff_MuID.Get( "NUM_TightID_DEN_genTracks_pt_abseta" ) } )
@@ -223,10 +236,10 @@ class ProcessData:
             file_eff_MuTRG_ = None
             histName_MuTRG_ = None
             if self.data_sample_ == '2017':
-                file_eff_MuTRG_ = ROOT.TFile.Open( "efficiencies/muon/trigger/2017/Efficiencies_muon_generalTracks_Z_Run2017_UL_SingleMuonTriggers.root", "READ" )
+                file_eff_MuTRG_ = ROOT.TFile.Open( "/afs/cern.ch/user/m/malvesga/work/ProtonRecon/TEST/CMSSW_11_2_4/src/workspace/pps-ww-analysis-notebook/efficiencies/muon/trigger/2017/Efficiencies_muon_generalTracks_Z_Run2017_UL_SingleMuonTriggers.root", "READ" )
                 histName_MuTRG_ = "NUM_IsoMu27_DEN_CutBasedIdTight_and_PFIsoTight_abseta_pt"
             elif self.data_sample_ == '2018':
-                file_eff_MuTRG_ = ROOT.TFile.Open( "efficiencies/muon/trigger/2018/Efficiencies_muon_generalTracks_Z_Run2018_UL_SingleMuonTriggers.root", "READ" )
+                file_eff_MuTRG_ = ROOT.TFile.Open( "/afs/cern.ch/user/m/malvesga/work/ProtonRecon/TEST/CMSSW_11_2_4/src/workspace/pps-ww-analysis-notebook/efficiencies/muon/trigger/2018/Efficiencies_muon_generalTracks_Z_Run2018_UL_SingleMuonTriggers.root", "READ" )
                 histName_MuTRG_ = "NUM_IsoMu24_DEN_CutBasedIdTight_and_PFIsoTight_abseta_pt"
 
             muon_scale_factor_TRG_ = MuonTRGScaleFactor(
@@ -249,6 +262,33 @@ class ProcessData:
         df.loc[ :, "electron0_py" + label_ ]     = ( df.loc[ :, "electron0_pt" + label_ ] * np.sin( df.loc[ :, "electron0_phi" ] ) )
         df.loc[ :, "electron0_pz" + label_ ]     = ( df.loc[ :, "electron0_pt" + label_ ] * np.sinh( df.loc[ :, "electron0_eta" ] ) )
         if self.runOnMC_:
+            label_ = "_el_scale_up"
+            df.loc[ :, "electron0_pt" + label_ ]       = df.loc[ :, "electron0_pt" + "_nom" ] * ( df.loc[ :, "electron0_energyScaleUp" ] / ( df.loc[ :, "electron0_energy" + "_nom" ] ) ) 
+            df.loc[ :, "electron0_energy" + label_ ]   = df.loc[ :, "electron0_energy" + "_nom" ] * ( df.loc[ :, "electron0_energyScaleUp" ] / ( df.loc[ :, "electron0_energy" + "_nom" ] ) ) 
+            df.loc[ :, "electron0_px" + label_ ]       = ( df.loc[ :, "electron0_pt" + label_ ] * np.cos( df.loc[ :, "electron0_phi" ] ) )
+            df.loc[ :, "electron0_py" + label_ ]       = ( df.loc[ :, "electron0_pt" + label_ ] * np.sin( df.loc[ :, "electron0_phi" ] ) )
+            df.loc[ :, "electron0_pz" + label_ ]       = ( df.loc[ :, "electron0_pt" + label_ ] * np.sinh( df.loc[ :, "electron0_eta" ] ) )
+            
+            label_ = "_el_scale_down"
+            df.loc[ :, "electron0_pt" + label_ ]       = df.loc[ :, "electron0_pt" + "_nom" ] * ( df.loc[ :, "electron0_energyScaleDown" ] / ( df.loc[ :, "electron0_energy" + "_nom" ] ) ) 
+            df.loc[ :, "electron0_energy" + label_ ]   = df.loc[ :, "electron0_energy" + "_nom" ] * ( df.loc[ :, "electron0_energyScaleDown" ] / ( df.loc[ :, "electron0_energy" + "_nom" ] ) ) 
+            df.loc[ :, "electron0_px" + label_ ]       = ( df.loc[ :, "electron0_pt" + label_ ] * np.cos( df.loc[ :, "electron0_phi" ] ) )
+            df.loc[ :, "electron0_py" + label_ ]       = ( df.loc[ :, "electron0_pt" + label_ ] * np.sin( df.loc[ :, "electron0_phi" ] ) )
+            df.loc[ :, "electron0_pz" + label_ ]       = ( df.loc[ :, "electron0_pt" + label_ ] * np.sinh( df.loc[ :, "electron0_eta" ] ) )
+            
+            label_ = "_el_sigma_up"
+            df.loc[ :, "electron0_pt" + label_ ]       = df.loc[ :, "electron0_pt" + "_nom" ] * ( df.loc[ :, "electron0_energySigmaUp" ] / ( df.loc[ :, "electron0_energy" + "_nom" ] ) ) 
+            df.loc[ :, "electron0_energy" + label_ ]   = df.loc[ :, "electron0_energy" + "_nom" ] * ( df.loc[ :, "electron0_energySigmaUp" ] / ( df.loc[ :, "electron0_energy" + "_nom" ] ) ) 
+            df.loc[ :, "electron0_px" + label_ ]       = ( df.loc[ :, "electron0_pt" + label_ ] * np.cos( df.loc[ :, "electron0_phi" ] ) )
+            df.loc[ :, "electron0_py" + label_ ]       = ( df.loc[ :, "electron0_pt" + label_ ] * np.sin( df.loc[ :, "electron0_phi" ] ) )
+            df.loc[ :, "electron0_pz" + label_ ]       = ( df.loc[ :, "electron0_pt" + label_ ] * np.sinh( df.loc[ :, "electron0_eta" ] ) )
+            
+            label_ = "_el_sigma_down"
+            df.loc[ :, "electron0_pt" + label_ ]       = df.loc[ :, "electron0_pt" + "_nom" ] * ( df.loc[ :, "electron0_energySigmaDown" ] / ( df.loc[ :, "electron0_energy" + "_nom" ] ) ) 
+            df.loc[ :, "electron0_energy" + label_ ]   = df.loc[ :, "electron0_energy" + "_nom" ] * ( df.loc[ :, "electron0_energySigmaDown" ] / ( df.loc[ :, "electron0_energy" + "_nom" ] ) ) 
+            df.loc[ :, "electron0_px" + label_ ]       = ( df.loc[ :, "electron0_pt" + label_ ] * np.cos( df.loc[ :, "electron0_phi" ] ) )
+            df.loc[ :, "electron0_py" + label_ ]       = ( df.loc[ :, "electron0_pt" + label_ ] * np.sin( df.loc[ :, "electron0_phi" ] ) )
+            df.loc[ :, "electron0_pz" + label_ ]       = ( df.loc[ :, "electron0_pt" + label_ ] * np.sinh( df.loc[ :, "electron0_eta" ] ) )
             # Electron scale factor
             from electron_efficiency import ElectronIDScaleFactor, ElectronTRGScaleFactor 
             # ID
@@ -256,9 +296,9 @@ class ProcessData:
             file_eff_EleID_ = None
             histName_EleID_ = "EGamma_SF2D"
             if self.data_sample_ == '2017':
-                file_eff_EleID_ = ROOT.TFile.Open( "efficiencies/electron/id/2017/egammaEffi.txt_EGM2D_Tight_UL17.root", "READ" )
+                file_eff_EleID_ = ROOT.TFile.Open( "/afs/cern.ch/user/m/malvesga/work/ProtonRecon/TEST/CMSSW_11_2_4/src/workspace/pps-ww-analysis-notebook/efficiencies/electron/id/2017/egammaEffi.txt_EGM2D_Tight_UL17.root", "READ" )
             elif self.data_sample_ == '2018':
-                file_eff_EleID_ = ROOT.TFile.Open( "efficiencies/electron/id/2018/egammaEffi.txt_Ele_Tight_EGM2D.root", "READ" )
+                file_eff_EleID_ = ROOT.TFile.Open( "/afs/cern.ch/user/m/malvesga/work/ProtonRecon/TEST/CMSSW_11_2_4/src/workspace/pps-ww-analysis-notebook/efficiencies/electron/id/2018/egammaEffi.txt_Ele_Tight_EGM2D.root", "READ" )
 
             electron_scale_factor_ID_ = ElectronIDScaleFactor( histos={ "EleID": file_eff_EleID_.Get( histName_EleID_ ) } )
             f_sf_electron_id_ = lambda row: electron_scale_factor_ID_( row["electron0_eta"], row["electron0_pt"] )[ 0 ]
@@ -274,7 +314,7 @@ class ProcessData:
             if self.data_sample_ == '2017':
                 file_eff_EleTRG_ = ROOT.TFile.Open( "", "READ" )
             elif self.data_sample_ == '2018':
-                file_eff_EleTRG_ = ROOT.TFile.Open( "efficiencies/electron/trigger/2018/egammaEffi.txt_EGM2D-Trigger.root", "READ" )
+                file_eff_EleTRG_ = ROOT.TFile.Open( "/afs/cern.ch/user/m/malvesga/work/ProtonRecon/TEST/CMSSW_11_2_4/src/workspace/pps-ww-analysis-notebook/efficiencies/electron/trigger/2018/egammaEffi.txt_EGM2D-Trigger.root", "READ" )
 
             electron_scale_factor_TRG_ = ElectronTRGScaleFactor( histos={ "EleTRG": file_eff_EleTRG_.Get( histName_EleTRG_ ) } )
             f_sf_electron_trigger_ = lambda row: electron_scale_factor_TRG_( row["electron0_eta"], row["electron0_pt"] )[ 0 ]
@@ -295,7 +335,34 @@ class ProcessData:
                                                  df.loc[ :, "WLeptonicPx" + label_ ]**2 -
                                                  df.loc[ :, "WLeptonicPy" + label_ ]**2 -
                                                  df.loc[ :, "WLeptonicPz" + label_ ]**2 ) ) 
-        if self.runOnMC_: pass
+        if self.runOnMC_:
+           label_ = "_metJER_Up"
+           df.loc[ :, "WLeptonicPt" + label_ ] = df.loc[ :, "WLeptonicPt_metJER_Up" ]
+           df.loc[ :, "WLeptonicPx" + label_ ]  = ( df.loc[ :, "WLeptonicPt" + label_ ] * np.cos( df.loc[ :, "WLeptonicPhi" ] ) )
+           df.loc[ :, "WLeptonicPy" + label_ ]  = ( df.loc[ :, "WLeptonicPt" + label_ ] * np.sin( df.loc[ :, "WLeptonicPhi" ] ) )
+           df.loc[ :, "WLeptonicPz" + label_ ]  = ( df.loc[ :, "WLeptonicPt" + label_ ] * np.sinh( df.loc[ :, "WLeptonicEta" ] ) )
+           df.loc[ :, "WLeptonicE" + label_ ]   = ( np.sqrt( ( df.loc[ :, "WLeptonicPt" + label_ ] * np.cosh( df.loc[ :, "WLeptonicEta" ] ) )**2 + df.loc[ :, "recoMWlep" ] **2 ) )
+           
+           label_ = "_metJER_Down"
+           df.loc[ :, "WLeptonicPt" + label_ ] = df.loc[ :, "WLeptonicPt_metJER_Down" ]
+           df.loc[ :, "WLeptonicPx" + label_ ]  = ( df.loc[ :, "WLeptonicPt" + label_ ] * np.cos( df.loc[ :, "WLeptonicPhi" ] ) )
+           df.loc[ :, "WLeptonicPy" + label_ ]  = ( df.loc[ :, "WLeptonicPt" + label_ ] * np.sin( df.loc[ :, "WLeptonicPhi" ] ) )
+           df.loc[ :, "WLeptonicPz" + label_ ]  = ( df.loc[ :, "WLeptonicPt" + label_ ] * np.sinh( df.loc[ :, "WLeptonicEta" ] ) )
+           df.loc[ :, "WLeptonicE" + label_ ]   = ( np.sqrt( ( df.loc[ :, "WLeptonicPt" + label_ ] * np.cosh( df.loc[ :, "WLeptonicEta" ] ) )**2 + df.loc[ :, "recoMWlep" ] **2 ) )
+
+           label_ = "_metJES_Up"
+           df.loc[ :, "WLeptonicPt" + label_ ] = df.loc[ :, "WLeptonicPt_metJES_Up" ]
+           df.loc[ :, "WLeptonicPx" + label_ ]  = ( df.loc[ :, "WLeptonicPt" + label_ ] * np.cos( df.loc[ :, "WLeptonicPhi" ] ) )
+           df.loc[ :, "WLeptonicPy" + label_ ]  = ( df.loc[ :, "WLeptonicPt" + label_ ] * np.sin( df.loc[ :, "WLeptonicPhi" ] ) )
+           df.loc[ :, "WLeptonicPz" + label_ ]  = ( df.loc[ :, "WLeptonicPt" + label_ ] * np.sinh( df.loc[ :, "WLeptonicEta" ] ) )
+           df.loc[ :, "WLeptonicE" + label_ ]   = ( np.sqrt( ( df.loc[ :, "WLeptonicPt" + label_ ] * np.cosh( df.loc[ :, "WLeptonicEta" ] ) )**2 + df.loc[ :, "recoMWlep" ] **2 ) )
+           
+           label_ = "_metJES_Down"
+           df.loc[ :, "WLeptonicPt" + label_ ] = df.loc[ :, "WLeptonicPt_metJES_Down" ]
+           df.loc[ :, "WLeptonicPx" + label_ ]  = ( df.loc[ :, "WLeptonicPt" + label_ ] * np.cos( df.loc[ :, "WLeptonicPhi" ] ) )
+           df.loc[ :, "WLeptonicPy" + label_ ]  = ( df.loc[ :, "WLeptonicPt" + label_ ] * np.sin( df.loc[ :, "WLeptonicPhi" ] ) )
+           df.loc[ :, "WLeptonicPz" + label_ ]  = ( df.loc[ :, "WLeptonicPt" + label_ ] * np.sinh( df.loc[ :, "WLeptonicEta" ] ) )
+           df.loc[ :, "WLeptonicE" + label_ ]   = ( np.sqrt( ( df.loc[ :, "WLeptonicPt" + label_ ] * np.cosh( df.loc[ :, "WLeptonicEta" ] ) )**2 + df.loc[ :, "recoMWlep" ] **2 ) )
 
     def calculateWW( self, df ):
         label_ = "_nom"
@@ -360,6 +427,7 @@ class ProcessData:
     def calculateProtons( self, df ):
         df_arr_xi_ = df.loc[ :, "xi" ]
         df.loc[ :, "xi" + "_nom" ] = df_arr_xi_
+        #if self.runOnMC_ and not self.mix_protons_:
         if self.runOnMC_:
            sigma_xi_ = self.getSigmaXi( df )
            # variations_ = [ 0.10, 0.30, 0.60, 1.0 ]

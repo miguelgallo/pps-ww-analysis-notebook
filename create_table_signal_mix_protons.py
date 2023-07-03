@@ -4,8 +4,8 @@
 
 from CreateTable import *
 
-#lepton_type = 'muon'
-lepton_type = 'electron'
+lepton_type = 'muon'
+#lepton_type = 'electron'
 
 # data_sample = '2017'
 data_sample = '2018'
@@ -87,12 +87,13 @@ elif data_sample == '2018':
         ]
 
     proton_files = [
-            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/Data/SingleMuon_UL2018A_MiniAODv2-v3_noduplicates.root",
-            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/Data/SingleMuon_UL2018B_MiniAODv2-v2_noduplicates.root",
-            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/Data/SingleMuon_UL2018C_MiniAODv2-v2_noduplicates.root",
-            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/Data/SingleMuon_UL2018D_MiniAODv2-v3_noduplicates.root"
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/Data/EGamma_UL2018A_MiniAODv2-v1_noduplicates.root",
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/Data/EGamma_UL2018B_MiniAODv2-v1_noduplicates.root",
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/Data/EGamma_UL2018C_MiniAODv2-v1_noduplicates.root",
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/Data/EGamma_UL2018D_MiniAODv2-v2_noduplicates.root"
     ]
 
+#output_dir_="output_test"
 output_dir_="/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output"
 # create_table_mix_protons_ = CreateTable( label=label, data_sample=data_sample, lepton_type=lepton_type, fileNames=fileNames_A0W_ACW, tree_path=tree_path, output_dir="output" )
 create_table_mix_protons_ = CreateTable( label=label, data_sample=data_sample, lepton_type=lepton_type, fileNames=fileNames_A0W_ACW, tree_path=tree_path, output_dir=output_dir_ )

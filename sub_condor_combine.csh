@@ -1,9 +1,8 @@
 #!/bin/tcsh
 
 ### Replace the following lines according to your setup.
-set CMSSWPATH=/eos/home-a/antoniov/SWAN_projects/pps-ww-analysis
-set EXEC=/eos/home-a/antoniov/SWAN_projects/pps-ww-analysis/combine/version1
-set OUTPUT=/eos/home-a/antoniov/SWAN_projects/pps-ww-analysis/combine/version1/output
+set EXEC=/afs/cern.ch/user/m/malvesga/work/ProtonRecon/TEST/CMSSW_11_2_4/src/workspace/pps-ww-analysis-notebook/combine/version1
+set OUTPUT=/afs/cern.ch/user/m/malvesga/work/ProtonRecon/TEST/CMSSW_11_2_4/src/workspace/pps-ww-analysis-notebook/combine/version1/output
 ###
 
 set card=$1
@@ -30,14 +29,15 @@ echo "option: "$option7
 echo "option: "$option8
 echo "option: "$option9
 echo "option: "$option10
-echo $CMSSWPATH
+
 echo $EXEC
 echo $OUTPUT
 
 set currentdir=`pwd`
-echo $CMSSWPATH
-cd $CMSSWPATH
-source set_cmssw_combine.csh
+cd $EXEC
+cd ../..
+source set_cmssw.csh
+cd -
 
 echo $currentdir
 cd $currentdir
@@ -59,6 +59,6 @@ endif
 env
 
 echo 'Running...'
-echo combine -M HybridNew --LHCmode LHC-limits --saveToys -t -1 --bypassFrequentistFit $card --name=$name $option1 $option2 $option3 $option4 $option5 $option6 $option7 $option8 $option9 $option10
-combine -M HybridNew --LHCmode LHC-limits --saveToys -t -1 --bypassFrequentistFit $card --name=$name $option1 $option2 $option3 $option4 $option5 $option6 $option7 $option8 $option9 $option10
+echo combine -M HybridNew --LHCmode LHC-limits --saveToys -t 50 --bypassFrequentistFit $card --name=$name $option1 $option2 $option3 $option4 $option5 $option6 $option7 $option8 $option9 $option10
+combine -M HybridNew --LHCmode LHC-limits --saveToys -t 50 --bypassFrequentistFit $card --name=$name $option1 $option2 $option3 $option4 $option5 $option6 $option7 $option8 $option9 $option10
 cp *.root $OUTPUT

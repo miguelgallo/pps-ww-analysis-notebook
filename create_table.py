@@ -126,7 +126,8 @@ def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/Sl
     if data_sample_ == '2017':
         ranges_crossing_angles_ = [ 100., 130., 140., 150., 200. ]
     elif data_sample_ == '2018':
-        ranges_crossing_angles_ = [ 120., 140., 150., 170. ]
+        #ranges_crossing_angles_ = [ 120., 140., 150., 170. ]
+        ranges_crossing_angles_ = [ 120., 170. ]
 
     # Read proton files
     protons_mix_all_ = None
@@ -313,11 +314,15 @@ def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/Sl
                         "nVertices",
                         "num_bjets_ak8", "num_bjets_ak4", "num_jets_ak4",
                         "pfcand_nextracks", "pfcand_nextracks_noDRl",
-                        "recoMWhad", "recoMWlep", "recoMWW", "recoRapidityWW", "dphiWW", "WLeptonicPt", "WLeptonicEta", "WLeptonicPhi" ]
+                        "recoMWhad", "recoMWlep", "recoMWlep_metJER_Up", "recoMWlep_metJER_Down", "recoMWlep_metJES_Up", "recoMWlep_metJES_Down", 
+                        "recoMWW", "recoMWW_metJER_Up", "recoMWW_metJER_Down", "recoMWW_metJES_Up", "recoMWW_metJES_Down",
+                        "recoRapidityWW", "dphiWW", 
+                        "WLeptonicPt", "WLeptonicPt_metJER_Up", "WLeptonicPt_metJER_Down", "WLeptonicPt_metJES_Up", "WLeptonicPt_metJES_Down",
+                        "WLeptonicEta", "WLeptonicPhi" ]
     if lepton_type_ == 'muon':
-        columns_protons.extend( [ "muon0_pt", "muon0_eta", "muon0_phi", "muon0_energy", "muon0_charge", "muon0_iso", "muon0_dxy", "muon0_dz", "muon0_trackerLayersWithMeasurement" ] )
+        columns_protons.extend( [ "muon0_pt", "muon0_eta", "muon0_phi", "muon0_energy", "muon0_charge", "muon0_iso", "muon0_dxy", "muon0_dz", "muon0_trackerLayersWithMeasurement", "muon0_Roccor", "muon0_deltaRoccor" ] )
     elif lepton_type_ == 'electron':
-        columns_protons.extend( [ "electron0_pt", "electron0_eta", "electron0_phi", "electron0_energy", "electron0_charge", "electron0_dxy", "electron0_dz", 'electron0_corr', 'electron0_ecalTrkEnPostCorr', 'electron0_ecalTrkEnErrPostCorr', 'electron0_ecalTrkEnPreCorr', 'electron0_energyScaleUp', 'electron0_energyScaleDown' ] )
+        columns_protons.extend( [ "electron0_pt", "electron0_eta", "electron0_phi", "electron0_energy", "electron0_charge", "electron0_dxy", "electron0_dz", 'electron0_corr', 'electron0_ecalTrkEnPostCorr', 'electron0_ecalTrkEnErrPostCorr', 'electron0_ecalTrkEnPreCorr', 'electron0_energyScaleValue', 'electron0_energyScaleUp', 'electron0_energyScaleDown' ] )
 
     columns_protons_multiRP = columns_protons.copy()
 
@@ -335,9 +340,9 @@ def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/Sl
         columns_runOnMC_.extend( [ "jet0_jer_res", "jet0_jer_sf", "jet0_jer_sfup", "jet0_jer_sfdown", 'jet0_cjer', 'jet0_cjer_up', 'jet0_cjer_down' ] )
 
         if lepton_type_ == 'electron':
-            columns_runOnMC_.extend( [ 'electron0_energySigmaUp', 'electron0_energySigmaDown' ] )
+            columns_runOnMC_.extend( [ 'electron0_energySigmaValue', 'electron0_energySigmaUp', 'electron0_energySigmaDown' ] )
 
-        columns_runOnMC_.extend( [ 'met_ptJER_Up', 'met_ptJER_Down', 'met_phiJER_Up', 'met_phiJER_Down', 'met_ptJES_Up', 'met_ptJES_Down', 'met_phiJES_Up', 'met_phiJES_Down' ] )
+        columns_runOnMC_.extend( [ 'met_ptJER_Up', 'met_pxJER_Up', 'met_pyJER_Up', 'met_ptJER_Down', 'met_pxJER_Down', 'met_pyJER_Down', 'met_phiJER_Up', 'met_phiJER_Down', 'met_ptJES_Up', 'met_pxJES_Up', 'met_pyJES_Up', 'met_ptJES_Down', 'met_pxJES_Down', 'met_pyJES_Down', 'met_phiJES_Up', 'met_phiJES_Down' ] )
         columns_runOnMC_.extend( [ "gen_jet0_pt", "gen_jet0_eta", "gen_jet0_phi", "gen_jet0_energy" ] )
         if lepton_type_ == 'muon':
             columns_runOnMC_.extend( [ "gen_muon0_pt", "gen_muon0_eta", "gen_muon0_phi", "gen_muon0_energy", "gen_muon0_charge", "gen_muon0_mass" ] )
@@ -433,8 +438,11 @@ def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/Sl
             keys_nonproton = [ "run", "event", "lumiblock", "crossingAngle", "betaStar", "instLumi", "nVertices",
                                "num_bjets_ak8", "num_bjets_ak4", "num_jets_ak4",
                                "pfcand_nextracks", "pfcand_nextracks_noDRl",
-                               "recoMWhad", "recoMWlep", "recoMWW", "recoRapidityWW", "dphiWW", "WLeptonicPt", "WLeptonicEta", "WLeptonicPhi",
-                               "pileupWeight", "mc_pu_trueinteractions", "mcWeight" ]
+                               "recoMWhad", "recoMWlep", "recoMWlep_metJER_Up", "recoMWlep_metJER_Down", "recoMWlep_metJES_Up", "recoMWlep_metJES_Down", 
+                               "recoMWW", "recoMWW_metJER_Up", "recoMWW_metJER_Down", "recoMWW_metJES_Up", "recoMWW_metJES_Down",
+                               "recoRapidityWW", "dphiWW", 
+                               "WLeptonicPt", "WLeptonicPt_metJER_Up", "WLeptonicPt_metJER_Down", "WLeptonicPt_metJES_Up", "WLeptonicPt_metJES_Down",
+                               "WLeptonicEta", "WLeptonicPhi", "pileupWeight", "mc_pu_trueinteractions", "mcWeight" ]
             keys_jet = tree_.keys( filter_name="jet*")
             keys_nonproton.extend( keys_jet )
             keys_genjet = tree_.keys( filter_name="gen_jet*")
@@ -955,6 +963,8 @@ def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/Sl
                     protons_["muon0_dxy"]                          = events_[ "muon_dxy" ][:,0]
                     protons_["muon0_dz"]                           = events_[ "muon_dz" ][:,0]
                     protons_["muon0_trackerLayersWithMeasurement"] = events_[ "muon_trackerLayersWithMeasurement" ][:,0]
+                    protons_["muon0_Roccor"]                      = events_[ "muon_Roccor" ][:,0]
+                    protons_["muon0_deltaRoccor"]                      = events_[ "muon_deltaRoccor" ][:,0]
                     if runOnMC_:
                         protons_["gen_muon0_pt"]        = genmuons_sel_[ "pt" ][:,0]
                         protons_["gen_muon0_eta"]       = genmuons_sel_[ "eta" ][:,0]
@@ -974,9 +984,11 @@ def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/Sl
                     protons_["electron0_ecalTrkEnPostCorr"]    = events_[ "electron_ecalTrkEnPostCorr" ][:,0]
                     protons_["electron0_ecalTrkEnErrPostCorr"] = events_[ "electron_ecalTrkEnErrPostCorr" ][:,0]
                     protons_["electron0_ecalTrkEnPreCorr"]     = events_[ "electron_ecalTrkEnPreCorr" ][:,0]
+                    protons_["electron0_energyScaleValue"]     = events_[ "electron_energyScaleValue" ][:,0]
                     protons_["electron0_energyScaleUp"]        = events_[ "electron_energyScaleUp" ][:,0]
                     protons_["electron0_energyScaleDown"]      = events_[ "electron_energyScaleDown" ][:,0]
                     if runOnMC_:
+                        protons_["electron0_energySigmaValue"]     = events_[ "electron_energySigmaValue" ][:,0]
                         protons_["electron0_energySigmaUp"]    = events_[ "electron_energySigmaUp" ][:,0]
                         protons_["electron0_energySigmaDown"]  = events_[ "electron_energySigmaDown" ][:,0]
                         protons_["gen_electron0_pt"]        = genelectrons_sel_[ "pt" ][:,0]
@@ -986,32 +998,52 @@ def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/Sl
                         protons_["gen_electron0_charge"]    = genelectrons_sel_[ "charge" ][:,0]
                         protons_["gen_electron0_mass"]      = genelectrons_sel_[ "mass" ][:,0]
 
-                protons_["calo_met"]               = events_["calo_met"]
-                protons_["met"]                    = events_["met"]
-                protons_["met_x"]                  = events_["met_x"]
-                protons_["met_y"]                  = events_["met_y"]
-                protons_["met_phi"]                = events_["met_phi"]
-                protons_["nVertices"]              = events_["nVertices"]
-                protons_["num_bjets_ak8"]          = events_["num_bjets_ak8"]
-                protons_["num_bjets_ak4"]          = events_["num_bjets_ak4"]
-                protons_["num_jets_ak4"]           = events_["num_jets_ak4"]
-                protons_["pfcand_nextracks"]       = events_["pfcand_nextracks"]
-                protons_["pfcand_nextracks_noDRl"] = events_["pfcand_nextracks_noDRl"]
-                protons_["recoMWhad"]              = events_["recoMWhad"]
-                protons_["recoMWlep"]              = events_["recoMWlep"]
-                protons_["recoMWW"]                = events_["recoMWW"]
-                protons_["recoRapidityWW"]         = events_["recoRapidityWW"]
-                protons_["dphiWW"]                 = events_["dphiWW"]
-                protons_["WLeptonicPt"]            = events_["WLeptonicPt"]
-                protons_["WLeptonicEta"]           = events_["WLeptonicEta"]
-                protons_["WLeptonicPhi"]           = events_["WLeptonicPhi"]
+                protons_["calo_met"]                = events_["calo_met"]
+                protons_["met"]                     = events_["met"]
+                protons_["met_x"]                   = events_["met_x"]
+                protons_["met_y"]                   = events_["met_y"]
+                protons_["met_phi"]                 = events_["met_phi"]
+                protons_["nVertices"]               = events_["nVertices"]
+                protons_["num_bjets_ak8"]           = events_["num_bjets_ak8"]
+                protons_["num_bjets_ak4"]           = events_["num_bjets_ak4"]
+                protons_["num_jets_ak4"]            = events_["num_jets_ak4"]
+                protons_["pfcand_nextracks"]        = events_["pfcand_nextracks"]
+                protons_["pfcand_nextracks_noDRl"]  = events_["pfcand_nextracks_noDRl"]
+                protons_["recoMWhad"]               = events_["recoMWhad"]
+                protons_["recoMWlep"]               = events_["recoMWlep"]
+                protons_["recoMWlep_metJER_Up"]     = events_["recoMWlep_metJER_Up"]
+                protons_["recoMWlep_metJER_Down"]   = events_["recoMWlep_metJER_Down"]
+                protons_["recoMWlep_metJES_Up"]     = events_["recoMWlep_metJES_Up"]
+                protons_["recoMWlep_metJES_Down"]   = events_["recoMWlep_metJES_Down"]
+                protons_["recoMWW"]                 = events_["recoMWW"]
+                protons_["recoMWW_metJER_Up"]       = events_["recoMWW_metJER_Up"]
+                protons_["recoMWW_metJER_Down"]     = events_["recoMWW_metJER_Down"]
+                protons_["recoMWW_metJES_Up"]       = events_["recoMWW_metJES_Up"]
+                protons_["recoMWW_metJES_Down"]     = events_["recoMWW_metJES_Down"]
+                protons_["recoRapidityWW"]          = events_["recoRapidityWW"]
+                protons_["dphiWW"]                  = events_["dphiWW"]
+                protons_["WLeptonicPt"]             = events_["WLeptonicPt"]
+                protons_["WLeptonicPt_metJER_Up"]   = events_["WLeptonicPt_metJER_Up"]
+                protons_["WLeptonicPt_metJER_Down"] = events_["WLeptonicPt_metJER_Down"]
+                protons_["WLeptonicPt_metJES_Up"]   = events_["WLeptonicPt_metJES_Up"]
+                protons_["WLeptonicPt_metJES_Down"] = events_["WLeptonicPt_metJES_Down"]
+                protons_["WLeptonicEta"]            = events_["WLeptonicEta"]
+                protons_["WLeptonicPhi"]            = events_["WLeptonicPhi"]
                 if runOnMC_:
                     protons_["met_ptJER_Up"]           = events_["met_ptJER_Up"]
+                    protons_["met_pxJER_Up"]           = events_["met_pxJER_Up"]
+                    protons_["met_pyJER_Up"]           = events_["met_pyJER_Up"]
                     protons_["met_ptJER_Down"]         = events_["met_ptJER_Down"]
+                    protons_["met_pxJER_Down"]           = events_["met_pxJER_Down"]
+                    protons_["met_pyJER_Down"]           = events_["met_pyJER_Down"]
                     protons_["met_phiJER_Up"]          = events_["met_phiJER_Up"]
                     protons_["met_phiJER_Down"]        = events_["met_phiJER_Down"]
                     protons_["met_ptJES_Up"]           = events_["met_ptJES_Up"]
+                    protons_["met_pxJES_Up"]           = events_["met_pxJES_Up"]
+                    protons_["met_pyJES_Up"]           = events_["met_pyJES_Up"]
                     protons_["met_ptJES_Down"]         = events_["met_ptJES_Down"]
+                    protons_["met_pxJES_Down"]           = events_["met_pxJES_Down"]
+                    protons_["met_pyJES_Down"]           = events_["met_pyJES_Down"]
                     protons_["met_phiJES_Up"]          = events_["met_phiJES_Up"]
                     protons_["met_phiJES_Down"]        = events_["met_phiJES_Down"]
                     protons_["pileupWeight"]           = events_["pileupWeight"]

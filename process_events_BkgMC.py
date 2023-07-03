@@ -8,7 +8,7 @@ data_sample = '2018'
 
 # use_hash_index_ = True
 
-base_path_ = "/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output_events/"
+base_path_ = "/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output_events"
 labels_ = []
 fileNames_ = {}
 if data_sample == '2017':
@@ -53,7 +53,7 @@ elif data_sample == '2018':
             "Bkg-2018-muon-QCD_Pt_3200toInf": [ "output-Bkg-2018-muon-QCD_Pt_3200toInf.h5" ],
             }
     elif lepton_type == 'electron':
-        labels_ = [ "Bkg-2018-electron-TTJets", "Bkg-2018-electron-WJetsToLNu_0J", "Bkg-2018-electron-WJetsToLNu_1J", "Bkg-2018-electron-WJetsToLNu_2J", "Bkg-2018-electron-ST_s-channel_4f_leptonDecays", "Bkg-2018-electron-ST_t-channel_antitop_4f_InclusiveDecays", "Bkg-2018-electron-ST_tW_antitop_5f_inclusiveDecays", "Bkg-2018-electron-ST_tW_top_5f_inclusiveDecays", "Bkg-2018-electron-DYJetsToLL_0J", "Bkg-2018-electron-DYJetsToLL_1J", "Bkg-2018-electron-DYJetsToLL_2J", "Bkg-2018-electron-QCD_Pt_170to300", "Bkg-2018-electron-QCD_Pt_300to470", "Bkg-2018-electron-QCD_Pt_470to600", "Bkg-2018-electron-QCD_Pt_800to1000", "Bkg-2018-electron-QCD_Pt_1000to1400", "Bkg-2018-electron-QCD_Pt_1400to1800", "Bkg-2018-electron-QCD_Pt_1800to2400", "Bkg-2018-electron-QCD_Pt_2400to3200", "Bkg-2018-electron-QCD_Pt_3200toInf","Bkg-2018-muon-QCD_Pt_600to800", "Bkg-2018-muon-ST_t-channel_top_4f_InclusiveDecays", "Bkg-2018-muon-WW", "Bkg-2018-muon-WZ", "Bkg-2018-muon-ZZ"]
+        labels_ = [ "Bkg-2018-electron-TTJets", "Bkg-2018-electron-WJetsToLNu_0J", "Bkg-2018-electron-WJetsToLNu_1J", "Bkg-2018-electron-WJetsToLNu_2J", "Bkg-2018-electron-ST_s-channel_4f_leptonDecays", "Bkg-2018-electron-ST_t-channel_antitop_4f_InclusiveDecays", "Bkg-2018-electron-ST_tW_antitop_5f_inclusiveDecays", "Bkg-2018-electron-ST_tW_top_5f_inclusiveDecays", "Bkg-2018-electron-DYJetsToLL_0J", "Bkg-2018-electron-DYJetsToLL_1J", "Bkg-2018-electron-DYJetsToLL_2J", "Bkg-2018-electron-QCD_Pt_170to300", "Bkg-2018-electron-QCD_Pt_300to470", "Bkg-2018-electron-QCD_Pt_470to600", "Bkg-2018-electron-QCD_Pt_800to1000", "Bkg-2018-electron-QCD_Pt_1000to1400", "Bkg-2018-electron-QCD_Pt_1400to1800", "Bkg-2018-electron-QCD_Pt_1800to2400", "Bkg-2018-electron-QCD_Pt_2400to3200", "Bkg-2018-electron-QCD_Pt_3200toInf","Bkg-2018-electron-QCD_Pt_600to800", "Bkg-2018-electron-ST_t-channel_top_4f_InclusiveDecays", "Bkg-2018-electron-WW", "Bkg-2018-electron-WZ", "Bkg-2018-electron-ZZ"]
         #labels_ = [ "Bkg-2018-electron-WJetsToLNu_0J", "Bkg-2018-electron-WJetsToLNu_1J", "Bkg-2018-electron-WJetsToLNu_2J" ]
         #labels_ = [ "Bkg-2018-electron-QCD_Pt_600to800", "Bkg-2018-electron-ST_t-channel_top_4f_InclusiveDecays", "Bkg-2018-electron-WW", "Bkg-2018-electron-WZ", "Bkg-2018-electron-ZZ" ]
         fileNames_ = {
@@ -90,7 +90,7 @@ print ( labels_ )
 print ( fileNames_ )
 
 # output_dir_=""
-output_dir_="/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output_events_test/"
+output_dir_="/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output_events"
 process_data_events_ = ProcessDataEvents( lepton_type=lepton_type, data_sample=data_sample, labels=labels_, fileNames=fileNames_, runOnMC=True, output_dir=output_dir_ )
 
 process_data_events_()

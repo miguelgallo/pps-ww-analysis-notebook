@@ -93,6 +93,8 @@ class ProcessDataEvents:
         df.loc[ :, "jet0_pt" + label_ ]       = df.loc[ :, "jet0_pt" ]
         df.loc[ :, "jet0_eta" + label_ ]       = df.loc[ :, "jet0_eta" ]
         df.loc[ :, "jet0_phi" + label_ ]       = df.loc[ :, "jet0_phi" ]
+        df.loc[ :, "jet0_tau1" + label_ ]       = df.loc[ :, "jet0_tau1" ]
+        df.loc[ :, "jet0_tau2" + label_ ]       = df.loc[ :, "jet0_tau2" ]
         df.loc[ :, "jet0_energy" + label_ ]   = df.loc[ :, "jet0_energy" ]
         df.loc[ :, "jet0_mass" + label_ ]     = df.loc[ :, "jet0_mass" ]
         df.loc[ :, "jet0_corrmass" + label_ ] = df.loc[ :, "jet0_corrmass" ]
@@ -109,8 +111,10 @@ class ProcessDataEvents:
 
             label_ = "_jes_up"
             df.loc[ :, "jet0_pt" + label_ ]       = df.loc[ :, "jet0_pt" + "_nom" ] * ( 1. + df.loc[ :, "jet0_unc" ] ) 
-            df.loc[ :, "jet0_eta" + label_ ]       = df.loc[ :, "jet0_eta" + "_nom" ] * ( 1. + df.loc[ :, "jet0_unc" ] ) 
-            df.loc[ :, "jet0_phi" + label_ ]       = df.loc[ :, "jet0_phi" + "_nom" ] * ( 1. + df.loc[ :, "jet0_unc" ] ) 
+            df.loc[ :, "jet0_eta" + label_ ]       = df.loc[ :, "jet0_eta" + "_nom" ] 
+            df.loc[ :, "jet0_phi" + label_ ]       = df.loc[ :, "jet0_phi" + "_nom" ] 
+            df.loc[ :, "jet0_tau1" + label_ ]       = df.loc[ :, "jet0_tau1" + "_nom" ] * ( 1. + df.loc[ :, "jet0_unc" ] ) 
+            df.loc[ :, "jet0_tau2" + label_ ]       = df.loc[ :, "jet0_tau2" + "_nom" ] * ( 1. + df.loc[ :, "jet0_unc" ] ) 
             df.loc[ :, "jet0_energy" + label_ ]   = df.loc[ :, "jet0_energy" + "_nom" ] * ( 1. + df.loc[ :, "jet0_unc" ] ) 
             df.loc[ :, "jet0_mass" + label_ ]     = df.loc[ :, "jet0_mass" + "_nom" ]
             df.loc[ :, "jet0_corrmass" + label_ ] = df.loc[ :, "jet0_corrmass" + "_nom" ] * ( 1. + df.loc[ :, "jet0_unc" ] )
@@ -119,8 +123,10 @@ class ProcessDataEvents:
             df.loc[ :, "jet0_pz" + label_ ]       = ( df.loc[ :, "jet0_pt" + label_ ] * np.sinh( df.loc[ :, "jet0_eta" ] ) )
             label_ = "_jes_dw"
             df.loc[ :, "jet0_pt" + label_ ]       = df.loc[ :, "jet0_pt" + "_nom" ] * ( 1. - df.loc[ :, "jet0_unc" ] ) 
-            df.loc[ :, "jet0_eta" + label_ ]       = df.loc[ :, "jet0_eta" + "_nom" ] * ( 1. - df.loc[ :, "jet0_unc" ] ) 
-            df.loc[ :, "jet0_phi" + label_ ]       = df.loc[ :, "jet0_phi" + "_nom" ] * ( 1. - df.loc[ :, "jet0_unc" ] ) 
+            df.loc[ :, "jet0_eta" + label_ ]       = df.loc[ :, "jet0_eta" + "_nom" ]  
+            df.loc[ :, "jet0_phi" + label_ ]       = df.loc[ :, "jet0_phi" + "_nom" ]  
+            df.loc[ :, "jet0_tau1" + label_ ]       = df.loc[ :, "jet0_tau1" + "_nom" ] * ( 1. - df.loc[ :, "jet0_unc" ] ) 
+            df.loc[ :, "jet0_tau2" + label_ ]       = df.loc[ :, "jet0_tau2" + "_nom" ] * ( 1. - df.loc[ :, "jet0_unc" ] ) 
             df.loc[ :, "jet0_energy" + label_ ]   = df.loc[ :, "jet0_energy" + "_nom" ] * ( 1. - df.loc[ :, "jet0_unc" ] ) 
             df.loc[ :, "jet0_mass" + label_ ]     = df.loc[ :, "jet0_mass" + "_nom" ]
             df.loc[ :, "jet0_corrmass" + label_ ] = df.loc[ :, "jet0_corrmass" + "_nom" ] * ( 1. - df.loc[ :, "jet0_unc" ] )
@@ -134,8 +140,10 @@ class ProcessDataEvents:
             # df.loc[ :, "jet0_mass" + label_ ]     = df.loc[ :, "jet0_mass" + "_nom" ] * ( df.loc[ :, "C_JER_jer_up" ] / df.loc[ :, "C_JER_ref" ] )
             # df.loc[ :, "jet0_corrmass" + label_ ] = df.loc[ :, "jet0_corrmass" + "_nom" ] * ( df.loc[ :, "C_JER_jer_up" ] / df.loc[ :, "C_JER_ref" ] )
             df.loc[ :, "jet0_pt" + label_ ]       = df.loc[ :, "jet0_pt" + "_nom" ] * ( df.loc[ :, "jet0_cjer_up" ] / df.loc[ :, "jet0_cjer" ] )
-            df.loc[ :, "jet0_eta" + label_ ]       = df.loc[ :, "jet0_eta" + "_nom" ] * ( df.loc[ :, "jet0_cjer_up" ] / df.loc[ :, "jet0_cjer" ] )
-            df.loc[ :, "jet0_phi" + label_ ]       = df.loc[ :, "jet0_phi" + "_nom" ] * ( df.loc[ :, "jet0_cjer_up" ] / df.loc[ :, "jet0_cjer" ] )
+            df.loc[ :, "jet0_eta" + label_ ]       = df.loc[ :, "jet0_eta" + "_nom" ] 
+            df.loc[ :, "jet0_phi" + label_ ]       = df.loc[ :, "jet0_phi" + "_nom" ] 
+            df.loc[ :, "jet0_tau1" + label_ ]       = df.loc[ :, "jet0_tau1" + "_nom" ] * ( df.loc[ :, "jet0_cjer_up" ] / df.loc[ :, "jet0_cjer" ] )
+            df.loc[ :, "jet0_tau2" + label_ ]       = df.loc[ :, "jet0_tau2" + "_nom" ] * ( df.loc[ :, "jet0_cjer_up" ] / df.loc[ :, "jet0_cjer" ] )
             df.loc[ :, "jet0_energy" + label_ ]   = df.loc[ :, "jet0_energy" + "_nom" ] * ( df.loc[ :, "jet0_cjer_up" ] / df.loc[ :, "jet0_cjer" ] )
             df.loc[ :, "jet0_mass" + label_ ]     = df.loc[ :, "jet0_mass" + "_nom" ] * ( df.loc[ :, "jet0_cjer_up" ] / df.loc[ :, "jet0_cjer" ] )
             df.loc[ :, "jet0_corrmass" + label_ ] = df.loc[ :, "jet0_corrmass" + "_nom" ] * ( df.loc[ :, "jet0_cjer_up" ] / df.loc[ :, "jet0_cjer" ] )
@@ -148,8 +156,10 @@ class ProcessDataEvents:
             # df.loc[ :, "jet0_mass" + label_ ]     = df.loc[ :, "jet0_mass" + "_nom" ] * ( df.loc[ :, "C_JER_jer_dw" ] / df.loc[ :, "C_JER_ref" ] )
             # df.loc[ :, "jet0_corrmass" + label_ ] = df.loc[ :, "jet0_corrmass" + "_nom" ] * ( df.loc[ :, "C_JER_jer_dw" ] / df.loc[ :, "C_JER_ref" ] )
             df.loc[ :, "jet0_pt" + label_ ]       = df.loc[ :, "jet0_pt" + "_nom" ] * ( df.loc[ :, "jet0_cjer_down" ] / df.loc[ :, "jet0_cjer" ] )
-            df.loc[ :, "jet0_eta" + label_ ]       = df.loc[ :, "jet0_eta" + "_nom" ] * ( df.loc[ :, "jet0_cjer_down" ] / df.loc[ :, "jet0_cjer" ] )
-            df.loc[ :, "jet0_phi" + label_ ]       = df.loc[ :, "jet0_phi" + "_nom" ] * ( df.loc[ :, "jet0_cjer_down" ] / df.loc[ :, "jet0_cjer" ] )
+            df.loc[ :, "jet0_eta" + label_ ]       = df.loc[ :, "jet0_eta" + "_nom" ] 
+            df.loc[ :, "jet0_phi" + label_ ]       = df.loc[ :, "jet0_phi" + "_nom" ] 
+            df.loc[ :, "jet0_tau1" + label_ ]       = df.loc[ :, "jet0_tau1" + "_nom" ] * ( df.loc[ :, "jet0_cjer_down" ] / df.loc[ :, "jet0_cjer" ] )
+            df.loc[ :, "jet0_tau2" + label_ ]       = df.loc[ :, "jet0_tau2" + "_nom" ] * ( df.loc[ :, "jet0_cjer_down" ] / df.loc[ :, "jet0_cjer" ] )
             df.loc[ :, "jet0_energy" + label_ ]   = df.loc[ :, "jet0_energy" + "_nom" ] * ( df.loc[ :, "jet0_cjer_down" ] / df.loc[ :, "jet0_cjer" ] )
             df.loc[ :, "jet0_mass" + label_ ]     = df.loc[ :, "jet0_mass" + "_nom" ] * ( df.loc[ :, "jet0_cjer_down" ] / df.loc[ :, "jet0_cjer" ] )
             df.loc[ :, "jet0_corrmass" + label_ ] = df.loc[ :, "jet0_corrmass" + "_nom" ] * ( df.loc[ :, "jet0_cjer_down" ] / df.loc[ :, "jet0_cjer" ] )
@@ -162,11 +172,18 @@ class ProcessDataEvents:
         df.loc[ :, "muon0_pt" + label_ ]     = df.loc[ :, "muon0_pt" ]
         df.loc[ :, "muon0_eta" + label_ ]     = df.loc[ :, "muon0_eta" ]
         df.loc[ :, "muon0_phi" + label_ ]     = df.loc[ :, "muon0_phi" ]
-        df.loc[ :, "muon0_energy" + label_ ] = df.loc[ :, "muon0_energy" ]
-        df.loc[ :, "muon0_px" + label_ ]     = ( df.loc[ :, "muon0_pt" + label_ ] * np.cos( df.loc[ :, "muon0_phi" ] ) )
-        df.loc[ :, "muon0_py" + label_ ]     = ( df.loc[ :, "muon0_pt" + label_ ] * np.sin( df.loc[ :, "muon0_phi" ] ) )
-        df.loc[ :, "muon0_pz" + label_ ]     = ( df.loc[ :, "muon0_pt" + label_ ] * np.sinh( df.loc[ :, "muon0_eta" ] ) )
+        df.loc[ :, "muon0_energy" + label_ ] = df.loc[ :, "muon0_energy" ] * df.loc[ :, "muon0_Roccor" ]
+        ##df.loc[ :, "muon0_px" + label_ ]     = ( df.loc[ :, "muon0_pt" + label_ ] * np.cos( df.loc[ :, "muon0_phi" ] ) )
+        ##df.loc[ :, "muon0_py" + label_ ]     = ( df.loc[ :, "muon0_pt" + label_ ] * np.sin( df.loc[ :, "muon0_phi" ] ) )
+        ##df.loc[ :, "muon0_pz" + label_ ]     = ( df.loc[ :, "muon0_pt" + label_ ] * np.sinh( df.loc[ :, "muon0_eta" ] ) )
         if self.runOnMC_:
+            label_ = "_mu_roccor_up"
+            df.loc[ :, "muon0_pt" + label_ ]       = df.loc[ :, "muon0_pt" + "_nom" ] * ( 1. + df.loc[ :, "muon0_deltaRoccor" ] ) 
+            df.loc[ :, "muon0_energy" + label_ ]   = df.loc[ :, "muon0_energy" + "_nom" ] * ( 1. + df.loc[ :, "muon0_deltaRoccor" ] ) 
+            
+            label_ = "_mu_roccor_down"
+            df.loc[ :, "muon0_pt" + label_ ]       = df.loc[ :, "muon0_pt" + "_nom" ] * ( 1. - df.loc[ :, "muon0_deltaRoccor" ] ) 
+            df.loc[ :, "muon0_energy" + label_ ]   = df.loc[ :, "muon0_energy" + "_nom" ] * ( 1. - df.loc[ :, "muon0_deltaRoccor" ] ) 
             # Muon scale factors
             from muon_efficiency import MuonIDScaleFactor, MuonTRGScaleFactor 
             # ID
@@ -223,10 +240,33 @@ class ProcessDataEvents:
         df.loc[ :, "electron0_eta" + label_ ]     = df.loc[ :, "electron0_eta" ]
         df.loc[ :, "electron0_phi" + label_ ]     = df.loc[ :, "electron0_phi" ]
         df.loc[ :, "electron0_energy" + label_ ] = df.loc[ :, "electron0_energy" ]
-        df.loc[ :, "electron0_px" + label_ ]     = ( df.loc[ :, "electron0_pt" + label_ ] * np.cos( df.loc[ :, "electron0_phi" ] ) )
-        df.loc[ :, "electron0_py" + label_ ]     = ( df.loc[ :, "electron0_pt" + label_ ] * np.sin( df.loc[ :, "electron0_phi" ] ) )
-        df.loc[ :, "electron0_pz" + label_ ]     = ( df.loc[ :, "electron0_pt" + label_ ] * np.sinh( df.loc[ :, "electron0_eta" ] ) )
+        ##df.loc[ :, "electron0_px" + label_ ]     = ( df.loc[ :, "electron0_pt" + label_ ] * np.cos( df.loc[ :, "electron0_phi" ] ) )
+        ##df.loc[ :, "electron0_py" + label_ ]     = ( df.loc[ :, "electron0_pt" + label_ ] * np.sin( df.loc[ :, "electron0_phi" ] ) )
+        ##df.loc[ :, "electron0_pz" + label_ ]     = ( df.loc[ :, "electron0_pt" + label_ ] * np.sinh( df.loc[ :, "electron0_eta" ] ) )
         if self.runOnMC_:
+            label_ = "_el_scale_up"
+            df.loc[ :, "electron0_pt" + label_ ]       = df.loc[ :, "electron0_pt" + "_nom" ] * ( df.loc[ :, "electron0_energyScaleUp" ] / ( df.loc[ :, "electron0_energy" + "_nom" ] ) ) 
+            df.loc[ :, "electron0_eta" + label_ ]     = df.loc[ :, "electron0_eta" + "_nom" ]
+            df.loc[ :, "electron0_phi" + label_ ]     = df.loc[ :, "electron0_phi" + "_nom" ]
+            df.loc[ :, "electron0_energy" + label_ ]   = df.loc[ :, "electron0_energy" + "_nom" ] * ( df.loc[ :, "electron0_energyScaleUp" ] / ( df.loc[ :, "electron0_energy" + "_nom" ] ) ) 
+            
+            label_ = "_el_scale_down"
+            df.loc[ :, "electron0_pt" + label_ ]       = df.loc[ :, "electron0_pt" + "_nom" ] * ( df.loc[ :, "electron0_energyScaleDown" ] / ( df.loc[ :, "electron0_energy" + "_nom" ] ) ) 
+            df.loc[ :, "electron0_eta" + label_ ]     = df.loc[ :, "electron0_eta" + "_nom" ]
+            df.loc[ :, "electron0_phi" + label_ ]     = df.loc[ :, "electron0_phi" + "_nom" ]
+            df.loc[ :, "electron0_energy" + label_ ]   = df.loc[ :, "electron0_energy" + "_nom" ] * ( df.loc[ :, "electron0_energyScaleDown" ] / ( df.loc[ :, "electron0_energy" + "_nom" ] ) ) 
+            
+            label_ = "_el_sigma_up"
+            df.loc[ :, "electron0_pt" + label_ ]       = df.loc[ :, "electron0_pt" + "_nom" ] * ( df.loc[ :, "electron0_energySigmaUp" ] / ( df.loc[ :, "electron0_energy" + "_nom" ] ) ) 
+            df.loc[ :, "electron0_eta" + label_ ]     = df.loc[ :, "electron0_eta" + "_nom" ]
+            df.loc[ :, "electron0_phi" + label_ ]     = df.loc[ :, "electron0_phi" + "_nom" ]
+            df.loc[ :, "electron0_energy" + label_ ]   = df.loc[ :, "electron0_energy" + "_nom" ] * ( df.loc[ :, "electron0_energySigmaUp" ] / ( df.loc[ :, "electron0_energy" + "_nom" ] ) ) 
+            
+            label_ = "_el_sigma_down"
+            df.loc[ :, "electron0_pt" + label_ ]       = df.loc[ :, "electron0_pt" + "_nom" ] * ( df.loc[ :, "electron0_energySigmaDown" ] / ( df.loc[ :, "electron0_energy" + "_nom" ] ) ) 
+            df.loc[ :, "electron0_eta" + label_ ]     = df.loc[ :, "electron0_eta" + "_nom" ]
+            df.loc[ :, "electron0_phi" + label_ ]     = df.loc[ :, "electron0_phi" + "_nom" ]
+            df.loc[ :, "electron0_energy" + label_ ]   = df.loc[ :, "electron0_energy" + "_nom" ] * ( df.loc[ :, "electron0_energySigmaDown" ] / ( df.loc[ :, "electron0_energy" + "_nom" ] ) ) 
             # Electron scale factor
             from electron_efficiency import ElectronIDScaleFactor, ElectronTRGScaleFactor
             # ID
@@ -283,7 +323,34 @@ class ProcessDataEvents:
                                                  df.loc[ :, "WLeptonicPx" + label_ ]**2 -
                                                  df.loc[ :, "WLeptonicPy" + label_ ]**2 -
                                                  df.loc[ :, "WLeptonicPz" + label_ ]**2 ) ) 
-        if self.runOnMC_: pass
+        if self.runOnMC_:
+           label_ = "_metJER_Up"
+           df.loc[ :, "WLeptonicPt" + label_ ] = df.loc[ :, "WLeptonicPt_metJER_Up" ]
+           df.loc[ :, "WLeptonicPx" + label_ ]  = ( df.loc[ :, "WLeptonicPt" + label_ ] * np.cos( df.loc[ :, "WLeptonicPhi" ] ) )
+           df.loc[ :, "WLeptonicPy" + label_ ]  = ( df.loc[ :, "WLeptonicPt" + label_ ] * np.sin( df.loc[ :, "WLeptonicPhi" ] ) )
+           df.loc[ :, "WLeptonicPz" + label_ ]  = ( df.loc[ :, "WLeptonicPt" + label_ ] * np.sinh( df.loc[ :, "WLeptonicEta" ] ) )
+           df.loc[ :, "WLeptonicE" + label_ ]   = ( np.sqrt( ( df.loc[ :, "WLeptonicPt" + label_ ] * np.cosh( df.loc[ :, "WLeptonicEta" ] ) )**2 + df.loc[ :, "recoMWlep" ] **2 ) )
+           
+           label_ = "_metJER_Down"
+           df.loc[ :, "WLeptonicPt" + label_ ] = df.loc[ :, "WLeptonicPt_metJER_Down" ]
+           df.loc[ :, "WLeptonicPx" + label_ ]  = ( df.loc[ :, "WLeptonicPt" + label_ ] * np.cos( df.loc[ :, "WLeptonicPhi" ] ) )
+           df.loc[ :, "WLeptonicPy" + label_ ]  = ( df.loc[ :, "WLeptonicPt" + label_ ] * np.sin( df.loc[ :, "WLeptonicPhi" ] ) )
+           df.loc[ :, "WLeptonicPz" + label_ ]  = ( df.loc[ :, "WLeptonicPt" + label_ ] * np.sinh( df.loc[ :, "WLeptonicEta" ] ) )
+           df.loc[ :, "WLeptonicE" + label_ ]   = ( np.sqrt( ( df.loc[ :, "WLeptonicPt" + label_ ] * np.cosh( df.loc[ :, "WLeptonicEta" ] ) )**2 + df.loc[ :, "recoMWlep" ] **2 ) )
+
+           label_ = "_metJES_Up"
+           df.loc[ :, "WLeptonicPt" + label_ ] = df.loc[ :, "WLeptonicPt_metJES_Up" ]
+           df.loc[ :, "WLeptonicPx" + label_ ]  = ( df.loc[ :, "WLeptonicPt" + label_ ] * np.cos( df.loc[ :, "WLeptonicPhi" ] ) )
+           df.loc[ :, "WLeptonicPy" + label_ ]  = ( df.loc[ :, "WLeptonicPt" + label_ ] * np.sin( df.loc[ :, "WLeptonicPhi" ] ) )
+           df.loc[ :, "WLeptonicPz" + label_ ]  = ( df.loc[ :, "WLeptonicPt" + label_ ] * np.sinh( df.loc[ :, "WLeptonicEta" ] ) )
+           df.loc[ :, "WLeptonicE" + label_ ]   = ( np.sqrt( ( df.loc[ :, "WLeptonicPt" + label_ ] * np.cosh( df.loc[ :, "WLeptonicEta" ] ) )**2 + df.loc[ :, "recoMWlep" ] **2 ) )
+           
+           label_ = "_metJES_Down"
+           df.loc[ :, "WLeptonicPt" + label_ ] = df.loc[ :, "WLeptonicPt_metJES_Down" ]
+           df.loc[ :, "WLeptonicPx" + label_ ]  = ( df.loc[ :, "WLeptonicPt" + label_ ] * np.cos( df.loc[ :, "WLeptonicPhi" ] ) )
+           df.loc[ :, "WLeptonicPy" + label_ ]  = ( df.loc[ :, "WLeptonicPt" + label_ ] * np.sin( df.loc[ :, "WLeptonicPhi" ] ) )
+           df.loc[ :, "WLeptonicPz" + label_ ]  = ( df.loc[ :, "WLeptonicPt" + label_ ] * np.sinh( df.loc[ :, "WLeptonicEta" ] ) )
+           df.loc[ :, "WLeptonicE" + label_ ]   = ( np.sqrt( ( df.loc[ :, "WLeptonicPt" + label_ ] * np.cosh( df.loc[ :, "WLeptonicEta" ] ) )**2 + df.loc[ :, "recoMWlep" ] **2 ) )
 
     def calculateWW( self, df ):
         label_ = "_nom"
