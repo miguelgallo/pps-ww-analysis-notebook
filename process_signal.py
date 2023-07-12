@@ -11,7 +11,7 @@ use_hash_index_ = True
 # labels_signals = [ "GGToWW-AQGC-A0W1e-6" ]
 # labels_signals = [ "GGToWW-AQGC-A0W1e-6", "GGToWW-AQGC-A0W2e-6", "GGToWW-AQGC-A0W5e-6" ]
 
-base_path_ = "/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output"
+base_path_ = "/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output_05-07"
 labels_signals_ = []
 fileNames_signals_ = {}
 if data_sample == '2017':
@@ -55,7 +55,7 @@ print ( labels_signals_ )
 print ( fileNames_signals_ )
 
 # output_dir_=""
-output_dir_="/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output_19-06"
+output_dir_="/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output_05-07"
 process_data_ = ProcessData( lepton_type=lepton_type, data_sample=data_sample, labels=labels_signals_, fileNames=fileNames_signals_, mix_protons=False, runOnMC=True, output_dir=output_dir_, use_hash_index=use_hash_index_ )
 
 process_data_( apply_fiducial=True, within_aperture=True, select_2protons=False )

@@ -19,6 +19,7 @@ debug = False
 
 fileNames_data = {}
 if data_sample == '2017':
+    ranges_crossing_angles = [ 100., 130., 140., 150., 200. ]
     if lepton_type == 'muon':
         fileNames_data[ "2017B" ] = [
             "/eos/cms/store/group/phys_pps/miguelgallo/WW_2017/Data/SingleMuon_UL2017B_MiniAODv2-v1_noduplicates.root"
@@ -52,6 +53,7 @@ if data_sample == '2017':
             "/eos/cms/store/group/phys_pps/miguelgallo/WW_2017/Data/SingleElectron_UL2017F_MiniAODv2-v1_noduplicates.root"
         ]
 elif data_sample == '2018':
+    ranges_crossing_angles = [ 120., 140., 150., 170. ]
     if lepton_type == 'muon':
         fileNames_data[ "2018A" ] = [
             "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/Data/SingleMuon_UL2018A_MiniAODv2-v3_noduplicates.root"
@@ -81,4 +83,4 @@ elif data_sample == '2018':
 
 create_table_ = CreateTableEvents( label=label, lepton_type=lepton_type, data_sample=data_sample, fileNames=fileNames_data, tree_path=tree_path, output_dir="/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output_events" )
 
-create_table_( step_size=step_size, firstEvent=None, entryStop=None, debug=debug )
+create_table_( step_size=step_size, firstEvent=None, entryStop=None, debug=debug, ranges_crossing_angles=ranges_crossing_angles )

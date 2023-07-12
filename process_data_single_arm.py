@@ -4,7 +4,7 @@ from ProcessData import *
 lepton_type_ = "electron"
 label_ = "data-single-arm-{}".format( lepton_type_ )
 
-base_path_ = "/eos/home-a/antoniov/SWAN_projects/pps-ww-analysis/output"
+base_path_ = "/eos/home-a/antoniov/SWAN_projects/pps-ww-analysis/output_05-07"
 fileNames_data_ = []
 if lepton_type_ == 'muon':
     fileNames_data_ = [

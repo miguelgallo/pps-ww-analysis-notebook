@@ -19,9 +19,11 @@ debug = False
 
 fileNames_ = {}
 if data_sample == '2017':
-	    fileNames_[ "TTJets" ] = [
+    ranges_crossing_angles = [ 100., 130., 140., 150., 200. ]
+	 fileNames_[ "TTJets" ] = [
     ]
 elif data_sample == '2018':
+    ranges_crossing_angles = [ 120., 140., 150., 170. ]
     fileNames_[ "TTJets" ] = [
         "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Bkg/TTJets_TuneCP5_13TeV-amcatnloFXFX-pythia8.root"
     ]
@@ -102,4 +104,4 @@ elif data_sample == '2018':
 output_dir_="/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output_events"
 create_table_events_ = CreateTableEvents( label=label, lepton_type=lepton_type, data_sample=data_sample, fileNames=fileNames_, tree_path=tree_path, output_dir=output_dir_ )
 
-create_table_events_( runOnMC=True, step_size=step_size, firstEvent=None, entryStop=None, debug=debug ) 
+create_table_events_( runOnMC=True, step_size=step_size, firstEvent=None, entryStop=None, debug=debug, ranges_crossing_angles=ranges_crossing_angles ) 

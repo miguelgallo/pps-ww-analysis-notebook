@@ -1,0 +1,83 @@
+executable = sub_condor_process_BkgMC_mix_protons.csh
+
+output     = output/output_process_BkgMC_mix_protons_$(ClusterId)_$(ProcId).out
+error      = output/output_process_BkgMC_mix_protons_$(ClusterId)_$(ProcId).err
+log        = output/output_process_BkgMC_mix_protons_$(ClusterId)_$(ProcId).log
+
+getenv     = True
+
+#environment = "X509_USER_PROXY=$ENV(HOME)/x509up_u61469"
+
+requirements = (OpSysAndVer =?= "CentOS7")
+
+# request_memory = 16000
+# request_memory = 32000
+request_memory = 48000
+# request_memory = 54000
+# request_memory = 64000
+
+# RequestCpus = 1
+
+# +JobFlavour = "longlunch"
++JobFlavour = "workday"
+# +JobFlavour = "tomorrow"
+# +JobFlavour = "testmatch"
+# +JobFlavour = "nextweek"
+
+should_transfer_files = IF_NEEDED
+when_to_transfer_output = ON_EXIT
+transfer_output_files = ""
+
+# queue
+queue arguments from (
+    --lepton_type=muon --sample=DYJetsToLL_0J
+    --lepton_type=muon --sample=DYJetsToLL_1J
+    --lepton_type=muon --sample=DYJetsToLL_2J
+    --lepton_type=muon --sample=QCD_Pt_170to300
+    --lepton_type=muon --sample=QCD_Pt_300to470
+    --lepton_type=muon --sample=QCD_Pt_470to600
+    --lepton_type=muon --sample=QCD_Pt_600to800
+    --lepton_type=muon --sample=QCD_Pt_800to1000
+    --lepton_type=muon --sample=QCD_Pt_1000to1400
+    --lepton_type=muon --sample=QCD_Pt_1400to1800
+    --lepton_type=muon --sample=QCD_Pt_1800to2400
+    --lepton_type=muon --sample=QCD_Pt_2400to3200
+    --lepton_type=muon --sample=QCD_Pt_3200toInf
+    --lepton_type=muon --sample=ST_s-channel_4f_leptonDecays
+    --lepton_type=muon --sample=ST_t-channel_antitop_4f_InclusiveDecays
+    --lepton_type=muon --sample=ST_t-channel_top_4f_InclusiveDecays
+    --lepton_type=muon --sample=ST_tW_antitop_5f_inclusiveDecays
+    --lepton_type=muon --sample=ST_tW_top_5f_inclusiveDecays
+    --lepton_type=muon --sample=TTJets
+    --lepton_type=muon --sample=WJetsToLNu_0J
+    --lepton_type=muon --sample=WJetsToLNu_1J
+    --lepton_type=muon --sample=WJetsToLNu_2J
+    --lepton_type=muon --sample=WW
+    --lepton_type=muon --sample=WZ
+    --lepton_type=muon --sample=ZZ
+    --lepton_type=electron --sample=DYJetsToLL_0J
+    --lepton_type=electron --sample=DYJetsToLL_1J
+    --lepton_type=electron --sample=DYJetsToLL_2J
+    --lepton_type=electron --sample=QCD_Pt_170to300
+    --lepton_type=electron --sample=QCD_Pt_300to470
+    --lepton_type=electron --sample=QCD_Pt_470to600
+    --lepton_type=electron --sample=QCD_Pt_600to800
+    --lepton_type=electron --sample=QCD_Pt_800to1000
+    --lepton_type=electron --sample=QCD_Pt_1000to1400
+    --lepton_type=electron --sample=QCD_Pt_1400to1800
+    --lepton_type=electron --sample=QCD_Pt_1800to2400
+    --lepton_type=electron --sample=QCD_Pt_2400to3200
+    --lepton_type=electron --sample=QCD_Pt_3200toInf
+    --lepton_type=electron --sample=ST_s-channel_4f_leptonDecays
+    --lepton_type=electron --sample=ST_t-channel_antitop_4f_InclusiveDecays
+    --lepton_type=electron --sample=ST_t-channel_top_4f_InclusiveDecays
+    --lepton_type=electron --sample=ST_tW_antitop_5f_inclusiveDecays
+    --lepton_type=electron --sample=ST_tW_top_5f_inclusiveDecays
+    --lepton_type=electron --sample=TTJets
+    --lepton_type=electron --sample=WJetsToLNu_0J
+    --lepton_type=electron --sample=WJetsToLNu_1J
+    --lepton_type=electron --sample=WJetsToLNu_2J
+    --lepton_type=electron --sample=WW
+    --lepton_type=electron --sample=WZ
+    --lepton_type=electron --sample=ZZ
+)

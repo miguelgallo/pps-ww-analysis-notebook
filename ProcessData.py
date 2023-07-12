@@ -441,7 +441,7 @@ class ProcessData:
                df.loc[ :, "xi" + names_varminus_[ idx_ ] ] = df_arr_xi_ - val_ * sigma_xi_
            df.loc[ :, "sigma_xi" ] = sigma_xi_
 
-    def __call__( self, apply_fiducial=True, within_aperture=False, select_2protons=True, runMin=None, runMax=None ):
+    def __call__( self, apply_fiducial=True, within_aperture=False, calculate_vars_pp=True, select_2protons=True, runMin=None, runMax=None ):
 
         if runMin is not None and runMin <= 0:
             raise RuntimeError( "Invalid data_sample argument." )
@@ -551,6 +551,7 @@ class ProcessData:
                     within_aperture=within_aperture,
                     random_protons=self.random_protons_,
                     mix_protons=self.mix_protons_,
+                    calculate_vars_pp=calculate_vars_pp,
                     select_2protons=select_2protons,
                     runOnMC=self.runOnMC_,
                     use_hash_index=self.use_hash_index_

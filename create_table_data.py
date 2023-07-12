@@ -19,6 +19,7 @@ debug = False
 
 fileNames_data = {}
 if data_sample == '2017':
+    ranges_crossing_angles = [ 100., 130., 140., 150., 200. ]
     if lepton_type == 'muon':
         fileNames_data[ "2017B" ] = [
         #     "/eos/user/a/antoniov/Workspace/analysis/data/PPS/SingleMuon-Run2017B-Dilepton/190621_214052/0000/SlimmedNtuple_merged_0.root"
@@ -81,6 +82,7 @@ if data_sample == '2017':
             "/eos/home-a/antoniov/Workspace/analysis/data/PPS/SingleElectron-Run2017F/SingleElectron-Run2017F_merged.root"
         ]
 elif data_sample == '2018':
+    ranges_crossing_angles = [ 120., 140., 150., 170. ]
     if lepton_type == 'muon':
         fileNames_data[ "2018A" ] = [
             # "/eos/home-a/antoniov/Workspace/analysis/data/PPS/SingleMuon-Run2018A/SingleMuon-Run2018A_merged.root"
@@ -112,6 +114,6 @@ elif data_sample == '2018':
             "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/Data/EGamma_UL2018D_MiniAODv2-v2_noduplicates.root"
         ]
 
-create_table_ = CreateTable( label=label, lepton_type=lepton_type, data_sample=data_sample, fileNames=fileNames_data, tree_path=tree_path, output_dir="/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output" )
+create_table_ = CreateTable( label=label, lepton_type=lepton_type, data_sample=data_sample, fileNames=fileNames_data, tree_path=tree_path, output_dir="/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output_05-07" )
 
-create_table_( random_protons=False, step_size=step_size, firstEvent=None, entryStop=None, debug=debug ) 
+create_table_( random_protons=False, step_size=step_size, firstEvent=None, entryStop=None, debug=debug, ranges_crossing_angles=ranges_crossing_angles ) 

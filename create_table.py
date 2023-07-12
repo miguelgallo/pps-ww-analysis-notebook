@@ -8,7 +8,7 @@ import h5py
 # from processing import run_ranges_periods_2017, run_ranges_periods_2018, lumi_periods_2017, lumi_periods_2018
 from processing import df_run_ranges_2017, df_run_ranges_2018, df_run_ranges_mixing_2017, df_run_ranges_mixing_2018, lumi_periods_2017, lumi_periods_2018
 
-def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/SlimmedNtuple", mix_protons=False, proton_files=None, random_protons=False, resample_factor=-1, runOnMC=False, data_periods=None, step_size=100000, firstEvent=None, entryStop=None, debug=False, output_dir="" ):
+def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/SlimmedNtuple", mix_protons=False, proton_files=None, random_protons=False, resample_factor=-1, runOnMC=False, keep_protons_arm=None, data_periods=None, step_size=100000, firstEvent=None, entryStop=None, debug=False, output_dir="", ranges_crossing_angles=None ):
 
     if lepton_type not in ( 'muon', 'electron' ):
         raise RuntimeError( "Invalid lepton_type argument." )
@@ -45,6 +45,7 @@ def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/Sl
     print ( df_run_ranges_mixing_ )
 
     runOnMC_ = runOnMC
+    keep_protons_arm_ = keep_protons_arm if ( keep_protons_arm == 0 or keep_protons_arm == 1 ) else None
     data_periods_ = data_periods if ( runOnMC_ and data_periods is not None and len(data_periods) > 0 ) else None
     if runOnMC_ and not data_periods_:
         # if data_sample_ == '2017':
@@ -118,16 +119,18 @@ def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/Sl
     if resample_factor_ > 1: resample = True
     print ( "Resample: {} / Resample factor: {}".format( resample,  resample_factor_ ) )
 
-    np.random.seed( 42 )
+    np.random.seed( 182 )
 
-    # ranges_crossing_angles_ = ( 100. + np.arange( 11 ) * 10. )
-    # ranges_crossing_angles_ = [ 100., 130., 140., 150., 200. ]
-    ranges_crossing_angles_ = None
-    if data_sample_ == '2017':
-        ranges_crossing_angles_ = [ 100., 130., 140., 150., 200. ]
-    elif data_sample_ == '2018':
-        #ranges_crossing_angles_ = [ 120., 140., 150., 170. ]
-        ranges_crossing_angles_ = [ 120., 170. ]
+    # # ranges_crossing_angles_ = ( 100. + np.arange( 11 ) * 10. )
+    # # ranges_crossing_angles_ = [ 100., 130., 140., 150., 200. ]
+    # ranges_crossing_angles_ = None
+    # if data_sample_ == '2017':
+    #     ranges_crossing_angles_ = [ 100., 130., 140., 150., 200. ]
+    # elif data_sample_ == '2018':
+    #     #ranges_crossing_angles_ = [ 120., 140., 150., 170. ]
+    #     ranges_crossing_angles_ = [ 120., 170. ]
+
+    ranges_crossing_angles_ = ranges_crossing_angles
 
     # Read proton files
     protons_mix_all_ = None
@@ -296,7 +299,7 @@ def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/Sl
         #         protons_extra_mix_all_[ key_ ] = protons_extra_mix_all_rnd_
         #     ppstracks_mix_all_[ key_ ] = ppstracks_mix_all_rnd_
 
-    dset_chunk_size = 50000
+    #dset_chunk_size = 50000
 
     # columns_protons = [ "run", "lumiblock", "event", "slice", "crossingAngle", "betaStar", "instLumi", "xi", "thx", "thy", "t", "ismultirp", "rpid", "arm", "random",
     #                     "jet0_pt", "jet0_eta", "jet0_phi", "jet0_energy", "jet0_mass", "jet0_corrmass", "jet0_tau1", "jet0_tau2", "jet0_vertexz",
@@ -381,6 +384,8 @@ def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/Sl
         ppstracks_keys[ col_ ] = col_
 
     counts_label_protons_ = "Proton" if not ( random_protons_ or mix_protons_ ) else "ProtonRnd"
+    
+    dset_chunk_size = 50000
 
     # output_file_path_ = ( output_path_ + '/' + 'output-' + label_ + '.h5' )
     file_name_label_ = 'output-{}.h5'.format( label_ )
@@ -1134,7 +1139,7 @@ def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/Sl
                 for arm in ( 0, 1 ):
                     protons_multiRP_byArm_[ arm ] = protons_multiRP_[ protons_multiRP_.arm == arm ]
 
-                    print ( "\nNum multi-RP protons Arm {}: {}".format( arm, ak.num( protons_multiRP_byArm_[ arm ] ) ) )
+                    print ( "\nNum multi-RP protons Arm {}: {} (length: {})".format( arm, ak.num( protons_multiRP_byArm_[ arm ] ), len( protons_multiRP_byArm_[ arm ] ) ) )
                     if debug:
                         print ( ak.to_list( protons_multiRP_byArm_[ arm ] ) )
 
@@ -1145,8 +1150,14 @@ def create_table( fileNames, label, lepton_type, data_sample, tree_path="demo/Sl
 
                 # msk_protons  = np.array( ak.num( protons_multiRP_byArm_[ 0 ] ) > 0 )
                 # msk_protons &= np.array( ak.num( protons_multiRP_byArm_[ 1 ] ) > 0 )
-                msk_protons  = np.array( ak.num( protons_multiRP_byArm_[ 0 ] ) > 0 )
-                msk_protons |= np.array( ak.num( protons_multiRP_byArm_[ 1 ] ) > 0 )
+                # msk_protons  = np.array( ak.num( protons_multiRP_byArm_[ 0 ] ) > 0 )
+                # msk_protons |= np.array( ak.num( protons_multiRP_byArm_[ 1 ] ) > 0 )
+
+                msk_protons = None
+                if keep_protons_arm_ is not None:
+                    protons_multiRP_ = protons_multiRP_byArm_[ keep_protons_arm_ ]
+
+                msk_protons  = np.array( ak.num( protons_multiRP_ ) > 0 )
 
                 protons_multiRP_sel_ = protons_multiRP_[ msk_protons ]
                 protons_singleRP_sel_ = protons_singleRP_[ msk_protons ]

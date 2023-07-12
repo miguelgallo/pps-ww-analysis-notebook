@@ -59,6 +59,7 @@ debug = False
 
 fileNames_data = {}
 if data_sample == '2017':
+    ranges_crossing_angles = [ 100., 130., 140., 150., 200. ]
     #if lepton_type == 'muon':
     if lepton_type_ == 'muon':
         fileNames_data[ "2017B" ] = [
@@ -94,6 +95,7 @@ if data_sample == '2017':
             "/eos/home-a/antoniov/Workspace/analysis/data/PPS/SingleElectron-Run2017F/SingleElectron-Run2017F_merged.root"
         ]
 elif data_sample == '2018':
+    ranges_crossing_angles = [ 120., 140., 150., 170. ]
     #if lepton_type == 'muon':
     if lepton_type_ == 'muon':
         fileNames_data[ "2018A" ] = [
@@ -132,11 +134,11 @@ if period_ is not None and period_ != "":
     fileNames_data = {}
     fileNames_data[ period_ ] = path__
 
-output_dir_="/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output_03-07"
+output_dir_="/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output_12-07"
 #output_dir_="/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output_new"
 # create_table_ = CreateTable( label=label, lepton_type=lepton_type, data_sample=data_sample, fileNames=fileNames_data, tree_path=tree_path, output_dir="output" )
 #create_table_ = CreateTable( label=label, lepton_type=lepton_type, data_sample=data_sample, fileNames=fileNames_data, tree_path=tree_path, output_dir=output_dir_ )
 create_table_ = CreateTable( label=label, lepton_type=lepton_type_, data_sample=data_sample, fileNames=fileNames_data, tree_path=tree_path, output_dir=output_dir_ )
 
 # create_table_( random_protons=True, resample_factor=resample_factor, step_size=step_size, firstEvent=None, entryStop=None, debug=debug ) 
-create_table_( random_protons=True, resample_factor=resample_factor, step_size=step_size, firstEvent=start_, entryStop=stop_, debug=debug ) 
+create_table_( random_protons=True, resample_factor=resample_factor, step_size=step_size, firstEvent=start_, entryStop=stop_, debug=debug, ranges_crossing_angles=ranges_crossing_angles ) 

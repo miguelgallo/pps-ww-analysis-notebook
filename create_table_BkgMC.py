@@ -20,6 +20,7 @@ debug = False
 
 fileNames_A0W_ACW = {}
 if data_sample == '2017':
+    ranges_crossing_angles = [ 100., 130., 140., 150., 200. ]
     fileNames_A0W_ACW[ "A0W1e-6" ] = [
         # "/eos/user/a/antoniov/Workspace/analysis/data/PPS/GGToWW_bSM-A0W1e-6_13TeV-fpmc-herwig6-signal-proton-propagation-dilepton/200420_160422/0000/SlimmedNtuple_merged_0.root"
         "/eos/user/a/antoniov/Workspace/analysis/data/PPS/GGToWW_bSM-A0W1e-6_13TeV-fpmc-herwig6-signal-proton-propagation-dilepton/SlimmedNtuple_merged.root"
@@ -45,6 +46,7 @@ if data_sample == '2017':
         "/eos/user/a/antoniov/Workspace/analysis/data/PPS/GGToWW_bSM-ACW2e-5_13TeV-fpmc-herwig6-signal-proton-propagation-dilepton/SlimmedNtuple_merged.root"
     ]
 elif data_sample == '2018':
+    ranges_crossing_angles = [ 120., 170. ]
     if lepton_type == 'muon':
         fileNames_A0W_ACW[ "DYJetsToLL_0J" ] = [
             "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Bkg/DYJetsToLL_0J_TuneCP5_13TeV-amcatnloFXFX-pythia8.root"
@@ -199,7 +201,7 @@ elif data_sample == '2018':
         ]
 
 # output_dir_=""
-output_dir_="/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output"
+output_dir_="/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output_05-07"
 create_table_ = CreateTable( label=label, lepton_type=lepton_type, data_sample=data_sample, fileNames=fileNames_A0W_ACW, tree_path=tree_path, output_dir=output_dir_ )
 
-create_table_( mix_protons=False, runOnMC=True, step_size=step_size, firstEvent=None, entryStop=None, debug=debug ) 
+create_table_( mix_protons=False, runOnMC=True, step_size=step_size, firstEvent=None, entryStop=None, debug=debug, ranges_crossing_angles=ranges_crossing_angles ) 

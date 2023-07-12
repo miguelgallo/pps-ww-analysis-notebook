@@ -8,7 +8,7 @@ data_sample = '2018'
 
 label__ = "data-{}-{}".format( data_sample, lepton_type_ )
 
-base_path_ = "/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output"
+base_path_ = "/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output_05-07"
 labels_ = []
 fileNames_data_ = {}
 if data_sample == '2017':
@@ -61,7 +61,7 @@ print ( labels_ )
 print ( fileNames_data_ )
 
 # output_dir_=""
-output_dir_="/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output_19-06"
+output_dir_="/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output_05-07"
 # process_data_ = ProcessData( lepton_type=lepton_type_, data_sample=data_sample, labels=[ label_ ], fileNames={ label_: fileNames_data_ }, runOnMC=False )
 process_data_ = ProcessData( lepton_type=lepton_type_, data_sample=data_sample, labels=labels_, fileNames=fileNames_data_, runOnMC=False, output_dir=output_dir_ )
 

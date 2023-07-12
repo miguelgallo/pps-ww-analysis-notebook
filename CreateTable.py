@@ -10,7 +10,7 @@ class CreateTable:
         self.output_dir_ = None
         if output_dir is not None and output_dir != "": self.output_dir_ = output_dir
 
-    def __call__( self, mix_protons=False, proton_files=None, random_protons=False, resample_factor=-1, runOnMC=False, data_periods=None, step_size=100000, firstEvent=None, entryStop=None, debug=False ):
+    def __call__( self, keep_protons_arm=None,  mix_protons=False, proton_files=None, random_protons=False, resample_factor=-1, runOnMC=False, data_periods=None, step_size=100000, firstEvent=None, entryStop=None, debug=False, ranges_crossing_angles=None ):
 
         for key_ in self.fileNames_:
             import time
@@ -19,6 +19,9 @@ class CreateTable:
 
             print ( key_, self.fileNames_[ key_ ] )
             label__ = "{}-{}".format( self.label_, key_ )
+            keep_protons_arm_ = keep_protons_arm if ( keep_protons_arm == 0 or keep_protons_arm == 1 ) else None
+            if keep_protons_arm_ is not None:
+                label__ = label__ + "-Arm{}".format( keep_protons_arm_ )
             if firstEvent is not None and firstEvent >= 0:
                 label__ = label__ + "-{}".format( firstEvent )
             if entryStop is not None and entryStop >= 0:
@@ -35,11 +38,13 @@ class CreateTable:
                 random_protons=random_protons,
                 resample_factor=resample_factor,
                 runOnMC=runOnMC,
+                keep_protons_arm=keep_protons_arm_,
                 data_periods=data_periods,
                 step_size=step_size,
                 firstEvent=firstEvent,
                 entryStop=entryStop,
                 debug=debug,
+                ranges_crossing_angles=ranges_crossing_angles,
                 output_dir=self.output_dir_
                 )
             
