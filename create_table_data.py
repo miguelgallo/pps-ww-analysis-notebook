@@ -4,8 +4,8 @@
 
 from CreateTable import *
 
-#lepton_type = 'muon'
-lepton_type = 'electron'
+lepton_type = 'muon'
+#lepton_type = 'electron'
 
 # data_sample = '2017'
 data_sample = '2018'
@@ -114,6 +114,6 @@ elif data_sample == '2018':
             "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/Data/EGamma_UL2018D_MiniAODv2-v2_noduplicates.root"
         ]
 
-create_table_ = CreateTable( label=label, lepton_type=lepton_type, data_sample=data_sample, fileNames=fileNames_data, tree_path=tree_path, output_dir="/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output_05-07" )
+create_table_ = CreateTable( label=label, lepton_type=lepton_type, data_sample=data_sample, fileNames=fileNames_data, tree_path=tree_path, output_dir="/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output-final" )
 
 create_table_( random_protons=False, step_size=step_size, firstEvent=None, entryStop=None, debug=debug, ranges_crossing_angles=ranges_crossing_angles ) 

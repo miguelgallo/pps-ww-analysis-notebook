@@ -4,8 +4,8 @@
 
 from CreateTable import *
 
-#lepton_type = 'muon'
-lepton_type = 'electron'
+lepton_type = 'muon'
+#lepton_type = 'electron'
 
 # data_sample = '2017'
 data_sample = '2018'
@@ -48,44 +48,81 @@ if data_sample == '2017':
         "/eos/home-a/antoniov/Workspace/analysis/data/PPS/SingleMuon-Run2017F-withDilepton/SlimmedNtuple_merged_noduplicates.root"
     ]
 elif data_sample == '2018':
-    ranges_crossing_angles = [ 120., 140., 150., 170. ]
+    #ranges_crossing_angles = [ 120., 140., 150., 170. ]
+    ranges_crossing_angles = [ 120., 170. ]
     if lepton_type == 'muon':
+        fileNames_A0W_ACW[ "A0W1e-7" ] = [
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_13TeV_a0w_1E-7_aCw_0E0_SemiDecay_pt0.root"
+        ]
+        fileNames_A0W_ACW[ "A0W2e-7" ] = [
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_13TeV_a0w_2E-7_aCw_0E0_SemiDecay_pt0.root"
+        ]
+        fileNames_A0W_ACW[ "A0W5e-7" ] = [
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_13TeV_a0w_5E-7_aCw_0E0_SemiDecay_pt0.root"
+        ]
         fileNames_A0W_ACW[ "A0W1e-6" ] = [
-            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_bSM_13tev_a0w_1e-6_aCw_0_semi_pt0.root"
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_13TeV_a0w_1E-6_aCw_0E0_SemiDecay_pt0.root"
         ]
         fileNames_A0W_ACW[ "A0W2e-6" ] = [
-            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_bSM_13tev_a0w_2e-6_aCw_0_semi_pt0.root"
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_13TeV_a0w_2E-6_aCw_0E0_SemiDecay_pt0.root"
         ]
         fileNames_A0W_ACW[ "A0W5e-6" ] = [
-            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_bSM_13tev_a0w_5e-6_aCw_0_semi_pt0.root"
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_13TeV_a0w_5E-6_aCw_0E0_SemiDecay_pt0.root"
+        ]
+        fileNames_A0W_ACW[ "ACW5e-7" ] = [
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_13TeV_a0w_0E0_aCw_5E-7_SemiDecay_pt0.root"
+        ]
+        fileNames_A0W_ACW[ "ACW1e-6" ] = [
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_13TeV_a0w_0E0_aCw_1E-6_SemiDecay_pt0.root"
+        ]
+        fileNames_A0W_ACW[ "ACW2e-6" ] = [
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_13TeV_a0w_0E0_aCw_2E-6_SemiDecay_pt0.root"
         ]
         fileNames_A0W_ACW[ "ACW5e-6" ] = [
-            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_bSM_13tev_a0w_0_aCw_5e-6_semi_pt0.root"
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_13TeV_a0w_0E0_aCw_5E-6_SemiDecay_pt0.root"
         ]
-        fileNames_A0W_ACW[ "ACW8e-6" ] = [
-            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_bSM_13tev_a0w_0_aCw_8e-6_semi_pt0.root"
+        fileNames_A0W_ACW[ "ACW1e-5" ] = [
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_13TeV_a0w_0E0_aCw_1E-5_SemiDecay_pt0.root"
         ]
         fileNames_A0W_ACW[ "ACW2e-5" ] = [
-            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_bSM_13tev_a0w_0_aCw_2e-5_semi_pt0.root"
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_13TeV_a0w_0E0_aCw_2E-5_SemiDecay_pt0.root"
         ]
     elif lepton_type == 'electron':
+        fileNames_A0W_ACW[ "A0W1e-7" ] = [
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_13TeV_a0w_1E-7_aCw_0E0_SemiDecay_pt0.root"
+        ]
+        fileNames_A0W_ACW[ "A0W2e-7" ] = [
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_13TeV_a0w_2E-7_aCw_0E0_SemiDecay_pt0.root"
+        ]
+        fileNames_A0W_ACW[ "A0W5e-7" ] = [
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_13TeV_a0w_5E-7_aCw_0E0_SemiDecay_pt0.root"
+        ]
         fileNames_A0W_ACW[ "A0W1e-6" ] = [
-            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_bSM_13tev_a0w_1e-6_aCw_0_semi_pt0.root"
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_13TeV_a0w_1E-6_aCw_0E0_SemiDecay_pt0.root"
         ]
         fileNames_A0W_ACW[ "A0W2e-6" ] = [
-            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_bSM_13tev_a0w_2e-6_aCw_0_semi_pt0.root"
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_13TeV_a0w_2E-6_aCw_0E0_SemiDecay_pt0.root"
         ]
         fileNames_A0W_ACW[ "A0W5e-6" ] = [
-            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_bSM_13tev_a0w_5e-6_aCw_0_semi_pt0.root"
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_13TeV_a0w_5E-6_aCw_0E0_SemiDecay_pt0.root"
+        ]
+        fileNames_A0W_ACW[ "ACW5e-7" ] = [
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_13TeV_a0w_0E0_aCw_5E-7_SemiDecay_pt0.root"
+        ]
+        fileNames_A0W_ACW[ "ACW1e-6" ] = [
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_13TeV_a0w_0E0_aCw_1E-6_SemiDecay_pt0.root"
+        ]
+        fileNames_A0W_ACW[ "ACW2e-6" ] = [
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_13TeV_a0w_0E0_aCw_2E-6_SemiDecay_pt0.root"
         ]
         fileNames_A0W_ACW[ "ACW5e-6" ] = [
-            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_bSM_13tev_a0w_0_aCw_5e-6_semi_pt0.root"
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_13TeV_a0w_0E0_aCw_5E-6_SemiDecay_pt0.root"
         ]
-        fileNames_A0W_ACW[ "ACW8e-6" ] = [
-            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_bSM_13tev_a0w_0_aCw_8e-6_semi_pt0.root"
+        fileNames_A0W_ACW[ "ACW1e-5" ] = [
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_13TeV_a0w_0E0_aCw_1E-5_SemiDecay_pt0.root"
         ]
         fileNames_A0W_ACW[ "ACW2e-5" ] = [
-            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_bSM_13tev_a0w_0_aCw_2e-5_semi_pt0.root"
+            "/eos/cms/store/group/phys_pps/miguelgallo/WW_2018/MC_Signal/FPMC_WW_13TeV_a0w_0E0_aCw_2E-5_SemiDecay_pt0.root"
         ]
 
     proton_files = [
@@ -96,7 +133,7 @@ elif data_sample == '2018':
     ]
 
 #output_dir_="output_test"
-output_dir_="/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output_05-07"
+output_dir_="/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output-final"
 # create_table_mix_protons_ = CreateTable( label=label, data_sample=data_sample, lepton_type=lepton_type, fileNames=fileNames_A0W_ACW, tree_path=tree_path, output_dir="output" )
 create_table_mix_protons_ = CreateTable( label=label, data_sample=data_sample, lepton_type=lepton_type, fileNames=fileNames_A0W_ACW, tree_path=tree_path, output_dir=output_dir_ )
 

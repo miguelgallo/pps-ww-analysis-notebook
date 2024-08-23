@@ -11,8 +11,8 @@ use_hash_index_ = True
 # labels_signals = [ "GGToWW-AQGC-A0W1e-6" ]
 # labels_signals = [ "GGToWW-AQGC-A0W1e-6", "GGToWW-AQGC-A0W2e-6", "GGToWW-AQGC-A0W5e-6" ]
 
-base_path_ = "/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output_05-07"
-output_dir_ =  "/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output_05-07"
+base_path_ = "/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output-final"
+output_dir_ =  "/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output-final"
 
 labels_signals_ = []
 fileNames_signals_ = {}
@@ -47,32 +47,78 @@ elif data_sample == '2018':
     if lepton_type == 'muon':
         # labels_signals_ = [ "GGToWW-AQGC-2018-muon-A0W5e-7", "GGToWW-AQGC-2018-muon-A0W1e-6", "GGToWW-AQGC-2018-muon-A0W2e-6", "GGToWW-AQGC-2018-muon-A0W5e-6" ]
         labels_signals_ = [
+            "GGToWW-AQGC-2018-muon-A0W1e-7-Arm0", "GGToWW-AQGC-2018-muon-A0W2e-7-Arm0", "GGToWW-AQGC-2018-muon-A0W5e-7-Arm0",
+            "GGToWW-AQGC-2018-muon-A0W1e-7-Arm1", "GGToWW-AQGC-2018-muon-A0W2e-7-Arm1", "GGToWW-AQGC-2018-muon-A0W5e-7-Arm1",
             "GGToWW-AQGC-2018-muon-A0W1e-6-Arm0", "GGToWW-AQGC-2018-muon-A0W2e-6-Arm0", "GGToWW-AQGC-2018-muon-A0W5e-6-Arm0",
-            "GGToWW-AQGC-2018-muon-A0W1e-6-Arm1", "GGToWW-AQGC-2018-muon-A0W2e-6-Arm1", "GGToWW-AQGC-2018-muon-A0W5e-6-Arm1"
+            "GGToWW-AQGC-2018-muon-A0W1e-6-Arm1", "GGToWW-AQGC-2018-muon-A0W2e-6-Arm1", "GGToWW-AQGC-2018-muon-A0W5e-6-Arm1",
+            "GGToWW-AQGC-2018-muon-ACW5e-7-Arm0", "GGToWW-AQGC-2018-muon-ACW1e-6-Arm0", "GGToWW-AQGC-2018-muon-ACW2e-6-Arm0", 
+            "GGToWW-AQGC-2018-muon-ACW5e-7-Arm1", "GGToWW-AQGC-2018-muon-ACW1e-6-Arm1", "GGToWW-AQGC-2018-muon-ACW2e-6-Arm1", 
+            "GGToWW-AQGC-2018-muon-ACW5e-6-Arm0", "GGToWW-AQGC-2018-muon-ACW1e-5-Arm0", "GGToWW-AQGC-2018-muon-ACW2e-5-Arm0",
+            "GGToWW-AQGC-2018-muon-ACW5e-6-Arm1", "GGToWW-AQGC-2018-muon-ACW1e-5-Arm1", "GGToWW-AQGC-2018-muon-ACW2e-5-Arm1"
         ]
         fileNames_signals_ = {
-            # "GGToWW-AQGC-2018-muon-A0W5e-7": [ "output-GGToWW-AQGC-2018-muon-A0W5e-7.h5" ],
+            "GGToWW-AQGC-2018-muon-A0W1e-7-Arm0": [ "output-GGToWW-AQGC-2018-muon-A0W1e-7-Arm0.h5" ],
+            "GGToWW-AQGC-2018-muon-A0W2e-7-Arm0": [ "output-GGToWW-AQGC-2018-muon-A0W2e-7-Arm0.h5" ],
+            "GGToWW-AQGC-2018-muon-A0W5e-7-Arm0": [ "output-GGToWW-AQGC-2018-muon-A0W5e-7-Arm0.h5" ],
             "GGToWW-AQGC-2018-muon-A0W1e-6-Arm0": [ "output-GGToWW-AQGC-2018-muon-A0W1e-6-Arm0.h5" ],
             "GGToWW-AQGC-2018-muon-A0W2e-6-Arm0": [ "output-GGToWW-AQGC-2018-muon-A0W2e-6-Arm0.h5" ],
             "GGToWW-AQGC-2018-muon-A0W5e-6-Arm0": [ "output-GGToWW-AQGC-2018-muon-A0W5e-6-Arm0.h5" ],
+            "GGToWW-AQGC-2018-muon-A0W1e-7-Arm1": [ "output-GGToWW-AQGC-2018-muon-A0W1e-7-Arm1.h5" ],
+            "GGToWW-AQGC-2018-muon-A0W2e-7-Arm1": [ "output-GGToWW-AQGC-2018-muon-A0W2e-7-Arm1.h5" ],
+            "GGToWW-AQGC-2018-muon-A0W5e-7-Arm1": [ "output-GGToWW-AQGC-2018-muon-A0W5e-7-Arm1.h5" ],
             "GGToWW-AQGC-2018-muon-A0W1e-6-Arm1": [ "output-GGToWW-AQGC-2018-muon-A0W1e-6-Arm1.h5" ],
             "GGToWW-AQGC-2018-muon-A0W2e-6-Arm1": [ "output-GGToWW-AQGC-2018-muon-A0W2e-6-Arm1.h5" ],
-            "GGToWW-AQGC-2018-muon-A0W5e-6-Arm1": [ "output-GGToWW-AQGC-2018-muon-A0W5e-6-Arm1.h5" ]
+            "GGToWW-AQGC-2018-muon-A0W5e-6-Arm1": [ "output-GGToWW-AQGC-2018-muon-A0W5e-6-Arm1.h5" ],
+            "GGToWW-AQGC-2018-muon-ACW5e-7-Arm0": [ "output-GGToWW-AQGC-2018-muon-ACW5e-7-Arm0.h5" ],
+            "GGToWW-AQGC-2018-muon-ACW1e-6-Arm0": [ "output-GGToWW-AQGC-2018-muon-ACW1e-6-Arm0.h5" ],
+            "GGToWW-AQGC-2018-muon-ACW2e-6-Arm0": [ "output-GGToWW-AQGC-2018-muon-ACW2e-6-Arm0.h5" ],
+            "GGToWW-AQGC-2018-muon-ACW5e-6-Arm0": [ "output-GGToWW-AQGC-2018-muon-ACW5e-6-Arm0.h5" ],
+            "GGToWW-AQGC-2018-muon-ACW1e-5-Arm0": [ "output-GGToWW-AQGC-2018-muon-ACW1e-5-Arm0.h5" ],
+            "GGToWW-AQGC-2018-muon-ACW2e-5-Arm0": [ "output-GGToWW-AQGC-2018-muon-ACW2e-5-Arm0.h5" ],
+            "GGToWW-AQGC-2018-muon-ACW5e-7-Arm1": [ "output-GGToWW-AQGC-2018-muon-ACW5e-7-Arm1.h5" ],
+            "GGToWW-AQGC-2018-muon-ACW1e-6-Arm1": [ "output-GGToWW-AQGC-2018-muon-ACW1e-6-Arm1.h5" ],
+            "GGToWW-AQGC-2018-muon-ACW2e-6-Arm1": [ "output-GGToWW-AQGC-2018-muon-ACW2e-6-Arm1.h5" ],
+            "GGToWW-AQGC-2018-muon-ACW5e-6-Arm1": [ "output-GGToWW-AQGC-2018-muon-ACW5e-6-Arm1.h5" ],
+            "GGToWW-AQGC-2018-muon-ACW1e-5-Arm1": [ "output-GGToWW-AQGC-2018-muon-ACW1e-5-Arm1.h5" ],
+            "GGToWW-AQGC-2018-muon-ACW2e-5-Arm1": [ "output-GGToWW-AQGC-2018-muon-ACW2e-5-Arm1.h5" ]
             }
     elif lepton_type == 'electron':
         # labels_signals_ = [ "GGToWW-AQGC-2018-electron-A0W5e-7", "GGToWW-AQGC-2018-electron-A0W1e-6", "GGToWW-AQGC-2018-electron-A0W2e-6", "GGToWW-AQGC-2018-electron-A0W5e-6" ]
         labels_signals_ = [
+            "GGToWW-AQGC-2018-electron-A0W1e-7-Arm0", "GGToWW-AQGC-2018-electron-A0W2e-7-Arm0", "GGToWW-AQGC-2018-electron-A0W5e-7-Arm0",
+            "GGToWW-AQGC-2018-electron-A0W1e-7-Arm1", "GGToWW-AQGC-2018-electron-A0W2e-7-Arm1", "GGToWW-AQGC-2018-electron-A0W5e-7-Arm1",
             "GGToWW-AQGC-2018-electron-A0W1e-6-Arm0", "GGToWW-AQGC-2018-electron-A0W2e-6-Arm0", "GGToWW-AQGC-2018-electron-A0W5e-6-Arm0",
-            "GGToWW-AQGC-2018-electron-A0W1e-6-Arm1", "GGToWW-AQGC-2018-electron-A0W2e-6-Arm1", "GGToWW-AQGC-2018-electron-A0W5e-6-Arm1"
+            "GGToWW-AQGC-2018-electron-A0W1e-6-Arm1", "GGToWW-AQGC-2018-electron-A0W2e-6-Arm1", "GGToWW-AQGC-2018-electron-A0W5e-6-Arm1",
+            "GGToWW-AQGC-2018-electron-ACW5e-7-Arm0", "GGToWW-AQGC-2018-electron-ACW1e-6-Arm0", "GGToWW-AQGC-2018-electron-ACW2e-6-Arm0", 
+            "GGToWW-AQGC-2018-electron-ACW5e-7-Arm1", "GGToWW-AQGC-2018-electron-ACW1e-6-Arm1", "GGToWW-AQGC-2018-electron-ACW2e-6-Arm1", 
+            "GGToWW-AQGC-2018-electron-ACW5e-6-Arm0", "GGToWW-AQGC-2018-electron-ACW1e-5-Arm0", "GGToWW-AQGC-2018-electron-ACW2e-5-Arm0",
+            "GGToWW-AQGC-2018-electron-ACW5e-6-Arm1", "GGToWW-AQGC-2018-electron-ACW1e-5-Arm1", "GGToWW-AQGC-2018-electron-ACW2e-5-Arm1"
         ]
         fileNames_signals_ = {
-            # "GGToWW-AQGC-2018-electron-A0W5e-7": [ "output-GGToWW-AQGC-2018-electron-A0W5e-7.h5" ],
+            "GGToWW-AQGC-2018-electron-A0W1e-7-Arm0": [ "output-GGToWW-AQGC-2018-electron-A0W1e-7-Arm0.h5" ],
+            "GGToWW-AQGC-2018-electron-A0W2e-7-Arm0": [ "output-GGToWW-AQGC-2018-electron-A0W2e-7-Arm0.h5" ],
+            "GGToWW-AQGC-2018-electron-A0W5e-7-Arm0": [ "output-GGToWW-AQGC-2018-electron-A0W5e-7-Arm0.h5" ],
             "GGToWW-AQGC-2018-electron-A0W1e-6-Arm0": [ "output-GGToWW-AQGC-2018-electron-A0W1e-6-Arm0.h5" ],
             "GGToWW-AQGC-2018-electron-A0W2e-6-Arm0": [ "output-GGToWW-AQGC-2018-electron-A0W2e-6-Arm0.h5" ],
             "GGToWW-AQGC-2018-electron-A0W5e-6-Arm0": [ "output-GGToWW-AQGC-2018-electron-A0W5e-6-Arm0.h5" ],
+            "GGToWW-AQGC-2018-electron-A0W1e-7-Arm1": [ "output-GGToWW-AQGC-2018-electron-A0W1e-7-Arm1.h5" ],
+            "GGToWW-AQGC-2018-electron-A0W2e-7-Arm1": [ "output-GGToWW-AQGC-2018-electron-A0W2e-7-Arm1.h5" ],
+            "GGToWW-AQGC-2018-electron-A0W5e-7-Arm1": [ "output-GGToWW-AQGC-2018-electron-A0W5e-7-Arm1.h5" ],
             "GGToWW-AQGC-2018-electron-A0W1e-6-Arm1": [ "output-GGToWW-AQGC-2018-electron-A0W1e-6-Arm1.h5" ],
             "GGToWW-AQGC-2018-electron-A0W2e-6-Arm1": [ "output-GGToWW-AQGC-2018-electron-A0W2e-6-Arm1.h5" ],
-            "GGToWW-AQGC-2018-electron-A0W5e-6-Arm1": [ "output-GGToWW-AQGC-2018-electron-A0W5e-6-Arm1.h5" ]
+            "GGToWW-AQGC-2018-electron-A0W5e-6-Arm1": [ "output-GGToWW-AQGC-2018-electron-A0W5e-6-Arm1.h5" ],
+            "GGToWW-AQGC-2018-electron-ACW5e-7-Arm0": [ "output-GGToWW-AQGC-2018-electron-ACW5e-7-Arm0.h5" ],
+            "GGToWW-AQGC-2018-electron-ACW1e-6-Arm0": [ "output-GGToWW-AQGC-2018-electron-ACW1e-6-Arm0.h5" ],
+            "GGToWW-AQGC-2018-electron-ACW2e-6-Arm0": [ "output-GGToWW-AQGC-2018-electron-ACW2e-6-Arm0.h5" ],
+            "GGToWW-AQGC-2018-electron-ACW5e-6-Arm0": [ "output-GGToWW-AQGC-2018-electron-ACW5e-6-Arm0.h5" ],
+            "GGToWW-AQGC-2018-electron-ACW1e-5-Arm0": [ "output-GGToWW-AQGC-2018-electron-ACW1e-5-Arm0.h5" ],
+            "GGToWW-AQGC-2018-electron-ACW2e-5-Arm0": [ "output-GGToWW-AQGC-2018-electron-ACW2e-5-Arm0.h5" ],
+            "GGToWW-AQGC-2018-electron-ACW5e-7-Arm1": [ "output-GGToWW-AQGC-2018-electron-ACW5e-7-Arm1.h5" ],
+            "GGToWW-AQGC-2018-electron-ACW1e-6-Arm1": [ "output-GGToWW-AQGC-2018-electron-ACW1e-6-Arm1.h5" ],
+            "GGToWW-AQGC-2018-electron-ACW2e-6-Arm1": [ "output-GGToWW-AQGC-2018-electron-ACW2e-6-Arm1.h5" ],
+            "GGToWW-AQGC-2018-electron-ACW5e-6-Arm1": [ "output-GGToWW-AQGC-2018-electron-ACW5e-6-Arm1.h5" ],
+            "GGToWW-AQGC-2018-electron-ACW1e-5-Arm1": [ "output-GGToWW-AQGC-2018-electron-ACW1e-5-Arm1.h5" ],
+            "GGToWW-AQGC-2018-electron-ACW2e-5-Arm1": [ "output-GGToWW-AQGC-2018-electron-ACW2e-5-Arm1.h5" ]
             }
 
 for key_ in fileNames_signals_:

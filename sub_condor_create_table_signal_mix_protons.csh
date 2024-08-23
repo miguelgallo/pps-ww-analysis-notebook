@@ -2,7 +2,7 @@
 
 ### Replace the following lines according to your setup.
 set EXEC=/afs/cern.ch/user/m/malvesga/work/ProtonRecon/TEST/CMSSW_11_2_4/src/workspace/pps-ww-analysis-notebook
-set OUTPUT=/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output_05-07
+set OUTPUT=/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output-final
 ###
 
 #set file=$1

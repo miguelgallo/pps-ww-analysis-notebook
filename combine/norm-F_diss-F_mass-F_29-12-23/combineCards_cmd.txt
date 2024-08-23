@@ -1,0 +1,1 @@
+combineCards.py muon_2017=datacard_counting_muon-2017_sig-2017-muon-AQGC-A0W1e-6.txt electron_2017=datacard_counting_electron-2017_sig-2017-electron-AQGC-A0W1e-6.txt muon_2018=datacard_counting_muon-2018_sig-2018-muon-AQGC-A0W1e-6.txt electron_2018=datacard_counting_electron-2018_sig-2018-electron-AQGC-A0W1e-6.txt

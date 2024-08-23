@@ -8,7 +8,7 @@ data_sample = '2018'
 
 use_hash_index_ = True
 
-base_path_ = "/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output_05-07"
+base_path_ = "/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output-final"
 labels_bkgs_mix_protons_ = []
 fileNames_bkgs_mix_protons_ = {}
 if data_sample == '2017':
@@ -30,7 +30,7 @@ elif data_sample == '2018':
     if lepton_type == 'muon':
         #labels_bkgs_mix_protons_ = [ "Bkg-mix_protons-2018-muon-TTJets", "Bkg-mix_protons-2018-muon-DYJetsToLL_0J", "Bkg-mix_protons-2018-muon-DYJetsToLL_1J", "Bkg-mix_protons-2018-muon-DYJetsToLL_2J", "Bkg-mix_protons-2018-muon-WJetsToLNu_0J", "Bkg-mix_protons-2018-muon-WJetsToLNu_1J", "Bkg-mix_protons-2018-muon-WJetsToLNu_2J", "Bkg-mix_protons-2018-muon-QCD_Pt_170to300", "Bkg-mix_protons-2018-muon-QCD_Pt_300to470", "Bkg-mix_protons-2018-muon-QCD_Pt_470to600", "Bkg-mix_protons-2018-muon-QCD_Pt_600to800", "Bkg-mix_protons-2018-muon-QCD_Pt_800to1000", "Bkg-mix_protons-2018-muon-QCD_Pt_1000to1400", "Bkg-mix_protons-2018-muon-QCD_Pt_1400to1800", "Bkg-mix_protons-2018-muon-QCD_Pt_1800to2400", "Bkg-mix_protons-2018-muon-QCD_Pt_2400to3200", "Bkg-mix_protons-2018-muon-QCD_Pt_3200toInf", "Bkg-mix_protons-2018-muon-ST_s-channel_4f_leptonDecays", "Bkg-mix_protons-2018-muon-ST_t-channel_antitop_4f_InclusiveDecays", "Bkg-mix_protons-2018-muon-ST_t-channel_top_4f_InclusiveDecays", "Bkg-mix_protons-2018-muon-ST_tW_antitop_5f_inclusiveDecays", "Bkg-mix_protons-2018-muon-ST_tW_top_5f_inclusiveDecays", "Bkg-mix_protons-2018-muon-WW", "Bkg-mix_protons-2018-muon-WZ", "Bkg-mix_protons-2018-muon-ZZ" ]
         labels_bkgs_mix_protons_ = [ "Bkg-mix_protons-2018-muon-WJetsToLNu_2J", "Bkg-mix_protons-2018-muon-QCD_Pt_170to300", "Bkg-mix_protons-2018-muon-QCD_Pt_300to470", "Bkg-mix_protons-2018-muon-QCD_Pt_470to600", "Bkg-mix_protons-2018-muon-QCD_Pt_600to800", "Bkg-mix_protons-2018-muon-QCD_Pt_800to1000", "Bkg-mix_protons-2018-muon-QCD_Pt_1000to1400", "Bkg-mix_protons-2018-muon-QCD_Pt_1400to1800", "Bkg-mix_protons-2018-muon-QCD_Pt_1800to2400", "Bkg-mix_protons-2018-muon-QCD_Pt_2400to3200", "Bkg-mix_protons-2018-muon-QCD_Pt_3200toInf", "Bkg-mix_protons-2018-muon-ST_s-channel_4f_leptonDecays", "Bkg-mix_protons-2018-muon-ST_t-channel_antitop_4f_InclusiveDecays", "Bkg-mix_protons-2018-muon-ST_t-channel_top_4f_InclusiveDecays", "Bkg-mix_protons-2018-muon-ST_tW_antitop_5f_inclusiveDecays", "Bkg-mix_protons-2018-muon-ST_tW_top_5f_inclusiveDecays", "Bkg-mix_protons-2018-muon-WW", "Bkg-mix_protons-2018-muon-WZ", "Bkg-mix_protons-2018-muon-ZZ" ]
-        #labels_bkgs_mix_protons_ = [ "Bkg-mix_protons-2018-muon-WJetsToLNu_0J" ]
+        #labels_bkgs_mix_protons_ = [ "Bkg-mix_protons-2018-muon-WJetsToLNu_1J" ]
         fileNames_bkgs_mix_protons_= {
             #"Bkg-mix_protons-2018-muon-TTJets": [ "output-Bkg-mix_protons-2018-muon-TTJets.h5" ],
             #"Bkg-mix_protons-2018-muon-DYJetsToLL_0J": [ "output-Bkg-mix_protons-2018-muon-DYJetsToLL_0J.h5" ],
@@ -94,7 +94,7 @@ print ( labels_bkgs_mix_protons_ )
 print ( fileNames_bkgs_mix_protons_ )
 
 # output_dir_=""
-output_dir_="/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output_05-07"
+output_dir_="/eos/home-m/malvesga/SWAN_projects/Antonio_UL/output-final"
 process_data_mix_protons_ = ProcessData( lepton_type=lepton_type, data_sample=data_sample, labels=labels_bkgs_mix_protons_, fileNames=fileNames_bkgs_mix_protons_, mix_protons=True, runOnMC=True, output_dir=output_dir_, use_hash_index=use_hash_index_ )
 
 process_data_mix_protons_( apply_fiducial=True, within_aperture=True, select_2protons=True )

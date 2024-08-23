@@ -17,7 +17,7 @@
   "DYJetsToLL_0J_TuneCP5_13TeV-amcatnloFXFX-pythia8": [49476008.0, 5993, 1.0, 800],
   "DYJetsToLL_1J_TuneCP5_13TeV-amcatnloFXFX-pythia8": [72888824.0, 1474, 1.0, 800],
   "DYJetsToLL_2J_TuneCP5_13TeV-amcatnloFXFX-pythia8": [26444976.0, 111.1, 1.0, 800],
-  "QCD_Pt_170to300_TuneCP5_13TeV-pythia8": [18642000.0, 19204300, 1.0, 800],
+  "QCD_Pt_170to300_TuneCP5_13TeV-pythia8": [18642000.0, 103700, 1.0, 800],
   "QCD_Pt_300to470_TuneCP5_13TeV-pythia8": [23160000.0, 7823, 1.0, 800],
   "QCD_Pt_470to600_TuneCP5_13TeV-pythia8": [14669000.0, 648.2, 1.0, 800],
   "QCD_Pt_600to800_TuneCP5_13TeV-pythia8": [0.0, 186.9, 1.0, 800],

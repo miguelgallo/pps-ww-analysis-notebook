@@ -10,8 +10,8 @@ getenv     = True
 
 requirements = (OpSysAndVer =?= "CentOS7")
 
-request_memory = 16000
-# request_memory = 32000
+# request_memory = 16000
+request_memory = 32000
 # request_memory = 48000
 # request_memory = 54000
 # request_memory = 64000
@@ -169,19 +169,19 @@ queue arguments from (
 #    datacard_counting_norm_to_1fb_2018-AQGC-A0W5e-6.txt 2018_AQGC_norm_to_1fb_A0W5e-6 --expectedFromGrid=0.16
 #    datacard_counting_norm_to_1fb_2018-AQGC-A0W5e-6.txt 2018_AQGC_norm_to_1fb_A0W5e-6 --expectedFromGrid=0.975
 #    datacard_counting_norm_to_1fb_2018-AQGC-A0W5e-6.txt 2018_AQGC_norm_to_1fb_A0W5e-6 --expectedFromGrid=0.025
-#    datacard_counting_2018-AQGC-A0W1e-6.txt 2018_AQGC_A0W1e-6 --expectedFromGrid=0.5
-#    datacard_counting_2018-AQGC-A0W1e-6.txt 2018_AQGC_A0W1e-6 --expectedFromGrid=0.84
-#    datacard_counting_2018-AQGC-A0W1e-6.txt 2018_AQGC_A0W1e-6 --expectedFromGrid=0.16
-#    datacard_counting_2018-AQGC-A0W1e-6.txt 2018_AQGC_A0W1e-6 --expectedFromGrid=0.975
-#    datacard_counting_2018-AQGC-A0W1e-6.txt 2018_AQGC_A0W1e-6 --expectedFromGrid=0.025
-    datacard_counting_2018-AQGC-A0W2e-6.txt 2018_AQGC_A0W2e-6 --expectedFromGrid=0.5
-    datacard_counting_2018-AQGC-A0W2e-6.txt 2018_AQGC_A0W2e-6 --expectedFromGrid=0.84
-    datacard_counting_2018-AQGC-A0W2e-6.txt 2018_AQGC_A0W2e-6 --expectedFromGrid=0.16
-    datacard_counting_2018-AQGC-A0W2e-6.txt 2018_AQGC_A0W2e-6 --expectedFromGrid=0.975
-    datacard_counting_2018-AQGC-A0W2e-6.txt 2018_AQGC_A0W2e-6 --expectedFromGrid=0.025
-    datacard_counting_2018-AQGC-A0W5e-6.txt 2018_AQGC_A0W5e-6 --expectedFromGrid=0.5
-    datacard_counting_2018-AQGC-A0W5e-6.txt 2018_AQGC_A0W5e-6 --expectedFromGrid=0.84
-    datacard_counting_2018-AQGC-A0W5e-6.txt 2018_AQGC_A0W5e-6 --expectedFromGrid=0.16
-    datacard_counting_2018-AQGC-A0W5e-6.txt 2018_AQGC_A0W5e-6 --expectedFromGrid=0.975
-    datacard_counting_2018-AQGC-A0W5e-6.txt 2018_AQGC_A0W5e-6 --expectedFromGrid=0.025
+    datacard_counting_2018-AQGC-A0W1e-6.txt 2018_AQGC_A0W1e-6 0.5 higgsCombineTest.GenerateOnly.2018-AQGC-A0W1e-6.mH125.123456.root 
+    datacard_counting_2018-AQGC-A0W1e-6.txt 2018_AQGC_A0W1e-6 0.84 higgsCombineTest.GenerateOnly.2018-AQGC-A0W1e-6.mH125.123456.root
+    datacard_counting_2018-AQGC-A0W1e-6.txt 2018_AQGC_A0W1e-6 0.16 higgsCombineTest.GenerateOnly.2018-AQGC-A0W1e-6.mH125.123456.root
+    datacard_counting_2018-AQGC-A0W1e-6.txt 2018_AQGC_A0W1e-6 0.975 higgsCombineTest.GenerateOnly.2018-AQGC-A0W1e-6.mH125.123456.root
+    datacard_counting_2018-AQGC-A0W1e-6.txt 2018_AQGC_A0W1e-6 0.025 higgsCombineTest.GenerateOnly.2018-AQGC-A0W1e-6.mH125.123456.root
+    datacard_counting_2018-AQGC-A0W2e-6.txt 2018_AQGC_A0W2e-6 0.5 higgsCombineTest.GenerateOnly.2018-AQGC-A0W2e-6.mH125.123456.root
+    datacard_counting_2018-AQGC-A0W2e-6.txt 2018_AQGC_A0W2e-6 0.84 higgsCombineTest.GenerateOnly.2018-AQGC-A0W2e-6.mH125.123456.root
+    datacard_counting_2018-AQGC-A0W2e-6.txt 2018_AQGC_A0W2e-6 0.16 higgsCombineTest.GenerateOnly.2018-AQGC-A0W2e-6.mH125.123456.root
+    datacard_counting_2018-AQGC-A0W2e-6.txt 2018_AQGC_A0W2e-6 0.975 higgsCombineTest.GenerateOnly.2018-AQGC-A0W2e-6.mH125.123456.root
+    datacard_counting_2018-AQGC-A0W2e-6.txt 2018_AQGC_A0W2e-6 0.025 higgsCombineTest.GenerateOnly.2018-AQGC-A0W2e-6.mH125.123456.root
+    datacard_counting_2018-AQGC-A0W5e-6.txt 2018_AQGC_A0W5e-6 0.5 higgsCombineTest.GenerateOnly.2018-AQGC-A0W5e-6.mH125.123456.root 
+    datacard_counting_2018-AQGC-A0W5e-6.txt 2018_AQGC_A0W5e-6 0.84 higgsCombineTest.GenerateOnly.2018-AQGC-A0W5e-6.mH125.123456.root
+    datacard_counting_2018-AQGC-A0W5e-6.txt 2018_AQGC_A0W5e-6 0.16 higgsCombineTest.GenerateOnly.2018-AQGC-A0W5e-6.mH125.123456.root
+    datacard_counting_2018-AQGC-A0W5e-6.txt 2018_AQGC_A0W5e-6 0.975 higgsCombineTest.GenerateOnly.2018-AQGC-A0W5e-6.mH125.123456.root
+    datacard_counting_2018-AQGC-A0W5e-6.txt 2018_AQGC_A0W5e-6 0.025 higgsCombineTest.GenerateOnly.2018-AQGC-A0W5e-6.mH125.123456.root
 )

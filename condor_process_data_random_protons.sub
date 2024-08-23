@@ -30,22 +30,22 @@ transfer_output_files = ""
 
 # queue
 queue arguments from (
-    --lepton_type=muon --period=2018A    
+    --lepton_type=muon --period=2018A   
     --lepton_type=muon --period=2018B    
     --lepton_type=muon --period=2018C    
-    --lepton_type=muon --period=2018D-1 
-    --lepton_type=muon --period=2018D-2 
-    --lepton_type=muon --period=2018D-3 
-    --lepton_type=muon --period=2018D-4 
-    --lepton_type=muon --period=2018D-5 
-    --lepton_type=muon --period=2018D-6 
-    --lepton_type=electron --period=2018A    
+    --lepton_type=muon --period=2018D-1
+    --lepton_type=muon --period=2018D-2
+    --lepton_type=muon --period=2018D-3
+    --lepton_type=muon --period=2018D-4
+    --lepton_type=muon --period=2018D-5
+    --lepton_type=muon --period=2018D-6
+    --lepton_type=electron --period=2018A   
     --lepton_type=electron --period=2018B    
     --lepton_type=electron --period=2018C    
-    --lepton_type=electron --period=2018D-1 
-    --lepton_type=electron --period=2018D-2 
-    --lepton_type=electron --period=2018D-3 
-    --lepton_type=electron --period=2018D-4 
-    --lepton_type=electron --period=2018D-5 
-    --lepton_type=electron --period=2018D-6 
+    --lepton_type=electron --period=2018D-1
+    --lepton_type=electron --period=2018D-2
+    --lepton_type=electron --period=2018D-3
+    --lepton_type=electron --period=2018D-4
+    --lepton_type=electron --period=2018D-5
+    --lepton_type=electron --period=2018D-6
 )

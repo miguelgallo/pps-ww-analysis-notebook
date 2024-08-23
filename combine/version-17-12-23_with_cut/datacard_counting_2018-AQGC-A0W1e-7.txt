@@ -1,0 +1,26 @@
+Combination of muon_2018=datacard_counting_muon-2018_sig-2018-muon-AQGC-A0W1e-7.txt  electron_2018=datacard_counting_electron-2018_sig-2018-electron-AQGC-A0W1e-7.txt
+imax 2 number of bins
+jmax 1 number of processes minus 1
+kmax 13 number of nuisance parameters
+----------------------------------------------------------------------------------------------------------------------------------
+bin          muon_2018      electron_2018
+observation  0              0            
+----------------------------------------------------------------------------------------------------------------------------------
+bin                                          muon_2018      muon_2018      electron_2018  electron_2018
+process                                      signal         background     signal         background   
+process                                      0              1              0              1            
+rate                                         0.838          3.28           0.583          2.92         
+----------------------------------------------------------------------------------------------------------------------------------
+bkg_norm_electron_2018   lnN                 -              -              -              1.0828       
+bkg_norm_muon_2018      lnN                  -              1.0781         -              -            
+jer_2018                lnN                  1.3047         -              1.2767         -            
+jes_2018                lnN                  1.3188         -              1.2767         -            
+lumi_2018               lnN                  1.025          -              1.025          -            
+proton_eff_2018         lnN                  1.3332         -              1.3044         -            
+proton_scale_2018       lnN                  1.6299         -              1.5674         -            
+sf_electron_id_2018     lnN                  -              -              1.3244         -            
+sf_muon_id_2018         lnN                  1.3056         -              -              -            
+signal_stat_electron_2018   lnN              -              -              1.1006         -            
+signal_stat_muon_2018   lnN                  1.0838         -              -              -            
+syst_bkg_electron_2018   lnN                 -              -              -              0.506        
+syst_bkg_muon_2018      lnN                  -              0.6776         -              -            

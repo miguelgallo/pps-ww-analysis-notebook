@@ -991,7 +991,17 @@ def process_data_protons_multiRP( lepton_type, data_sample, df_protons_multiRP, 
 
             f_eff_proton_unc_ = lambda row: proton_eff_unc_per_arm_[ "45" if row["arm"] == 0 else "56" ]
             df_protons_multiRP_index.loc[ :, 'eff_proton_unc' ] = df_protons_multiRP_index[ [ "arm" ] ].apply( f_eff_proton_unc_, axis=1 )
-            columns_eff_.append( 'eff_proton_unc' ) 
+            columns_eff_.append( 'eff_proton_unc' )
+
+    if runOnMC and mix_protons:
+        df_protons_multiRP_index.loc[ :, "eff_proton_all" ] = 1.0
+        df_protons_multiRP_index.loc[ :, "eff_proton_all_weighted" ] = 1.0
+        df_protons_multiRP_index.loc[ :, "eff_proton_unc" ] = 0.0
+        if data_sample == '2017':
+            df_protons_multiRP_index.loc[ :, "eff_multitrack" ] = 1.0
+            df_protons_multiRP_index.loc[ :, "eff_strictzero" ] = 1.0
+            df_protons_multiRP_index.loc[ :, "eff_multitrack_weighted" ] = 1.0
+            df_protons_multiRP_index.loc[ :, "eff_strictzero_weighted" ] = 1.0
 
     columns_drop_ = [ "xi", "thx", "thy", "t", "ismultirp", "rpid", "arm", "random",
                       "trackx1", "tracky1", "trackpixshift1", "rpid1",
@@ -1065,9 +1075,11 @@ def process_events( data_sample, df_protons_multiRP_index, runOnMC=False, mix_pr
 
     var_list_ = None
     if data_sample == '2017':
-        var_list_ = [ "arm", "xi", "eff_proton_all_weighted", "eff_multitrack_weighted", "eff_strictzero_weighted", "eff_proton_all", "eff_multitrack", "eff_strictzero", "eff_proton_unc" ] if ( runOnMC and not mix_protons ) else [ "arm", "xi" ]
+        # var_list_ = [ "arm", "xi", "eff_proton_all_weighted", "eff_multitrack_weighted", "eff_strictzero_weighted", "eff_proton_all", "eff_multitrack", "eff_strictzero", "eff_proton_unc" ] if ( runOnMC and not mix_protons ) else [ "arm", "xi" ]
+        var_list_ = [ "arm", "xi", "eff_proton_all_weighted", "eff_multitrack_weighted", "eff_strictzero_weighted", "eff_proton_all", "eff_multitrack", "eff_strictzero", "eff_proton_unc" ]
     elif data_sample == '2018':
-        var_list_ = [ "arm", "xi", "eff_proton_all_weighted", "eff_proton_all", "eff_proton_unc" ] if ( runOnMC and not mix_protons ) else [ "arm", "xi" ]
+        # var_list_ = [ "arm", "xi", "eff_proton_all_weighted", "eff_proton_all", "eff_proton_unc" ] if ( runOnMC and not mix_protons ) else [ "arm", "xi" ]
+        var_list_ = [ "arm", "xi", "eff_proton_all_weighted", "eff_proton_all", "eff_proton_unc" ]
 
     # labels_xi_ = [ "_nom", "_p10", "_p30", "_p60", "_p100", "_m10", "_m30", "_m60", "_m100" ]
     #labels_xi_ = None
@@ -1149,7 +1161,8 @@ def process_events( data_sample, df_protons_multiRP_index, runOnMC=False, mix_pr
                 df_protons_multiRP_events.loc[ :, "Diff_YWW_YX" + label0_ + label1_ ] = ( df_protons_multiRP_events.loc[ :, "YWW" + "_nom" ] - df_protons_multiRP_events.loc[ :, "YX" + label0_ + label1_ ] )
                 # print ( df_protons_multiRP_events.loc[ :, "Diff_YWW_YX" + label0_ + label1_ ] )
 
-    if runOnMC and not mix_protons:
+    # if runOnMC and not mix_protons:
+    if runOnMC:
         df_protons_multiRP_events.loc[ :, "eff_proton_all_weighted" ] = df_protons_multiRP_2protons_groupby[ "eff_proton_all_weighted" ].agg(
             lambda s_: ( s_.iloc[0] * s_.iloc[1] )
             )
@@ -1241,14 +1254,14 @@ def process_signal_plus_mix_events( data_sample, labels_signals, labels_signals_
     
     for label_ in labels_signals:
         print ( label_ )
-        df_signals_protons_multiRP_mix_protons_index[ label_signal_to_mix_protons[ label_ ] ].loc[ :, "eff_proton_all" ] = 1.0
-        df_signals_protons_multiRP_mix_protons_index[ label_signal_to_mix_protons[ label_ ] ].loc[ :, "eff_proton_all_weighted" ] = 1.0
-        df_signals_protons_multiRP_mix_protons_index[ label_signal_to_mix_protons[ label_ ] ].loc[ :, "eff_proton_unc" ] = 0.0
-        if data_sample == '2017':
-            df_signals_protons_multiRP_mix_protons_index[ label_signal_to_mix_protons[ label_ ] ].loc[ :, "eff_multitrack" ] = 1.0
-            df_signals_protons_multiRP_mix_protons_index[ label_signal_to_mix_protons[ label_ ] ].loc[ :, "eff_strictzero" ] = 1.0
-            df_signals_protons_multiRP_mix_protons_index[ label_signal_to_mix_protons[ label_ ] ].loc[ :, "eff_multitrack_weighted" ] = 1.0
-            df_signals_protons_multiRP_mix_protons_index[ label_signal_to_mix_protons[ label_ ] ].loc[ :, "eff_strictzero_weighted" ] = 1.0
+        # df_signals_protons_multiRP_mix_protons_index[ label_signal_to_mix_protons[ label_ ] ].loc[ :, "eff_proton_all" ] = 1.0
+        # df_signals_protons_multiRP_mix_protons_index[ label_signal_to_mix_protons[ label_ ] ].loc[ :, "eff_proton_all_weighted" ] = 1.0
+        # df_signals_protons_multiRP_mix_protons_index[ label_signal_to_mix_protons[ label_ ] ].loc[ :, "eff_proton_unc" ] = 0.0
+        # if data_sample == '2017':
+        #     df_signals_protons_multiRP_mix_protons_index[ label_signal_to_mix_protons[ label_ ] ].loc[ :, "eff_multitrack" ] = 1.0
+        #     df_signals_protons_multiRP_mix_protons_index[ label_signal_to_mix_protons[ label_ ] ].loc[ :, "eff_strictzero" ] = 1.0
+        #     df_signals_protons_multiRP_mix_protons_index[ label_signal_to_mix_protons[ label_ ] ].loc[ :, "eff_multitrack_weighted" ] = 1.0
+        #     df_signals_protons_multiRP_mix_protons_index[ label_signal_to_mix_protons[ label_ ] ].loc[ :, "eff_strictzero_weighted" ] = 1.0
     
         # Random selection by efficiency weights
         msk_eff_proton_ = np.random.rand( df_signals_protons_multiRP_index[ label_ ].shape[0] ) < df_signals_protons_multiRP_index[ label_ ].loc[ :, "eff_proton_all" ]
